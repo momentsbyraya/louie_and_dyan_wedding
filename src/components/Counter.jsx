@@ -81,7 +81,7 @@ const Counter = ({ countdown }) => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
             {/* Left Column - Countdown Timer */}
             <div className="lg:order-1">
-              <h3 className={`text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-serif ${themeConfig.text.custom} mb-4 scale-75 sm:scale-90 md:scale-75 lg:scale-100 origin-center sm:origin-center md:origin-center lg:origin-center`}>Save the Date</h3>
+              <h3 className={`text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-albert font-thin ${themeConfig.text.custom} mb-4 scale-75 sm:scale-90 md:scale-75 lg:scale-100 origin-center sm:origin-center md:origin-center lg:origin-center`}>Save the Date</h3>
               
               <div className="flex justify-center lg:justify-start items-center space-x-3 mb-6 px-4">
                 <div className="text-center">

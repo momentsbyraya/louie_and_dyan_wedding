@@ -62,7 +62,7 @@ const FAQ = () => {
     >
               <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
-        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${themeConfig.text.custom} mb-16 text-center faq-title`}>
+        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-albert font-thin ${themeConfig.text.custom} mb-16 text-center faq-title`}>
           Frequently Asked Questions
         </h2>
         
@@ -78,7 +78,7 @@ const FAQ = () => {
                 onClick={() => toggleAccordion(index)}
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
               >
-                <h3 className={`text-lg sm:text-xl md:text-2xl font-serif ${themeConfig.text.custom} pr-4`}>
+                <h3 className={`text-lg sm:text-xl md:text-2xl font-albert font-thin ${themeConfig.text.custom} pr-4`}>
                   {faq.question}
                 </h3>
                 <ChevronDown 
@@ -96,7 +96,7 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-6 pb-4">
-                  <p className="text-gray-600 font-serif leading-relaxed text-base sm:text-lg">
+                  <p className="text-gray-600 font-albert font-thin leading-relaxed text-base sm:text-lg">
                     {faq.answer}
                   </p>
                 </div>

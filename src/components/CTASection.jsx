@@ -58,7 +58,7 @@ const CTASection = () => {
           <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-4">
             {/* Header Section */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-script text-gray-800 mb-6">
+              <h2 className="text-4xl md:text-5xl font-albert font-thin text-gray-800 mb-6">
                 We Await Your Presence
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">

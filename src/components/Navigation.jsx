@@ -86,7 +86,7 @@ const Navigation = () => {
             {/* Logo */}
             <div ref={logoRef} className="flex items-center space-x-2">
               <Heart className="h-8 w-8 text-rose-500 nav-heart" />
-              <span className="text-xl font-serif font-semibold text-wedding-800">
+              <span className="text-xl font-albert font-thin text-wedding-800">
                 {couples.couple.names.together}
               </span>
             </div>

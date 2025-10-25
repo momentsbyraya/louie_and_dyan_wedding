@@ -50,11 +50,11 @@ const Header = () => {
         <div className="w-16 h-px bg-gradient-to-l from-transparent to-wedding-400 header-decorative"></div>
       </div>
 
-      <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-script text-wedding-800 mb-6 header-title">
+      <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-albert font-thin text-wedding-800 mb-6 header-title">
         Wedding Invitation
       </h1>
 
-      <p className="text-xl sm:text-2xl md:text-3xl text-wedding-600 font-serif mb-8 header-subtitle">
+      <p className="text-xl sm:text-2xl md:text-3xl text-wedding-600 font-albert font-thin mb-8 header-subtitle">
         You are cordially invited to celebrate
       </p>
 

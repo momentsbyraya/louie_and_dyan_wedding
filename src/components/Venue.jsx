@@ -104,7 +104,7 @@ const MapDirections = () => {
       <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding} relative z-20`}>
         {/* Section Header */}
         <div className="text-center mb-8">
-          <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script ${themeConfig.text.custom} mb-6`}>
+          <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-albert font-thin ${themeConfig.text.custom} mb-6`}>
             Venues
           </h2>
         </div>
@@ -117,7 +117,7 @@ const MapDirections = () => {
             <div>
               {/* Ceremony Venue */}
               <div ref={ceremonyDetailsRef} className="text-center mb-6">
-                <h3 className={`text-xl sm:text-3xl font-serif ${themeConfig.text.custom}`}>
+                <h3 className={`text-xl sm:text-3xl font-albert font-thin ${themeConfig.text.custom}`}>
                   {venues.ceremony.name}
                 </h3>
                 <p className={`text-sm sm:text-lg ${themeConfig.text.custom}`}>
@@ -151,7 +151,7 @@ const MapDirections = () => {
             {/* Right Column - Reception Venue */}
             <div className="mt-12 lg:mt-0">
               <div ref={receptionDetailsRef} className="text-center mb-6">
-                <h3 className={`text-xl sm:text-3xl font-serif ${themeConfig.text.custom}`}>
+                <h3 className={`text-xl sm:text-3xl font-albert font-thin ${themeConfig.text.custom}`}>
                   {venues.reception.name}
                 </h3>
                 <p className={`text-sm sm:text-lg ${themeConfig.text.custom}`}>

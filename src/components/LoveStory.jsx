@@ -60,10 +60,10 @@ const LoveStory = () => {
             <div className="lg:order-1 relative z-40">
               {/* Header Section */}
               <div className="text-center lg:text-left mb-8">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-script text-gray-800 mb-6">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl font-albert font-thin text-gray-800 mb-6">
                   Our Love Story
                 </h2>
-                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                <p className="text-lg sm:text-xl font-albert font-thin text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                   From the moment our eyes first met, we knew something magical was beginning. 
                   What started as a simple conversation has blossomed into a beautiful journey of 
                   laughter, adventures, and countless precious memories together.

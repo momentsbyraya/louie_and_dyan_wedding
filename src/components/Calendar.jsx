@@ -94,10 +94,10 @@ const Calendar = () => {
     <div className={`w-full max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-6xl mx-auto px-4 py-12 ${themeConfig.calendar.background}`}>
       {/* Invitation Text */}
       <div className="text-center mb-8 sm:my-12">
-        <h1 className="text-3xl sm:text-5xl font-serif font-light mb-4 text-gray-800">
+        <h1 className="text-3xl sm:text-5xl font-albert font-thin mb-4 text-gray-800">
           The Day
         </h1>
-        <p className="text-base sm:text-xl text-gray-700 leading-relaxed max-w-sm sm:max-w-md mx-auto">
+        <p className="text-base sm:text-xl font-albert font-thin text-gray-700 leading-relaxed max-w-sm sm:max-w-md mx-auto">
           One day this year will be special for us and we want to spend it with close ones and friends. 
           We invite you to celebrate the most important event in our lives - our wedding day!
         </p>
@@ -110,7 +110,7 @@ const Calendar = () => {
           <div className="p-8">
 {/* Month Header */}
 <div className={`text-center mb-4 ${themeConfig.calendar.headerColor}`}>
-        <h3 className="text-2xl sm:text-4xl font-serif font-light mt-2">
+        <h3 className="text-2xl sm:text-4xl font-albert font-thin mt-2">
           {monthNames[displayMonth]} {displayYear}
         </h3>
       </div>

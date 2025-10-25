@@ -76,7 +76,7 @@ const DressCode = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl xl:max-w-6xl w-full mx-auto px-4">
             {/* Header Section */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-script text-gray-800 mb-6">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-albert font-thin text-gray-800 mb-6">
                 Dress Code
               </h2>
               <p className="text-lg sm:text-xl text-gray-700 leading-tight max-w-2xl mx-auto">

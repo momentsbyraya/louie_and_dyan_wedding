@@ -42,7 +42,7 @@ const Schedule = () => {
                           <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
           <div className="max-w-5xl w-full mx-auto">
           {/* Section Title */}
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-script ${themeConfig.text.primary} mb-12 text-center`}>
+          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-albert font-thin ${themeConfig.text.primary} mb-12 text-center`}>
             Wedding Day Schedule
           </h2>
           
@@ -58,13 +58,13 @@ const Schedule = () => {
                 <div className={`w-16 h-16 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center mb-4`}>
                   <span className={`${themeConfig.text.primary} font-bold text-lg`}>1</span>
                 </div>
-                <div className={`text-xl md:text-2xl font-script ${themeConfig.text.primary} mb-2`}>
+                <div className={`text-xl md:text-2xl font-albert font-thin ${themeConfig.text.primary} mb-2`}>
                   Photo Session
                 </div>
-                <div className={`text-sm font-serif ${themeConfig.text.primary}/90 mb-1`}>
+                <div className={`text-sm font-albert font-thin ${themeConfig.text.primary}/90 mb-1`}>
                   Getting ready
                 </div>
-                <div className={`text-lg font-serif ${themeConfig.text.primary} font-semibold`}>
+                <div className={`text-lg font-albert font-thin ${themeConfig.text.primary}`}>
                   1:00 PM
                 </div>
               </div>
@@ -74,13 +74,13 @@ const Schedule = () => {
                 <div className={`w-16 h-16 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center mb-4`}>
                   <span className={`${themeConfig.text.primary} font-bold text-lg`}>2</span>
                 </div>
-                <div className={`text-xl md:text-2xl font-script ${themeConfig.text.primary} mb-2`}>
+                <div className={`text-xl md:text-2xl font-albert font-thin ${themeConfig.text.primary} mb-2`}>
                   Wedding Ceremony
                 </div>
-                <div className={`text-sm font-serif ${themeConfig.text.primary}/90 mb-1`}>
+                <div className={`text-sm font-albert font-thin ${themeConfig.text.primary}/90 mb-1`}>
                   {venues.ceremony.name}
                 </div>
-                <div className={`text-lg font-serif ${themeConfig.text.primary} font-semibold`}>
+                <div className={`text-lg font-albert font-thin ${themeConfig.text.primary}`}>
                   {venues.ceremony.time}
                 </div>
               </div>
@@ -90,13 +90,13 @@ const Schedule = () => {
                 <div className={`w-16 h-16 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center mb-4`}>
                   <span className={`${themeConfig.text.primary} font-bold text-lg`}>3</span>
                 </div>
-                <div className={`text-xl md:text-2xl font-script ${themeConfig.text.primary} mb-2`}>
+                <div className={`text-xl md:text-2xl font-albert font-thin ${themeConfig.text.primary} mb-2`}>
                   Cocktail Hour
                 </div>
-                <div className={`text-sm font-serif ${themeConfig.text.primary}/90 mb-1`}>
+                <div className={`text-sm font-albert font-thin ${themeConfig.text.primary}/90 mb-1`}>
                   {venues.reception.name}
                 </div>
-                <div className={`text-lg font-serif ${themeConfig.text.primary} font-semibold`}>
+                <div className={`text-lg font-albert font-thin ${themeConfig.text.primary}`}>
                   4:30 PM
                 </div>
               </div>
@@ -106,13 +106,13 @@ const Schedule = () => {
                 <div className={`w-16 h-16 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center mb-4`}>
                   <span className={`${themeConfig.text.primary} font-bold text-lg`}>4</span>
                 </div>
-                <div className={`text-xl md:text-2xl font-script ${themeConfig.text.primary} mb-2`}>
+                <div className={`text-xl md:text-2xl font-albert font-thin ${themeConfig.text.primary} mb-2`}>
                   Dinner Reception
                 </div>
-                <div className={`text-sm font-serif ${themeConfig.text.primary}/90 mb-1`}>
+                <div className={`text-sm font-albert font-thin ${themeConfig.text.primary}/90 mb-1`}>
                   {venues.reception.name}
                 </div>
-                <div className={`text-lg font-serif ${themeConfig.text.primary} font-semibold`}>
+                <div className={`text-lg font-albert font-thin ${themeConfig.text.primary}`}>
                   {venues.reception.time}
                 </div>
               </div>
@@ -122,13 +122,13 @@ const Schedule = () => {
                 <div className={`w-16 h-16 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center mb-4`}>
                   <span className={`${themeConfig.text.primary} font-bold text-lg`}>5</span>
                 </div>
-                <div className={`text-xl md:text-2xl font-script ${themeConfig.text.primary} mb-2`}>
+                <div className={`text-xl md:text-2xl font-albert font-thin ${themeConfig.text.primary} mb-2`}>
                   Party Starts
                 </div>
-                <div className={`text-sm font-serif ${themeConfig.text.primary}/90 mb-1`}>
+                <div className={`text-sm font-albert font-thin ${themeConfig.text.primary}/90 mb-1`}>
                   Dancing & celebration
                 </div>
-                <div className={`text-lg font-serif ${themeConfig.text.primary} font-semibold`}>
+                <div className={`text-lg font-albert font-thin ${themeConfig.text.primary}`}>
                   9:00 PM
                 </div>
               </div>

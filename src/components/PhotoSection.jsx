@@ -21,10 +21,10 @@ const PhotoSection = ({
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-80">
         <div className="text-center text-white">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-albert font-thin mb-4">
             {title}
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl font-serif opacity-90">
+          <p className="text-lg sm:text-xl md:text-2xl font-albert font-thin opacity-90">
             {subtitle}
           </p>
         </div>
