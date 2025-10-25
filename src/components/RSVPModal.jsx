@@ -78,7 +78,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-wedding-200">
-          <h2 className="text-2xl font-serif text-wedding-800">RSVP</h2>
+          <h2 className="text-2xl font-leckerli font-light text-wedding-800">RSVP</h2>
           <button
             onClick={handleClose}
             className="p-2 text-wedding-600 hover:text-wedding-800 hover:bg-wedding-100 rounded-full transition-colors duration-200"

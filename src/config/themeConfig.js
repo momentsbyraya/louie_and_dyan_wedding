@@ -55,12 +55,17 @@ export const themeConfig = {
     // Calendar Configuration
     calendar: {
         weddingDate: '2026-01-12',          // Wedding date (YYYY-MM-DD format)
-        highlightColor: 'bg-blue-400',      // Color for wedding date highlight
-        heartColor: 'text-blue-400',        // Color for heart icon
+        highlightColor: 'bg-[#6c756a]',     // Color for wedding date highlight
+        heartColor: 'text-[#6c756a]',       // Color for heart icon
         textColor: 'text-gray-700',         // Calendar text color
         headerColor: 'text-gray-800',       // Month header color
         dayNamesColor: 'text-gray-600',     // Day names color
-        background: 'bg-[#f6f1ee]',         // Calendar background color
+        background: 'bg-[#6c756a]',         // Calendar background color
+    },
+
+    // Paragraph Configuration
+    paragraph: {
+        background: 'bg-[#f4f5ef]',         // Paragraph background color
     },
 
     // Custom CSS Variables (for advanced customization)

@@ -1,24 +1,24 @@
 {
   "ceremony": {
-    "name": "Sunset Beach Ceremony",
-    "address": "Malibu Beach",
-    "city": "Malibu",
-    "state": "CA",
-    "zip": "90265",
+    "name": "San Agustin Church",
+    "address": "General Luna Street",
+    "city": "Manila",
+    "state": "Metro Manila",
+    "zip": "1002",
     "time": "4:00 PM",
-    "details": "Beach ceremony at sunset. Please bring sandals and arrive 30 minutes early.",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Malibu+Beach+CA+90265",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Malibu+Beach+CA+90265&travelmode=driving"
+    "details": "Historic church ceremony. Please arrive 30 minutes early.",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=San+Agustin+Church+Manila+Philippines",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=San+Agustin+Church+Manila+Philippines&travelmode=driving"
   },
   "reception": {
-    "name": "Oceanfront Reception",
-    "address": "Beachside Pavilion",
-    "city": "Malibu",
-    "state": "CA",
-    "zip": "90265",
-    "time": "6:30 PM",
-    "details": "Beachside reception with ocean views. Casual beach attire welcome.",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Malibu+Beach+Pavilion+CA+90265",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Malibu+Beach+Pavilion+CA+90265&travelmode=driving"
+    "name": "The Manila Hotel",
+    "address": "1 Rizal Park",
+    "city": "Manila",
+    "state": "Metro Manila",
+    "zip": "1000",
+    "time": "6:00 PM",
+    "details": "Elegant hotel reception. Cocktail attire requested.",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Manila+Hotel+Philippines",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=The+Manila+Hotel+Philippines&travelmode=driving"
   }
 } 

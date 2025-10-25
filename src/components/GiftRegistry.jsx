@@ -15,17 +15,21 @@ const GiftRegistry = () => {
   return (
     <>
       {/* Gift Registry Section */}
-      <section className={`relative py-20 w-full overflow-hidden ${themeConfig.calendar.background}`}>
+      <section className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}>
         
         {/* Content */}
-        <div className="relative z-20 flex items-center justify-center py-12">
-          <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-4">
+        <div className="relative z-20 flex items-center justify-center">
+          <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
             {/* Header Section */}
-            <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-script text-gray-800 mb-6">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-leckerli font-light text-gray-900/70 mb-8">
                 Loved Ones,
               </h2>
-              <p className="text-xl sm:text-2xl text-gray-700 max-w-3xl mx-auto">
+            </div>
+
+            {/* Text Section */}
+            <div className="text-center mb-12">
+              <p className="text-lg sm:text-xl font-albert font-thin text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 Your presence is our present, but if you'd like to give a gift, 
                 we've made it easy with digital payment options.
               </p>
@@ -35,9 +39,9 @@ const GiftRegistry = () => {
             <div className="text-center">
               <button
                 onClick={openModal}
-                className="w-full inline-flex items-center justify-center space-x-3 px-8 py-3 sm:py-5 lg:py-2 bg-white hover:bg-gray-100 text-gray-800 rounded-sm transition-colors duration-200 text-sm sm:text-2xl lg:text-base font-medium"
+                className="w-full inline-flex items-center justify-center space-x-3 px-8 py-3 sm:py-5 lg:py-2 text-white rounded-sm transition-colors duration-200 text-sm sm:text-2xl lg:text-base font-medium shadow-lg hover:shadow-xl"
+                style={{ backgroundColor: '#6e766d' }}
               >
-                {/* <Gift className="w-6 h-6" /> */}
                 <span>Send a Gift</span>
               </button>
             </div>

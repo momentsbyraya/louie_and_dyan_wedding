@@ -15,6 +15,7 @@ const Schedule = () => {
   const event2Ref = useRef(null)
   const event3Ref = useRef(null)
   const event4Ref = useRef(null)
+  const event5Ref = useRef(null)
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -54,6 +55,11 @@ const Schedule = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
       "-=0.6"
     )
+    .fromTo(event5Ref.current, 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.6"
+    )
 
     // Cleanup function
     return () => {
@@ -64,78 +70,108 @@ const Schedule = () => {
   return (
     <section
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden ${themeConfig.calendar.background}`}
+      className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}
     >
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center">
         <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center}`}>
-          <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto">
+          <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
             {/* Section Title */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-script text-gray-800 mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-leckerli font-light text-gray-900/70 mb-12 text-center">
               Schedule
             </h2>
 
             {/* Vertical Timeline */}
-            <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-3xl w-full scale-75 sm:scale-100 -my-16 sm:my-16">
+            <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-3xl w-full">
               {/* Central Vertical Line */}
               <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-600/30 transform -translate-x-1/2"></div>
+              
+              {/* Start Dot */}
+              <div className="w-3 h-3 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 top-0"></div>
+              
+              {/* End Dot */}
+              <div className="w-3 h-3 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 bottom-0"></div>
 
               {/* Timeline Events */}
-              <div className="space-y-20">
-                {/* Event 1 - Right side */}
+              <div className="space-y-16">
+                {/* Event 1 - Left side */}
                 <div ref={event1Ref} className="flex items-start">
-                  <div className="w-1/2 pr-16 sm:mr-24 text-right">
-                    <div className="text-3xl sm:text-5xl font-serif text-gray-800 font-semibold mb-2">
-                      4:00<span className="text-xl sm:text-3xl">PM</span>
+                  <div className="w-1/2 pr-2 text-center relative">
+                    <div className="text-2xl sm:text-3xl font-albert font-thin text-gray-600 mb-2 relative">
+                      4:30<span className="text-lg">PM</span>
+                      <div className="absolute right-0 top-full w-full h-px border-t border-dotted border-gray-400"></div>
                     </div>
-                    <div className="text-base sm:text-xl font-serif text-gray-700">
-                      Guest Gathering
+                    <div className="text-sm sm:text-base font-albert font-thin text-gray-500 mt-2 leading-tight">
+                      Meeting and guest accommodation
                     </div>
                   </div>
-                  <div className="w-4 h-4 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 mt-6"></div>
-                  <div className="w-1/2 pl-8"></div>
+                  <div className="w-1/2 pl-6 flex justify-start items-center">
+                    <img src="/assets/images/graphics/church-sketch.png" alt="Church" className="w-12 h-12 object-contain opacity-60" />
+                  </div>
                 </div>
 
-                {/* Event 2 - Left side */}
+                {/* Event 2 - Right side */}
                 <div ref={event2Ref} className="flex items-start">
-                  <div className="w-1/2 pr-24"></div>
-                  <div className="w-4 h-4 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 mt-6"></div>
-                  <div className="w-1/2 pl-8">
-                    <div className="text-3xl sm:text-5xl font-serif text-gray-800 font-semibold mb-2">
-                      4:30<span className="text-xl sm:text-3xl">PM</span>
+                  <div className="w-1/2 pr-6 flex justify-end items-center">
+                    <img src="/assets/images/graphics/ring-sketch.png" alt="Wedding Rings" className="w-12 h-12 object-contain opacity-60" />
+                  </div>
+                  <div className="w-1/2 pl-2 text-center relative">
+                    <div className="text-2xl sm:text-3xl font-albert font-thin text-gray-600 mb-1 relative">
+                      5:00<span className="text-lg">PM</span>
+                      <div className="absolute left-0 top-full w-full h-px border-t border-dotted border-gray-400"></div>
                     </div>
-                    <div className="text-base sm:text-xl font-serif text-gray-700">
-                      Wedding Ceremony
+                    <div className="text-sm sm:text-base font-albert font-thin text-gray-500 mt-1 leading-tight">
+                      Solemn ceremony
                     </div>
                   </div>
                 </div>
 
-                {/* Event 3 - Right side */}
+                {/* Event 3 - Left side */}
                 <div ref={event3Ref} className="flex items-start">
-                  <div className="w-1/2 pr-24 text-right">
-                    <div className="text-3xl sm:text-5xl font-serif text-gray-800 font-semibold mb-2">
-                      5:00<span className="text-xl sm:text-3xl">PM</span>
+                  <div className="w-1/2 pr-2 text-center relative">
+                    <div className="text-2xl sm:text-3xl font-albert font-thin text-gray-600 mb-1 relative">
+                      6:00<span className="text-lg">PM</span>
+                      <div className="absolute right-0 top-full w-full h-px border-t border-dotted border-gray-400"></div>
                     </div>
-                    <div className="text-base sm:text-xl font-serif text-gray-700">
-                      Reception Dinner
+                    <div className="text-sm sm:text-base font-albert font-thin text-gray-500 mt-1 leading-tight">
+                      Start of the banquet
                     </div>
                   </div>
-                  <div className="w-4 h-4 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 mt-6"></div>
-                  <div className="w-1/2 pl-8"></div>
+                  <div className="w-1/2 pl-6 flex justify-start items-center">
+                    <img src="/assets/images/graphics/cutlery-sketch.png" alt="Cutlery" className="w-12 h-12 object-contain opacity-60" />
+                  </div>
                 </div>
 
-                {/* Event 4 - Left side */}
+                {/* Event 4 - Right side */}
                 <div ref={event4Ref} className="flex items-start">
-                  <div className="w-1/2 pr-8"></div>
-                  <div className="w-4 h-4 bg-gray-600 rounded-full border-2 border-white shadow-lg absolute left-1/2 transform -translate-x-1/2 z-10 mt-8"></div>
-                  <div className="w-1/2 pl-8">
-                    <div className="text-3xl sm:text-5xl font-serif text-gray-800 font-semibold mb-2">
-                      11:00<span className="text-xl sm:text-3xl">PM</span>
+                  <div className="w-1/2 pr-6 flex justify-end items-center">
+                    <img src="/assets/images/graphics/cake-sketch.png" alt="Wedding Cake" className="w-12 h-12 object-contain opacity-60" />
+                  </div>
+                  <div className="w-1/2 pl-2 text-center relative">
+                    <div className="text-2xl sm:text-3xl font-albert font-thin text-gray-600 mb-1 relative">
+                      9:00<span className="text-lg">PM</span>
+                      <div className="absolute left-0 top-full w-full h-px border-t border-dotted border-gray-400"></div>
                     </div>
-                    <div className="text-base sm:text-xl font-serif text-gray-700">
-                      Evening Ends
+                    <div className="text-sm sm:text-base font-albert font-thin text-gray-500 mt-1 leading-tight">
+                      Celebration cake
                     </div>
+                  </div>
+                </div>
+
+                {/* Event 5 - Left side */}
+                <div ref={event5Ref} className="flex items-start">
+                  <div className="w-1/2 pr-2 text-center relative">
+                    <div className="text-2xl sm:text-3xl font-albert font-thin text-gray-600 mb-2 relative">
+                      11:00<span className="text-lg">PM</span>
+                      <div className="absolute right-0 top-full w-full h-px border-t border-dotted border-gray-400"></div>
+                    </div>
+                    <div className="text-sm sm:text-base font-albert font-thin text-gray-500 mt-2 leading-tight">
+                      End of the day
+                    </div>
+                  </div>
+                  <div className="w-1/2 pl-6 flex justify-start items-center">
+                    <img src="/assets/images/graphics/car-sketch.png" alt="Car" className="w-12 h-12 object-contain opacity-60" />
                   </div>
                 </div>
               </div>

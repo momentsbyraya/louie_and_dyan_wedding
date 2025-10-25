@@ -13,9 +13,10 @@ import Gallery from './Gallery'
 import FAQ from './FAQ'
 import MapDirections from './Venue'
 import GiftRegistry from './GiftRegistry'
-import CTASection from './CTASection'
+import RSVP from './RSVP'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
+import { weddingConfig } from '../config/weddingConfig'
 
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -45,61 +46,55 @@ const WeddingInvitation = () => {
           <Paragraph />
         </EnhancedLazySection>
         
-        {/* Calendar Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="calendar">
-          <Calendar />
-        </EnhancedLazySection>
-
-        {/* Map & Directions Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="map-directions">
+        {/* Venue Section */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="venue">
           <MapDirections />
         </EnhancedLazySection>
-
-         {/* Invitation Section - Full Width */}
-         <EnhancedLazySection animationClass="fade-scale" sectionName="invitation">
+        
+        {/* Schedule Section */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
           <Schedule />
         </EnhancedLazySection>
-
+        
         {/* Dress Code Section */}
         <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
           <DressCode />
         </EnhancedLazySection>
-
-        {/* Gift Registry Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
-          <GiftRegistry />
+        
+        {/* RSVP Section - Full Width */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="rsvp">
+          <RSVP />
         </EnhancedLazySection>
+
+        {/* Couple Photo Section */}
+        <EnhancedLazySection animationClass="fade-scale" sectionName="couple-photo">
+          <PhotoSection 
+            imagePath={images.couple.couple1}
+            title={weddingConfig.couple.together}
+            subtitle=""
+            textPosition="bottom"
+          />
+        </EnhancedLazySection>
+        {/* Gift Registry Section */}
+        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
+          <GiftRegistry />
+        </EnhancedLazySection> */}
 
         {/* Love Story Section */}
-        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
+        {/* <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
           <LoveStory />
-        </EnhancedLazySection>
-
-        {/* CTA Section - Full Width */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="cta">
-          <CTASection />
         </EnhancedLazySection>   
-        
+         */}
         {/* Wedding Details */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
           <Counter countdown={countdown} />
-        </EnhancedLazySection>
-
-        
-        {/* Couple Image Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-image">
-          <PhotoSection 
-            imagePath={images.couple.couple3}
-            title=""
-            subtitle=""
-          />
         </EnhancedLazySection> */}
 
         {/* Gallery Section */}
         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
           <Gallery />
-        </EnhancedLazySection> */}
-        
+        </EnhancedLazySection>
+         */}
         {/* FAQ Section */}
         {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
           <FAQ />

@@ -62,7 +62,7 @@ const FAQ = () => {
     >
               <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
-        <h2 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-albert font-thin ${themeConfig.text.custom} mb-16 text-center faq-title`}>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-leckerli font-light text-white/90 mb-8 text-center faq-title">
           Frequently Asked Questions
         </h2>
         
@@ -76,13 +76,13 @@ const FAQ = () => {
               {/* Question Header */}
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-colors duration-200"
               >
-                <h3 className={`text-lg sm:text-xl md:text-2xl font-albert font-thin ${themeConfig.text.custom} pr-4`}>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-albert font-thin text-white pr-4">
                   {faq.question}
                 </h3>
                 <ChevronDown 
-                  className={`w-5 h-5 ${themeConfig.text.custom} transition-transform duration-300`}
+                  className="w-5 h-5 text-white transition-transform duration-300"
                   style={{
                     transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)'
                   }}
@@ -95,8 +95,8 @@ const FAQ = () => {
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-4">
-                  <p className="text-gray-600 font-albert font-thin leading-relaxed text-base sm:text-lg">
+                <div className="px-6 pt-4 pb-4">
+                  <p className="text-white/80 font-albert font-thin leading-relaxed text-base sm:text-lg">
                     {faq.answer}
                   </p>
                 </div>

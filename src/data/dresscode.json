@@ -5,20 +5,20 @@
   },
   "colorPalette": [
     {
-      "name": "color-1",
-      "hex": "#d2b48c"
+      "name": "Pale Green",
+      "hex": "#edf3ec"
     },
     {
-      "name": "color-2",
-      "hex": "#dee5ed"
+      "name": "Dusty Teal",
+      "hex": "#8ba9b1"
     },
     {
-      "name": "color-3",
-      "hex": "#6b6b6b"
+      "name": "Pale Blue-Gray",
+      "hex": "#dae2e6"
     },
     {
-      "name": "color-4",
-      "hex": "#5d2f0a"
+      "name": "Sage Green",
+      "hex": "#a3b59c"
     }
   ]
 } 

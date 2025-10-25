@@ -21,7 +21,7 @@ const Paragraph = () => {
     }
   }, [])
   return (
-    <section className={`relative py-20 w-full overflow-hidden ${themeConfig.calendar.background}`}>
+    <section className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}>
       
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">

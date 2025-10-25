@@ -47,7 +47,7 @@ const EntourageModal = ({ isOpen, onClose }) => {
         <div className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
           {/* Header - Sticky */}
           <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200 rounded-t-2xl">
-            <h3 className="text-2xl font-script text-gray-800">Wedding Entourage</h3>
+            <h3 className="text-2xl font-leckerli font-light text-gray-800">Wedding Entourage</h3>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
