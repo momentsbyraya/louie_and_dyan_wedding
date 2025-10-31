@@ -73,12 +73,9 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center"
+      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-cover bg-no-repeat bg-center lg:bg-[center_bottom_20%]"
       style={{
-        backgroundImage: `url(${images.hero})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundImage: `url(${images.hero})`
       }}
     >
       {/* Dark overlay for better text readability */}

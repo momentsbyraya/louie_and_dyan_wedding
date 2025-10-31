@@ -69,11 +69,11 @@ const DressCode = () => {
           </div>
 
           {/* Color Palette */}
-          <div ref={paletteRef} className="flex justify-between items-center gap-0">
+          <div ref={paletteRef} className="flex items-center gap-4">
             {dresscode.colorPalette.map((color, index) => (
               <div 
                 key={index} 
-                className="w-12 h-12 rounded-sm flex-shrink-0"
+                className="w-[calc((100%-3*1rem)/4)] h-5 rounded-sm"
                 style={{ backgroundColor: color.hex }}
                 title={color.name}
               ></div>

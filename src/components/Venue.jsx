@@ -67,7 +67,7 @@ const MapDirections = () => {
     >
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">
-        <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+        <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
           {/* Header Section */}
           <div ref={headerRef} className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white/90 mb-6 font-leckerli font-light">
@@ -79,7 +79,7 @@ const MapDirections = () => {
           </div>
 
           {/* Venue Information */}
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Ceremony Venue */}
             <div ref={ceremonyRef} className="text-center">
               <h3 className="text-xl sm:text-2xl font-albert font-thin text-white mb-2">
