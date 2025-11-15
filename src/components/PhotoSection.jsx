@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger)
 
 const PhotoSection = ({ 
   imagePath, 
@@ -6,8 +11,42 @@ const PhotoSection = ({
   subtitle = "Every love story is beautiful, but ours is my favorite",
   textPosition = "bottom" // "center" or "bottom"
 }) => {
+  const sectionRef = useRef(null)
+  const headerRef = useRef(null)
+  const contentRef = useRef(null)
+
+  useEffect(() => {
+    // Scroll-triggered animations
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%",
+        end: "bottom 20%",
+        toggleActions: "play none none reverse"
+      }
+    })
+
+    // Header (title) animation first
+    tl.fromTo(headerRef.current, 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+    )
+
+    // Content (subtitle) animation after header
+    tl.fromTo(contentRef.current, 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+      "-=0.4"
+    )
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [])
+
   return (
-    <section className="relative w-full overflow-hidden h-96 sm:h-[500px] lg:h-[600px]">
+    <section ref={sectionRef} className="relative w-full overflow-hidden h-96 sm:h-[500px] lg:h-[600px]">
       {/* Background Image - Load immediately */}
       <img
         src={imagePath}
@@ -20,14 +59,16 @@ const PhotoSection = ({
       <div className="absolute inset-0 bg-black/20"></div>
       
       {/* Content */}
-      <div className={`relative z-10 flex justify-center h-full ${
-        textPosition === "bottom" ? "items-end pb-8" : "items-center"
-      }`}>
+      <div 
+        className={`relative z-10 flex justify-center h-full ${
+          textPosition === "bottom" ? "items-end pb-8" : "items-center"
+        }`}
+      >
         <div className="text-center text-white/60">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-lavishly mb-4">
+          <h2 ref={headerRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-lavishly italic mb-4">
             {title}
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl font-albert font-thin opacity-90">
+          <p ref={contentRef} className="text-lg sm:text-xl md:text-2xl font-albert font-thin opacity-90">
             {subtitle}
           </p>
         </div>

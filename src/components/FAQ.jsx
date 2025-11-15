@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ChevronDown } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
 import { faq } from '../data'
 
@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const sectionRef = useRef(null)
+  const headerRef = useRef(null)
   const accordionRef = useRef(null)
 
   const { faqData } = faq
@@ -20,16 +21,16 @@ const FAQ = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 50%",
         end: "bottom 20%",
         toggleActions: "play none none reverse"
       }
     })
 
-    // Section title animation
-    tl.fromTo(".faq-title", 
+    // Header animation first
+    tl.fromTo(headerRef.current, 
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
     // Accordion items animation with stagger
@@ -42,7 +43,7 @@ const FAQ = () => {
         ease: "power2.out",
         stagger: 0.1
       },
-      "-=0.5"
+      "-=0.4"
     )
 
     // Cleanup function
@@ -58,35 +59,34 @@ const FAQ = () => {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 w-full ${themeConfig.calendar.background}`}
+      className="py-20 w-full bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/assets/images/graphics/textured-bg.png)'
+      }}
     >
               <div className={`${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-leckerli font-light text-white/90 mb-8 text-center faq-title">
+        <h2 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 text-center font-lavishly italic">
           Frequently Asked Questions
         </h2>
         
         {/* FAQ Accordion */}
-        <div ref={accordionRef} className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto space-y-4">
+        <div ref={accordionRef} className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto">
           {faqData.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-gray-300"
-            >
+            <div key={index}>
               {/* Question Header */}
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-colors duration-200"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:opacity-80 transition-opacity duration-200"
               >
-                <h3 className="text-lg sm:text-xl md:text-2xl font-albert font-thin text-white pr-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-albert font-thin text-[#333333] pr-4">
                   {faq.question}
                 </h3>
-                <ChevronDown 
-                  className="w-5 h-5 text-white transition-transform duration-300"
-                  style={{
-                    transform: openIndex === index ? 'rotate(180deg)' : 'rotate(0deg)'
-                  }}
-                />
+                {openIndex === index ? (
+                  <Minus className="w-5 h-5 text-[#333333] flex-shrink-0" />
+                ) : (
+                  <Plus className="w-5 h-5 text-[#333333] flex-shrink-0" />
+                )}
               </button>
               
               {/* Answer Content */}
@@ -96,11 +96,16 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-6 pt-4 pb-4">
-                  <p className="text-white/80 font-albert font-thin leading-relaxed text-base sm:text-lg">
+                  <p className="text-[#333333] opacity-80 font-albert font-thin leading-relaxed text-base sm:text-lg">
                     {faq.answer}
                   </p>
                 </div>
               </div>
+              
+              {/* Divider Line */}
+              {index < faqData.length - 1 && (
+                <div className="w-full h-px bg-[#333333] opacity-40 my-2"></div>
+              )}
             </div>
           ))}
         </div>

@@ -42,9 +42,9 @@ const WeddingInvitation = () => {
         <section className='h-full'><Hero /></section>
         
         {/* Paragraph Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
+        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
           <Paragraph />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
         
         {/* Venue Section */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="venue">
@@ -76,29 +76,29 @@ const WeddingInvitation = () => {
           />
         </EnhancedLazySection>
         {/* Gift Registry Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
           <GiftRegistry />
-        </EnhancedLazySection> */}
+        </EnhancedLazySection>
 
         {/* Love Story Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
+        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
           <LoveStory />
         </EnhancedLazySection>   
-         */}
+        
         {/* Wedding Details */}
-        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
           <Counter countdown={countdown} />
-        </EnhancedLazySection> */}
+        </EnhancedLazySection>
 
         {/* Gallery Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
           <Gallery />
         </EnhancedLazySection>
-         */}
+        
         {/* FAQ Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
+        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
           <FAQ />
-        </EnhancedLazySection> */}
+        </EnhancedLazySection>
         
         
       </main>
