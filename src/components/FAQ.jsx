@@ -16,7 +16,23 @@ const FAQ = () => {
 
   const { faqData } = faq
 
-  // Random background position, rotation, and flip
+  // Random background position, rotation, and flip - Base layer (old-book-2)
+  const bgStyleBase = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.75
+    }
+  }, [])
+
+  // Random background position, rotation, and flip - Top layer (old-book-bg)
   const bgStyle = useMemo(() => {
     const posX = Math.random() * 100 // 0% to 100%
     const posY = Math.random() * 100 // 0% to 100%
@@ -77,7 +93,18 @@ const FAQ = () => {
       ref={sectionRef}
       className="relative py-20 w-full"
     >
-      {/* Background Image with random position, rotation, and flip */}
+      {/* Background Image - Base layer (old-book-2) */}
+      <div 
+        className="absolute bg-no-repeat"
+        style={{
+          ...bgStyleBase,
+          width: '200%',
+          height: '200%',
+          left: '-50%',
+          top: '-50%'
+        }}
+      />
+      {/* Background Image - Top layer (old-book-bg) */}
       <div 
         className="absolute bg-no-repeat"
         style={{
@@ -95,7 +122,7 @@ const FAQ = () => {
       
       <div className={`relative z-10 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding}`}>
         {/* Section Title */}
-        <h2 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 text-center font-lavishly italic">
+        <h2 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 text-center font-caribbean">
           Frequently Asked Questions
         </h2>
         

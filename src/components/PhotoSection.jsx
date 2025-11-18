@@ -65,7 +65,7 @@ const PhotoSection = ({
         }`}
       >
         <div className="text-center text-white/60">
-          <h2 ref={headerRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-lavishly italic mb-4">
+          <h2 ref={headerRef} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-caribbean mb-4">
             {title}
           </h2>
           <p ref={contentRef} className="text-lg sm:text-xl md:text-2xl font-albert font-thin opacity-90">

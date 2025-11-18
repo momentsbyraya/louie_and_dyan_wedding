@@ -14,7 +14,23 @@ const Counter = ({ countdown }) => {
   const countdownRef = useRef(null)
   const dateTimeRef = useRef(null)
 
-  // Random background position, rotation, and flip
+  // Random background position, rotation, and flip - Base layer (old-book-2)
+  const bgStyleBase = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.75
+    }
+  }, [])
+
+  // Random background position, rotation, and flip - Top layer (old-book-bg)
   const bgStyle = useMemo(() => {
     const posX = Math.random() * 100 // 0% to 100%
     const posY = Math.random() * 100 // 0% to 100%
@@ -79,7 +95,18 @@ const Counter = ({ countdown }) => {
       id="details"
       className="relative py-20 w-full overflow-hidden"
     >
-      {/* Background Image with random position, rotation, and flip */}
+      {/* Background Image - Base layer (old-book-2) */}
+      <div 
+        className="absolute bg-no-repeat"
+        style={{
+          ...bgStyleBase,
+          width: '200%',
+          height: '200%',
+          left: '-50%',
+          top: '-50%'
+        }}
+      />
+      {/* Background Image - Top layer (old-book-bg) */}
       <div 
         className="absolute bg-no-repeat"
         style={{
@@ -104,7 +131,7 @@ const Counter = ({ countdown }) => {
         >
           {/* Header Section */}
           <div className="text-center mb-8">
-            <h3 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 font-lavishly italic">
+            <h3 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 font-caribbean">
               Save the Date
             </h3>
           </div>

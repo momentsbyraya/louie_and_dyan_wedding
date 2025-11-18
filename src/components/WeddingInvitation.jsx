@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { getTimeUntilWedding } from '../utils/countdown'
 import Hero from './Hero'
+import HeroStorybook from './HeroStorybook'
 import Paragraph from './Paragraph'
 import Calendar from './Calendar'
 import Counter from './Counter'
@@ -39,7 +40,7 @@ const WeddingInvitation = () => {
     <div className="min-h-screen w-full overflow-hidden">
       <main className="main-container h-full section-container">
         {/* Hero Section - Always visible */}
-        <section className='h-full'><Hero /></section>
+        <section className='h-full'><HeroStorybook /></section>
         
         {/* Paragraph Section */}
         {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">

@@ -10,6 +10,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+
+/* Canterbury Font */
+@font-face {
+  font-family: 'Canterbury';
+  src: url('/assets/fonts/CanterburyRegular-MVqn.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Caribbean Font */
+@font-face {
+  font-family: 'Caribbean';
+  src: url('/assets/fonts/Caribbeantool-GZwO.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -136,6 +153,24 @@ body {
 
 .imperial-script-regular {
   font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-canterbury {
+  font-family: "Canterbury", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-caribbean {
+  font-family: "Caribbean", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fleur-de-leah-regular {
+  font-family: "Fleur De Leah", cursive;
   font-weight: 400;
   font-style: normal;
 }

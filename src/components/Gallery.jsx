@@ -16,7 +16,23 @@ const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Random background position, rotation, and flip
+  // Random background position, rotation, and flip - Base layer (old-book-2)
+  const bgStyleBase = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.75
+    }
+  }, [])
+
+  // Random background position, rotation, and flip - Top layer (old-book-bg)
   const bgStyle = useMemo(() => {
     const posX = Math.random() * 100 // 0% to 100%
     const posY = Math.random() * 100 // 0% to 100%
@@ -97,7 +113,18 @@ const Gallery = () => {
         ref={sectionRef}
         className="relative py-20 w-full min-h-screen"
       >
-        {/* Background Image with random position, rotation, and flip */}
+        {/* Background Image - Base layer (old-book-2) */}
+        <div 
+          className="absolute bg-no-repeat"
+          style={{
+            ...bgStyleBase,
+            width: '200%',
+            height: '200%',
+            left: '-50%',
+            top: '-50%'
+          }}
+        />
+        {/* Background Image - Top layer (old-book-bg) */}
         <div 
           className="absolute bg-no-repeat"
           style={{
@@ -116,7 +143,7 @@ const Gallery = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
           <div ref={headerRef} className="flex justify-between items-start mb-12">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-lavishly italic text-[#333333]">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-caribbean text-[#333333]">
               Vintage
             </div>
             <div className="text-xl sm:text-2xl md:text-3xl font-albert font-bold text-[#333333] uppercase tracking-wider">
