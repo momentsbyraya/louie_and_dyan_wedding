@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -16,6 +16,22 @@ const MapDirections = () => {
   const venueContainerRef = useRef(null)
   const [currentVenueIndex, setCurrentVenueIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
+
+  // Random background position, rotation, and flip
+  const bgStyle = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.5
+    }
+  }, [])
 
   useEffect(() => {
     // Scroll-triggered animations for individual elements
@@ -102,11 +118,24 @@ const MapDirections = () => {
     <section
       ref={sectionRef}
       id="map"
-      className="relative py-20 w-full overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: 'url(/assets/images/graphics/textured-bg.png)'
-      }}
+      className="relative py-20 w-full overflow-hidden"
     >
+      {/* Background Image with random position, rotation, and flip */}
+      <div 
+        className="absolute bg-no-repeat"
+        style={{
+          ...bgStyle,
+          width: '200%',
+          height: '200%',
+          left: '-50%',
+          top: '-50%'
+        }}
+      />
+      
+      {/* Soft white gradient overlays for transitions */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10" />
+      
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">
         <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">

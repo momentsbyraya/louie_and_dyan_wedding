@@ -5,20 +5,12 @@
   },
   "colorPalette": [
     {
-      "name": "Light Dusty Pink",
-      "hex": "#D4A5A5"
+      "name": "Burgundy",
+      "hex": "#800020"
     },
     {
-      "name": "Dusty Teal",
-      "hex": "#8ba9b1"
-    },
-    {
-      "name": "Pale Blue-Gray",
-      "hex": "#dae2e6"
-    },
-    {
-      "name": "Sage Green",
-      "hex": "#a3b59c"
+      "name": "Silver",
+      "hex": "#C0C0C0"
     }
   ]
 } 

@@ -8,26 +8,26 @@ export const weddingConfig = {
   // Basic Wedding Information
   couple: {
     bride: {
-      firstName: "Sarah",
-      lastName: "Johnson",
-      fullName: "Sarah Johnson"
+      firstName: "Mikaela",
+      lastName: "Odevilas",
+      fullName: "Mikaela Denile Mendez Odevilas"
     },
     groom: {
-      firstName: "Michael",
-      lastName: "Williams",
-      fullName: "Michael Williams"
+      firstName: "Evander",
+      lastName: "Rafael",
+      fullName: "Evander Carable Rafael"
     },
-    together: "Sarah & Michael"
+    together: "Mikaela & Evander"
   },
 
   // Wedding Details
   wedding: {
-    date: "2026-06-15", // YYYY-MM-DD format
+    date: "2026-01-04", // YYYY-MM-DD format
     time: "4:00 PM",
-    dayOfWeek: "Saturday",
-    month: "June",
-    day: "15",
-    year: "2024"
+    dayOfWeek: "Sunday",
+    month: "January",
+    day: "04",
+    year: "2026"
   },
 
   // Venue Information
