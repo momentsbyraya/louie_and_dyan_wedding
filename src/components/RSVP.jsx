@@ -1,53 +1,18 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Mail, Users } from 'lucide-react'
 import RSVPModal from './RSVPModal'
 import EntourageModal from './EntourageModal'
-import { themeConfig } from '../config/themeConfig'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
 const RSVP = () => {
   const sectionRef = useRef(null)
-  const headerRef = useRef(null)
   const contentRef = useRef(null)
-  const buttonRef = useRef(null)
+  const emailSketchRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isEntourageModalOpen, setIsEntourageModalOpen] = useState(false)
-
-  // Random background position, rotation, and flip - Base layer (old-book-2)
-  const bgStyleBase = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.75
-    }
-  }, [])
-
-  // Random background position, rotation, and flip - Top layer (old-book-bg)
-  const bgStyle = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.5
-    }
-  }, [])
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -60,22 +25,30 @@ const RSVP = () => {
       }
     })
 
-    // Header animation first
-    tl.fromTo(headerRef.current, 
+    // Content animation
+    tl.fromTo(contentRef.current, 
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Content animation after header
-    tl.fromTo(contentRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
+    // Pulse animation for email sketch
+    if (emailSketchRef.current) {
+      gsap.to(emailSketchRef.current, {
+        scale: 1.1,
+        opacity: 0.9,
+        duration: 1.5,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1
+      })
+    }
 
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      if (emailSketchRef.current) {
+        gsap.killTweensOf(emailSketchRef.current)
+      }
     }
   }, [])
 
@@ -91,70 +64,80 @@ const RSVP = () => {
     <>
       <section
         ref={sectionRef}
-        className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}
+        className="relative py-20 w-full overflow-hidden bg-[#f5f5f0] min-h-[500px]"
       >
-        {/* Background Image - Base layer (old-book-2) */}
-        <div 
-          className="absolute bg-no-repeat"
-          style={{
-            ...bgStyleBase,
-            width: '200%',
-            height: '200%',
-            left: '-50%',
-            top: '-50%'
-          }}
-        />
-        {/* Background Image - Top layer (old-book-bg) */}
-        <div 
-          className="absolute bg-no-repeat"
-          style={{
-            ...bgStyle,
-            width: '200%',
-            height: '200%',
-            left: '-50%',
-            top: '-50%'
-          }}
-        />
-        
-        {/* Soft white gradient overlays for transitions */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10" />
-        
         {/* Content */}
-        <div className="relative z-20 flex items-center justify-center">
-          <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
-            {/* Header Section */}
-            <div ref={headerRef} className="text-center mb-8">
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 font-caribbean">
-                We Await Your Presence
-              </h2>
-            </div>
+        <div className="relative z-20 flex items-center justify-center min-h-[500px]">
+          <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+            <div ref={contentRef} className="flex flex-col items-start">
+              {/* RSVP - Large uppercase with custom font */}
+              <div className="mb-4">
+                <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-[#333333] font-caribbean uppercase tracking-tight leading-none" style={{ lineHeight: '0.8' }}>
+                  RSVP
+                </h2>
+              </div>
 
-            {/* Text Section */}
-            <div ref={contentRef} className="text-center mb-12">
-              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
-                Your presence would make our special day even more meaningful. 
-                Please let us know if you'll be joining us for our celebration.
-              </p>
-            </div>
+              {/* Reply date - Smaller italic serif */}
+              <div className="mb-8">
+                <p className="text-base sm:text-lg md:text-xl crimson-text-regular italic text-[#333333] font-light">
+                  Kindly answer the RSVP. Let us know if you'll be joining us for our celebration.
+                </p>
+              </div>
 
-            {/* RSVP Button */}
-            <div className="text-center">
-              <button
-                ref={buttonRef}
-                onClick={openRSVPModal}
-                className="w-full inline-flex items-center justify-center space-x-3 px-8 py-3 sm:py-5 lg:py-2 text-[#333333] rounded-sm transition-colors duration-200 text-sm sm:text-2xl lg:text-base font-medium border-2 border-[#333333] hover:opacity-80"
-              >
-                <span>RSVP</span>
-              </button>
-              
-              {/* Entourage Text */}
-              <button
-                onClick={openEntourageModal}
-                className="text-sm text-[#333333] opacity-80 mt-4 hover:opacity-100 transition-colors duration-200 underline"
-              >
-                View our entourage
-              </button>
+              {/* Email Sketch with Pulse Animation */}
+              <div className="mb-12 w-full flex justify-center items-center">
+                {/* Left horizontal line */}
+                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                
+                <img 
+                  ref={emailSketchRef}
+                  src="/assets/images/graphics/email-sketch.png" 
+                  alt="Email" 
+                  onClick={openRSVPModal}
+                  className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 object-contain opacity-70 mx-4 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                />
+                
+                {/* Right horizontal line */}
+                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+              </div>
+
+              {/* Entourage Section - Matching Location Layout */}
+              <div className="w-full mt-12">
+                <div className="text-center">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-3 font-caribbean">
+                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>E</span>
+                    <span className="inline-block">ntourage</span>
+                  </h2>
+                  <div>
+                    <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
+                      Meet the special people who will be part of our celebration
+                    </p>
+                    <div className="flex justify-center items-center">
+                      {/* Left horizontal line */}
+                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                      
+                      <img 
+                        src="/assets/images/graphics/graphics-1.svg" 
+                        alt="Decorative graphic" 
+                        className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                      />
+                      
+                      {/* Right horizontal line */}
+                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Entourage Button */}
+                <div className="text-center mt-6">
+                  <button
+                    onClick={openEntourageModal}
+                    className="text-sm text-[#333333] opacity-80 hover:opacity-100 transition-colors duration-200 underline crimson-text-regular"
+                  >
+                    View our entourage
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

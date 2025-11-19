@@ -43,9 +43,9 @@ const WeddingInvitation = () => {
         <section className='h-full'><HeroStorybook /></section>
         
         {/* Paragraph Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
           <Paragraph />
-        </EnhancedLazySection> */}
+        </EnhancedLazySection>
         
         {/* Venue Section */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="venue">

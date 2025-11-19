@@ -133,7 +133,7 @@ const HeroStorybook = () => {
           {/* Story Paragraph with Drop Cap */}
           <div className="mb-6 sm:mb-8 text-center max-w-xl mx-auto">
             <p className="text-[#333333] crimson-text-regular text-sm sm:text-base md:text-lg leading-relaxed" style={{ textIndent: '0', overflow: 'hidden' }}>
-              <span className="text-4xl sm:text-5xl md:text-6xl inline-block leading-none mr-2" style={{ lineHeight: '0.75', marginTop: '0.1em' }}>I</span>
+              <span className="text-4xl sm:text-5xl md:text-6xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '0' }}>I</span>
               <span>n a kingdom not so far away, <br /> a story was planned <br /> for two hearts becoming one.</span>
             </p>
           </div>

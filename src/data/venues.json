@@ -11,14 +11,14 @@
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=San+Agustin+Church+Manila+Philippines&travelmode=driving"
   },
   "reception": {
-    "name": "The Manila Hotel",
-    "address": "1 Rizal Park",
-    "city": "Manila",
-    "state": "Metro Manila",
-    "zip": "1000",
+    "name": "Villa Juanita",
+    "address": "F3J6+MGV, Dir. A. Bunye",
+    "city": "Taguig",
+    "state": "Kalakhang Maynila",
+    "zip": "",
     "time": "6:00 PM",
     "details": "Elegant hotel reception. Cocktail attire requested.",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The+Manila+Hotel+Philippines",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=The+Manila+Hotel+Philippines&travelmode=driving"
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila&travelmode=driving"
   }
 } 

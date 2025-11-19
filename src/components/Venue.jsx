@@ -89,18 +89,13 @@ const MapDirections = () => {
 
   const venues = [
     {
-      ...venuesData.ceremony,
-      type: 'Ceremony',
-      image: images.venues.church
-    },
-    {
       ...venuesData.reception,
       type: 'Reception',
-      image: images.venues.reception
+      image: '/assets/images/venues/wedding-venue.png'
     }
   ]
 
-  const currentVenue = venues[currentVenueIndex]
+  const currentVenue = venues[0]
 
   const nextVenue = () => {
     if (isTransitioning) return
@@ -168,8 +163,9 @@ const MapDirections = () => {
         <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
           {/* Header Section */}
           <div className="text-center">
-            <h2 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-3 font-caribbean">
-              Location
+            <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-3 font-caribbean">
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>L</span>
+              <span className="inline-block">ocation</span>
             </h2>
             <div ref={headerContentRef}>
               <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
@@ -193,15 +189,7 @@ const MapDirections = () => {
 
           {/* Venue Information */}
           <div className="relative overflow-visible" ref={venueContainerRef}>
-            {/* Previous Venue Button - Positioned relative to venue container */}
-            <button
-              onClick={prevVenue}
-              className="absolute -left-12 sm:-left-16 md:-left-20 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
-              aria-label="Previous venue"
-              disabled={isTransitioning}
-            >
-              <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#333333] opacity-60" strokeWidth={1.5} />
-            </button>
+            {/* Previous Venue Button - Hidden since only one venue */}
 
             {/* Venue Container with Fade Effect */}
             <div className="relative overflow-hidden min-h-[400px]">
@@ -263,15 +251,7 @@ const MapDirections = () => {
               </div>
             </div>
 
-            {/* Next Venue Button - Positioned relative to venue container */}
-            <button
-              onClick={nextVenue}
-              className="absolute -right-12 sm:-right-16 md:-right-20 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center hover:opacity-80 transition-opacity duration-200"
-              aria-label="Next venue"
-              disabled={isTransitioning}
-            >
-              <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#333333] opacity-60" strokeWidth={1.5} />
-            </button>
+            {/* Next Venue Button - Hidden since only one venue */}
           </div>
         </div>
       </div>

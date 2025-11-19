@@ -45,11 +45,16 @@ const Paragraph = () => {
   return (
     <section 
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background} bg-cover bg-center bg-no-repeat`}
-      style={{
-        backgroundImage: 'url(/assets/images/graphics/textured-bg.png)'
-      }}
+      className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}
     >
+      {/* Background Image with reduced opacity */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/calligraphy-bg.png)',
+          opacity: 0.15
+        }}
+      />
       
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">
@@ -60,6 +65,14 @@ const Paragraph = () => {
               Dear friends and relatives!
             </h2>
             <div ref={contentRef}>
+              {/* Prenup Image with Soft Mask */}
+              <div className="soft-edges mb-8">
+                <img 
+                  src="/assets/images/prenup/main-cover.png" 
+                  alt="Prenup" 
+                  className="w-full"
+                />
+              </div>
               <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
                 An important event will soon take place in our lives - our wedding! We invite you to share with us this special day!
               </p>

@@ -121,8 +121,9 @@ const DressCode = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
           <div ref={headerRef} className="text-center mb-8">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 font-caribbean">
-              Dress Code
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-8 font-caribbean flex items-center justify-center">
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>D</span>
+              <span className="inline-block">ress Code</span>
             </h2>
           </div>
 
@@ -134,11 +135,11 @@ const DressCode = () => {
           </div>
 
           {/* Color Palette */}
-          <div ref={paletteRef} className="flex items-center gap-4 mb-8">
+          <div ref={paletteRef} className="flex items-center justify-center gap-4 mb-8">
             {dresscode.colorPalette.map((color, index) => (
               <div 
                 key={index} 
-                className="w-[calc((100%-3*1rem)/4)] h-5 rounded-sm"
+                className="w-[calc((100%-3*1rem)/4)] h-5 rounded-sm max-w-[80px]"
                 style={{ backgroundColor: color.hex }}
                 title={color.name}
               ></div>
@@ -148,7 +149,7 @@ const DressCode = () => {
           {/* Dress Code Graphic */}
           <div ref={graphicRef} className="flex justify-center">
             <img 
-              src="/assets/images/graphics/dress-code.svg" 
+              src="/assets/images/graphics/dress-code.png" 
               alt="Dress code illustration" 
               className="w-full max-w-md h-auto"
             />
