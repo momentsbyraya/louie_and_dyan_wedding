@@ -160,7 +160,7 @@ const GiftRegistry = () => {
                   <div className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
                     {/* Header - Sticky */}
                     <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200 rounded-t-2xl">
-                      <h3 className="text-2xl sm:text-3xl alice-regular font-black text-gray-800" style={{ fontWeight: 900 }}>Payment Options</h3>
+                      <h3 className="text-2xl sm:text-3xl alice-regular font-black text-gray-800" style={{ fontWeight: 900 }}>Methods:</h3>
                       <button
                         onClick={closeModal}
                         className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
@@ -175,14 +175,28 @@ const GiftRegistry = () => {
                 {paymentMethods.map((method, index) => (
                   <div key={index} className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
                     <div className="flex items-center justify-center mb-4">
-                      <div className={`w-12 h-12 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center text-gray-800`}>
-                        {method.icon === 'Building' && <Building className="w-6 h-6" />}
-                        {method.icon === 'CreditCard' && <CreditCard className="w-6 h-6" />}
-                        {method.icon === 'Smartphone' && <Smartphone className="w-6 h-6" />}
-                      </div>
+                      {method.image ? (
+                        <img 
+                          src={method.image} 
+                          alt={method.name} 
+                          className="w-12 h-12 object-contain"
+                          style={{ borderRadius: '50%' }}
+                        />
+                      ) : (
+                        <div className={`w-12 h-12 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center text-gray-800`}>
+                          {method.icon === 'Building' && <Building className="w-6 h-6" />}
+                          {method.icon === 'CreditCard' && <CreditCard className="w-6 h-6" />}
+                          {method.icon === 'Smartphone' && <Smartphone className="w-6 h-6" />}
+                        </div>
+                      )}
                     </div>
                     
-                    <h4 className="text-lg sm:text-xl alice-regular font-black text-gray-800 mb-4" style={{ fontWeight: 900 }}>{method.name}</h4>
+                    <h4 className="text-lg sm:text-xl alice-regular font-black text-gray-800 mb-2" style={{ fontWeight: 900 }}>{method.name}</h4>
+                    <div className="my-3">
+                      <div className="w-full h-px bg-gray-300 mb-2"></div>
+                      <p className="alice-regular font-black text-gray-800 text-center" style={{ fontWeight: 900, fontSize: '1.5rem' }}>{method.accountInfo.accountNumber}</p>
+                      <div className="w-full h-px bg-gray-300 mt-2"></div>
+                    </div>
                     
                     {/* QR Code - Only show if qrCode is provided */}
                     {method.accountInfo.qrCode && (
@@ -196,14 +210,10 @@ const GiftRegistry = () => {
                     )}
                     
                     {/* Account Information */}
-                    <div className="text-left space-y-2 text-sm sm:text-base alice-regular font-black text-gray-700" style={{ fontWeight: 900 }}>
+                    <div className="text-left space-y-2 alice-regular font-black text-gray-700" style={{ fontWeight: 900, fontSize: '1rem' }}>
                       {method.accountInfo.bank && (
                         <p><span className="font-black">Bank:</span> {method.accountInfo.bank}</p>
                       )}
-                      {method.accountInfo.provider && (
-                        <p><span className="font-black">Provider:</span> {method.accountInfo.provider}</p>
-                      )}
-                      <p><span className="font-black">Account:</span> {method.accountInfo.accountNumber}</p>
                       <p><span className="font-black">Name:</span> {method.accountInfo.accountName}</p>
                     </div>
                   </div>

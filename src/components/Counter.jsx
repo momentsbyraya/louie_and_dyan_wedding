@@ -133,7 +133,7 @@ const Counter = ({ countdown }) => {
             </h2>
             <div ref={countdownRef}>
               <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
-                Mark your calendar for our special day
+                Mark your calendar for<br />our special day
               </p>
               <div className="flex justify-center items-center">
                 {/* Left horizontal line */}
@@ -154,7 +154,7 @@ const Counter = ({ countdown }) => {
           {/* Countdown Timer */}
           <div className="flex justify-center items-center space-x-3 px-4 mt-8">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
                 {countdown.days}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Days</div>
@@ -163,7 +163,7 @@ const Counter = ({ countdown }) => {
             <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
                 {countdown.hours}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Hours</div>
@@ -172,7 +172,7 @@ const Counter = ({ countdown }) => {
             <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
                 {countdown.minutes}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Minutes</div>
@@ -181,7 +181,7 @@ const Counter = ({ countdown }) => {
             <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
                 {countdown.seconds}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Seconds</div>

@@ -15,6 +15,7 @@ import FAQ from './FAQ'
 import MapDirections from './Venue'
 import GiftRegistry from './GiftRegistry'
 import RSVP from './RSVP'
+import Footer from './Footer'
 import EnhancedLazySection from './EnhancedLazySection'
 import { images } from '../data'
 import { weddingConfig } from '../config/weddingConfig'
@@ -47,10 +48,7 @@ const WeddingInvitation = () => {
           <LoveStory />
         </EnhancedLazySection>
         
-        {/* Paragraph Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
-          <Paragraph />
-        </EnhancedLazySection>
+      
         
         {/* Wedding Details - Save the Date */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
@@ -77,6 +75,11 @@ const WeddingInvitation = () => {
           <RSVP />
         </EnhancedLazySection>
 
+        {/* Paragraph Section */}
+          <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
+          <Paragraph />
+        </EnhancedLazySection>
+
         {/* Couple Photo Section */}
         {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-photo">
           <PhotoSection 
@@ -97,6 +100,8 @@ const WeddingInvitation = () => {
           <FAQ />
         </EnhancedLazySection> */}
         
+        {/* Footer */}
+        <Footer />
         
       </main>
     </div>

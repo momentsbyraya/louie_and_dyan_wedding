@@ -45,7 +45,7 @@ const Paragraph = () => {
   return (
     <section 
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}
+      className={`relative py-20 w-full overflow-hidden min-h-screen md:min-h-0 ${themeConfig.paragraph.background}`}
     >
       {/* Background Image with reduced opacity */}
       <div 
