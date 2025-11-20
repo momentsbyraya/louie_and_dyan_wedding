@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { weddingConfig } from '../config/weddingConfig'
+import { venues } from '../data'
 
 const HeroStorybook = () => {
   const heroRef = useRef(null)
@@ -41,7 +42,7 @@ const HeroStorybook = () => {
   }
 
   const dateInfo = formatDate(weddingConfig.wedding.date)
-  const venue = weddingConfig.venue.ceremony
+  const venue = venues.ceremony
 
   useEffect(() => {
     // Animate content on load
@@ -177,7 +178,7 @@ const HeroStorybook = () => {
               <div className="flex flex-col items-center">
                 <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mb-0"></div>
                 <div className="text-[#333333] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
-                  {weddingConfig.wedding.time.replace(/\s/g, '').toUpperCase()}
+                  {venue.time.replace(/\s/g, '').toUpperCase()}
                 </div>
                 <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mt-0"></div>
               </div>

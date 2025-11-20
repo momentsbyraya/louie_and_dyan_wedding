@@ -1,9 +1,9 @@
-import { couples } from '../data'
+import { couple } from '../data'
 
 // Countdown utility functions
 export const getTimeUntilWedding = () => {
-  // Get wedding date from couples data
-  const weddingDate = new Date(couples.couple.wedding.date)
+  // Get wedding date from couple data
+  const weddingDate = new Date(couple.wedding.date)
   
   const now = new Date()
   const difference = weddingDate - now

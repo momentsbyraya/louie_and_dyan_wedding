@@ -131,26 +131,12 @@ const MapDirections = () => {
       id="map"
       className="relative py-20 w-full overflow-hidden"
     >
-      {/* Background Image - Base layer (old-book-2) */}
+      {/* Background Image with reduced opacity */}
       <div 
-        className="absolute bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          ...bgStyleBase,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
-        }}
-      />
-      {/* Background Image - Top layer (old-book-bg) */}
-      <div 
-        className="absolute bg-no-repeat"
-        style={{
-          ...bgStyle,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
+          backgroundImage: 'url(/assets/images/graphics/calligraphy-bg.png)',
+          opacity: 0.15
         }}
       />
       
@@ -208,11 +194,18 @@ const MapDirections = () => {
                   {currentVenue.address}, {currentVenue.city}, {currentVenue.state} {currentVenue.zip}
                 </p>
                 <div className="flex justify-center mb-4">
-                  <img 
-                    src={currentVenue.image} 
-                    alt={currentVenue.name} 
-                    className="w-full max-w-md h-auto"
-                  />
+                  <a
+                    href={currentVenue.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <img 
+                      src={currentVenue.image} 
+                      alt={currentVenue.name} 
+                      className="w-full max-w-md h-auto"
+                    />
+                  </a>
                 </div>
                 <div className="flex justify-center items-center">
                   {/* Left horizontal line */}

@@ -60,28 +60,29 @@ const Paragraph = () => {
       <div className="relative z-20 flex items-center justify-center py-12">
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
-          <div ref={headerRef} className="text-center mb-12">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-6 font-lavishly italic">
-              Dear friends and relatives!
+          <div ref={headerRef} className="text-left mb-12">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] font-lavishly italic">
+              when two hearts met....
             </h2>
             <div ref={contentRef}>
               {/* Prenup Image with Soft Mask */}
-              <div className="soft-edges mb-8">
+              <div className="soft-edges mb-8 relative">
                 <img 
                   src="/assets/images/prenup/main-cover.png" 
                   alt="Prenup" 
                   className="w-full"
                 />
+                {/* Heart-string graphics */}
+                <img 
+                  src="/assets/images/graphics/heart-string-2.png" 
+                  alt="Heart string" 
+                  className="absolute top-0 right-0 z-10"
+                  style={{ width: 'auto', height: 'auto', maxWidth: '150px', maxHeight: '150px', transform: 'scaleX(-1)' }}
+                />
               </div>
-              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
-                An important event will soon take place in our lives - our wedding! We invite you to share with us this special day!
-              </p>
-              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mt-4">
-                
-              </p>
-              <p className="text-lg sm:text-xl font-albert font-thin text-[#333333] mt-8">
-               - {weddingConfig.couple.together}
-              </p>
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] font-lavishly italic text-center">
+                the world finally<br />made sense.
+              </h2>
             </div>
           </div>
         </div>

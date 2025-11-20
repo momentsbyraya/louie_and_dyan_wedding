@@ -1,0 +1,22 @@
+{
+  "bride": {
+    "firstName": "Mikaela",
+    "lastName": "Odevilas",
+    "fullName": "Mikaela Denile Mendez Odevilas"
+  },
+  "groom": {
+    "firstName": "Evander",
+    "lastName": "Rafael",
+    "fullName": "Evander Carable Rafael"
+  },
+  "together": "Mikaela & Evander",
+  "wedding": {
+    "date": "2026-01-04",
+    "time": "5:00 PM",
+    "dayOfWeek": "Sunday",
+    "month": "January",
+    "day": "04",
+    "year": "2026"
+  }
+}
+

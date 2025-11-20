@@ -81,7 +81,7 @@ const LoveStory = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
+      className="relative py-20 w-full overflow-hidden min-h-screen"
     >
       {/* Background Image - Base layer (old-book-2) */}
       <div 
@@ -113,32 +113,29 @@ const LoveStory = () => {
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12 pb-32 sm:pb-40 md:pb-48">
         <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
-          {/* Once Upon a Time */}
-          <div ref={titleRef} className="text-center mb-8">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-caribbean text-[#333333]">
-              Once Upon a Time
-            </h2>
-          </div>
 
           {/* Love Story Content */}
-          <div ref={storyRef} className="text-center mb-12">
-            <p className="text-base sm:text-lg md:text-xl font-albert font-thin text-[#333333] leading-relaxed">
-              From the moment our eyes first met, we knew something <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly italic text-[#d4af37] mt-2 mb-2">magical was beginning.</span> 
-              What started as a simple conversation has blossomed into a beautiful journey of 
-              laughter, adventures, and countless precious memories together. Every day feels like 
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-lavishly italic text-[#d4af37] mt-2 mb-2">a new chapter in our fairy tale</span>, and now, as we prepare to say "I do," we invite you 
-              to be part of our happily ever after.
+          <div ref={storyRef} className="text-left mb-12">
+            <p className="alice-regular font-black text-[#333333] leading-relaxed" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
+              <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>C</span>ollege classmates that turn into lovers.
+              <br />
+              The groom is the athlete, fun and active.
+              <br />
+              The bride is the opposite way around, quiet, studious and introvert.
+              <br />
+              5 years of love and growth together.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Castle Illustration - Absolute positioned at bottom */}
-      <div ref={imageRef} className="absolute bottom-0 left-0 w-full z-10">
+      {/* Castle Illustration - Absolute positioned on bottom right */}
+      <div ref={imageRef} className="absolute bottom-0 z-10" style={{ right: '-15%',  transform: 'translateX(20%)' }}>
         <img 
-          src="/assets/images/graphics/palace-3.svg" 
+          src="/assets/images/graphics/castle-2.png" 
           alt="Castle illustration" 
-          className="w-full h-auto scale-110 origin-bottom opacity-60"
+          className="h-auto opacity-60"
+          style={{ maxWidth: '400px', maxHeight: '100%' }}
         />
       </div>
     </section>

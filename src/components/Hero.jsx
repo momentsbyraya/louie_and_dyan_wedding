@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Play, Pause } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
 import { weddingConfig } from '../config/weddingConfig'
-import { images, audio } from '../data'
+import { images, audio, venues } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -59,7 +59,7 @@ const Hero = () => {
   }
 
   const dateInfo = formatDate(weddingConfig.wedding.date)
-  const venue = weddingConfig.venue.ceremony
+  const venue = venues.ceremony
 
   useEffect(() => {
     // Initialize audio
@@ -235,7 +235,7 @@ const Hero = () => {
               <div className="w-px h-12 bg-green-600"></div>
             </div>
             <div className="text-[#333333] font-albert font-bold text-sm sm:text-base md:text-lg tracking-wider flex items-center">
-              AT {weddingConfig.wedding.time}
+              AT {venue.time}
             </div>
           </div>
 

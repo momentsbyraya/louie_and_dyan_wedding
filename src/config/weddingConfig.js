@@ -1,56 +1,24 @@
 // ========================================
 // WEDDING INVITATION CONFIGURATION
 // ========================================
-// This file contains all the customizable content for the wedding invitation
-// Simply update the values below to create a new invitation for different clients
+// This file imports data from JSON files to avoid duplication
+// Update the JSON files in src/data/ to modify wedding information
+
+import { couple, venues } from '../data'
 
 export const weddingConfig = {
-  // Basic Wedding Information
+  // Basic Wedding Information - imported from couple.json
   couple: {
-    bride: {
-      firstName: "Mikaela",
-      lastName: "Odevilas",
-      fullName: "Mikaela Denile Mendez Odevilas"
-    },
-    groom: {
-      firstName: "Evander",
-      lastName: "Rafael",
-      fullName: "Evander Carable Rafael"
-    },
-    together: "Mikaela & Evander"
+    bride: couple.bride,
+    groom: couple.groom,
+    together: couple.together
   },
 
-  // Wedding Details
-  wedding: {
-    date: "2026-01-04", // YYYY-MM-DD format
-    time: "4:00 PM",
-    dayOfWeek: "Sunday",
-    month: "January",
-    day: "04",
-    year: "2026"
-  },
+  // Wedding Details - imported from couple.json
+  wedding: couple.wedding,
 
-  // Venue Information
-  venue: {
-    ceremony: {
-      name: "San Agustin Church",
-      address: "General Luna Street",
-      city: "Manila",
-      state: "Metro Manila",
-      zip: "1002",
-      time: "4:00 PM",
-      details: "Please arrive 30 minutes early"
-    },
-    reception: {
-      name: "The Manila Hotel",
-      address: "1 Rizal Park",
-      city: "Manila",
-      state: "Metro Manila",
-      zip: "1000",
-      time: "6:00 PM",
-      details: "Cocktail attire requested"
-    }
-  },
+  // Venue Information - imported from venues.json
+  venue: venues,
 
   // RSVP Information
   rsvp: {
@@ -112,7 +80,7 @@ export const formatDate = (dateString) => {
 
 // Helper function to get time remaining until wedding
 export const getTimeUntilWedding = () => {
-  const weddingDate = new Date(weddingConfig.wedding.date);
+  const weddingDate = new Date(couple.wedding.date);
   const now = new Date();
   const timeDiff = weddingDate.getTime() - now.getTime();
   

@@ -1,14 +1,14 @@
 {
   "ceremony": {
-    "name": "San Agustin Church",
-    "address": "General Luna Street",
-    "city": "Manila",
-    "state": "Metro Manila",
-    "zip": "1002",
-    "time": "4:00 PM",
-    "details": "Historic church ceremony. Please arrive 30 minutes early.",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=San+Agustin+Church+Manila+Philippines",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=San+Agustin+Church+Manila+Philippines&travelmode=driving"
+    "name": "Villa Juanita",
+    "address": "F3J6+MGV, Dir. A. Bunye",
+    "city": "Taguig",
+    "state": "Kalakhang Maynila",
+    "zip": "",
+    "time": "5:00 PM",
+    "details": "Ceremony at Villa Juanita. Please arrive 30 minutes early.",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila&travelmode=driving"
   },
   "reception": {
     "name": "Villa Juanita",

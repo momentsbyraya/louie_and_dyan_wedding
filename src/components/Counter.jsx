@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Calendar, Clock } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
-import { couples } from '../data'
+import { couple } from '../data'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -122,22 +122,37 @@ const Counter = ({ countdown }) => {
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10" />
       
-      {/* Main Content Container */}
-      <div className={`relative z-20 ${themeConfig.container.maxWidth} ${themeConfig.container.center} ${themeConfig.container.padding} w-full`}>
-        {/* Two Column Layout for Large Screens */}
-        <div
-          ref={countdownRef}
-          className="max-w-md sm:max-w-xl lg:max-w-3xl mx-auto px-8 sm:px-12"
-        >
+      {/* Content */}
+      <div className="relative z-20 flex items-center justify-center py-12">
+        <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
           {/* Header Section */}
-          <div className="text-center mb-8">
-            <h3 ref={headerRef} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] mb-8 font-caribbean">
-              Save the Date
-            </h3>
+          <div className="text-center">
+            <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-3 font-caribbean">
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>S</span>
+              <span className="inline-block">ave</span> the Date
+            </h2>
+            <div ref={countdownRef}>
+              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
+                Mark your calendar for our special day
+              </p>
+              <div className="flex justify-center items-center">
+                {/* Left horizontal line */}
+                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                
+                <img 
+                  src="/assets/images/graphics/graphics-1.svg" 
+                  alt="Decorative graphic" 
+                  className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                />
+                
+                {/* Right horizontal line */}
+                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+              </div>
+            </div>
           </div>
-          
+
           {/* Countdown Timer */}
-          <div className="flex justify-center items-center space-x-3 px-4">
+          <div className="flex justify-center items-center space-x-3 px-4 mt-8">
             <div className="text-center">
               <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number">
                 {countdown.days}
@@ -172,8 +187,23 @@ const Counter = ({ countdown }) => {
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Seconds</div>
             </div>
           </div>
+          
+          {/* Duplicated SVG with horizontal lines, flipped vertically */}
+          <div className="flex justify-center items-center mt-6">
+            {/* Left horizontal line */}
+            <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+            
+            <img 
+              src="/assets/images/graphics/graphics-1.svg" 
+              alt="Decorative graphic" 
+              className="w-32 sm:w-40 md:w-48 h-auto mx-4 scale-y-[-1]"
+            />
+            
+            {/* Right horizontal line */}
+            <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+          </div>
         </div>
-    </div>
+      </div>
     </section>
   )
 }

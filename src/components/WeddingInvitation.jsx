@@ -42,9 +42,19 @@ const WeddingInvitation = () => {
         {/* Hero Section - Always visible */}
         <section className='h-full'><HeroStorybook /></section>
         
+        {/* Love Story Section */}
+        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
+          <LoveStory />
+        </EnhancedLazySection>
+        
         {/* Paragraph Section */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
           <Paragraph />
+        </EnhancedLazySection>
+        
+        {/* Wedding Details - Save the Date */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
         </EnhancedLazySection>
         
         {/* Venue Section */}
@@ -68,38 +78,24 @@ const WeddingInvitation = () => {
         </EnhancedLazySection>
 
         {/* Couple Photo Section */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="couple-photo">
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-photo">
           <PhotoSection 
             imagePath={images.couple.couple1}
             title={weddingConfig.couple.together}
             subtitle=""
             textPosition="bottom"
           />
-        </EnhancedLazySection>
-        {/* Gift Registry Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="gift-registry">
-          <GiftRegistry />
-        </EnhancedLazySection>
-
-        {/* Love Story Section */}
-        <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
-          <LoveStory />
-        </EnhancedLazySection>   
-        
-        {/* Wedding Details */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
 
         {/* Gallery Section */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
+        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
           <Gallery />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
         
         {/* FAQ Section */}
-        <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
+        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
           <FAQ />
-        </EnhancedLazySection>
+        </EnhancedLazySection> */}
         
         
       </main>
