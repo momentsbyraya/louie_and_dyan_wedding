@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useMemo } from 'react'
+import React, { useEffect, useRef, useMemo, useState } from 'react'
 import { gsap } from 'gsap'
 import { weddingConfig } from '../config/weddingConfig'
-import { venues } from '../data'
+import { venues, audio } from '../data'
 
 const HeroStorybook = () => {
   const heroRef = useRef(null)
   const contentRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef(null)
 
   // Background style - centered, no zoom
   const bgStyle = useMemo(() => {
@@ -45,6 +47,21 @@ const HeroStorybook = () => {
   const venue = venues.ceremony
 
   useEffect(() => {
+    // Initialize audio
+    audioRef.current = new Audio(audio.background)
+    audioRef.current.loop = audio.loop
+    audioRef.current.volume = audio.volume
+
+    // Cleanup audio on component unmount
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current = null
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     // Animate content on load
     if (contentRef.current) {
       gsap.fromTo(contentRef.current, 
@@ -59,6 +76,18 @@ const HeroStorybook = () => {
       )
     }
   }, [])
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return
+
+    if (isPlaying) {
+      audioRef.current.pause()
+      setIsPlaying(false)
+    } else {
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
+  }
 
   return (
     <section
@@ -186,9 +215,32 @@ const HeroStorybook = () => {
           </div>
 
           {/* Venue Location */}
-          <div className="text-center max-w-md mx-auto text-[#333333] crimson-text-regular text-xs sm:text-sm md:text-base space-y-1">
+          <div className="text-center max-w-md mx-auto text-[#333333] crimson-text-regular text-xs sm:text-sm md:text-base space-y-1 mb-6">
             <div className="font-bold">{venue.name}</div>
             <div>{venue.address}, {venue.city}, {venue.state} {venue.zip}</div>
+          </div>
+
+          {/* Music Player Icon */}
+          <div className="flex justify-center items-center mt-8 mb-4">
+            <button
+              onClick={toggleMusic}
+              className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center"
+              type="button"
+            >
+              {isPlaying ? (
+                <img 
+                  src="/assets/images/graphics/pause-icon.png" 
+                  alt="Pause music" 
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                />
+              ) : (
+                <img 
+                  src="/assets/images/graphics/play-icon.png" 
+                  alt="Play music" 
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                />
+              )}
+            </button>
           </div>
         </div>
       </div>

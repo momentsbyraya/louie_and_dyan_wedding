@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Play, Pause } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
 import { weddingConfig } from '../config/weddingConfig'
 import { images, audio, venues } from '../data'
@@ -252,30 +251,27 @@ const Hero = () => {
             {venue.address}, {venue.city}, {venue.state} {venue.zip}
           </div>
 
-          {/* Music Player Button */}
-          <div className="flex justify-center items-center mt-12">
-            {/* Left horizontal line */}
-            <div className="w-8 h-px bg-[#333333] opacity-40"></div>
-            
+          {/* Music Player Icon */}
+          <div className="flex justify-center items-center mt-8 mb-4">
             <button
               onClick={toggleMusic}
-              className="flex items-center justify-center space-x-2 hover:opacity-80 transition-all duration-300 group px-4 pb-2 pt-0"
-              style={{ 
-                borderRadius: '25px'
-              }}
+              className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center"
+              type="button"
             >
-              <span className="text-[#333333] font-lavishly text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic flex items-center leading-none">
-                {isPlaying ? 'pause music' : 'play music'}
-              </span>
               {isPlaying ? (
-                <Pause className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#333333] opacity-80 flex-shrink-0" />
+                <img 
+                  src="/assets/images/graphics/pause-icon.png" 
+                  alt="Pause music" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                />
               ) : (
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#333333] opacity-80 flex-shrink-0" />
+                <img 
+                  src="/assets/images/graphics/play-icon.png" 
+                  alt="Play music" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
+                />
               )}
             </button>
-            
-            {/* Right horizontal line */}
-            <div className="w-8 h-px bg-[#333333] opacity-40"></div>
           </div>
         </div>
       </div>
