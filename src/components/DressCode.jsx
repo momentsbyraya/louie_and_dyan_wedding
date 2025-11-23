@@ -13,6 +13,7 @@ const DressCode = () => {
   const textRef = useRef(null)
   const paletteRef = useRef(null)
   const graphicRef = useRef(null)
+  const sectionContentRefs = useRef([])
 
   // Random background position, rotation, and flip - Base layer (old-book-2)
   const bgStyleBase = useMemo(() => {
@@ -67,22 +68,30 @@ const DressCode = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
       "-=0.4"
     )
-    .fromTo(paletteRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
-    .fromTo(graphicRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
+
+    // Animate each section's content with alternating slide directions
+    sectionContentRefs.current.forEach((ref, index) => {
+      if (ref) {
+        const isEven = index % 2 === 0
+        const xFrom = isEven ? -100 : 100 // Even indices slide from left, odd from right
+        
+        ScrollTrigger.create({
+          trigger: ref,
+          start: "top 80%",
+          animation: gsap.fromTo(ref,
+            { opacity: 0, x: xFrom },
+            { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }
+          ),
+          toggleActions: "play none none reverse"
+        })
+      }
+    })
 
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
-  }, [])
+  }, [dresscode.sections])
 
   return (
     <section
@@ -134,25 +143,66 @@ const DressCode = () => {
             </p>
           </div>
 
-          {/* Color Palette */}
-          <div ref={paletteRef} className="flex items-center justify-center gap-4 mb-8">
-            {dresscode.colorPalette.map((color, index) => (
-              <div 
-                key={index} 
-                className="w-[calc((100%-3*1rem)/4)] h-5 rounded-sm max-w-[80px]"
-                style={{ backgroundColor: color.hex }}
-                title={color.name}
-              ></div>
+          {/* Dress Code Sections */}
+          <div ref={paletteRef} className="space-y-8 mb-8">
+            {dresscode.sections && dresscode.sections.map((section, sectionIndex) => (
+              <div key={sectionIndex} className="text-center">
+                {/* Section Title */}
+                <h3 className="text-lg sm:text-xl md:text-2xl font-albert font-bold text-[#333333] mb-4 tracking-wider">
+                  {section.title}
+                </h3>
+                
+                {/* Description */}
+                {section.description && (
+                  <p className="text-sm sm:text-base font-albert text-[#333333] mb-4 max-w-3xl mx-auto">
+                    {section.description}
+                  </p>
+                )}
+                
+                {/* Section Content */}
+                {section.type === "image" && section.image ? (
+                  <div 
+                    ref={el => sectionContentRefs.current[sectionIndex] = el}
+                    className="flex flex-row items-center gap-4 w-full"
+                  >
+                    <div className="w-[80%]">
+                      <img 
+                        src={section.image} 
+                        alt={section.title} 
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    {/* Three stacked circles */}
+                    {section.colors && section.colors.length > 0 && (
+                      <div className="flex flex-col gap-2 w-[20%] items-center">
+                        {section.colors.map((color, colorIndex) => (
+                          <div 
+                            key={colorIndex}
+                            className="w-8 h-8 rounded-full"
+                            style={{ backgroundColor: color.hex }}
+                            title={color.name}
+                          ></div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : section.type === "colors" && section.colors ? (
+                  <div 
+                    ref={el => sectionContentRefs.current[sectionIndex] = el}
+                    className="flex items-center justify-center gap-4"
+                  >
+                    {section.colors.map((color, colorIndex) => (
+                      <div 
+                        key={colorIndex} 
+                        className="w-[calc((100%-2*1rem)/3)] h-8 rounded-sm max-w-[120px]"
+                        style={{ backgroundColor: color.hex }}
+                        title={color.name}
+                      ></div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
-          </div>
-
-          {/* Dress Code Graphic */}
-          <div ref={graphicRef} className="flex justify-center">
-            <img 
-              src="/assets/images/graphics/dress-code.png" 
-              alt="Dress code illustration" 
-              className="w-full max-w-md h-auto"
-            />
           </div>
         </div>
       </div>

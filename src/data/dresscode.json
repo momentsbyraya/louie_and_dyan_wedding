@@ -3,14 +3,66 @@
     "title": "Dress Code",
     "description": "We kindly request our guests to dress in elegant, formal attire to celebrate our special day."
   },
-  "colorPalette": [
+  "sections": [
     {
-      "name": "Burgundy",
-      "hex": "#800020"
+      "title": "PARENTS AND PRINCIPAL SPONSORS",
+      "type": "image",
+      "image": "/assets/images/dresscode/parents_sponsors.png",
+      "description": "We would love to see our parents and principal sponsors in barong and filipiniana.",
+      "colors": [
+        {
+          "name": "Burgundy",
+          "hex": "#800020"
+        },
+        {
+          "name": "Cream",
+          "hex": "#FFE4B5"
+        },
+        {
+          "name": "Black",
+          "hex": "#000000"
+        }
+      ]
     },
     {
-      "name": "Silver",
-      "hex": "#C0C0C0"
+      "title": "ENTOURAGE",
+      "type": "image",
+      "image": "/assets/images/dresscode/boh_gm_fg.png",
+      "description": "We would love to see our groomsmen in black vests with red bow tie, and our best of honor and flower girls in formal dresses with a touch of pink.",
+      "colors": [
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "Burgundy",
+          "hex": "#800020"
+        },
+        {
+          "name": "Pink",
+          "hex": "#FFC0CB"
+        }
+      ]
+    },
+    {
+      "title": "GUEST ATTENDEES",
+      "type": "image",
+      "image": "/assets/images/dresscode/guests.png",
+      "description": "We would love to see our guests in semi-formal attire in burgundy, red, or black to match our celebration theme.",
+      "colors": [
+        {
+          "name": "Burgundy",
+          "hex": "#800020"
+        },
+        {
+          "name": "Red",
+          "hex": "#DC143C"
+        },
+        {
+          "name": "Black",
+          "hex": "#000000"
+        }
+      ]
     }
   ]
 } 

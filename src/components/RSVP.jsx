@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger)
 const RSVP = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-  const emailSketchRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isEntourageModalOpen, setIsEntourageModalOpen] = useState(false)
   const [isGiftRegistryModalOpen, setIsGiftRegistryModalOpen] = useState(false)
@@ -38,24 +37,9 @@ const RSVP = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Pulse animation for email sketch
-    if (emailSketchRef.current) {
-      gsap.to(emailSketchRef.current, {
-        scale: 1.1,
-        opacity: 0.9,
-        duration: 1.5,
-        ease: "power1.inOut",
-        yoyo: true,
-        repeat: -1
-      })
-    }
-
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-      if (emailSketchRef.current) {
-        gsap.killTweensOf(emailSketchRef.current)
-      }
     }
   }, [])
 
@@ -112,11 +96,10 @@ const RSVP = () => {
                         <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
                           Submit your response
                         </span>
-                        <img
-                          src="/assets/images/graphics/email-sketch.png"
-                          alt="Email"
-                          className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-70"
-                        />
+                        <ion-icon 
+                          name="mail-outline" 
+                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                        ></ion-icon>
                       </button>
                     </div>
                     <div className="flex justify-center items-center">
@@ -159,11 +142,10 @@ const RSVP = () => {
                         <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
                           View our entourage
                         </span>
-                        <img
-                          src="/assets/images/graphics/email-sketch.png"
-                          alt="Email"
-                          className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-70"
-                        />
+                        <ion-icon 
+                          name="people-outline" 
+                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                        ></ion-icon>
                       </button>
                     </div>
                     <div className="flex justify-center items-center">
@@ -204,11 +186,10 @@ const RSVP = () => {
                         <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
                           Send a Gift
                         </span>
-                        <img
-                          src="/assets/images/graphics/email-sketch.png"
-                          alt="Email"
-                          className="w-5 h-5 sm:w-6 sm:h-6 object-contain opacity-70"
-                        />
+                        <ion-icon 
+                          name="gift-outline" 
+                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                        ></ion-icon>
                       </button>
                     </div>
                     <div className="flex justify-center items-center">

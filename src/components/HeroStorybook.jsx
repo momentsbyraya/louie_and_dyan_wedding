@@ -84,16 +84,37 @@ const HeroStorybook = () => {
       audioRef.current.pause()
       setIsPlaying(false)
     } else {
+      // Set audio to start at 32 seconds
+      audioRef.current.currentTime = 32
       audioRef.current.play()
       setIsPlaying(true)
     }
   }
 
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
-    >
+    <>
+      <style>{`
+        @keyframes pulse-glow {
+          0%, 100% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+          }
+          50% {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.7));
+          }
+        }
+        .play-icon-pulse {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+        .music-icon-glow {
+          filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7)) drop-shadow(0 0 18px rgba(255, 215, 0, 0.4));
+        }
+      `}</style>
+      <section
+        ref={heroRef}
+        className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
+      >
       {/* Background Image - centered, no zoom */}
       <div 
         className="absolute inset-0 z-0"
@@ -221,7 +242,7 @@ const HeroStorybook = () => {
           </div>
 
           {/* Music Player Icon */}
-          <div className="flex justify-center items-center mt-8 mb-4">
+          <div className="flex flex-col justify-center items-center mt-8 mb-4">
             <button
               onClick={toggleMusic}
               className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center"
@@ -231,20 +252,24 @@ const HeroStorybook = () => {
                 <img 
                   src="/assets/images/graphics/pause-icon.png" 
                   alt="Pause music" 
-                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 music-icon-glow"
                 />
               ) : (
                 <img 
                   src="/assets/images/graphics/play-icon.png" 
                   alt="Play music" 
-                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
+                  className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 play-icon-pulse`}
                 />
               )}
             </button>
+            <div className="text-[#333333] text-xs sm:text-sm md:text-base mt-2 font-albert">
+              {isPlaying ? 'Pause Music' : 'Play Music'}
+            </div>
           </div>
         </div>
       </div>
     </section>
+    </>
   )
 }
 
