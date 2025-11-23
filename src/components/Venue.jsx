@@ -195,7 +195,7 @@ const MapDirections = () => {
                 </p>
                 <div className="flex justify-center mb-4">
                   <a
-                    href={currentVenue.googleMapsUrl}
+                    href="https://maps.app.goo.gl/W8piJmFyB1YaL82i6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cursor-pointer hover:opacity-80 transition-opacity duration-300"
@@ -212,7 +212,7 @@ const MapDirections = () => {
                   <div className="w-4 h-px bg-[#333333] opacity-40"></div>
                   
                   <a
-                    href={currentVenue.googleMapsUrl}
+                    href="https://maps.app.goo.gl/W8piJmFyB1YaL82i6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center hover:opacity-80 transition-all duration-300 group px-4 pb-2 pt-0"
