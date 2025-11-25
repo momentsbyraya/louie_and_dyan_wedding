@@ -21,7 +21,7 @@ const DressCode = () => {
     const posY = Math.random() * 100 // 0% to 100%
     const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
     const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flips
     return {
       backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
       backgroundSize: 'cover',
