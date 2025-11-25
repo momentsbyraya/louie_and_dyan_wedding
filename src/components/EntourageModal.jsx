@@ -8,14 +8,12 @@ const EntourageModal = ({ isOpen, onClose }) => {
   
   if (!isOpen) return null
 
-  const entourageImages = [
-    "/assets/images/entourage/1.png",
-    "/assets/images/entourage/2.png", 
-    "/assets/images/entourage/3.png",
-    "/assets/images/entourage/4.png",
-    "/assets/images/entourage/5.png",
-    "/assets/images/entourage/6.png"
-  ]
+  // Dynamically generate entourage images array
+  // Update this number based on how many entourage photos exist
+  const ENTOURAGE_COUNT = 3
+  const entourageImages = Array.from({ length: ENTOURAGE_COUNT }, (_, i) => 
+    `/assets/images/entourage/${i + 1}.png`
+  )
 
   const openImageViewer = (index) => {
     setSelectedImageIndex(index)
@@ -89,9 +87,9 @@ const EntourageModal = ({ isOpen, onClose }) => {
             {/* Previous Button */}
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors duration-200"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-colors duration-200"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6 text-[#5C4033]" />
             </button>
             
             {/* Image */}
@@ -104,9 +102,9 @@ const EntourageModal = ({ isOpen, onClose }) => {
             {/* Next Button */}
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors duration-200"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 p-2 rounded-full transition-colors duration-200"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-6 h-6 text-[#5C4033]" />
             </button>
             
             {/* Close Button */}
