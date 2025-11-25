@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { getTimeUntilWedding } from '../utils/countdown'
-import Hero from './Hero'
 import HeroStorybook from './HeroStorybook'
 import Paragraph from './Paragraph'
-import Calendar from './Calendar'
 import Counter from './Counter'
-import PhotoSection from './PhotoSection'
 import Schedule from './Schedule'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
-import Gallery from './Gallery'
-import FAQ from './FAQ'
 import MapDirections from './Venue'
-import GiftRegistry from './GiftRegistry'
 import RSVP from './RSVP'
 import Footer from './Footer'
 import EnhancedLazySection from './EnhancedLazySection'
-import { images } from '../data'
-import { weddingConfig } from '../config/weddingConfig'
 
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -48,8 +40,6 @@ const WeddingInvitation = () => {
           <LoveStory />
         </EnhancedLazySection>
         
-      
-        
         {/* Wedding Details - Save the Date */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
           <Counter countdown={countdown} />
@@ -76,29 +66,9 @@ const WeddingInvitation = () => {
         </EnhancedLazySection>
 
         {/* Paragraph Section */}
-          <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="paragraph">
           <Paragraph />
         </EnhancedLazySection>
-
-        {/* Couple Photo Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="couple-photo">
-          <PhotoSection 
-            imagePath={images.couple.couple1}
-            title={weddingConfig.couple.together}
-            subtitle=""
-            textPosition="bottom"
-          />
-        </EnhancedLazySection> */}
-
-        {/* Gallery Section */}
-        {/* <EnhancedLazySection animationClass="fade-scale" sectionName="gallery">
-          <Gallery />
-        </EnhancedLazySection> */}
-        
-        {/* FAQ Section */}
-        {/* <EnhancedLazySection animationClass="fade-slide-right" sectionName="faq">
-          <FAQ />
-        </EnhancedLazySection> */}
         
         {/* Footer */}
         <Footer />
