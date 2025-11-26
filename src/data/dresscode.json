@@ -45,6 +45,22 @@
       ]
     },
     {
+      "title": "GROOMSMEN",
+      "type": "image",
+      "image": "/assets/images/dresscode/groomesmen.png",
+      "description": "We would love to see our groomsmen in black vest and red bowtie.",
+      "colors": [
+        {
+          "name": "Black",
+          "hex": "#000000"
+        },
+        {
+          "name": "Red",
+          "hex": "#DC143C"
+        }
+      ]
+    },
+    {
       "title": "MAID OF HONOR AND<br>FLOWER GIRLS",
       "type": "image",
       "image": "/assets/images/dresscode/moh-flowergirls.png",
@@ -55,6 +71,18 @@
           "hex": "#FFC0CB"
         }
       
+      ]
+    },
+    {
+      "title": "BRIDESMAIDS",
+      "type": "image",
+      "image": "/assets/images/dresscode/bridesmaid.png",
+      "description": "We would love to see our bridesmaids in burgundy red dress of their choice.",
+      "colors": [
+        {
+          "name": "Burgundy",
+          "hex": "#800020"
+        }
       ]
     },
     {
