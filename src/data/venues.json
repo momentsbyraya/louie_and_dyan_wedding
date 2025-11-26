@@ -2,7 +2,7 @@
   "ceremony": {
     "name": "Villa Juanita",
     "address": "F3J6+MGV, Dir. A. Bunye",
-    "city": "Taguig",
+    "city": "Bagumbayan,  Taguig",
     "state": "Kalakhang Maynila",
     "zip": "",
     "time": "5:00 PM",
@@ -13,11 +13,12 @@
   "reception": {
     "name": "Villa Juanita",
     "address": "F3J6+MGV, Dir. A. Bunye",
-    "city": "Taguig",
+    "city": "Bagumbayan, Taguig",
     "state": "Kalakhang Maynila",
     "zip": "",
     "time": "6:00 PM",
     "details": "Elegant hotel reception. Cocktail attire requested.",
+    "landmark": "7/11, Near Flying V Gas Station",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila",
     "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila&travelmode=driving"
   }

@@ -193,6 +193,11 @@ const MapDirections = () => {
                 <p className="text-base sm:text-lg font-albert font-thin text-[#333333] mb-3 max-w-md mx-auto">
                   {currentVenue.address}, {currentVenue.city}, {currentVenue.state} {currentVenue.zip}
                 </p>
+                {currentVenue.landmark && (
+                  <p className="text-sm sm:text-base font-albert font-thin text-[#333333] mb-3 max-w-md mx-auto">
+                    Nearest Landmark: {currentVenue.landmark}
+                  </p>
+                )}
                 <div className="flex justify-center mb-4">
                   <a
                     href="https://maps.app.goo.gl/W8piJmFyB1YaL82i6"

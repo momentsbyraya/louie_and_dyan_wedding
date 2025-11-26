@@ -25,18 +25,18 @@
       ]
     },
     {
-      "title": "ENTOURAGE",
+      "title": "BEST MAN",
       "type": "image",
-      "image": "/assets/images/dresscode/boh_gm_fg.png",
-      "description": "We would love to see our groomsmen in black vests with red bow tie, and our best of honor and flower girls in formal dresses with a touch of pink.",
+      "image": "/assets/images/dresscode/bestman.png",
+      "description": "We would love to see our best man in black or blue coat with pink tie.",
       "colors": [
         {
           "name": "Black",
           "hex": "#000000"
         },
         {
-          "name": "Burgundy",
-          "hex": "#800020"
+          "name": "Blue",
+          "hex": "#1E3A8A"
         },
         {
           "name": "Pink",
@@ -45,19 +45,29 @@
       ]
     },
     {
+      "title": "MAID OF HONOR AND<br>FLOWER GIRLS",
+      "type": "image",
+      "image": "/assets/images/dresscode/moh-flowergirls.png",
+      "description": "We would love to see our maid of honor and flower girls in formal dresses with a touch of pink.",
+      "colors": [
+        {
+          "name": "Pink",
+          "hex": "#FFC0CB"
+        }
+      
+      ]
+    },
+    {
       "title": "GUEST ATTENDEES",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "We would love to see our guests in semi-formal attire in burgundy, red, or black to match our celebration theme.",
+      "description": "We would love to see our guests in semi-formal attire in burgundy red, or black to match our celebration theme.",
       "colors": [
         {
           "name": "Burgundy",
           "hex": "#800020"
         },
-        {
-          "name": "Red",
-          "hex": "#DC143C"
-        },
+    
         {
           "name": "Black",
           "hex": "#000000"

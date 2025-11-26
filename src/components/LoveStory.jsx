@@ -117,13 +117,16 @@ const LoveStory = () => {
           {/* Love Story Content */}
           <div ref={storyRef} className="text-left mb-12">
             <p className="alice-regular font-black text-[#333333] leading-relaxed" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
-              <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>C</span>ollege classmates that turn into lovers.
+              <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>T</span>wo college classmates crossed paths,
               <br />
-              The groom is the athlete, fun and active.
+              He was the athlete—always moving, laughing, and ready to play.
               <br />
-              The bride is the opposite way around, quiet, studious and introvert.
+              She was the scholar—quiet, shy, and happy in her own peaceful world.
               <br />
-              5 years of love and growth together.
+              <br />
+              Even so, they became a perfect pair.
+              <br />
+              Five years later, their love is stronger than ever.
             </p>
           </div>
         </div>
@@ -135,7 +138,7 @@ const LoveStory = () => {
           src="/assets/images/graphics/castle-2.png" 
           alt="Castle illustration" 
           className="h-auto opacity-60"
-          style={{ maxWidth: '400px', maxHeight: '100%' }}
+          style={{ maxWidth: '350px', maxHeight: '100%' }}
         />
       </div>
     </section>

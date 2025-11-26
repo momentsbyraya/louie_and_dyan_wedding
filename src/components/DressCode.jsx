@@ -148,9 +148,10 @@ const DressCode = () => {
             {dresscode.sections && dresscode.sections.map((section, sectionIndex) => (
               <div key={sectionIndex} className="text-center">
                 {/* Section Title */}
-                <h3 className="text-lg sm:text-xl md:text-2xl font-albert font-bold text-[#333333] mb-4 tracking-wider">
-                  {section.title}
-                </h3>
+                <h3 
+                  className="text-lg sm:text-xl md:text-2xl font-albert font-bold text-[#333333] mb-4 tracking-wider"
+                  dangerouslySetInnerHTML={{ __html: section.title }}
+                />
                 
                 {/* Description */}
                 {section.description && (
