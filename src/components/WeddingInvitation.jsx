@@ -5,6 +5,7 @@ import HeroStorybook from './HeroStorybook'
 import MusicPlayer from './MusicPlayer'
 import Paragraph from './Paragraph'
 import Counter from './Counter'
+import Gallery from './Gallery'
 import Schedule from './Schedule'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
@@ -36,8 +37,8 @@ const WeddingInvitation = () => {
         {/* Hero Section - Always visible */}
         <section className='h-full'><HeroStorybook /></section>
         
-        {/* Music Player Section */}
-        <MusicPlayer />
+        {/* Music Player Section - Hidden for now */}
+        {/* <MusicPlayer /> */}
         
         {/* Love Story Section */}
         <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
@@ -47,6 +48,11 @@ const WeddingInvitation = () => {
         {/* Wedding Details - Save the Date */}
         <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
           <Counter countdown={countdown} />
+        </EnhancedLazySection>
+        
+        {/* Gallery Section */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="gallery">
+          <Gallery />
         </EnhancedLazySection>
         
         {/* Venue Section */}

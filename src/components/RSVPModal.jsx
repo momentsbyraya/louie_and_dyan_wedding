@@ -91,7 +91,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         {/* Google Forms iframe */}
         <div className="p-6">
           <iframe 
-            src="https://forms.gle/NKcLUkRM34mhv4BQ6" 
+            src="https://forms.gle/7y9Sg98KsyhMe5CN6" 
             width="100%" 
             height="600" 
             frameBorder="0" 

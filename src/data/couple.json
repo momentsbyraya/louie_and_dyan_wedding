@@ -1,15 +1,15 @@
 {
   "bride": {
-    "firstName": "Mikaela",
-    "lastName": "Odevilas",
-    "fullName": "Mikaela Denile Mendez Odevilas"
+    "firstName": "Sarah",
+    "lastName": "",
+    "fullName": "Sarah"
   },
   "groom": {
-    "firstName": "Evander",
-    "lastName": "Rafael",
-    "fullName": "Evander Carable Rafael"
+    "firstName": "Michael",
+    "lastName": "",
+    "fullName": "Michael"
   },
-  "together": "Mikaela & Evander",
+  "together": "Sarah & Michael",
   "wedding": {
     "date": "2026-01-04",
     "time": "5:00 PM",

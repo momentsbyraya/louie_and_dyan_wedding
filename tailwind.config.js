@@ -48,6 +48,7 @@ export default {
         'serif': ['Playfair Display', 'serif'],
         'sans': ['Inter', 'sans-serif'],
         'script': ['Great Vibes', 'cursive'],
+        'antsvalley': ['Great Vibes', 'cursive'], // Using Great Vibes as fallback for antsvalley
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
