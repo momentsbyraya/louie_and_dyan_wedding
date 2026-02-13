@@ -10,11 +10,11 @@ const HeroStorybook = () => {
   // Background style - centered, no zoom
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
+      backgroundImage: 'url(/assets/images/prenup/image-1.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      opacity: 0.75
+      opacity: 1
     }
   }, [])
 
@@ -25,7 +25,7 @@ const HeroStorybook = () => {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      opacity: 0.5
+      opacity: 0.2
     }
   }, [])
 
@@ -66,7 +66,7 @@ const HeroStorybook = () => {
     <>
       <section
         ref={heroRef}
-        className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
+        className="relative h-screen w-full overflow-hidden flex flex-col items-center py-8 px-4"
       >
       {/* Background Image - centered, no zoom */}
       <div 
@@ -84,114 +84,95 @@ const HeroStorybook = () => {
         src="/assets/images/graphics/corner border.svg" 
         alt="Corner border" 
         className="absolute top-0 left-0 z-10 object-contain"
-        style={{ width: '25vh', height: '25vh', minWidth: '120px', minHeight: '120px', maxWidth: '300px', maxHeight: '300px', transform: 'rotate(90deg) scaleY(-1)' }}
+        style={{ width: '18vh', height: '18vh', minWidth: '80px', minHeight: '80px', maxWidth: '200px', maxHeight: '200px', transform: 'rotate(90deg) scaleY(-1)' }}
       />
       <img 
         src="/assets/images/graphics/corner border.svg" 
         alt="Corner border" 
         className="absolute top-0 right-0 z-10 object-contain transform rotate-90"
-        style={{ width: '25vh', height: '25vh', minWidth: '120px', minHeight: '120px', maxWidth: '300px', maxHeight: '300px' }}
+        style={{ width: '18vh', height: '18vh', minWidth: '80px', minHeight: '80px', maxWidth: '200px', maxHeight: '200px' }}
       />
       <img 
         src="/assets/images/graphics/corner border.svg" 
         alt="Corner border" 
         className="absolute bottom-0 left-0 z-10 object-contain transform -rotate-90"
-        style={{ width: '25vh', height: '25vh', minWidth: '120px', minHeight: '120px', maxWidth: '300px', maxHeight: '300px' }}
+        style={{ width: '18vh', height: '18vh', minWidth: '80px', minHeight: '80px', maxWidth: '200px', maxHeight: '200px' }}
       />
       <img 
         src="/assets/images/graphics/corner border.svg" 
         alt="Corner border" 
         className="absolute bottom-0 right-0 z-10 object-contain transform rotate-180"
-        style={{ width: '25vh', height: '25vh', minWidth: '120px', minHeight: '120px', maxWidth: '300px', maxHeight: '300px' }}
+        style={{ width: '18vh', height: '18vh', minWidth: '80px', minHeight: '80px', maxWidth: '200px', maxHeight: '200px' }}
       />
       
       {/* Invitation Card Container */}
       <div 
         ref={contentRef} 
-        className="relative z-10 max-w-2xl w-full px-8 py-12 sm:px-12 sm:py-16"
+        className="relative z-10 max-w-2xl w-full px-8 sm:px-12 py-12 sm:py-16 h-full flex items-center"
       >
         {/* Main Content */}
-        <div className="relative z-10 text-center">
-          {/* "A NEW CHAPTER WILL SOON BEGIN" - Top Header */}
-          <div className="mb-4 sm:mb-6">
-            <div className="text-[#333333] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
-              <div className="text-sm sm:text-base md:text-lg font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>A NEW</div>
-              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>CHAPTER</div>
-              <div className="text-[10px] sm:text-xs md:text-sm" style={{ lineHeight: '1.1' }}>WILL SOON BEGIN</div>
+        <div className="relative z-10 flex flex-col justify-between h-full text-center">
+          {/* Group 1: Top Paragraph, Name, and Date */}
+          <div>
+            {/* "You are INVITED to the wedding of" - Top Header */}
+            <div className="mb-4 sm:mb-6">
+              <div className="text-[#333333] alice-regular font-bold text-xs sm:text-sm md:text-base tracking-widest leading-none">
+                <div className="text-sm sm:text-base md:text-lg font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>You are</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black" style={{ fontWeight: 900, lineHeight: '1.1' }}>INVITED</div>
+                <div className="text-[10px] sm:text-xs md:text-sm" style={{ lineHeight: '1.1' }}>to the wedding of</div>
+              </div>
             </div>
-          </div>
 
-          {/* "Once upon Atime..." - Main Title with Drop Caps */}
-          <div className="mb-6 sm:mb-8">
-            <h1 className="text-[#333333] font-caribbean text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
-              <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] leading-none inline-block" style={{ lineHeight: '0.8' }}>O</span>
-              <span className="inline-block">nce upon</span>
-              <br />
-              <span className="inline-block" style={{ paddingLeft: '2rem' }}>
-                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>A</span>
-                <span className="inline-block">time...</span>
-              </span>
-            </h1>
-          </div>
-
-          {/* Story Paragraph with Drop Cap */}
-          <div className="mb-6 sm:mb-8 text-center max-w-xl mx-auto">
-            <p className="text-[#333333] crimson-text-regular text-sm sm:text-base md:text-lg leading-relaxed" style={{ textIndent: '0', overflow: 'hidden' }}>
-              <span className="text-4xl sm:text-5xl md:text-6xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '0' }}>I</span>
-              <span>n a kingdom not so far away, <br /> a story was planned <br /> for two hearts becoming one.</span>
-            </p>
-          </div>
-
-          {/* Couple Names - Script Font */}
-          <div className="mb-6 sm:mb-8">
-            <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
-              <span className="text-[#333333] fleur-de-leah-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                {weddingConfig.couple.bride.firstName}
-              </span>
-              <span className="text-[#333333] font-lavishly text-xl sm:text-2xl md:text-3xl">
-                and
-              </span>
-              <span className="text-[#333333] fleur-de-leah-regular text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                {weddingConfig.couple.groom.firstName}
-              </span>
+            {/* "NILON & DAY" - Main Title with Drop Caps */}
+            <div className="mb-6 sm:mb-8">
+              <h1 className="text-[#333333] font-gilliequest text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center uppercase">
+                <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>N</span>
+                <span className="inline-block">ILON</span>
+                <span className="inline-block mx-2">&</span>
+                <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>D</span>
+                <span className="inline-block">AY</span>
+              </h1>
             </div>
-          </div>
 
-          {/* Date and Time */}
-          <div className="mb-2 sm:mb-3">
-            {/* Month - Centered */}
-            <div className="text-[#333333] alice-regular font-bold text-base sm:text-lg md:text-xl tracking-wider text-center">
-              {dateInfo.month}
-            </div>
-            {/* Day of Week, Day Number, and Time */}
-            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-md mx-auto">
-              {/* Day of Week - Left with lines */}
-              <div className="flex flex-col items-center">
-                <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mb-0"></div>
-                <div className="text-[#333333] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
-                  {dateInfo.dayOfWeek}
+            {/* Date and Time */}
+            <div className="mb-2 sm:mb-3">
+              {/* Month - Centered */}
+              <div className="text-[#333333] alice-regular font-bold text-base sm:text-lg md:text-xl tracking-wider text-center">
+                {dateInfo.month}
+              </div>
+              {/* Day of Week, Day Number, and Time */}
+              <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 max-w-md mx-auto">
+                {/* Day of Week - Left with lines */}
+                <div className="flex flex-col items-center">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mb-0"></div>
+                  <div className="text-[#333333] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                    {dateInfo.dayOfWeek}
+                  </div>
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mt-0"></div>
                 </div>
-                <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mt-0"></div>
-              </div>
-              {/* Day Number - Large and Centered */}
-              <div className="text-[#333333] alice-regular font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-                {dateInfo.day}
-              </div>
-              {/* Time - Right with lines */}
-              <div className="flex flex-col items-center">
-                <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mb-0"></div>
-                <div className="text-[#333333] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
-                  {venue.time.replace(/\s/g, '').toUpperCase()}
+                {/* Day Number - Large and Centered */}
+                <div className="text-[#333333] alice-regular font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+                  {dateInfo.day}
                 </div>
-                <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mt-0"></div>
+                {/* Time - Right with lines */}
+                <div className="flex flex-col items-center">
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mb-0"></div>
+                  <div className="text-[#333333] alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider">
+                    {venue.time.replace(/\s/g, '').toUpperCase()}
+                  </div>
+                  <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-px bg-[#333333] mt-0"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Venue Location */}
-          <div className="text-center max-w-md mx-auto text-[#333333] crimson-text-regular text-xs sm:text-sm md:text-base space-y-1 mb-6">
-            <div className="font-bold">{venue.name}</div>
-            <div>{venue.address}, {venue.city}, {venue.state} {venue.zip}</div>
+          {/* Group 2: Venue */}
+          <div>
+            {/* Venue Location */}
+            <div className="text-center max-w-md mx-auto text-[#333333] crimson-text-regular text-xs sm:text-sm md:text-base space-y-1 mb-6">
+              <div className="font-bold">{venue.name}</div>
+              <div>{venue.address}, {venue.city}, {venue.state} {venue.zip}</div>
+            </div>
           </div>
         </div>
       </div>

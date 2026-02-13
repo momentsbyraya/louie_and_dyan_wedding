@@ -14,35 +14,14 @@ const Counter = ({ countdown }) => {
   const countdownRef = useRef(null)
   const dateTimeRef = useRef(null)
 
-  // Random background position, rotation, and flip - Base layer (old-book-2)
-  const bgStyleBase = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.75
-    }
-  }, [])
-
-  // Random background position, rotation, and flip - Top layer (old-book-bg)
+  // Background using prenup image
   const bgStyle = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
     return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
+      backgroundImage: 'url(/assets/images/prenup/image-1.jpg)',
       backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.5
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      opacity: 0.4
     }
   }, [])
 
@@ -95,41 +74,20 @@ const Counter = ({ countdown }) => {
       id="details"
       className="relative py-20 w-full overflow-hidden"
     >
-      {/* Background Image - Base layer (old-book-2) */}
+      {/* Background Image - Prenup image */}
       <div 
-        className="absolute bg-no-repeat"
-        style={{
-          ...bgStyleBase,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
-        }}
+        className="absolute inset-0 bg-no-repeat"
+        style={bgStyle}
       />
-      {/* Background Image - Top layer (old-book-bg) */}
-      <div 
-        className="absolute bg-no-repeat"
-        style={{
-          ...bgStyle,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
-        }}
-      />
-      
-      {/* Soft white gradient overlays for transitions */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10" />
       
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">
         <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16">
           {/* Header Section */}
           <div className="text-center">
-            <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#333333] mb-3 font-caribbean">
+            <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>S</span>
-              <span className="inline-block">ave</span> the Date
+              <span className="inline-block">AVE</span> THE DATE
             </h2>
             <div ref={countdownRef}>
               <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">

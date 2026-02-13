@@ -35,7 +35,7 @@ function copyAssetsPlugin() {
 export default defineConfig({
   plugins: [react(), copyAssetsPlugin()],
   server: {
-    port: 3000,
+    port: 3001,
     open: true
   },
   build: {

@@ -3,12 +3,12 @@ import './App.css'
 import WeddingInvitation from './components/WeddingInvitation'
 import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
-import OpeningScreen from './components/OpeningScreen'
+// import OpeningScreen from './components/OpeningScreen'
 import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showInvitation, setShowInvitation] = useState(false)
+  const [showInvitation, setShowInvitation] = useState(true) // Set to true since opening screen is commented out
   const audioRef = useRef(null)
   const START_OFFSET = 32 // Audio starts at 32 seconds
 
@@ -43,9 +43,9 @@ function App() {
   return (
     <div className="App min-h-screen wedding-gradient">
       <DynamicTitle />
-      {!showInvitation && (
+      {/* {!showInvitation && (
         <OpeningScreen onEnvelopeOpen={handleEnvelopeOpen} />
-      )}
+      )} */}
       {showInvitation && (
         <WeddingInvitation onOpenRSVP={() => setIsRSVPModalOpen(true)} />
       )}

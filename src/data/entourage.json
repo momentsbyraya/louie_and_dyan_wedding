@@ -1,58 +1,129 @@
 {
+  "parents": {
+    "groom": {
+      "father": "John Nilon",
+      "mother": "Mary Nilon"
+    },
+    "bride": {
+      "father": "Robert Day",
+      "mother": "Elizabeth Day"
+    }
+  },
   "entourageList": [
     {
-      "category": "Principal Sponsors (Godparents)",
-      "names": [
-        "Lorna Alvarada",
-        "Margarita Perez",
+      "category": "Principal Sponsors",
+      "ninong": [
         "Pedro Fernandez",
         "Richard Sanchez",
         "Teddy Yu",
-        "Jamie Chastain",
+        "Jamie Chastain"
+      ],
+      "ninang": [
+        "Lorna Alvarada",
+        "Margarita Perez",
         "Dani Martinez",
-        "Isabel Mercado"
+        "Isabel Mercado",
+        "Sarah Johnson"
+      ]
+    },
+    {
+      "category": "Bestman",
+      "names": [
+        "Morgan Maxwell",
+        "Jonathan Patterson"
+      ]
+    },
+    {
+      "category": "Maid of Honor",
+      "names": [
+        "Kimberly Nguyen",
+        "Juliana Silva"
       ]
     },
     {
       "category": "Secondary Sponsors",
+      "groomsmen": [
+        "Howard Ong",
+        "James Thompson",
+        "David Wilson",
+        "Robert Lee",
+        "Michael Chen",
+        "Daniel Park"
+      ],
+      "bridesmaid": [
+        "Chiaki Sato",
+        "Lars Peeters",
+        "Harper Russo",
+        "Helene Paquet",
+        "Emma Watson",
+        "Sophia Brown"
+      ]
+    },
+    {
+      "category": "Candle Sponsors",
       "names": [
         "Hannah Morales",
-        "Yael Amari",
+        "Yael Amari"
+      ]
+    },
+    {
+      "category": "Veil Sponsors",
+      "names": [
         "Francisco Andrade",
-        "Sebastian Bennett",
+        "Sebastian Bennett"
+      ]
+    },
+    {
+      "category": "Cord Sponsors",
+      "names": [
         "Noah Schumacher",
         "Chiaki Sato"
       ]
     },
     {
-      "category": "Groomsmen",
+      "category": "Bible Bearer",
       "names": [
-        "Morgan Maxwell",
-        "Jonathan Patterson",
-        "Howard Ong",
-        "James Thompson",
-        "David Wilson",
-        "Robert Lee"
-      ]
-    },
-    {
-      "category": "Bridesmaids",
-      "names": [
-        "Kimberly Nguyen",
-        "Chiaki Sato",
-        "Juliana Silva",
-        "Lars Peeters",
-        "Harper Russo",
-        "Helene Paquet"
+        "Alex Thompson"
       ]
     },
     {
       "category": "Ring Bearer",
-      "names": ["Taylor Alonso"]
+      "names": [
+        "Taylor Alonso"
+      ]
     },
     {
-      "category": "Flower Girl",
-      "names": ["Henrietta Mitchell"]
+      "category": "Coin Bearer",
+      "names": [
+        "Lucas Martinez"
+      ]
+    },
+    {
+      "category": "Flower Boys",
+      "names": [
+        "Ethan Wilson",
+        "Oliver Davis"
+      ]
+    },
+    {
+      "category": "Junior Flower Girls",
+      "names": [
+        "Emma Johnson",
+        "Sophia Williams"
+      ]
+    },
+    {
+      "category": "Little Flower Girls",
+      "names": [
+        "Henrietta Mitchell",
+        "Lily Anderson"
+      ]
+    },
+    {
+      "category": "Here comes the bride",
+      "names": [
+        "Grace Miller"
+      ]
     }
   ]
-} 
+}

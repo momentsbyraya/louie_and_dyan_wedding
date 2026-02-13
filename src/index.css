@@ -104,6 +104,24 @@
   font-display: swap;
 }
 
+/* Custom Font - Foglihten */
+@font-face {
+  font-family: 'Foglihten';
+  src: url('/assets/fonts/Foglihtenno06-VyZB.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - GillieQuest */
+@font-face {
+  font-family: 'GillieQuest';
+  src: url('/assets/fonts/GillieQuestRegular-E4Y3W.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -372,6 +390,26 @@ body {
     font-weight: normal !important;
     font-style: normal !important;
     letter-spacing: 0.02em;
+  }
+  
+  /* Foglihten font */
+  .font-foglihten,
+  h1.font-foglihten,
+  h1.font-foglihten span,
+  .font-foglihten * {
+    font-family: 'Foglihten', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+  }
+  
+  /* GillieQuest font */
+  .font-gilliequest,
+  h1.font-gilliequest,
+  h1.font-gilliequest span,
+  .font-gilliequest * {
+    font-family: 'GillieQuest', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
   }
   
   .soft-edges img {

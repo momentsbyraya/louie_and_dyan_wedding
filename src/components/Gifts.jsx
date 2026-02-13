@@ -3,18 +3,15 @@ import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { X, Building, CreditCard, Smartphone } from 'lucide-react'
-import RSVPModal from './RSVPModal'
 import { paymentMethods as paymentMethodsData } from '../data'
 import { themeConfig } from '../config/themeConfig'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
-const RSVP = () => {
+const Gifts = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
-  const giftsContentRef = useRef(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isGiftRegistryModalOpen, setIsGiftRegistryModalOpen] = useState(false)
 
   const { paymentMethods } = paymentMethodsData
@@ -36,108 +33,28 @@ const RSVP = () => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
-    // Gifts content animation
-    if (giftsContentRef.current) {
-      tl.fromTo(giftsContentRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-        "-=0.4"
-      )
-    }
-
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
 
-  const openRSVPModal = () => {
-    setIsModalOpen(true)
-  }
-
-
   return (
     <>
       <section
         ref={sectionRef}
-        className="relative pt-4 pb-20 w-full overflow-hidden"
+        className="relative pt-4 pb-20 w-full overflow-hidden min-h-[500px]"
       >
-        {/* Background Image - Flower bg */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/assets/images/graphics/flower-bg.png)',
-            opacity: 0.4,
-            width: '100vw',
-            left: '50%',
-            marginLeft: '-50vw'
-          }}
-        />
-
-        {/* Gold Border - Top */}
-        <div 
-          className="absolute top-0 left-0 right-0 z-20"
-          style={{
-            height: '6px',
-            backgroundColor: '#edb030',
-            width: '100vw',
-            left: '50%',
-            marginLeft: '-50vw'
-          }}
-        />
-
-        {/* Gold Border - Bottom */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 z-20"
-          style={{
-            height: '6px',
-            backgroundColor: '#edb030',
-            width: '100vw',
-            left: '50%',
-            marginLeft: '-50vw'
-          }}
-        />
+        {/* Background Image - Removed */}
 
         {/* Content */}
-        <div className="relative z-20 flex items-center justify-center">
+        <div className="relative z-20 flex items-center justify-center min-h-[500px]">
           <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
-            <div ref={contentRef} className="flex flex-col items-center justify-center w-full">
-
-              {/* RSVP Section - Matching Entourage Layout */}
-              <div className="w-full mb-12">
-                <div className="text-center">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 pt-16 sm:pt-20 md:pt-24 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>R</span>
-                    <span className="inline-block">SVP</span>
-                  </h2>
-                  <div>
-                    <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
-                      Kindly answer the RSVP. Let us know if you'll be joining us for our celebration.
-                    </p>
-                    {/* Submit Response Button */}
-                    <div className="flex justify-center items-center mt-6">
-                      <button
-                        onClick={openRSVPModal}
-                        className="flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-[#edb030] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                        style={{ borderRadius: '25px', outline: '2px solid #edb030', outlineOffset: '4px' }}
-                      >
-                        <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
-                          Submit your response
-                        </span>
-                        <ion-icon 
-                          name="mail-outline" 
-                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
-                        ></ion-icon>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+            <div ref={contentRef} className="flex flex-col items-center w-full">
               {/* Gift Registry Section */}
-              <div ref={giftsContentRef} className="w-full">
+              <div className="w-full">
                 <div className="text-center">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 pt-8 sm:pt-12 md:pt-16 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>G</span>
                     <span className="inline-block">IFTS</span>
                   </h2>
@@ -168,12 +85,6 @@ const RSVP = () => {
           </div>
         </div>
       </section>
-
-      {/* RSVP Modal */}
-      <RSVPModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
 
       {/* Gift Registry Modal */}
       {isGiftRegistryModalOpen && createPortal(
@@ -264,4 +175,4 @@ const RSVP = () => {
   )
 }
 
-export default RSVP
+export default Gifts

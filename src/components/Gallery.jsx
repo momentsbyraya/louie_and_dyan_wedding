@@ -53,24 +53,17 @@ const Gallery = () => {
   return (
     <section 
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden min-h-screen md:min-h-0 ${themeConfig.paragraph.background}`}
+      className="relative pb-20 w-full overflow-hidden"
+      style={{ backgroundColor: 'transparent' }}
     >
-      {/* Background Image with reduced opacity */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/calligraphy-bg.png)',
-          opacity: 0.15
-        }}
-      />
-      
       {/* Content */}
-      <div className="relative z-20 flex items-center justify-center py-12">
+      <div className="relative z-20 flex items-center justify-center">
         <div className="max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
-          <div ref={headerRef} className="text-center mb-12">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] font-lavishly italic">
-              Our Moments
+          <div ref={headerRef} className="text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-12 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>O</span>
+              <span className="inline-block">UR</span> MOMENTS
             </h2>
           </div>
 

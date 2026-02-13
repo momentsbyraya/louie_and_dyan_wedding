@@ -5,9 +5,9 @@
   },
   "sections": [
     {
-      "title": "PARENTS AND PRINCIPAL SPONSORS",
+      "title": "SPONSORS",
       "type": "image",
-      "image": "/assets/images/dresscode/parents_sponsors.png",
+      "image": "/assets/images/dresscode/orange.png",
       "description": "We would love to see our parents and principal sponsors in barong and filipiniana.",
       "colors": [
         {
@@ -25,77 +25,15 @@
       ]
     },
     {
-      "title": "BEST MAN",
+      "title": "GUESTS",
       "type": "image",
-      "image": "/assets/images/dresscode/bestman.png",
-      "description": "We would love to see our best man in black or blue coat with pink tie.",
-      "colors": [
-        {
-          "name": "Black",
-          "hex": "#000000"
-        },
-        {
-          "name": "Blue",
-          "hex": "#1E3A8A"
-        },
-        {
-          "name": "Pink",
-          "hex": "#FFC0CB"
-        }
-      ]
-    },
-    {
-      "title": "GROOMSMEN",
-      "type": "image",
-      "image": "/assets/images/dresscode/groomesmen.png",
-      "description": "We would love to see our groomsmen in black vest and red bowtie.",
-      "colors": [
-        {
-          "name": "Black",
-          "hex": "#000000"
-        },
-        {
-          "name": "Red",
-          "hex": "#DC143C"
-        }
-      ]
-    },
-    {
-      "title": "MAID OF HONOR AND<br>FLOWER GIRLS",
-      "type": "image",
-      "image": "/assets/images/dresscode/moh-flowergirls.png",
-      "description": "We would love to see our maid of honor and flower girls in formal dresses with a touch of pink.",
-      "colors": [
-        {
-          "name": "Pink",
-          "hex": "#FFC0CB"
-        }
-      
-      ]
-    },
-    {
-      "title": "BRIDESMAIDS",
-      "type": "image",
-      "image": "/assets/images/dresscode/bridesmaid.png",
-      "description": "We would love to see our bridesmaids in burgundy red dress of their choice.",
-      "colors": [
-        {
-          "name": "Burgundy",
-          "hex": "#800020"
-        }
-      ]
-    },
-    {
-      "title": "GUEST ATTENDEES",
-      "type": "image",
-      "image": "/assets/images/dresscode/guests.png",
+      "image": "/assets/images/dresscode/guest.png",
       "description": "We would love to see our guests in semi-formal attire in burgundy red, or black to match our celebration theme.",
       "colors": [
         {
           "name": "Burgundy",
           "hex": "#800020"
         },
-    
         {
           "name": "Black",
           "hex": "#000000"
