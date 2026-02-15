@@ -61,6 +61,14 @@ const Gallery = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
           <div ref={headerRef} className="text-center">
+            {/* Gold Flower */}
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/assets/images/graphics/gold flower.png" 
+                alt="Gold flower decoration" 
+                className="w-16 sm:w-20 md:w-24 h-auto"
+              />
+            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-12 font-gilliequest uppercase" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
               <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>O</span>
               <span className="inline-block">UR</span> MOMENTS

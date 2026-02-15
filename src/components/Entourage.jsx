@@ -447,11 +447,11 @@ const Entourage = () => {
 
         {/* Gold Banner - Top */}
         <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
-          <img 
+            <img 
             src="/assets/images/graphics/gold-banner.png" 
-            alt="Decorative graphic"
+              alt="Decorative graphic"
             className="w-full h-auto"
-          />
+            />
         </div>
 
         {/* Gold Flower Snow Effect */}
@@ -714,11 +714,11 @@ const Entourage = () => {
 
         {/* Gold Banner - Bottom (Flipped Vertically) */}
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
-          <img 
+            <img 
             src="/assets/images/graphics/gold-banner.png" 
-            alt="Decorative graphic"
+              alt="Decorative graphic"
             className="w-full h-auto scale-y-[-1]"
-          />
+            />
         </div>
 
     </section>

@@ -17,7 +17,7 @@ const Counter = ({ countdown }) => {
   // Background using prenup image
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: 'url(/assets/images/prenup/image-1.jpg)',
+      backgroundImage: 'url(/assets/images/prenup/faq-bg.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -93,72 +93,38 @@ const Counter = ({ countdown }) => {
               <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
                 Mark your calendar for<br />our special day
               </p>
-              <div className="flex justify-center items-center">
-                {/* Left horizontal line */}
-                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-                
-                <img 
-                  src="/assets/images/graphics/graphics-1.svg" 
-                  alt="Decorative graphic" 
-                  className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-                />
-                
-                {/* Right horizontal line */}
-                <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-              </div>
             </div>
           </div>
 
           {/* Countdown Timer */}
-          <div className="flex justify-center items-center space-x-3 px-4 mt-8">
+          <div className="flex flex-col justify-center items-center space-y-4 px-4 mt-16 sm:mt-20 md:mt-24 lg:mt-28">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
                 {countdown.days}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Days</div>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
-            
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
                 {countdown.hours}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Hours</div>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
-            
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
                 {countdown.minutes}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Minutes</div>
             </div>
             
-            <div className="text-2xl sm:text-3xl md:text-4xl font-albert font-thin text-[#333333]">:</div>
-            
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl imperial-script-regular text-[#333333] mb-1 countdown-number not-italic">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
                 {countdown.seconds}
               </div>
               <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Seconds</div>
             </div>
-          </div>
-          
-          {/* Duplicated SVG with horizontal lines, flipped vertically */}
-          <div className="flex justify-center items-center mt-6">
-            {/* Left horizontal line */}
-            <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-            
-            <img 
-              src="/assets/images/graphics/graphics-1.svg" 
-              alt="Decorative graphic" 
-              className="w-32 sm:w-40 md:w-48 h-auto mx-4 scale-y-[-1]"
-            />
-            
-            {/* Right horizontal line */}
-            <div className="w-16 h-px bg-[#333333] opacity-40"></div>
           </div>
         </div>
       </div>

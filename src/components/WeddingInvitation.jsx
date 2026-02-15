@@ -81,10 +81,17 @@ const WeddingInvitation = () => {
           {/* Gold Banner - Top */}
           <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
             <img 
-              src="/assets/images/graphics/gold-banner.png" 
+              src="/assets/images/graphics/gold-banner-2.png" 
               alt="Decorative graphic"
               className="w-full h-auto"
             />
+          </div>
+
+          {/* SVG Wave - Top */}
+          <div className="absolute top-0 left-0 right-0 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
+              <path fill="#ffffff" fillOpacity="1" d="M0,288L120,250.7C240,213,480,139,720,144C960,149,1200,235,1320,277.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+            </svg>
           </div>
 
           {/* Love Story Section */}
@@ -97,10 +104,17 @@ const WeddingInvitation = () => {
             <Gallery />
           </EnhancedLazySection>
 
+          {/* SVG Wave - Bottom (Flipped Vertically) */}
+          <div className="absolute bottom-0 left-0 right-0 z-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto scale-y-[-1]">
+              <path fill="#ffffff" fillOpacity="1" d="M0,288L120,250.7C240,213,480,139,720,144C960,149,1200,235,1320,277.3L1440,320L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+            </svg>
+          </div>
+
           {/* Gold Banner - Bottom (Flipped Vertically) */}
           <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
             <img 
-              src="/assets/images/graphics/gold-banner.png" 
+              src="/assets/images/graphics/gold-banner-2.png" 
               alt="Decorative graphic"
               className="w-full h-auto scale-y-[-1]"
             />

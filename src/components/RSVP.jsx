@@ -114,8 +114,8 @@ const RSVP = () => {
                     <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
                       Kindly answer the RSVP. Let us know if you'll be joining us for our celebration.
                     </p>
-                    {/* Submit Response Button */}
-                    <div className="flex justify-center items-center mt-6">
+                                        {/* Submit Response Button */}
+                                        <div className="flex justify-center items-center mt-6">
                       <button
                         onClick={openRSVPModal}
                         className="flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-[#edb030] hover:opacity-80 transition-opacity duration-300 cursor-pointer"

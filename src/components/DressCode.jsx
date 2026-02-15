@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { themeConfig } from '../config/themeConfig'
@@ -16,37 +16,6 @@ const DressCode = () => {
   // State for tooltip visibility
   const [activeTooltip, setActiveTooltip] = useState(null)
 
-  // Random background position, rotation, and flip - Base layer (old-book-2)
-  const bgStyleBase = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flips
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.75
-    }
-  }, [])
-
-  // Random background position, rotation, and flip - Top layer (old-book-bg)
-  const bgStyle = useMemo(() => {
-    const posX = Math.random() * 100 // 0% to 100%
-    const posY = Math.random() * 100 // 0% to 100%
-    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
-    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
-    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: `${posX}% ${posY}%`,
-      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
-      opacity: 0.5
-    }
-  }, [])
 
   // Color name mappings
   const colorNames = {}
@@ -173,28 +142,14 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 w-full overflow-hidden"
+      className="relative py-12 w-full overflow-hidden bg-white"
     >
-      {/* Background Image - Base layer (old-book-2) */}
+      {/* Background Image - bg-2 */}
       <div 
-        className="absolute bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          ...bgStyleBase,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
-        }}
-      />
-      {/* Background Image - Top layer (old-book-bg) */}
-      <div 
-        className="absolute bg-no-repeat"
-        style={{
-          ...bgStyle,
-          width: '200%',
-          height: '200%',
-          left: '-50%',
-          top: '-50%'
+          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          opacity: 0.4
         }}
       />
       
@@ -202,14 +157,6 @@ const DressCode = () => {
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10" />
 
-      {/* Gold Border - Bottom */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 z-20"
-        style={{
-          height: '6px',
-          backgroundColor: '#edb030'
-        }}
-      />
       
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">

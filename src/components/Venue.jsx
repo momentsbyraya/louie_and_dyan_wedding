@@ -63,7 +63,7 @@ const MapDirections = () => {
               // Current venue is on top, others are behind
               // During transition, current fades out to reveal the one behind
               return (
-                <div
+                <div 
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
                     isCurrent ? 'opacity-100 z-20' : 'opacity-100 z-10'
@@ -73,17 +73,17 @@ const MapDirections = () => {
                   }}
                 >
                   {/* Venue Image */}
-                  <img 
-                    src={venue.image} 
-                    alt={venue.name} 
+                      <img 
+                        src={venue.image} 
+                        alt={venue.name} 
                     className="w-full h-auto"
-                  />
+                      />
                   
                   {/* All text elements at the top - overlaid on image */}
                   <div className="absolute top-0 left-0 right-0 text-center pt-16 sm:pt-20 md:pt-24 lg:pt-32 px-4">
                     {/* Venue Name */}
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest capitalize mb-2 px-4 sm:px-6 md:px-8" style={{ color: '#edb030' }}>
-                      {venue.name}
+                    {venue.name}
                     </h2>
                     
                     {/* Location */}
