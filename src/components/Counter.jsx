@@ -17,7 +17,7 @@ const Counter = ({ countdown }) => {
   // Background using prenup image
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: 'url(/assets/images/prenup/faq-bg.png)',
+      backgroundImage: 'url(/assets/images/prenup/ISE00208.JPG)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

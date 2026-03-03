@@ -68,7 +68,7 @@ const Paragraph = () => {
               {/* Prenup Image with Soft Mask */}
               <div className="soft-edges mb-8 relative">
                 <img 
-                  src="/assets/images/prenup/main-cover.png" 
+                  src="/assets/images/prenup/ISE00201.JPG" 
                   alt="Prenup" 
                   className="w-full"
                 />

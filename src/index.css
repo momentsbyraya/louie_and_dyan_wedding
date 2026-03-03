@@ -122,6 +122,24 @@
   font-display: swap;
 }
 
+/* Custom Font - Relimuss */
+@font-face {
+  font-family: 'Relimuss';
+  src: url('/assets/fonts/Relimuss-G3M2O.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Font - The Heart Of Everything */
+@font-face {
+  font-family: 'The Heart Of Everything';
+  src: url('/assets/fonts/TheHeartOfEverythingDemo-KRdD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -137,7 +155,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #ad8369;
-  background-color: #f6f1ee; /* Calendar background color */
+  background-color: #ffffff; /* White background */
 }
 
 @layer base {
@@ -408,6 +426,26 @@ body {
   h1.font-gilliequest span,
   .font-gilliequest * {
     font-family: 'GillieQuest', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+  }
+  
+  /* Relimuss font */
+  .font-relimuss,
+  h1.font-relimuss,
+  h1.font-relimuss span,
+  .font-relimuss * {
+    font-family: 'Relimuss', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+  }
+  
+  /* The Heart Of Everything font */
+  .font-heart-of-everything,
+  h1.font-heart-of-everything,
+  h1.font-heart-of-everything span,
+  .font-heart-of-everything * {
+    font-family: 'The Heart Of Everything', cursive !important;
     font-weight: normal !important;
     font-style: normal !important;
   }

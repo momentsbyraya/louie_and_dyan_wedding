@@ -22,11 +22,11 @@ export const weddingConfig = {
 
   // RSVP Information
   rsvp: {
-    deadline: "2024-05-15",
+    deadline: "2026-05-01",
     email: "rsvp@johnsonwilliams.com",
     phone: "(555) 123-4567",
     website: "https://johnsonwilliams.rsvp",
-    message: "Please RSVP by May 15th, 2024"
+    message: "Please RSVP by May 1st, 2026"
   },
 
   // Theme and Styling

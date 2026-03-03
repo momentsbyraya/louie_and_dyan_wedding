@@ -13,11 +13,11 @@ const Gallery = () => {
 
   // Gallery images from prenup folder
   const galleryImages = [
-    '/assets/images/prenup/image-1.jpg',
-    '/assets/images/prenup/image-2.jpg',
-    '/assets/images/prenup/image-3.jpg',
-    '/assets/images/prenup/image-4.jpg',
-    '/assets/images/prenup/image-5.jpg'
+    '/assets/images/prenup/BBC09567.JPG',
+    '/assets/images/prenup/BBC09569.JPG',
+    '/assets/images/prenup/ISE00089.JPG',
+    '/assets/images/prenup/ISE00132.JPG',
+    '/assets/images/prenup/ISE00174.JPG'
   ]
 
   useEffect(() => {
@@ -78,13 +78,26 @@ const Gallery = () => {
           {/* Gallery Images */}
           <div ref={contentRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {galleryImages.map((image, index) => (
-              <div key={index} className="soft-edges relative">
+              <div key={index} className="relative">
+                {/* Photo */}
                 <img 
                   src={image} 
                   alt={`Gallery image ${index + 1}`}
                   className="w-full h-auto object-cover"
                   loading="lazy"
                 />
+                {/* Frame border overlay */}
+                <div className="absolute inset-0 pointer-events-none z-10">
+                  <img 
+                    src="/assets/images/graphics/frame.png" 
+                    alt="Photo frame"
+                    className="w-full h-full object-contain"
+                    style={{ 
+                      imageRendering: 'auto',
+                      mixBlendMode: 'normal'
+                    }}
+                  />
+                </div>
               </div>
             ))}
           </div>

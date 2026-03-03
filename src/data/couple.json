@@ -1,21 +1,21 @@
 {
   "bride": {
-    "firstName": "Sarah",
-    "lastName": "",
-    "fullName": "Sarah"
+    "firstName": "Divine Grace",
+    "lastName": "Dizon",
+    "fullName": "DIVINE GRACE DIZON"
   },
   "groom": {
-    "firstName": "Michael",
-    "lastName": "",
-    "fullName": "Michael"
+    "firstName": "Nilon",
+    "lastName": "Magbanua Jr",
+    "fullName": "NILON MAGBANUA JR"
   },
-  "together": "Sarah & Michael",
+  "together": "DIVINE GRACE DIZON & NILON MAGBANUA JR",
   "wedding": {
-    "date": "2026-06-02",
-    "time": "5:00 PM",
-    "dayOfWeek": "Tuesday",
+    "date": "2026-06-12",
+    "time": "4:00 PM",
+    "dayOfWeek": "Friday",
     "month": "June",
-    "day": "02",
+    "day": "12",
     "year": "2026"
   }
 }

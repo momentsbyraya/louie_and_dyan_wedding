@@ -12,32 +12,81 @@
   "entourageList": [
     {
       "category": "Principal Sponsors",
-      "ninong": [
-        "Pedro Fernandez",
-        "Richard Sanchez",
-        "Teddy Yu",
-        "Jamie Chastain"
-      ],
-      "ninang": [
-        "Lorna Alvarada",
-        "Margarita Perez",
-        "Dani Martinez",
-        "Isabel Mercado",
-        "Sarah Johnson"
+      "items": [
+        {
+          "ninong": "Mr. Charles Michael Samaco Candor"
+        },
+        {
+          "ninong": "Mr. Nicandro Mañas Montaña Jr."
+        },
+        {
+          "ninong": "Mr. Jerry Magusara Diadio",
+          "ninang": "Mrs. Salome Lopez Diadio"
+        },
+        {
+          "ninang": "Mrs. Elvira Adelantar"
+        },
+        {
+          "ninong": "Mr. Jerry Gastalla Ygloria",
+          "ninang": "Mrs. Ma. Cristina Pialan Ygloria"
+        },
+        {
+          "ninang": "Mrs Arlene De Vera",
+          "ninong": "Mr Enrique De Vera"
+        },
+        {
+          "ninang": "Mrs Charito Mapilis",
+          "ninong": "Mr Leoncio Mapilis"
+        },
+        {
+          "ninang": "Mrs Arlina De Guzman"
+        },
+        {
+          "ninang": "Mrs Erlinda Joson"
+        },
+        {
+          "ninong": "Mr. Mario De Guzman"
+        },
+        {
+          "ninong": "Mr. Ricky De Guzman"
+        },
+        {
+          "ninong": "Mr. Eduardo Novillas"
+        },
+        {
+          "ninong": "Mr. Robert John Tolentino"
+        },
+        {
+          "ninong": "Mr. Rodel Nemesio Santiago"
+        },
+        {
+          "ninong": "Mr. Bienvenido Gorospe Jr"
+        },
+        {
+          "ninong": "Mr. Van Vincent Pangilinan"
+        },
+        {
+          "ninong": "Mr. Al Gemrady Bathan"
+        },
+        {
+          "ninong": "Mr. Jerome Del Rosario"
+        },
+        {
+          "ninong": "Mr. Cenn Andrew Nuyda",
+          "ninang": "Mrs. Jasmine Consuelo Brigitta Gomez"
+        }
       ]
     },
     {
       "category": "Bestman",
       "names": [
-        "Morgan Maxwell",
-        "Jonathan Patterson"
+        "Sidney Angelo Magbanua"
       ]
     },
     {
       "category": "Maid of Honor",
       "names": [
-        "Kimberly Nguyen",
-        "Juliana Silva"
+        "Angel Ruth Dizon Garcia"
       ]
     },
     {
@@ -60,42 +109,78 @@
       ]
     },
     {
-      "category": "Candle Sponsors",
+      "category": "Veil Sponsors",
       "names": [
-        "Hannah Morales",
-        "Yael Amari"
+        "Kristine Mae Molato Dizon",
+        "Eduardo Dizon Jr"
       ]
     },
     {
-      "category": "Veil Sponsors",
+      "category": "Veil Sponsors 2",
       "names": [
-        "Francisco Andrade",
-        "Sebastian Bennett"
+        "Jennifer Marie Jocson",
+        "Haydn Danielle Inoferio"
       ]
     },
     {
       "category": "Cord Sponsors",
       "names": [
-        "Noah Schumacher",
-        "Chiaki Sato"
+        "Stephanie Magbanua",
+        "Luis Angelo Garcia"
       ]
     },
     {
-      "category": "Bible Bearer",
+      "category": "Cord Sponsors 2",
       "names": [
-        "Alex Thompson"
+        "Samantha Gomez",
+        "Byron Delgado"
+      ]
+    },
+    {
+      "category": "Candle Sponsors",
+      "names": [
+        "Francesca Faith Antonio",
+        "David John Trompeta"
+      ]
+    },
+    {
+      "category": "Candle Sponsors 2",
+      "names": [
+        "Alexander Vito Cruz",
+        "Paolo Acierto"
       ]
     },
     {
       "category": "Ring Bearer",
       "names": [
-        "Taylor Alonso"
+        "Jhon Christian Mapilis"
+      ]
+    },
+    {
+      "category": "Bible Bearer",
+      "names": [
+        "Jhon Carlo Mapilis"
       ]
     },
     {
       "category": "Coin Bearer",
       "names": [
-        "Lucas Martinez"
+        "Jhonlei Mapilis"
+      ]
+    },
+    {
+      "category": "Flower Ladies",
+      "names": [
+        "Jamelle De Joya-Rilleria",
+        "Tanya Mallorca",
+        "Crismae Saldivar",
+        "Zharmella Arriola"
+      ]
+    },
+    {
+      "category": "Herald of the bride",
+      "names": [
+        "Thalia Angelica Garcia"
       ]
     },
     {

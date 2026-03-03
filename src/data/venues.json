@@ -1,32 +1,42 @@
 {
   "ceremony": {
-    "name": "St. Mary's Cathedral",
-    "address": "123 Cathedral Avenue",
-    "city": "Makati City",
-    "state": "Metro Manila",
-    "zip": "1200",
+    "name": "Crystal Palace of Aquila in the Sky",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
     "time": "4:00 PM",
-    "details": "Join us for an intimate ceremony in this beautiful historic cathedral. The ceremony will begin promptly at 4:00 PM. Please arrive 30 minutes early for seating. Parking is available on-site. Dress code: Formal attire preferred.",
-    "landmark": "Near Ayala Triangle Gardens, Across from Greenbelt Mall",
-    "parking": "Complimentary valet parking available",
-    "capacity": "200 guests",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=St.+Mary%27s+Cathedral+Makati",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=St.+Mary%27s+Cathedral+Makati&travelmode=driving"
+    "details": "Join us for our ceremony at 4:00 PM, followed by cocktail hour at 5:00 PM and program/dinner at 6:00 PM.",
+    "landmark": "",
+    "parking": "",
+    "capacity": "",
+    "googleMapsUrl": "https://maps.app.goo.gl/nUC3akTE1H5MBA7M9?g_st=iv",
+    "directionsUrl": "https://maps.app.goo.gl/nUC3akTE1H5MBA7M9?g_st=iv",
+    "schedule": {
+      "ceremony": "4:00 PM",
+      "cocktail": "5:00 PM",
+      "programDinner": "6:00 PM"
+    }
   },
   "reception": {
-    "name": "The Grand Ballroom at Villa Juanita",
-    "address": "F3J6+MGV, Dir. A. Bunye",
-    "city": "Bagumbayan, Taguig",
-    "state": "Metro Manila",
-    "zip": "1630",
-    "time": "6:30 PM",
-    "details": "Celebrate with us at our elegant reception. Cocktail hour begins at 6:30 PM followed by dinner and dancing. Live music and entertainment throughout the evening. Open bar available. Please note: The reception venue is a 15-minute drive from the ceremony location.",
-    "landmark": "7/11, Near Flying V Gas Station, Next to Taguig City Hall",
-    "parking": "Free parking available for all guests",
-    "capacity": "250 guests",
-    "dressCode": "Cocktail attire - Semi-formal to formal",
-    "menu": "Buffet dinner with vegetarian options available",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila",
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=F3J6%2BMGV+Dir.+A.+Bunye+Taguig+Kalakhang+Maynila&travelmode=driving"
+    "name": "Crystal Palace of Aquila in the Sky",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "time": "5:00 PM",
+    "details": "Ceremony and Reception at the same venue. Schedule: 4pm Ceremony, 5pm Cocktail, 6pm Program/Dinner.",
+    "landmark": "",
+    "parking": "",
+    "capacity": "",
+    "dressCode": "",
+    "menu": "",
+    "googleMapsUrl": "https://maps.app.goo.gl/nUC3akTE1H5MBA7M9?g_st=iv",
+    "directionsUrl": "https://maps.app.goo.gl/nUC3akTE1H5MBA7M9?g_st=iv",
+    "schedule": {
+      "ceremony": "4:00 PM",
+      "cocktail": "5:00 PM",
+      "programDinner": "6:00 PM"
+    }
   }
 } 
