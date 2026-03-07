@@ -7,8 +7,14 @@ import { join } from 'path'
 function copyAssetsPlugin() {
   return {
     name: 'copy-assets',
-    writeBundle() {
+    closeBundle() {
+      // Use closeBundle instead of writeBundle to ensure it runs after all Vite processing
       const copyDir = (src, dest) => {
+        if (!existsSync(src)) {
+          console.warn(`Source directory ${src} does not exist`)
+          return
+        }
+        
         if (!existsSync(dest)) {
           mkdirSync(dest, { recursive: true })
         }
@@ -28,7 +34,9 @@ function copyAssetsPlugin() {
       
       // Copy assets to dist/assets (this runs after Vite's publicDir copy)
       // This ensures files are at dist/assets/images/prenup/ as expected by the code
+      console.log('Copying assets to dist/assets...')
       copyDir('assets', 'dist/assets')
+      console.log('Assets copied successfully')
     }
   }
 }
