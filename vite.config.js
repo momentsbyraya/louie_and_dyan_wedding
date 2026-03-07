@@ -26,6 +26,8 @@ function copyAssetsPlugin() {
         })
       }
       
+      // Copy assets to dist/assets (this runs after Vite's publicDir copy)
+      // This ensures files are at dist/assets/images/prenup/ as expected by the code
       copyDir('assets', 'dist/assets')
     }
   }
@@ -42,5 +44,5 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true
   },
-  publicDir: 'assets'
+  publicDir: 'assets' // Needed for dev server, but custom plugin ensures correct build output
 }) 
