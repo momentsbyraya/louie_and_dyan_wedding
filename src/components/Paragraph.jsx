@@ -51,8 +51,8 @@ const Paragraph = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/calligraphy-bg.png)',
-          opacity: 0.15
+          backgroundImage: 'url(/assets/images/graphics/gallery-bg.png)',
+          opacity: 0.85
         }}
       />
       

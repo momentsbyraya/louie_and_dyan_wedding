@@ -12,11 +12,11 @@ const DynamicTitle = () => {
 
   return (
     <Helmet>
-      <title>{`${coupleNames}'s Wedding - ${weddingDate}`}</title>
-      <meta name="description" content={`${coupleNames}'s Wedding - Beautiful digital wedding invitation for ${weddingDate}`} />
-      <meta property="og:title" content={`${coupleNames}'s Wedding`} />
+      <title>Wedding Invitation - {coupleNames}</title>
+      <meta name="description" content={`Wedding Invitation - ${coupleNames}'s Wedding on ${weddingDate}`} />
+      <meta property="og:title" content={`Wedding Invitation - ${coupleNames}`} />
       <meta property="og:description" content={`Join us for ${coupleNames}'s special day on ${weddingDate}`} />
-      <meta name="twitter:title" content={`${coupleNames}'s Wedding`} />
+      <meta name="twitter:title" content={`Wedding Invitation - ${coupleNames}`} />
       <meta name="twitter:description" content={`Beautiful digital wedding invitation for ${weddingDate}`} />
     </Helmet>
   )

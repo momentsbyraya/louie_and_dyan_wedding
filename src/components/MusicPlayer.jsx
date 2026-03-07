@@ -3,7 +3,6 @@ import { SkipBack, SkipForward } from 'lucide-react'
 import { audio } from '../data'
 
 const MusicPlayer = () => {
-  const START_OFFSET = 32 // Audio starts at 32 seconds, but we display from 00:00
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -79,9 +78,9 @@ const MusicPlayer = () => {
       audioRef.current.pause()
       setIsPlaying(false)
     } else {
-      // Set audio to start at 32 seconds if not already playing
-      if (audioRef.current.currentTime < 32) {
-        audioRef.current.currentTime = 32
+      // Ensure audio starts from the beginning if at the end
+      if (audioRef.current.currentTime >= audioRef.current.duration - 0.1) {
+        audioRef.current.currentTime = 0
       }
       audioRef.current.play()
       setIsPlaying(true)
@@ -95,7 +94,7 @@ const MusicPlayer = () => {
 
   const skipBackward = () => {
     if (!audioRef.current) return
-    audioRef.current.currentTime = Math.max(audioRef.current.currentTime - 10, START_OFFSET)
+    audioRef.current.currentTime = Math.max(audioRef.current.currentTime - 10, 0)
   }
 
   const handleProgressClick = (e) => {
@@ -103,9 +102,9 @@ const MusicPlayer = () => {
     const rect = progressBarRef.current.getBoundingClientRect()
     const clickX = e.clientX - rect.left
     const percentage = clickX / rect.width
-    // Calculate the actual audio time (add back the offset)
-    const actualTime = START_OFFSET + (percentage * displayDuration)
-    audioRef.current.currentTime = Math.max(START_OFFSET, Math.min(actualTime, duration))
+    // Calculate the actual audio time
+    const actualTime = percentage * duration
+    audioRef.current.currentTime = Math.max(0, Math.min(actualTime, duration))
   }
 
   const formatTime = (seconds) => {
@@ -115,9 +114,9 @@ const MusicPlayer = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  // Adjust time display to start from 00:00 (subtract 32 seconds)
-  const displayCurrentTime = Math.max(0, currentTime - START_OFFSET)
-  const displayDuration = Math.max(0, duration - START_OFFSET)
+  // Display time from 00:00
+  const displayCurrentTime = currentTime
+  const displayDuration = duration
 
   return (
     <>

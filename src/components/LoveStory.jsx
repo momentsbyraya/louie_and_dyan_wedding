@@ -18,22 +18,19 @@ const LoveStory = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 50%",
+        start: "top 60%",
         end: "bottom 20%",
         toggleActions: "play none none reverse"
       }
     })
 
-    // Animate elements sequentially
-    tl.fromTo(titleRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    )
-    .fromTo(storyRef.current, 
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-      "-=0.4"
-    )
+    // Animate story text
+    if (storyRef.current) {
+      tl.fromTo(storyRef.current, 
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      )
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
@@ -44,7 +41,7 @@ const LoveStory = () => {
     <section
       ref={sectionRef}
       className="relative pt-32 sm:pt-40 md:pt-48 w-full overflow-hidden"
-      style={{ backgroundColor: 'transparent' }}
+      style={{ backgroundColor: 'transparent', zIndex: 20, position: 'relative' }}
     >
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">

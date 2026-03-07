@@ -61,8 +61,6 @@ const Entourage = () => {
 
   useLayoutEffect(() => {
     const pageLoadTime = performance.now()
-    console.log('Current page: Entourage')
-    console.log('Page load time:', pageLoadTime, 'ms')
     
     // Start falling flowers animation immediately when page opens
     // The first flower (delay-0) starts immediately, others follow with their delays
@@ -72,7 +70,6 @@ const Entourage = () => {
       
       if (flowersContainerRef.current) {
         const flowers = flowersContainerRef.current.querySelectorAll('.falling-flower')
-        console.log('Found flowers:', flowers.length)
         
         if (flowers.length > 0) {
           let delayZeroFound = false
@@ -121,56 +118,22 @@ const Entourage = () => {
               
               flower.style.animation = `${animationName} ${duration}s linear infinite`
               
-              // Check computed styles to verify what's actually applied
-              const computedStyle = window.getComputedStyle(flower)
-              const computedDelay = computedStyle.animationDelay
-              const computedPlayState = computedStyle.animationPlayState
-              const computedOpacity = computedStyle.opacity
-              const computedTop = computedStyle.top
-              const computedTransform = computedStyle.transform
-              
-              console.log(`Flower ${index} (delay-0): Animation started at ${timeSincePageLoad}s`)
-              console.log(`  - Computed animation-delay: ${computedDelay}`)
-              console.log(`  - Computed animation-play-state: ${computedPlayState}`)
-              console.log(`  - Computed opacity: ${computedOpacity}`)
-              console.log(`  - Computed top: ${computedTop}`)
-              console.log(`  - Computed transform: ${computedTransform}`)
-              console.log(`  - Element visible: ${flower.offsetParent !== null}`)
             } else {
               const delay = flower.classList.toString().match(/delay-(\d+)/)?.[1] || 'unknown'
               flower.style.animationPlayState = 'running'
-              
-              // Check computed styles for other flowers too
-              const computedStyle = window.getComputedStyle(flower)
-              const computedDelay = computedStyle.animationDelay
-              
-              console.log(`Flower ${index} (delay-${delay}): Animation play state set at ${timeSincePageLoad}s`)
-              console.log(`  - Computed animation-delay: ${computedDelay}`)
             }
             // Trigger reflow to ensure animation starts
             void flower.offsetWidth
           })
-          
-          if (!delayZeroFound) {
-            console.warn('WARNING: No delay-0 flower found!')
-          }
-          
-          console.log(`Snow effect started after: ${timeSincePageLoad}sec`)
-        } else {
-          console.warn('No flowers found in container!')
         }
-      } else {
-        console.warn('Flowers container ref is null!')
       }
     }
     
     // Try immediately
-    console.log('Attempting to start animations immediately...')
     startAnimations()
     
     // Also try on next frame in case DOM isn't ready
     requestAnimationFrame(() => {
-      console.log('Attempting to start animations on next frame...')
       startAnimations()
     })
   }, [])
@@ -343,14 +306,14 @@ const Entourage = () => {
           onEnter: () => {
           const masterTl = gsap.timeline()
           allNameRows.forEach(({ elements }, index) => {
-            // Use += to chain animations sequentially (one after the other)
-            // Each row appears after the previous one finishes, with a small gap
+            // Each animation starts at a fixed delay from the first one (not waiting for previous to finish)
+            // This creates a smooth cascading effect
             masterTl.to(elements, {
         opacity: 1, 
         y: 0, 
-              duration: 0.5,
-              ease: "power2.out"
-            }, index === 0 ? 0 : "+=0.15") // First animation starts at 0, subsequent ones start 0.15s after previous ends
+              duration: 0.8,
+              ease: "power1.out"
+            }, index * 0.15) // Each animation starts 0.15s after the first one started
             })
           },
           toggleActions: "play none none reverse"
@@ -380,13 +343,15 @@ const Entourage = () => {
   const heraldOfBride = entourage.entourageList.find(item => item.category === "Herald of the bride")
 
   // Get couple names from config
-  // For header display (with drop caps)
+  // For header display (with drop caps) - Use just "Divine" (first word) for bride
   const groomFirstName = weddingConfig.couple.groom.firstName.charAt(0).toUpperCase() + weddingConfig.couple.groom.firstName.slice(1).toLowerCase()
-  const brideFirstName = weddingConfig.couple.bride.firstName.charAt(0).toUpperCase() + weddingConfig.couple.bride.firstName.slice(1).toLowerCase()
+  const brideFullFirstName = weddingConfig.couple.bride.firstName // "Divine Grace"
+  const brideFirstName = brideFullFirstName.split(' ')[0] // Just "Divine"
+  const brideFirstNameFormatted = brideFirstName.charAt(0).toUpperCase() + brideFirstName.slice(1).toLowerCase()
   const groomFirstLetter = groomFirstName.charAt(0)
-  const brideFirstLetter = brideFirstName.charAt(0)
+  const brideFirstLetter = brideFirstNameFormatted.charAt(0)
   const groomRest = groomFirstName.substring(1)
-  const brideRest = brideFirstName.substring(1)
+  const brideRest = brideFirstNameFormatted.substring(1)
   
   // For BRIDE & GROOM section (full names in uppercase)
   const groomFullName = weddingConfig.couple.groom.fullName || `${weddingConfig.couple.groom.firstName.toUpperCase()} ${weddingConfig.couple.groom.lastName.toUpperCase()}`
@@ -417,7 +382,7 @@ const Entourage = () => {
               }}
             >
               <img 
-                src="/assets/images/graphics/flower-3.png" 
+                src="/assets/images/graphics/gold flower.png" 
                 alt="Falling flower"
               />
             </div>
@@ -429,12 +394,26 @@ const Entourage = () => {
       ref={sectionRef}
         id="entourage"
         data-section="entourage"
-        className="relative w-full overflow-hidden px-6 py-32 sm:py-40 md:py-44 lg:py-52"
+        className="relative w-full overflow-hidden px-6 py-32 sm:py-40 md:py-64 entourage-section-lg"
         style={{ 
           opacity: 0, 
           transform: 'translateX(100%)'
         }}
       >
+      <style>{`
+        @media (min-width: 992px) {
+          .entourage-section-lg {
+            padding-top: 20rem !important;
+            padding-bottom: 20rem !important;
+          }
+        }
+        @media (min-width: 1280px) {
+          .entourage-section-lg {
+            padding-top: 28rem !important;
+            padding-bottom: 28rem !important;
+          }
+        }
+      `}</style>
         {/* Background Image - bg-1 */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -444,10 +423,19 @@ const Entourage = () => {
           }}
         />
 
+        {/* White Blur - Top (Flipped Vertically) */}
+        <div className="absolute top-0 left-0 right-0 z-5">
+          <img 
+            src="/assets/images/graphics/white-blur.png" 
+            alt="White blur effect"
+            className="w-full h-auto scale-y-[-1]"
+          />
+        </div>
+
         {/* Gold Banner - Top */}
         <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
             <img 
-            src="/assets/images/graphics/gold-banner.png" 
+            src="/assets/images/graphics/gold-banner-2.png" 
               alt="Decorative graphic"
             className="w-full h-auto"
             />
@@ -481,10 +469,10 @@ const Entourage = () => {
             <div className="text-center mb-12">
               <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8">
                 {/* Couple Names - Main Title with Drop Caps */}
-                <div className="font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>{groomFirstLetter}</span>
+                <div className="font-caribbean text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center whitespace-nowrap pt-4 sm:pt-6 md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>{groomFirstLetter}</span>
                   {groomRest} &nbsp;&
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none mr-1" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>{brideFirstLetter}</span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl inline-block leading-none mr-1 ml-2 sm:ml-3" style={{ lineHeight: '0.75', marginTop: '-0.1em' }}>{brideFirstLetter}</span>
                   {brideRest}
                 </div>
                 {/* NUPTIALS */}
@@ -747,10 +735,19 @@ const Entourage = () => {
           </div>
         </div>
 
+        {/* White Blur - Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-5">
+          <img 
+            src="/assets/images/graphics/white-blur.png" 
+            alt="White blur effect"
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Gold Banner - Bottom (Flipped Vertically) */}
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
             <img 
-            src="/assets/images/graphics/gold-banner.png" 
+            src="/assets/images/graphics/gold-banner-2.png" 
               alt="Decorative graphic"
             className="w-full h-auto scale-y-[-1]"
             />

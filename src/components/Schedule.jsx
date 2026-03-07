@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { themeConfig } from '../config/themeConfig'
@@ -13,6 +13,38 @@ const Schedule = () => {
   const timelineRef = useRef(null)
   const lineRef = useRef(null)
   const eventsRef = useRef(null)
+
+  // Random background position, rotation, and flip - Base layer (old-book-2)
+  const bgStyleBase = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/old-book-2.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.75
+    }
+  }, [])
+
+  // Random background position, rotation, and flip - Top layer (bg-1)
+  const bgStyle = useMemo(() => {
+    const posX = Math.random() * 100 // 0% to 100%
+    const posY = Math.random() * 100 // 0% to 100%
+    const rotation = (Math.random() * 360) - 180 // -180 to 180 degrees
+    const flipX = Math.random() > 0.5 ? -1 : 1 // Random horizontal flip
+    const flipY = Math.random() > 0.5 ? -1 : 1 // Random vertical flip
+    return {
+      backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: `${posX}% ${posY}%`,
+      transform: `rotate(${rotation}deg) scaleX(${flipX}) scaleY(${flipY})`,
+      opacity: 0.5
+    }
+  }, [])
 
 
   useEffect(() => {
@@ -55,33 +87,50 @@ const Schedule = () => {
   return (
     <section
       ref={sectionRef}
-      className={`relative py-20 w-full overflow-hidden ${themeConfig.paragraph.background}`}
+      className="relative py-20 w-full overflow-hidden bg-white schedule-section-lg"
     >
-      {/* Background Image - Old book bg */}
+      <style>{`
+        @media (min-width: 992px) {
+          .schedule-section-lg {
+            padding-bottom: 12rem !important;
+          }
+        }
+      `}</style>
+      {/* Background Image - Base layer (old-book-2) */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
-          opacity: 0.4
+          ...bgStyleBase,
+          width: '200%',
+          height: '200%',
+          left: '-50%',
+          top: '-50%'
+        }}
+      />
+      {/* Background Image - Top layer (bg-1) */}
+      <div 
+        className="absolute bg-no-repeat"
+        style={{
+          ...bgStyle,
+          width: '200%',
+          height: '200%',
+          left: '-50%',
+          top: '-50%'
         }}
       />
 
-      {/* Gold Border - Bottom */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 z-20"
-        style={{
-          height: '6px',
-          backgroundColor: '#edb030'
-        }}
-      />
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center py-12">
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Wedding Program Title */}
           <div ref={titleRef} className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-gilliequest capitalize" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Wedding Program
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-caribbean flex items-center justify-center text-left gap-0" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>W</span>
+              <span className="inline-block" style={{ marginLeft: '0' }}>
+                <span>edding </span>
+                <span>Program</span>
+              </span>
             </h2>
           </div>
 
@@ -179,6 +228,15 @@ const Schedule = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* White Blur Image - Bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <img 
+          src="/assets/images/graphics/white-blur.png" 
+          alt="White blur effect"
+          className="w-full h-auto"
+        />
       </div>
     </section>
   )

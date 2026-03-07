@@ -68,14 +68,12 @@ const FAQ = () => {
       {/* FAQ Section */}
       <div className="relative z-20 faq-section">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
-          <h3 ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
-            <span 
-              className="font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl inline-block leading-none uppercase"
-              style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-            >
-              Frequently Asked Questions
-            </span>
-          </h3>
+          <div ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-caribbean pt-4 sm:pt-6 md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>R</span>
+              <span className="inline-block">eminder</span>
+            </h2>
+          </div>
           {faq && faq.faqData && (
             <div className="space-y-6 max-w-[600px] mx-auto">
               {faq.faqData.slice(0, 3).map((item, index) => (

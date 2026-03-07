@@ -10,20 +10,10 @@ gsap.registerPlugin(ScrollTrigger)
 const DressCode = () => {
   const sectionRef = useRef(null)
   const dressCodeTitleRef = useRef(null)
-  const category1Ref = useRef(null)
-  const category2Ref = useRef(null)
+  const categoryRefs = useRef([])
   
   // State for tooltip visibility
   const [activeTooltip, setActiveTooltip] = useState(null)
-
-
-  // Color name mappings
-  const colorNames = {}
-  dresscode.sections?.forEach(section => {
-    section.colors?.forEach(color => {
-      colorNames[color.hex] = color.name
-    })
-  })
 
   useEffect(() => {
     // Dress Code Title animation
@@ -39,99 +29,60 @@ const DressCode = () => {
       })
     }
 
-    // Category 1 animation - animate image and content separately
-    if (category1Ref.current) {
-      const category1Container = category1Ref.current
-      const flexContainer = category1Container.querySelector('.flex.flex-row')
-      if (flexContainer) {
-        const category1Image = flexContainer.querySelector('.dresscode-image-container')
-        const category1Content = Array.from(flexContainer.children).find(child => 
-          child.classList.contains('w-1/2') && child.querySelector('.font-albert')
-        )
-        
-        if (category1Image) {
-          gsap.set(category1Image, { opacity: 0, x: -30 })
-        }
-        if (category1Content) {
-          gsap.set(category1Content, { opacity: 0, x: 30 })
-        }
-        
-        ScrollTrigger.create({
-          trigger: category1Ref.current,
-          start: "top 75%",
-          onEnter: () => {
-            if (category1Image) {
-              gsap.to(category1Image, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out"
-              })
-            }
-            if (category1Content) {
-              gsap.to(category1Content, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                delay: 0.2
-              })
-            }
+    // Category animations - animate image and content separately for each category
+    categoryRefs.current.forEach((categoryRef, index) => {
+      if (categoryRef) {
+        const categoryContainer = categoryRef
+        const flexContainer = categoryContainer.querySelector('.flex.flex-row, .flex.flex-col')
+        if (flexContainer) {
+          const categoryImage = flexContainer.querySelector('.dresscode-image-container')
+          const categoryContent = Array.from(flexContainer.children).find(child => 
+            child.classList.contains('w-1/2') || child.classList.contains('w-full')
+          )
+          
+          // Alternate animation direction based on index
+          const isEven = index % 2 === 0
+          
+          if (categoryImage) {
+            gsap.set(categoryImage, { opacity: 0, x: isEven ? -30 : 30 })
           }
-        })
-      }
-    }
-
-    // Category 2 animation - animate image and content separately
-    if (category2Ref.current) {
-      const category2Container = category2Ref.current
-      const flexContainer = category2Container.querySelector('.flex.flex-row')
-      if (flexContainer) {
-        const category2Image = flexContainer.querySelector('.dresscode-image-container')
-        const category2Content = Array.from(flexContainer.children).find(child => 
-          child.classList.contains('w-1/2') && child.querySelector('.font-albert')
-        )
-        
-        if (category2Image) {
-          gsap.set(category2Image, { opacity: 0, x: 30 })
-        }
-        if (category2Content) {
-          gsap.set(category2Content, { opacity: 0, x: -30 })
-        }
-        
-        ScrollTrigger.create({
-          trigger: category2Ref.current,
-          start: "top 75%",
-          onEnter: () => {
-            if (category2Content) {
-              gsap.to(category2Content, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out"
-              })
-            }
-            if (category2Image) {
-              gsap.to(category2Image, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                delay: 0.2
-              })
-            }
+          if (categoryContent) {
+            gsap.set(categoryContent, { opacity: 0, x: isEven ? 30 : -30 })
           }
-        })
+          
+          ScrollTrigger.create({
+            trigger: categoryRef,
+            start: "top 75%",
+            onEnter: () => {
+              if (categoryImage) {
+                gsap.to(categoryImage, {
+                  opacity: 1,
+                  x: 0,
+                  duration: 0.8,
+                  ease: "power2.out"
+                })
+              }
+              if (categoryContent) {
+                gsap.to(categoryContent, {
+                  opacity: 1,
+                  x: 0,
+                  duration: 0.8,
+                  ease: "power2.out",
+                  delay: 0.2
+                })
+              }
+            }
+          })
+        }
       }
-    }
+    })
 
     // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => {
         if (trigger.vars && (
           trigger.vars.trigger === dressCodeTitleRef.current ||
-          trigger.vars.trigger === category1Ref.current ||
-          trigger.vars.trigger === category2Ref.current
+          categoryRefs.current.includes(trigger.vars.trigger)
         )) {
           trigger.kill()
         }
@@ -160,19 +111,14 @@ const DressCode = () => {
       
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center py-12">
-        <div className="max-w-md sm:max-w-xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
+        <div className="max-w-md sm:max-w-xl lg:max-w-6xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Dress Code Title */}
           <div ref={dressCodeTitleRef} className="text-center mb-12 sm:mb-16">
             <div>
-              <h3 className="relative inline-block px-6 py-3">
-                <span 
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest inline-block leading-none uppercase"
-                  style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-                >
-                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>D</span>
-                  <span className="inline-block">RESS CODE</span>
-                </span>
-              </h3>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-caribbean pt-4 sm:pt-6 md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>D</span>
+                <span className="inline-block">ress Code</span>
+              </h2>
               {/* General Dress Code Description */}
               <p className="text-base sm:text-lg font-albert font-thin italic text-[#333333] mt-4">
                 {dresscode.mainDressCode?.description || "We would be grateful if, when choosing outfits, you adhere to the color scheme of our celebration."}
@@ -180,62 +126,89 @@ const DressCode = () => {
             </div>
           </div>
 
-          {/* Dress Code Content */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
-            {/* Principal Sponsors Category */}
-            {dresscode.sections && dresscode.sections[0] && (() => {
-              const section = dresscode.sections[0];
+          {/* Dress Code Content - Grid layout for 5 categories */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {dresscode.sections && dresscode.sections.map((section, index) => {
+              const isEven = index % 2 === 0
+              const shouldReverse = section.title === "Principal Sponsors" || section.title === "Maid of Honor"
               return (
-                <div className="relative overflow-visible flex-1">
+                <div key={index} className="relative overflow-visible">
                   <div className="relative overflow-visible">
                     <div 
-                      ref={category1Ref}
+                      ref={el => categoryRefs.current[index] = el}
                       className="transition-opacity duration-500 ease-in-out"
                     >
                       {/* Category Image and Details - Side by side on mobile, stacked on desktop */}
-                      <div className="flex flex-row lg:flex-col gap-6 md:gap-8 lg:gap-6 items-start">
-                        {/* Category Details - First category: right aligned on mobile, left aligned on desktop */}
-                        <div className="w-1/2 lg:w-full flex flex-col text-right lg:text-left order-1 lg:order-2">
+                      <div className={`flex flex-row lg:flex-col xl:flex-col gap-6 md:gap-8 lg:gap-6 items-start`}>
+                        {/* Category Details */}
+                        <div className={`w-1/2 lg:w-full flex flex-col ${shouldReverse ? 'text-left lg:text-left order-2 xl:order-1' : (isEven ? 'text-right lg:text-left order-1 xl:order-1' : 'text-left lg:text-left order-1 xl:order-1')}`}>
                           {/* Category Name and Description Container */}
                           <div className="w-full">
                             {/* Category Name */}
-                            <div className="text-lg sm:text-xl md:text-2xl font-albert font-bold text-[#333333] mb-2 text-right lg:text-left">
+                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#333333] mb-2 ${shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left')}`}>
                               {section.title}
                             </div>
                             
                             {/* Description */}
                             {section.description && (
-                              <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-right lg:text-left">
+                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 ${shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left')}`}>
                                 {section.description}
                               </p>
                             )}
                             
-                            {/* Color Swatches */}
-                            <div className="flex gap-2 justify-end lg:justify-start">
-                              {section.colors && section.colors.map((color, index) => (
+                            {/* Color/Image Swatches */}
+                            <div className={`flex gap-2 ${shouldReverse ? 'justify-start lg:justify-start' : (isEven ? 'justify-end lg:justify-start' : 'justify-start lg:justify-start')}`}>
+                              {/* Image Swatches */}
+                              {section.colorSwatches && section.colorSwatches.map((swatch, swatchIndex) => (
                                 <div 
-                                  key={index}
+                                  key={swatchIndex}
                                   className="relative group"
-                                  onMouseEnter={() => setActiveTooltip(`sponsors-${index}`)}
+                                  onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
                                   onMouseLeave={() => setActiveTooltip(null)}
-                                  onClick={() => setActiveTooltip(activeTooltip === `sponsors-${index}` ? null : `sponsors-${index}`)}
+                                  onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                 >
-                                  <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color.hex }}></div>
-                                  {activeTooltip === `sponsors-${index}` && (
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
-                                      {color.name}
-                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#333333]"></div>
+                                  <img 
+                                    src={swatch.image} 
+                                    alt={swatch.name}
+                                    className="h-8 sm:h-10 w-auto rounded cursor-pointer object-cover"
+                                    style={{ width: 'fit-content' }}
+                                  />
+                                  {activeTooltip === `${index}-${swatchIndex}` && (
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
+                                      {swatch.name}
+                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
                                     </div>
                                   )}
                                 </div>
                               ))}
+                              {/* Color Swatches */}
+                              {section.colors && section.colors.map((color, colorIndex) => {
+                                const swatchIndex = (section.colorSwatches?.length || 0) + colorIndex
+                                return (
+                                  <div 
+                                    key={colorIndex}
+                                    className="relative group"
+                                    onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
+                                    onMouseLeave={() => setActiveTooltip(null)}
+                                    onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
+                                  >
+                                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded cursor-pointer" style={{ backgroundColor: color.hex }}></div>
+                                    {activeTooltip === `${index}-${swatchIndex}` && (
+                                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
+                                        {color.name}
+                                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
+                                      </div>
+                                    )}
+                                  </div>
+                                )
+                              })}
                             </div>
                           </div>
                         </div>
                         
-                        {/* Category Image - First category: right on mobile, top on desktop */}
+                        {/* Category Image */}
                         {section.image && (
-                          <div className="w-1/2 lg:w-full order-2 lg:order-1">
+                          <div className={`w-1/2 lg:w-full ${shouldReverse ? (isEven ? 'order-1 lg:order-1 xl:order-2' : 'order-1 lg:order-1 xl:order-2') : (isEven ? 'order-2 lg:order-1 xl:order-2' : 'order-2 lg:order-1 xl:order-2')}`}>
                             <div className="w-full relative dresscode-image-container">
                               <img 
                                 src={section.image} 
@@ -249,86 +222,8 @@ const DressCode = () => {
                     </div>
                   </div>
                 </div>
-              );
-            })()}
-            
-            {/* Vertical Divider - Hidden on mobile, shown on desktop */}
-            {dresscode.sections && dresscode.sections.length > 1 && (
-              <>
-                <div className="hidden lg:block w-px bg-[#333333] opacity-40 self-stretch"></div>
-                <div className="lg:hidden w-full h-px bg-[#333333] opacity-40"></div>
-              </>
-            )}
-
-            {/* Guests Category */}
-            {dresscode.sections && dresscode.sections[1] && (() => {
-              const section = dresscode.sections[1];
-              return (
-                <div className="relative overflow-visible flex-1">
-                  <div className="relative overflow-visible">
-                    <div 
-                      ref={category2Ref}
-                      className="text-center transition-opacity duration-500 ease-in-out"
-                    >
-                      {/* Category Image and Details - Side by side on mobile, stacked on desktop */}
-                      <div className="flex flex-row lg:flex-col gap-6 md:gap-8 lg:gap-6 items-start">
-                        {/* Category Image - Second category: left on mobile, top on desktop */}
-                        {section.image && (
-                          <div className="w-1/2 lg:w-full">
-                            <div className="w-full relative dresscode-image-container">
-                              <img 
-                                src={section.image} 
-                                alt={section.title} 
-                                className="w-full h-full object-cover rounded"
-                              />
-                            </div>
-                          </div>
-                        )}
-                        
-                        {/* Category Details - Second category: left aligned on mobile, bottom on desktop */}
-                        <div className="w-1/2 lg:w-full flex flex-col justify-between text-left lg:text-left dresscode-image-container">
-                          {/* Category Name and Description Container */}
-                          <div>
-                            {/* Category Name */}
-                            <div className="text-lg sm:text-xl md:text-2xl font-albert font-bold text-[#333333] mb-2 text-left lg:text-left">
-                              {section.title}
-                            </div>
-                            
-                            {/* Description */}
-                            {section.description && (
-                              <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-left lg:text-left">
-                                {section.description}
-                              </p>
-                            )}
-                            
-                            {/* Color Swatches */}
-                            <div className="flex gap-2 justify-start lg:justify-start">
-                              {section.colors && section.colors.map((color, index) => (
-                                <div
-                                  key={index}
-                                  className="relative group"
-                                  onMouseEnter={() => setActiveTooltip(`guests-${index}`)}
-                                  onMouseLeave={() => setActiveTooltip(null)}
-                                  onClick={() => setActiveTooltip(activeTooltip === `guests-${index}` ? null : `guests-${index}`)}
-                                >
-                                  <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color.hex }}></div>
-                                  {activeTooltip === `guests-${index}` && (
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
-                                      {color.name}
-                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#333333]"></div>
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })()}
+              )
+            })}
           </div>
         </div>
       </div>
@@ -336,4 +231,4 @@ const DressCode = () => {
   )
 }
 
-export default DressCode 
+export default DressCode

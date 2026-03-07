@@ -66,7 +66,7 @@
   }
   
   .envelope {
-    transform: rotate(-5deg) scale(0.85) !important;
+    transform: scale(0.85) !important;
   }
 }
 
@@ -88,7 +88,6 @@
   box-shadow: inset 0 0 30px -5px var(--envelope-shadow), 0 0 50vw 0 rgba(212, 197, 176, 0.3);
   transform-style: preserve-3d;
   perspective: 1000px;
-  transform: rotate(-5deg);
 }
 
 .envelope-flap {
@@ -173,11 +172,21 @@
   padding: 0;
 }
 
+@keyframes slowRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .stamp-image {
   width: 70px;
   height: auto;
   display: block;
   object-fit: contain;
+  animation: slowRotate 20s linear infinite;
 }
 
 @media (min-width: 650px) {

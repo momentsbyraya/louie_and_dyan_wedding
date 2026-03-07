@@ -68,13 +68,28 @@ const WeddingInvitation = () => {
         </EnhancedLazySection>
         
         {/* Love Story and Gallery Container */}
-        <div className="relative w-full">
+        <div className="relative w-full md:py-24 lg:py-32 story-gallery-container-lg">
+          <style>{`
+            @media (min-width: 992px) {
+              .story-gallery-container-lg {
+                padding-top: 12rem !important;
+                padding-bottom: 12rem !important;
+              }
+            }
+            @media (min-width: 1280px) {
+              .story-gallery-container-lg {
+                padding-top: 28rem !important;
+                padding-bottom: 28rem !important;
+              }
+            }
+          `}</style>
           {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: 'url(/assets/images/graphics/calligraphy-bg.png)',
-              opacity: 0.15
+              backgroundImage: 'url(/assets/images/graphics/gallery-bg.png)',
+              opacity: 1,
+              zIndex: 0
             }}
           />
 
