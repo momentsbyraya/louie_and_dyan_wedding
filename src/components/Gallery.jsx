@@ -20,43 +20,43 @@ const Gallery = () => {
   const allPrenupImages = useMemo(() => {
     const images = [
       // BBC images
-      '/assets/images/prenup/BBC09539.JPG',
-      '/assets/images/prenup/BBC09567.JPG',
-      '/assets/images/prenup/BBC09569.JPG',
+      '/assets/images/prenup/BBC09539.png',
+      '/assets/images/prenup/BBC09567.jpg',
+      '/assets/images/prenup/BBC09569.jpg',
       // ISE images
-      '/assets/images/prenup/ISE00089.JPG',
-      '/assets/images/prenup/ISE00132.JPG',
-      '/assets/images/prenup/ISE00174.JPG',
-      '/assets/images/prenup/ISE00201.JPG',
-      '/assets/images/prenup/ISE00208.JPG',
-      '/assets/images/prenup/ISE00263.JPG',
-      '/assets/images/prenup/ISE00287.JPG',
-      '/assets/images/prenup/ISE09715.JPG',
-      '/assets/images/prenup/ISE09788.JPG',
-      '/assets/images/prenup/ISE09955.JPG'
+      '/assets/images/prenup/ISE00089.jpg',
+      '/assets/images/prenup/ISE00132.png',
+      '/assets/images/prenup/ISE00174.png',
+      '/assets/images/prenup/ISE00201.png',
+      '/assets/images/prenup/ISE00208.jpg',
+      '/assets/images/prenup/ISE00263.png',
+      '/assets/images/prenup/ISE00287.png',
+      '/assets/images/prenup/ISE09715.jpg',
+      '/assets/images/prenup/ISE09788.png',
+      '/assets/images/prenup/ISE09955.png'
     ]
     return images
   }, [])
 
   // Gallery images from prenup folder (excluding BBC09539, BBC09567, BBC09569, ISE00263)
   const galleryImages = [
-    '/assets/images/prenup/ISE00089.JPG',
-    '/assets/images/prenup/ISE00132.JPG',
-    '/assets/images/prenup/ISE00174.JPG',
-    '/assets/images/prenup/ISE00201.JPG',
-    '/assets/images/prenup/ISE00208.JPG',
-    '/assets/images/prenup/ISE00287.JPG',
-    '/assets/images/prenup/ISE09715.JPG',
-    '/assets/images/prenup/ISE09788.JPG',
-    '/assets/images/prenup/ISE09955.JPG'
+    '/assets/images/prenup/ISE00089.jpg',
+    '/assets/images/prenup/ISE00132.png',
+    '/assets/images/prenup/ISE00174.png',
+    '/assets/images/prenup/ISE00201.png',
+    '/assets/images/prenup/ISE00208.jpg',
+    '/assets/images/prenup/ISE00287.png',
+    '/assets/images/prenup/ISE09715.jpg',
+    '/assets/images/prenup/ISE09788.png',
+    '/assets/images/prenup/ISE09955.png'
   ]
 
   // Frame to image mapping
   const frameImageMap = {
-    'frame-1.png': '/assets/images/prenup/BBC09539.JPG',
-    'frame-2.png': '/assets/images/prenup/BBC09567.JPG',
-    'frame-3.png': '/assets/images/prenup/BBC09569.JPG',
-    'frame-4.png': '/assets/images/prenup/ISE00263.JPG'
+    'frame-1.png': '/assets/images/prenup/BBC09539.png',
+    'frame-2.png': '/assets/images/prenup/BBC09567.jpg',
+    'frame-3.png': '/assets/images/prenup/BBC09569.jpg',
+    'frame-4.png': '/assets/images/prenup/ISE00263.png'
   }
 
   const handleImageClick = (imageSrc) => {

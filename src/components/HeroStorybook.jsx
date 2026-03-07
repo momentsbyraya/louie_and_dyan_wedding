@@ -13,7 +13,7 @@ const HeroStorybook = () => {
   // Background style - centered, no zoom
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: 'url(/assets/images/prenup/ISE00201.JPG)',
+      backgroundImage: 'url(/assets/images/prenup/ISE00201.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -113,7 +113,8 @@ const HeroStorybook = () => {
     <>
       <section
         ref={heroRef}
-        className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
+        className="relative w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
+        style={{ height: '100svh' }}
       >
       <style>{`
         @media (min-width: 992px) {
@@ -179,8 +180,8 @@ const HeroStorybook = () => {
             </div>
 
             {/* Couple Names - Main Title with Drop Caps - Groom first, Bride with full first name "Divine Grace" */}
-            <div ref={coupleNameRef} className="mb-6 sm:mb-8 overflow-visible lg:w-fit lg:mx-auto">
-              <h1 className="font-heart-of-everything text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center capitalize leading-tight overflow-visible lg:whitespace-nowrap" style={{ background: 'linear-gradient(135deg, #FFF8DC 0%, #FFEAA7 30%, #F7DC6F 60%, #F4D03F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', width: 'fit-content' }}>
+            <div ref={coupleNameRef} className="mb-6 sm:mb-8 overflow-visible flex justify-center items-center w-full">
+              <h1 className="font-heart-of-everything text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center capitalize leading-tight overflow-visible lg:whitespace-nowrap" style={{ background: 'linear-gradient(135deg, #FFF8DC 0%, #FFEAA7 30%, #F7DC6F 60%, #F4D03F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] inline-block leading-none mr-1 overflow-visible" style={{ lineHeight: '0.8', marginTop: '0' }}>{groomFirstLetter}</span>
                 {groomRest} &nbsp;&
                 <br className="sm:hidden lg:hidden" />
