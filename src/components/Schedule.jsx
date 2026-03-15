@@ -26,20 +26,20 @@ const Schedule = () => {
           y: 0, 
           duration: 0.8, 
           ease: "power2.out",
-          scrollTrigger: {
+      scrollTrigger: {
             trigger: titleRef.current,
             start: "top 80%",
             toggleActions: "play none none none",
             once: true
           }
         }
-      )
+    )
     }
 
     // Timeline line expansion on scroll
     if (lineRef.current) {
       gsap.fromTo(lineRef.current, 
-        { scaleY: 0, transformOrigin: "top" },
+      { scaleY: 0, transformOrigin: "top" },
         { 
           scaleY: 1, 
           duration: 1.5, 
@@ -64,7 +64,7 @@ const Schedule = () => {
       // Animate each item individually when it scrolls into view
       eventItems.forEach((item, index) => {
         gsap.fromTo(item,
-          { opacity: 0, y: 30 },
+      { opacity: 0, y: 30 },
           { 
             opacity: 1, 
             y: 0, 
@@ -200,7 +200,7 @@ const Schedule = () => {
         }
       `}</style>
       {/* Background Image - bg-1 */}
-      <div
+      <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: 'url(/assets/images/graphics/bg-1.png)',

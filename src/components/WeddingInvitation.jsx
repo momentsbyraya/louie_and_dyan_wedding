@@ -54,11 +54,11 @@ const WeddingInvitation = () => {
           <section className="relative w-full">
             <div className="w-full flex justify-center items-center">
               <img 
-                src="/assets/images/prenup/new/FOR EDITS-31.jpg" 
+                src="/assets/images/prenup/new/FOR EDITS-8.jpg" 
                 alt="Wedding moment" 
                 className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
                 style={{ width: '100vw' }}
-                onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-31.jpg')}
+                onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-8.jpg')}
               />
             </div>
           </section>
@@ -73,11 +73,11 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
-              src="/assets/images/prenup/new/FOR EDITS-30.jpg" 
+              src="/assets/images/prenup/new/FOR EDITS-14.jpg" 
               alt="Wedding moment" 
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-30.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-14.jpg')}
             />
           </div>
         </section>

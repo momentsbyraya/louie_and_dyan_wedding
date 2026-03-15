@@ -101,6 +101,33 @@ const Entourage = () => {
     const allNameRows = []
     let currentTime = 0
     
+    // Parents section - collect rows (Groom's Parents and Bride's Parents)
+    if (parentsRef.current) {
+      const allParentsContainers = parentsRef.current.querySelectorAll('.flex-1')
+      if (allParentsContainers.length >= 2) {
+        const groomParentsContainer = allParentsContainers[0]
+        const brideParentsContainer = allParentsContainers[1]
+        
+        const groomParentsNames = groomParentsContainer.querySelectorAll('p.font-poppins')
+        const brideParentsNames = brideParentsContainer.querySelectorAll('p.font-poppins')
+        
+        if (groomParentsNames.length > 0 || brideParentsNames.length > 0) {
+          const maxLength = Math.max(groomParentsNames.length, brideParentsNames.length)
+          gsap.set([...groomParentsNames, ...brideParentsNames], { opacity: 0, y: 20 })
+          
+          for (let i = 0; i < maxLength; i++) {
+            const row = []
+            if (groomParentsNames[i]) row.push(groomParentsNames[i])
+            if (brideParentsNames[i]) row.push(brideParentsNames[i])
+            if (row.length > 0) {
+              allNameRows.push({ elements: row, time: currentTime })
+              currentTime += 0.2
+            }
+          }
+        }
+      }
+    }
+    
     // BRIDE & GROOM section - collect rows
     if (coupleRef.current) {
       const groomName = coupleRef.current.querySelectorAll('.flex-1:first-child p.font-poppins')
@@ -275,7 +302,7 @@ const Entourage = () => {
   
   // For BRIDE & GROOM section (full names in uppercase)
   const groomFullName = weddingConfig.couple.groom.fullName || `${weddingConfig.couple.groom.firstName.toUpperCase()} ${weddingConfig.couple.groom.lastName.toUpperCase()}`
-  const brideFullName = `GRACE ${weddingConfig.couple.bride.lastName.toUpperCase()}`
+  const brideFullName = "DIVINE GRACE DIZON"
 
   return (
     <>

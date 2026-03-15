@@ -132,7 +132,7 @@ const Gifts = () => {
             {/* Content - Only Monetary Gifts Images */}
             <div className="p-6">
               <div className="flex flex-col gap-4">
-                <img 
+                        <img 
                   src="/assets/images/monetary-gifts/gcash.jpg" 
                   alt="GCash" 
                   className="w-full h-auto object-contain"
@@ -141,8 +141,8 @@ const Gifts = () => {
                   src="/assets/images/monetary-gifts/maribank.jpg" 
                   alt="MariBank" 
                   className="w-full h-auto object-contain"
-                />
-              </div>
+                        />
+                      </div>
             </div>
           </div>
         </div>,

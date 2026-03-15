@@ -140,6 +140,7 @@ const DressCode = () => {
             {dresscode.sections && dresscode.sections.map((section, index) => {
               const isEven = index % 2 === 0
               const shouldReverse = section.title === "Principal Sponsors" || section.title === "Maid of Honor"
+              const isGuests = section.title === "Guests"
               return (
                 <div key={index} className="relative overflow-visible">
                   <div className="relative overflow-visible">
@@ -165,54 +166,56 @@ const DressCode = () => {
                               </p>
                             )}
                             
-                            {/* Color/Image Swatches */}
-                            <div className={`flex gap-2 ${shouldReverse ? 'justify-start lg:justify-start' : (isEven ? 'justify-end lg:justify-start' : 'justify-start lg:justify-start')}`}>
-                              {/* Image Swatches */}
-                              {section.colorSwatches && section.colorSwatches.map((swatch, swatchIndex) => (
-                                <div 
-                                  key={swatchIndex}
-                                  className="relative group"
-                                  onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
-                                  onMouseLeave={() => setActiveTooltip(null)}
-                                  onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
-                                >
-                                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded overflow-hidden" style={{ aspectRatio: '1/1' }}>
-                                    <img 
-                                      src={swatch.image} 
-                                      alt={swatch.name}
-                                      className="w-full h-full cursor-pointer object-cover"
-                                    />
-                                  </div>
-                                  {activeTooltip === `${index}-${swatchIndex}` && (
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
-                                      {swatch.name}
-                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
-                                    </div>
-                                  )}
-                                </div>
-                              ))}
-                              {/* Color Swatches */}
-                              {section.colors && section.colors.map((color, colorIndex) => {
-                                const swatchIndex = (section.colorSwatches?.length || 0) + colorIndex
-                                return (
+                            {/* Color/Image Swatches - Hide for Guests section */}
+                            {!isGuests && (
+                              <div className={`flex gap-2 ${shouldReverse ? 'justify-start lg:justify-start' : (isEven ? 'justify-end lg:justify-start' : 'justify-start lg:justify-start')}`}>
+                                {/* Image Swatches */}
+                                {section.colorSwatches && section.colorSwatches.map((swatch, swatchIndex) => (
                                   <div 
-                                    key={colorIndex}
+                                    key={swatchIndex}
                                     className="relative group"
                                     onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
                                     onMouseLeave={() => setActiveTooltip(null)}
                                     onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                   >
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded cursor-pointer" style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}></div>
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                                      <img 
+                                        src={swatch.image} 
+                                        alt={swatch.name}
+                                        className="w-full h-full cursor-pointer object-cover"
+                                      />
+                                    </div>
                                     {activeTooltip === `${index}-${swatchIndex}` && (
                                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
-                                        {color.name}
+                                        {swatch.name}
                                         <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
                                       </div>
                                     )}
                                   </div>
-                                )
-                              })}
-                            </div>
+                                ))}
+                                {/* Color Swatches */}
+                                {section.colors && section.colors.map((color, colorIndex) => {
+                                  const swatchIndex = (section.colorSwatches?.length || 0) + colorIndex
+                                  return (
+                                    <div 
+                                      key={colorIndex}
+                                      className="relative group"
+                                      onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
+                                      onMouseLeave={() => setActiveTooltip(null)}
+                                      onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
+                                    >
+                                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded cursor-pointer" style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}></div>
+                                      {activeTooltip === `${index}-${swatchIndex}` && (
+                                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
+                                          {color.name}
+                                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
+                                        </div>
+                                      )}
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            )}
                           </div>
                         </div>
                         
@@ -229,6 +232,36 @@ const DressCode = () => {
                           </div>
                         )}
                       </div>
+                      
+                      {/* Guest Palette Swatches - At the bottom for Guests section only */}
+                      {isGuests && section.colorSwatches && (
+                        <div className="flex gap-2 justify-center mt-4">
+                          {section.colorSwatches.map((swatch, swatchIndex) => (
+                            <div 
+                              key={swatchIndex}
+                              className="relative group"
+                              onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
+                              onMouseLeave={() => setActiveTooltip(null)}
+                              onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
+                            >
+                              <div className="rounded overflow-hidden">
+                                <img 
+                                  src={swatch.image} 
+                                  alt={swatch.name}
+                                  className="h-auto cursor-pointer object-contain"
+                                  style={{ maxWidth: '200px' }}
+                                />
+                              </div>
+                              {activeTooltip === `${index}-${swatchIndex}` && (
+                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
+                                  {swatch.name}
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

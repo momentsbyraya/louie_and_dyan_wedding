@@ -75,20 +75,8 @@
       "description": "Barong and black pants for men, formal evening gown with the palette given for girls.",
       "colorSwatches": [
         {
-          "name": "Espresso Brown",
-          "image": "/assets/images/dresscode/parents-2.png"
-        },
-        {
-          "name": "Antique Gold",
-          "image": "/assets/images/dresscode/principal-2.png"
-        },
-        {
-          "name": "Muted Bronze",
-          "image": "/assets/images/dresscode/secondary-1.png"
-        },
-        {
-          "name": "Light Champagne/Beige Silk",
-          "image": "/assets/images/dresscode/moh-2.png"
+          "name": "Guest Palette",
+          "image": "/assets/images/dresscode/guests-palette.png"
         }
       ]
     }

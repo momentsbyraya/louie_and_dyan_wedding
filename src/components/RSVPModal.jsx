@@ -88,12 +88,15 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        {/* RSVP Form - To be added */}
+        {/* RSVP Form */}
         <div className="p-6">
-          <div className="flex items-center justify-center h-[600px]">
-            <p className="text-lg sm:text-xl font-albert font-thin text-gray-600">
-              To be added
-            </p>
+          <div className="w-full h-[600px]">
+            <iframe
+              src="https://forms.gle/8pcrXGxUGZash7bN9"
+              className="w-full h-full border-0"
+              title="RSVP Form"
+              allow="clipboard-read; clipboard-write"
+            />
           </div>
         </div>
       </div>

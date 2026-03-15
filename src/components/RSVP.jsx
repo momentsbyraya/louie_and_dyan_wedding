@@ -19,6 +19,16 @@ const RSVP = () => {
 
   const { paymentMethods } = paymentMethodsData
 
+  // Check if RSVP deadline has passed (May 1st)
+  const isRSVPDeadlinePassed = () => {
+    const today = new Date()
+    const currentYear = today.getFullYear()
+    const deadline = new Date(currentYear, 4, 1) // May is month 4 (0-indexed)
+    return today >= deadline
+  }
+
+  const rsvpEnded = isRSVPDeadlinePassed()
+
   useEffect(() => {
     // Scroll-triggered animations
     const tl = gsap.timeline({
@@ -43,7 +53,9 @@ const RSVP = () => {
   }, [])
 
   const openRSVPModal = () => {
-    setIsModalOpen(true)
+    if (!rsvpEnded) {
+      setIsModalOpen(true)
+    }
   }
 
   return (
@@ -96,38 +108,61 @@ const RSVP = () => {
                     <span className="inline-block">svp</span>
                   </h2>
                   <div>
-                    <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
-                      Kindly answer the RSVP. Let us know if you'll be joining us for our celebration.
-                    </p>
-                    {/* Submit Response Button */}
-                    <div className="flex justify-center items-center mt-6">
-                      <button
-                        onClick={openRSVPModal}
-                        className="flex items-center justify-center gap-2 px-6 py-3 border border-[#999999] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                        style={{ borderRadius: '25px' }}
-                      >
-                        <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
-                          Submit your response
-                        </span>
-                        <ion-icon 
-                          name="mail-outline" 
-                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
-                        ></ion-icon>
-                      </button>
-                    </div>
-                    <div className="flex justify-center items-center mt-6">
-                      {/* Left horizontal line */}
-                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                    {rsvpEnded ? (
+                      <>
+                        <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
+                          The RSVP period has ended. For any inquiries or changes to your response, please contact us directly.
+                        </p>
+                        <div className="flex justify-center items-center mt-6">
+                          {/* Left horizontal line */}
+                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
 
-                      <img
-                        src="/assets/images/graphics/graphics-1.svg"
-                        alt="Decorative graphic"
-                        className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-                      />
+                          <img
+                            src="/assets/images/graphics/graphics-1.svg"
+                            alt="Decorative graphic"
+                            className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                          />
 
-                      {/* Right horizontal line */}
-                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-                    </div>
+                          {/* Right horizontal line */}
+                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
+                          Kindly answer the RSVP. Let us know if you'll be joining us for our celebration.
+                        </p>
+                        {/* Submit Response Button */}
+                        <div className="flex justify-center items-center mt-6">
+                          <button
+                            onClick={openRSVPModal}
+                            className="flex items-center justify-center gap-2 px-6 py-3 border border-[#999999] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                            style={{ borderRadius: '25px' }}
+                          >
+                            <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
+                              Submit your response
+                            </span>
+                            <ion-icon 
+                              name="mail-outline" 
+                              style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                            ></ion-icon>
+                          </button>
+                        </div>
+                        <div className="flex justify-center items-center mt-6">
+                          {/* Left horizontal line */}
+                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+
+                          <img
+                            src="/assets/images/graphics/graphics-1.svg"
+                            alt="Decorative graphic"
+                            className="w-32 sm:w-40 md:w-48 h-auto mx-4"
+                          />
+
+                          {/* Right horizontal line */}
+                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -189,12 +224,12 @@ const RSVP = () => {
               {/* Photo Section */}
               <div className="w-screen -mx-8 sm:-mx-12 lg:-mx-16">
                 <img 
-                  src="/assets/images/prenup/ISE00089.jpg"
+                  src="/assets/images/prenup/new/FOR EDITS-24.jpg"
                   alt="Wedding photo"
                   className="w-full h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
                   style={{ width: '100vw' }}
                   loading="lazy"
-                  onClick={() => setSelectedPhoto('/assets/images/prenup/ISE00089.jpg')}
+                  onClick={() => setSelectedPhoto('/assets/images/prenup/new/FOR EDITS-24.jpg')}
                 />
               </div>
             </div>
@@ -293,12 +328,12 @@ const RSVP = () => {
             {/* Content - Only Monetary Gifts Images */}
             <div className="p-6">
               <div className="flex flex-col gap-4">
-                <img 
+                        <img 
                   src="/assets/images/monetary-gifts/gcash.jpg" 
                   alt="GCash" 
                   className="w-full h-auto object-contain"
                 />
-                <img 
+                        <img 
                   src="/assets/images/monetary-gifts/maribank.jpg" 
                   alt="MariBank" 
                   className="w-full h-auto object-contain"
