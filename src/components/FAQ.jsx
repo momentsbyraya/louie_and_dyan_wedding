@@ -65,7 +65,7 @@ const FAQ = () => {
       id="faq"
       className="relative pt-12 pb-20 w-full overflow-hidden bg-white"
     >
-      {/* Background Image */}
+      {/* Background Image Added */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
