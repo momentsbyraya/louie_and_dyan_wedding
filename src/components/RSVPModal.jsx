@@ -89,7 +89,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         </div>
         
         {/* RSVP Form */}
-        <div className="p-6">
+        <div>
           <div className="w-full h-[600px]">
             <iframe
               src="https://forms.gle/8pcrXGxUGZash7bN9"
