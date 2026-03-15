@@ -1,12 +1,12 @@
 {
   "parents": {
     "groom": {
-      "father": "John Nilon",
-      "mother": "Mary Nilon"
+      "father": "NILON POLVES MAGBANUA SR. (+)",
+      "mother": "JULIE GANCIA MAGBANUA"
     },
     "bride": {
-      "father": "Robert Day",
-      "mother": "Elizabeth Day"
+      "father": "EDUARDO DIZON SR.",
+      "mother": "REGINA DIZON"
     }
   },
   "entourageList": [
@@ -14,200 +14,149 @@
       "category": "Principal Sponsors",
       "items": [
         {
-          "ninong": "Mr. Charles Michael Samaco Candor"
+          "ninong": "MR. CHARLES MICHAEL SAMACO CANDOR"
         },
         {
-          "ninong": "Mr. Nicandro Mañas Montaña Jr."
+          "ninong": "MR. NICANDRO MAÑAS MONTAÑA JR."
         },
         {
-          "ninong": "Mr. Jerry Magusara Diadio",
-          "ninang": "Mrs. Salome Lopez Diadio"
+          "ninong": "MR. EDUARDO NOVILLAS"
         },
         {
-          "ninang": "Mrs. Elvira Adelantar"
+          "ninong": "MR. ROBERT JOHN TOLENTINO"
         },
         {
-          "ninong": "Mr. Jerry Gastalla Ygloria",
-          "ninang": "Mrs. Ma. Cristina Pialan Ygloria"
+          "ninong": "MR. RODEL NEMESIO SANTIAGO"
         },
         {
-          "ninang": "Mrs Arlene De Vera",
-          "ninong": "Mr Enrique De Vera"
+          "ninong": "MR. BIENVENIDO GOROSPE JR"
         },
         {
-          "ninang": "Mrs Charito Mapilis",
-          "ninong": "Mr Leoncio Mapilis"
+          "ninong": "MR. VAN VINCENT PANGILINAN"
         },
         {
-          "ninang": "Mrs Arlina De Guzman"
+          "ninong": "MR. AL GEMRADY BATHAN"
         },
         {
-          "ninang": "Mrs Erlinda Joson"
+          "ninong": "MR. JEROME DEL ROSARIO"
         },
         {
-          "ninong": "Mr. Mario De Guzman"
+          "ninong": "MR. CENN ANDREW NUYDA"
         },
         {
-          "ninong": "Mr. Ricky De Guzman"
+          "ninang": "MRS. JASMINE CONSUELO BRIGITTA GOMEZ"
         },
         {
-          "ninong": "Mr. Eduardo Novillas"
+          "ninong": "MR. JERRY MAGUSARA DIADIO",
+          "ninang": "MRS. SALOME LOPEZ DIADIO"
         },
         {
-          "ninong": "Mr. Robert John Tolentino"
+          "ninang": "MRS. ELVIRA ADELANTAR"
         },
         {
-          "ninong": "Mr. Rodel Nemesio Santiago"
+          "ninong": "MR. JERRY GASTALLA YGLORIA",
+          "ninang": "MRS. MA. CRISTINA PIALAN YGLORIA"
         },
         {
-          "ninong": "Mr. Bienvenido Gorospe Jr"
+          "ninang": "MRS ARLENE DE VERA",
+          "ninong": "MR ENRIQUE DE VERA"
         },
         {
-          "ninong": "Mr. Van Vincent Pangilinan"
+          "ninang": "MRS CHARITO MAPILIS",
+          "ninong": "MR LEONCIO MAPILIS"
         },
         {
-          "ninong": "Mr. Al Gemrady Bathan"
+          "ninang": "MRS ARLINA DE GUZMAN"
         },
         {
-          "ninong": "Mr. Jerome Del Rosario"
+          "ninang": "MRS ERLINDA JOSON"
         },
         {
-          "ninong": "Mr. Cenn Andrew Nuyda",
-          "ninang": "Mrs. Jasmine Consuelo Brigitta Gomez"
+          "ninong": "MR. MARIO DE GUZMAN"
+        },
+        {
+          "ninong": "MR. RICKY DE GUZMAN"
         }
       ]
     },
     {
-      "category": "Bestman",
-      "names": [
-        "Sidney Angelo Magbanua"
-      ]
-    },
-    {
-      "category": "Maid of Honor",
-      "names": [
-        "Angel Ruth Dizon Garcia"
-      ]
-    },
-    {
       "category": "Secondary Sponsors",
-      "groomsmen": [
-        "Howard Ong",
-        "James Thompson",
-        "David Wilson",
-        "Robert Lee",
-        "Michael Chen",
-        "Daniel Park"
-      ],
-      "bridesmaid": [
-        "Chiaki Sato",
-        "Lars Peeters",
-        "Harper Russo",
-        "Helene Paquet",
-        "Emma Watson",
-        "Sophia Brown"
+      "bestman": "SIDNEY ANGELO MAGBANUA",
+      "matronOfHonor": "ANGEL RUTH DIZON GARCIA"
+    },
+    {
+      "category": "Candle 1",
+      "names": [
+        "DAVID JOHN TROMPETA",
+        "FRANCESCA FAITH ANTONIO"
       ]
     },
     {
-      "category": "Veil Sponsors",
+      "category": "Veil 1",
       "names": [
-        "Kristine Mae Molato Dizon",
-        "Eduardo Dizon Jr"
+        "EDUARDO DIZON JR.",
+        "KRISTINE MAE MOLATO DIZON"
       ]
     },
     {
-      "category": "Veil Sponsors 2",
+      "category": "Cord 1",
       "names": [
-        "Jennifer Marie Jocson",
-        "Haydn Danielle Inoferio"
+        "LUIS ANGELO GARCIA",
+        "STEPHANIE MAGBANUA"
       ]
     },
     {
-      "category": "Cord Sponsors",
+      "category": "Candle 2",
       "names": [
-        "Stephanie Magbanua",
-        "Luis Angelo Garcia"
+        "ALEXANDER VITO CRUZ",
+        "PAOLO ACIERTO"
       ]
     },
     {
-      "category": "Cord Sponsors 2",
+      "category": "Veil 2",
       "names": [
-        "Samantha Gomez",
-        "Byron Delgado"
+        "HAYDN DANIELLE INOFERIO",
+        "JENNIFER MARIE JOCSON"
       ]
     },
     {
-      "category": "Candle Sponsors",
+      "category": "Cord 2",
       "names": [
-        "Francesca Faith Antonio",
-        "David John Trompeta"
-      ]
-    },
-    {
-      "category": "Candle Sponsors 2",
-      "names": [
-        "Alexander Vito Cruz",
-        "Paolo Acierto"
+        "BYRON DELGADO",
+        "SAMANTHA GOMEZ"
       ]
     },
     {
       "category": "Ring Bearer",
       "names": [
-        "Jhon Christian Mapilis"
+        "JHON CHRISTIAN MAPILIS"
       ]
     },
     {
       "category": "Bible Bearer",
       "names": [
-        "Jhon Carlo Mapilis"
+        "JHON CARLO MAPILIS"
       ]
     },
     {
       "category": "Coin Bearer",
       "names": [
-        "Jhonlei Mapilis"
+        "JHONLEI MAPILIS"
       ]
     },
     {
       "category": "Flower Ladies",
       "names": [
-        "Jamelle De Joya-Rilleria",
-        "Tanya Mallorca",
-        "Crismae Saldivar",
-        "Zharmella Arriola"
+        "JAMELLE DE JOYA-RILLERIA",
+        "TANYA MALLORCA",
+        "CRISMAE SALDIVAR",
+        "ZHARMELLA ARRIOLA"
       ]
     },
     {
       "category": "Herald of the bride",
       "names": [
-        "Thalia Angelica Garcia"
-      ]
-    },
-    {
-      "category": "Flower Boys",
-      "names": [
-        "Ethan Wilson",
-        "Oliver Davis"
-      ]
-    },
-    {
-      "category": "Junior Flower Girls",
-      "names": [
-        "Emma Johnson",
-        "Sophia Williams"
-      ]
-    },
-    {
-      "category": "Little Flower Girls",
-      "names": [
-        "Henrietta Mitchell",
-        "Lily Anderson"
-      ]
-    },
-    {
-      "category": "Here comes the bride",
-      "names": [
-        "Grace Miller"
+        "THALIA ANGELICA GARCIA"
       ]
     }
   ]

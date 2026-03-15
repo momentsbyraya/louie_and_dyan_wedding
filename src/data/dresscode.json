@@ -8,11 +8,15 @@
       "title": "Mother of the Couple",
       "type": "image",
       "image": "/assets/images/dresscode/mother.png",
-      "description": "Any elegant attire in chocolate brown.",
+      "description": "Any elegant attire in espresso brown.",
       "colorSwatches": [
         {
-          "name": "Chocolate Brown",
-          "image": "/assets/images/dresscode/mother of bride and groom.png"
+          "name": "Espresso Brown",
+          "image": "/assets/images/dresscode/parents-2.png"
+        },
+        {
+          "name": "Espresso Brown",
+          "image": "/assets/images/dresscode/parents-3.png"
         }
       ]
     },
@@ -24,7 +28,11 @@
       "colorSwatches": [
         {
           "name": "Antique Gold",
-          "image": "/assets/images/dresscode/principal sponsors.png"
+          "image": "/assets/images/dresscode/principal-2.png"
+        },
+        {
+          "name": "Antique Gold",
+          "image": "/assets/images/dresscode/principal-3.png"
         }
       ]
     },
@@ -32,11 +40,15 @@
       "title": "Secondary Sponsors",
       "type": "image",
       "image": "/assets/images/dresscode/secondary.png",
-      "description": "Elegant attire in champagne taupe for women.",
+      "description": "Elegant attire in muted bronze for women.",
       "colorSwatches": [
         {
-          "name": "Champagne Taupe",
-          "image": "/assets/images/dresscode/secondary-sponsor.png"
+          "name": "Muted Bronze",
+          "image": "/assets/images/dresscode/secondary-1.png"
+        },
+        {
+          "name": "Muted Bronze",
+          "image": "/assets/images/dresscode/secondary-2.png"
         }
       ]
     },
@@ -48,23 +60,35 @@
       "colorSwatches": [
         {
           "name": "Light Champagne/Beige Silk",
-          "image": "/assets/images/dresscode/maid of honor.png"
+          "image": "/assets/images/dresscode/moh-2.png"
+        },
+        {
+          "name": "Light Champagne/Beige Silk",
+          "image": "/assets/images/dresscode/moh-3.png"
         }
       ]
     },
     {
-      "title": "Gentlemen",
+      "title": "Guests",
       "type": "image",
-      "image": "/assets/images/dresscode/men.png",
-      "description": "Either barong or black pants and suits.",
-      "colors": [
+      "image": "/assets/images/dresscode/guests.png",
+      "description": "Barong and black pants for men, formal evening gown with the palette given for girls.",
+      "colorSwatches": [
         {
-          "name": "Black",
-          "hex": "#000000"
+          "name": "Espresso Brown",
+          "image": "/assets/images/dresscode/parents-2.png"
         },
         {
-          "name": "Beige",
-          "hex": "#F5F5DC"
+          "name": "Antique Gold",
+          "image": "/assets/images/dresscode/principal-2.png"
+        },
+        {
+          "name": "Muted Bronze",
+          "image": "/assets/images/dresscode/secondary-1.png"
+        },
+        {
+          "name": "Light Champagne/Beige Silk",
+          "image": "/assets/images/dresscode/moh-2.png"
         }
       ]
     }

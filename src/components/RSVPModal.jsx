@@ -62,7 +62,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
   return createPortal(
     <div 
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50"
       style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
       {/* Overlay */}
@@ -75,7 +75,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       {/* Modal Content */}
       <div
         ref={contentRef}
-        className={`relative ${themeConfig.paragraph.background} rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden`}
+        className={`relative ${themeConfig.paragraph.background} w-full h-full overflow-auto`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-300/50">

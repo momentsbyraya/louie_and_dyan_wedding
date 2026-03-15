@@ -44,7 +44,7 @@ const LoveStory = () => {
       style={{ backgroundColor: 'transparent', zIndex: 20, position: 'relative' }}
     >
       {/* Content */}
-      <div className="relative z-20 flex items-center justify-center py-12">
+      <div className="relative z-20 flex items-center justify-center pt-12">
         <div className="max-w-2xl sm:max-w-3xl lg:max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
 
           {/* Love Story Content */}

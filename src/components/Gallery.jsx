@@ -12,66 +12,43 @@ const Gallery = () => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const contentRef = useRef(null)
-  const frameScrollRef = useRef(null)
   const [selectedImage, setSelectedImage] = useState(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Get all prenup images (BBC and ISE only, excluding opening-*, frame-*, favicon)
+  // Get all prenup images from new folder (for modal navigation)
   const allPrenupImages = useMemo(() => {
     const images = [
-      // BBC images
-      '/assets/images/prenup/BBC09539.png',
-      '/assets/images/prenup/BBC09567.jpg',
-      '/assets/images/prenup/BBC09569.jpg',
-      // ISE images
-      '/assets/images/prenup/ISE00089.jpg',
-      '/assets/images/prenup/ISE00132.png',
-      '/assets/images/prenup/ISE00174.png',
-      '/assets/images/prenup/ISE00201.png',
-      '/assets/images/prenup/ISE00208.jpg',
-      '/assets/images/prenup/ISE00263.png',
-      '/assets/images/prenup/ISE00287.png',
-      '/assets/images/prenup/ISE09715.jpg',
-      '/assets/images/prenup/ISE09788.png',
-      '/assets/images/prenup/ISE09955.png'
+      // Images from prenup/new folder
+      '/assets/images/prenup/new/FOR EDITS-24.jpg',
+      '/assets/images/prenup/new/FOR EDITS-22.jpg',
+      '/assets/images/prenup/new/FOR EDITS-21.jpg',
+      '/assets/images/prenup/new/FOR EDITS-20.jpg',
+      '/assets/images/prenup/new/FOR EDITS-17.jpg',
+      '/assets/images/prenup/new/FOR EDITS-14.jpg',
+      '/assets/images/prenup/new/FOR EDITS-13.jpg',
+      '/assets/images/prenup/new/FOR EDITS-12.jpg',
+      '/assets/images/prenup/new/FOR EDITS-11.jpg'
     ]
     return images
   }, [])
 
-  // Gallery images from prenup folder (excluding BBC09539, BBC09567, BBC09569, ISE00263)
+  // Gallery images from prenup/new folder (excluding images already used in WeddingInvitation: FOR EDITS-31, 30, 28, 26, 25)
   const galleryImages = [
-    '/assets/images/prenup/ISE00089.jpg',
-    '/assets/images/prenup/ISE00132.png',
-    '/assets/images/prenup/ISE00174.png',
-    '/assets/images/prenup/ISE00201.png',
-    '/assets/images/prenup/ISE00208.jpg',
-    '/assets/images/prenup/ISE00287.png',
-    '/assets/images/prenup/ISE09715.jpg',
-    '/assets/images/prenup/ISE09788.png',
-    '/assets/images/prenup/ISE09955.png'
+    '/assets/images/prenup/new/FOR EDITS-24.jpg',
+    '/assets/images/prenup/new/FOR EDITS-22.jpg',
+    '/assets/images/prenup/new/FOR EDITS-21.jpg',
+    '/assets/images/prenup/new/FOR EDITS-20.jpg',
+    '/assets/images/prenup/new/FOR EDITS-17.jpg',
+    '/assets/images/prenup/new/FOR EDITS-14.jpg',
+    '/assets/images/prenup/new/FOR EDITS-13.jpg',
+    '/assets/images/prenup/new/FOR EDITS-12.jpg',
+    '/assets/images/prenup/new/FOR EDITS-11.jpg'
   ]
-
-  // Frame to image mapping
-  const frameImageMap = {
-    'frame-1.png': '/assets/images/prenup/BBC09539.png',
-    'frame-2.png': '/assets/images/prenup/BBC09567.jpg',
-    'frame-3.png': '/assets/images/prenup/BBC09569.jpg',
-    'frame-4.png': '/assets/images/prenup/ISE00263.png'
-  }
 
   const handleImageClick = (imageSrc) => {
     const index = allPrenupImages.indexOf(imageSrc)
     setCurrentImageIndex(index >= 0 ? index : 0)
     setSelectedImage(imageSrc)
-  }
-
-  const handleFrameClick = (frameName) => {
-    const imageSrc = frameImageMap[frameName]
-    if (imageSrc) {
-      const index = allPrenupImages.indexOf(imageSrc)
-      setCurrentImageIndex(index >= 0 ? index : 0)
-      setSelectedImage(imageSrc)
-    }
   }
 
   const closeModal = () => {
@@ -134,40 +111,22 @@ const Gallery = () => {
       )
     }
 
-    // Frame images animation - individual scroll triggers for better performance
-    if (frameScrollRef.current) {
-      const frameImages = frameScrollRef.current.querySelectorAll('img')
-      frameImages.forEach((img, index) => {
-        gsap.fromTo(img,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: img,
-              start: "top 85%",
-              toggleActions: "play none none none",
-              once: true
-            }
-          }
-        )
-      })
-    }
-
     // Gallery images animation - individual scroll triggers for each image
     if (contentRef.current) {
-      const galleryItems = contentRef.current.querySelectorAll('div[class*="col-span"]')
+      const galleryItems = contentRef.current.querySelectorAll('div[class*="relative"]')
       galleryItems.forEach((item, index) => {
         // Use will-change for better performance
         item.style.willChange = 'transform, opacity'
         
+        // Alternate between left and right slide
+        const isEven = index % 2 === 0
+        const xOffset = isEven ? -100 : 100
+        
         gsap.fromTo(item,
-          { opacity: 0, y: 50, scale: 0.95 },
+          { opacity: 0, x: xOffset, scale: 0.95 },
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             scale: 1,
             duration: 0.8,
             ease: "power2.out",
@@ -199,17 +158,6 @@ const Gallery = () => {
     }
   }, [])
 
-  // Scroll to center frame image on mount
-  useEffect(() => {
-    if (frameScrollRef.current) {
-      const scrollContainer = frameScrollRef.current
-      const scrollWidth = scrollContainer.scrollWidth
-      const clientWidth = scrollContainer.clientWidth
-      // Scroll to center (frame-2.png is the middle one)
-      scrollContainer.scrollLeft = (scrollWidth - clientWidth) / 2
-    }
-  }, [])
-
   return (
     <section 
       ref={sectionRef}
@@ -237,26 +185,9 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Frame Images - Horizontal Scrollable - Full Width */}
-      <div className="mb-8 sm:mb-10 md:mb-12 w-full">
-        <div ref={frameScrollRef} className="overflow-x-auto w-full" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-          <div className="flex gap-4 sm:gap-6 md:gap-8 px-8 sm:px-12 lg:px-16" style={{ width: 'max-content' }}>
-            {['frame-1.png', 'frame-4.png', 'frame-2.png', 'frame-3.png'].map((frame, index) => (
-              <div key={index} className="flex-shrink-0 cursor-pointer" onClick={() => handleFrameClick(frame)}>
-                <img 
-                  src={`/assets/images/prenup/${frame}`}
-                  alt={`Frame ${index + 1}`}
-                  className="h-48 sm:h-56 md:h-64 lg:h-72 w-auto object-contain hover:opacity-90 transition-opacity"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center">
-        <div className="max-w-md sm:max-w-xl lg:max-w-4xl xl:max-w-5xl w-full mx-auto">
+        <div className="w-full mx-auto px-8 sm:px-12 lg:px-16" style={{ maxWidth: '400px' }}>
           <style>{`
             .overflow-x-auto::-webkit-scrollbar {
               display: none;
@@ -266,33 +197,20 @@ const Gallery = () => {
             }
           `}</style>
 
-          {/* Gallery Images - Bento Grid */}
+          {/* Gallery Images */}
           <div 
             ref={contentRef} 
-            className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6"
+            className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6"
             style={{
               contain: 'layout style paint',
               transform: 'translateZ(0)'
             }}
           >
             {galleryImages.map((image, index) => {
-              // Alternating pattern: 2 columns (50-50), 1 column (full), 2 columns (50-50), 1 column (full), etc.
-              // For 2-column rows: both images get col-span-1 (50-50 split)
-              // For 1-column rows: image gets col-span-2 (full width)
-              
-              // Pattern: 0,1 (2 cols 50-50), 2 (1 col full), 3,4 (2 cols 50-50), 5 (1 col full), 6,7 (2 cols 50-50), 8 (1 col full), 9 (1 col full)
-              let colSpan = 'col-span-1'
-              
-              // Determine if this image should be full width (1 column row)
-              // Images at indices 2, 5, 8, 9 should be full width
-              if (index === 2 || index === 5 || index === 8 || index === 9) {
-                colSpan = 'col-span-2'
-              }
-              
               return (
                 <div 
                   key={index} 
-                  className={`relative ${colSpan} overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[300px] cursor-pointer`}
+                  className="relative w-full overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[300px] cursor-pointer"
                   onClick={() => handleImageClick(image)}
                   style={{
                     transform: 'translateZ(0)',

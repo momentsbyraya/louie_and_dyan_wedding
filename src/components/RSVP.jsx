@@ -15,6 +15,7 @@ const RSVP = () => {
   const contentRef = useRef(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isGiftRegistryModalOpen, setIsGiftRegistryModalOpen] = useState(false)
+  const [selectedPhoto, setSelectedPhoto] = useState(null)
 
   const { paymentMethods } = paymentMethodsData
 
@@ -51,6 +52,24 @@ const RSVP = () => {
         ref={sectionRef}
         className="relative pt-20 w-full overflow-hidden bg-white min-h-[500px]"
       >
+        {/* Background Image - bg-1 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
+            opacity: 0.4
+          }}
+        />
+
+        {/* Gold Banner - Top */}
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
+          <img 
+            src="/assets/images/graphics/gold-banner-2.png" 
+            alt="Decorative graphic"
+            className="w-full h-auto"
+          />
+        </div>
+
         {/* Content */}
         <div className="relative z-20 flex items-center justify-center min-h-[500px]">
           <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
@@ -157,14 +176,25 @@ const RSVP = () => {
                 </div>
               </div>
 
-              {/* Photo Section */}
-              <div className="w-screen mt-12 -mx-8 sm:-mx-12 lg:-mx-16">
+              {/* Gold Banner - After Gift Section (Flipped Vertically) */}
+              <div className="w-screen -mt-16 sm:-mt-20 md:-mt-24 -mx-8 sm:-mx-12 lg:-mx-16 flex justify-center items-center">
                 <img 
-                  src="/assets/images/prenup/frame-1.png"
+                  src="/assets/images/graphics/gold-banner-2.png" 
+                  alt="Decorative graphic"
+                  className="w-full h-auto scale-y-[-1]"
+                  style={{ width: '100vw' }}
+                />
+              </div>
+
+              {/* Photo Section */}
+              <div className="w-screen -mx-8 sm:-mx-12 lg:-mx-16">
+                <img 
+                  src="/assets/images/prenup/ISE00089.jpg"
                   alt="Wedding photo"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
                   style={{ width: '100vw' }}
                   loading="lazy"
+                  onClick={() => setSelectedPhoto('/assets/images/prenup/ISE00089.jpg')}
                 />
               </div>
             </div>
@@ -177,6 +207,66 @@ const RSVP = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+
+      {/* Photo Preview Modal */}
+      {selectedPhoto && createPortal(
+        <div 
+          className="fixed inset-0 z-[10000] flex items-center justify-center"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw', 
+            height: '100vh',
+            margin: 0,
+            padding: 0
+          }}
+          onClick={() => setSelectedPhoto(null)}
+        >
+          {/* Black Overlay */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.5)'
+            }}
+          />
+          
+          {/* Close Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              setSelectedPhoto(null)
+            }}
+            className="absolute top-4 right-4 z-[10001] text-white hover:opacity-80 transition-opacity p-2"
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              right: '1rem'
+            }}
+            aria-label="Close"
+          >
+            <X className="w-8 h-8 sm:w-10 sm:h-10" />
+          </button>
+
+          {/* Image */}
+          <img
+            src={selectedPhoto}
+            alt="Full size preview"
+            className="max-w-full max-h-full object-contain z-[10001]"
+            style={{
+              position: 'relative',
+              zIndex: 10001
+            }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>,
+        document.body
+      )}
 
       {/* Gift Registry Modal */}
       {isGiftRegistryModalOpen && createPortal(
@@ -200,64 +290,20 @@ const RSVP = () => {
               </button>
             </div>
 
-            {/* Content */}
+            {/* Content - Only Monetary Gifts Images */}
             <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {paymentMethods.map((method, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
-                    <div className="flex items-center justify-center mb-4">
-                      {method.image ? (
-                        <img 
-                          src={method.image} 
-                          alt={method.name} 
-                          className="w-12 h-12 object-contain"
-                          style={{ borderRadius: '50%' }}
-                        />
-                      ) : (
-                        <div className={`w-12 h-12 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center text-gray-800`}>
-                          {method.icon === 'Building' && <Building className="w-6 h-6" />}
-                          {method.icon === 'CreditCard' && <CreditCard className="w-6 h-6" />}
-                          {method.icon === 'Smartphone' && <Smartphone className="w-6 h-6" />}
-                        </div>
-                      )}
-                    </div>
-                    
-                    <h4 className="text-lg sm:text-xl alice-regular font-black text-gray-800 mb-2" style={{ fontWeight: 900 }}>{method.name}</h4>
-                    <div className="my-3">
-                      <div className="w-full h-px bg-gray-300 mb-2"></div>
-                      <p className="alice-regular font-black text-gray-800 text-center" style={{ fontWeight: 900, fontSize: '1.5rem' }}>{method.accountInfo.accountNumber}</p>
-                      <div className="w-full h-px bg-gray-300 mt-2"></div>
-                    </div>
-                    
-                    {/* QR Code - Only show if qrCode is provided */}
-                    {method.accountInfo.qrCode && (
-                      <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
-                        <img 
-                          src={method.accountInfo.qrCode} 
-                          alt="QR Code" 
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                    )}
-                    
-                    {/* Account Information */}
-                    <div className="text-left space-y-2 alice-regular font-black text-gray-700" style={{ fontWeight: 900, fontSize: '1rem' }}>
-                      {method.accountInfo.bank && (
-                        <p><span className="font-black">Bank:</span> {method.accountInfo.bank}</p>
-                      )}
-                      <p><span className="font-black">Name:</span> {method.accountInfo.accountName}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex flex-col gap-4">
+                <img 
+                  src="/assets/images/monetary-gifts/gcash.jpg" 
+                  alt="GCash" 
+                  className="w-full h-auto object-contain"
+                />
+                <img 
+                  src="/assets/images/monetary-gifts/maribank.jpg" 
+                  alt="MariBank" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
-              
-              {paymentMethods.some(method => method.accountInfo.qrCode) && (
-                <div className="mt-8 text-center">
-                  <p className="text-sm sm:text-base alice-regular font-black text-gray-600" style={{ fontWeight: 900 }}>
-                    Scan the QR code with your banking app or use the account details above for manual transfer.
-                  </p>
-                </div>
-              )}
             </div>
           </div>
         </div>,

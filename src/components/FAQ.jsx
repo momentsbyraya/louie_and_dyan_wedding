@@ -65,6 +65,19 @@ const FAQ = () => {
       id="faq"
       className="relative pt-12 pb-20 w-full overflow-hidden bg-white"
     >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/gold-bg.png)',
+          opacity: 0.00000005,
+          zIndex: 0
+        }}
+      />
+      
+      {/* Gold overlay for elegant effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#edb030]/40 via-[#d99a1a]/35 to-[#926018]/40 z-[1]" />
+      
       {/* FAQ Section */}
       <div className="relative z-20 faq-section">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">

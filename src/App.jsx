@@ -52,7 +52,7 @@ function App() {
       '/assets/images/prenup/opening-1.png',
       '/assets/images/prenup/opening-2.png',
       '/assets/images/prenup/opening-3.png',
-      '/assets/images/prenup/ISE00201.JPG', // Hero background image
+      '/assets/images/prenup/FOR EDITS-28.jpg', // Hero background image
       '/assets/images/graphics/old-book-bg.png' // Hero top layer background
     ]
 

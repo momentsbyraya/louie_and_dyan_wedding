@@ -2,9 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { X, Building, CreditCard, Smartphone } from 'lucide-react'
-import { paymentMethods as paymentMethodsData } from '../data'
-import { themeConfig } from '../config/themeConfig'
+import { X } from 'lucide-react'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -13,8 +11,6 @@ const Gifts = () => {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
   const [isGiftRegistryModalOpen, setIsGiftRegistryModalOpen] = useState(false)
-
-  const { paymentMethods } = paymentMethodsData
 
   useEffect(() => {
     // Scroll-triggered animations
@@ -45,7 +41,23 @@ const Gifts = () => {
         ref={sectionRef}
         className="relative pt-4 pb-20 w-full overflow-hidden min-h-[500px]"
       >
-        {/* Background Image - Removed */}
+        {/* Background Image - bg-1 */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
+            opacity: 0.4
+          }}
+        />
+
+        {/* Gold Banner - Top */}
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
+          <img 
+            src="/assets/images/graphics/gold-banner-2.png" 
+            alt="Decorative graphic"
+            className="w-full h-auto"
+          />
+        </div>
 
         {/* Content */}
         <div className="relative z-20 flex items-center justify-center min-h-[500px]">
@@ -84,6 +96,15 @@ const Gifts = () => {
             </div>
           </div>
         </div>
+
+        {/* Gold Banner - Bottom (Flipped Vertically) */}
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
+          <img 
+            src="/assets/images/graphics/gold-banner-2.png" 
+            alt="Decorative graphic"
+            className="w-full h-auto scale-y-[-1]"
+          />
+        </div>
       </section>
 
       {/* Gift Registry Modal */}
@@ -108,64 +129,20 @@ const Gifts = () => {
               </button>
             </div>
 
-            {/* Content */}
+            {/* Content - Only Monetary Gifts Images */}
             <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {paymentMethods.map((method, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-6 text-center border border-gray-200">
-                    <div className="flex items-center justify-center mb-4">
-                      {method.image ? (
-                        <img 
-                          src={method.image} 
-                          alt={method.name} 
-                          className="w-12 h-12 object-contain"
-                          style={{ borderRadius: '50%' }}
-                        />
-                      ) : (
-                        <div className={`w-12 h-12 ${themeConfig.backgrounds.theme} rounded-full flex items-center justify-center text-gray-800`}>
-                          {method.icon === 'Building' && <Building className="w-6 h-6" />}
-                          {method.icon === 'CreditCard' && <CreditCard className="w-6 h-6" />}
-                          {method.icon === 'Smartphone' && <Smartphone className="w-6 h-6" />}
-                        </div>
-                      )}
-                    </div>
-                    
-                    <h4 className="text-lg sm:text-xl alice-regular font-black text-gray-800 mb-2" style={{ fontWeight: 900 }}>{method.name}</h4>
-                    <div className="my-3">
-                      <div className="w-full h-px bg-gray-300 mb-2"></div>
-                      <p className="alice-regular font-black text-gray-800 text-center" style={{ fontWeight: 900, fontSize: '1.5rem' }}>{method.accountInfo.accountNumber}</p>
-                      <div className="w-full h-px bg-gray-300 mt-2"></div>
-                    </div>
-                    
-                    {/* QR Code - Only show if qrCode is provided */}
-                    {method.accountInfo.qrCode && (
-                      <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center">
-                        <img 
-                          src={method.accountInfo.qrCode} 
-                          alt="QR Code" 
-                          className="w-full h-full object-contain"
-                        />
-                      </div>
-                    )}
-                    
-                    {/* Account Information */}
-                    <div className="text-left space-y-2 alice-regular font-black text-gray-700" style={{ fontWeight: 900, fontSize: '1rem' }}>
-                      {method.accountInfo.bank && (
-                        <p><span className="font-black">Bank:</span> {method.accountInfo.bank}</p>
-                      )}
-                      <p><span className="font-black">Name:</span> {method.accountInfo.accountName}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex flex-col gap-4">
+                <img 
+                  src="/assets/images/monetary-gifts/gcash.jpg" 
+                  alt="GCash" 
+                  className="w-full h-auto object-contain"
+                />
+                <img 
+                  src="/assets/images/monetary-gifts/maribank.jpg" 
+                  alt="MariBank" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
-              
-              {paymentMethods.some(method => method.accountInfo.qrCode) && (
-                <div className="mt-8 text-center">
-                  <p className="text-sm sm:text-base alice-regular font-black text-gray-600" style={{ fontWeight: 900 }}>
-                    Scan the QR code with your banking app or use the account details above for manual transfer.
-                  </p>
-                </div>
-              )}
             </div>
           </div>
         </div>,

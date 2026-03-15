@@ -95,14 +95,23 @@ const DressCode = () => {
       ref={sectionRef}
       className="relative py-12 w-full overflow-hidden bg-white"
     >
-      {/* Background Image - bg-2 */}
+      {/* Background Image - bg-1 */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-2.png)',
+          backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
           opacity: 0.4
         }}
       />
+
+      {/* Leaf Banner - Top */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
+        <img 
+          src="/assets/images/graphics/leaf-banner.png" 
+          alt="Leaf banner decoration"
+          className="w-full h-auto"
+        />
+      </div>
       
       {/* Soft white gradient overlays for transitions */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10" />
@@ -167,12 +176,13 @@ const DressCode = () => {
                                   onMouseLeave={() => setActiveTooltip(null)}
                                   onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                 >
-                                  <img 
-                                    src={swatch.image} 
-                                    alt={swatch.name}
-                                    className="h-8 sm:h-10 w-auto rounded cursor-pointer object-cover"
-                                    style={{ width: 'fit-content' }}
-                                  />
+                                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                                    <img 
+                                      src={swatch.image} 
+                                      alt={swatch.name}
+                                      className="w-full h-full cursor-pointer object-cover"
+                                    />
+                                  </div>
                                   {activeTooltip === `${index}-${swatchIndex}` && (
                                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
                                       {swatch.name}
@@ -192,7 +202,7 @@ const DressCode = () => {
                                     onMouseLeave={() => setActiveTooltip(null)}
                                     onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                   >
-                                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded cursor-pointer" style={{ backgroundColor: color.hex }}></div>
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded cursor-pointer" style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}></div>
                                     {activeTooltip === `${index}-${swatchIndex}` && (
                                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
                                         {color.name}
@@ -226,6 +236,16 @@ const DressCode = () => {
             })}
           </div>
         </div>
+      </div>
+
+      {/* Leaf Banner - Bottom (Flipped Vertically and Horizontally) */}
+      <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
+        <img 
+          src="/assets/images/graphics/leaf-banner.png" 
+          alt="Leaf banner decoration"
+          className="w-full h-auto"
+          style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+        />
       </div>
     </section>
   )
