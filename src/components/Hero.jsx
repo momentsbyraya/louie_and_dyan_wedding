@@ -18,7 +18,7 @@ const Hero = () => {
   // Background style - centered, no zoom
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: `url("/assets/images/prenup/FOR EDITS-28.jpg")`,
+      backgroundImage: `url("/assets/images/prenup/new/FOR EDITS-23.jpg")`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -170,10 +170,10 @@ const Hero = () => {
       <div className="relative z-10 h-full flex flex-col items-center justify-start pt-8 sm:pt-12 md:pt-16 lg:pt-20">
         {/* "YOU ARE INVITED" - Top Header */}
         <div ref={invitedRef} className="mb-6 sm:mb-8 text-center opacity-0">
-          <div className="text-white caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+          <div className="caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase" style={{ color: '#555555', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             YOU ARE INVITED
           </div>
-          <div className="text-white caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase mt-2" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+          <div className="caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase mt-2" style={{ color: '#555555', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
             TO THE WEDDING OF
           </div>
         </div>
@@ -184,13 +184,22 @@ const Hero = () => {
             src="/assets/images/graphics/monogram.png" 
             alt="Monogram" 
             className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
-            style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4))' }}
+            style={{ filter: 'drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4))' }}
           />
         </div>
 
-        {/* Couple Names - Serif Gold Font */}
+        {/* Couple Names - Serif Dark Gold Gradient */}
         <div ref={coupleNameRef} className="-mt-4 sm:-mt-6 md:-mt-8 mb-6 sm:mb-8 flex justify-center items-center w-full opacity-0">
-          <h1 className="text-center uppercase whitespace-nowrap leading-tight" style={{ fontFamily: 'Caudex, serif', color: '#D4AF37', fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}>
+          <h1 className="text-center uppercase whitespace-nowrap leading-tight" style={{ 
+            fontFamily: 'Caudex, serif', 
+            background: 'linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #F4D03F 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', 
+            textShadow: '0 2px 4px rgba(255, 255, 255, 0.6)',
+            filter: 'drop-shadow(0 2px 4px rgba(255, 255, 255, 0.4))'
+          }}>
             {groomName.toUpperCase()} & {shortBrideName.toUpperCase()}
           </h1>
         </div>
@@ -198,30 +207,30 @@ const Hero = () => {
         {/* Date and Time */}
         <div ref={dateRef} className="mb-2 sm:mb-3 lg:hidden opacity-0">
           {/* Month - Centered */}
-          <div className="text-white alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider text-center">
+          <div className="alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider text-center" style={{ color: '#555555' }}>
             {dateInfo.month}
           </div>
           {/* Day of Week, Day Number, and Time */}
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 max-w-md mx-auto">
             {/* Day of Week - Left with lines */}
             <div className="flex flex-col items-center">
-              <div className="w-12 sm:w-16 md:w-20 h-px bg-white mb-0"></div>
-              <div className="text-white alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider">
+              <div className="w-12 sm:w-16 md:w-20 h-px mb-0" style={{ backgroundColor: '#555555' }}></div>
+              <div className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider" style={{ color: '#555555' }}>
                 {dateInfo.dayOfWeek}
               </div>
-              <div className="w-12 sm:w-16 md:w-20 h-px bg-white mt-0"></div>
+              <div className="w-12 sm:w-16 md:w-20 h-px mt-0" style={{ backgroundColor: '#555555' }}></div>
             </div>
             {/* Day Number - Large and Centered */}
-            <div className="text-white alice-regular font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            <div className="alice-regular font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ color: '#555555' }}>
               {dateInfo.day}
             </div>
             {/* Time - Right with lines */}
             <div className="flex flex-col items-center">
-              <div className="w-12 sm:w-16 md:w-20 h-px bg-white mb-0"></div>
-              <div className="text-white alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider">
+              <div className="w-12 sm:w-16 md:w-20 h-px mb-0" style={{ backgroundColor: '#555555' }}></div>
+              <div className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider" style={{ color: '#555555' }}>
                 {venue.time.replace(/\s/g, '').toUpperCase()}
               </div>
-              <div className="w-12 sm:w-16 md:w-20 h-px bg-white mt-0"></div>
+              <div className="w-12 sm:w-16 md:w-20 h-px mt-0" style={{ backgroundColor: '#555555' }}></div>
             </div>
           </div>
         </div>
