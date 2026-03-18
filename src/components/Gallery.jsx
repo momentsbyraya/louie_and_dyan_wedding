@@ -25,7 +25,6 @@ const Gallery = () => {
       '/assets/images/prenup/new/FOR EDITS-5.jpg',
       '/assets/images/prenup/new/FOR EDITS-7.jpg',
       '/assets/images/prenup/new/FOR EDITS-13.jpg',
-      '/assets/images/prenup/new/FOR EDITS-11.jpg',
       '/assets/images/prenup/new/FOR EDITS-17.jpg',
       '/assets/images/prenup/new/FOR EDITS-20.jpg',
       '/assets/images/prenup/new/FOR EDITS-21.jpg',
@@ -36,6 +35,7 @@ const Gallery = () => {
       // Images used in WeddingInvitation.jsx and RSVP.jsx (for navigation)
       '/assets/images/prenup/new/FOR EDITS-8.jpg',
       '/assets/images/prenup/new/FOR EDITS-14.jpg',
+      '/assets/images/prenup/new/FOR EDITS-11.jpg',
       '/assets/images/prenup/new/FOR EDITS-24.jpg'
     ]
     return images
@@ -52,7 +52,7 @@ const Gallery = () => {
     '/assets/images/prenup/new/FOR EDITS-5.jpg',
     '/assets/images/prenup/new/FOR EDITS-7.jpg',
     '/assets/images/prenup/new/FOR EDITS-13.jpg',
-    '/assets/images/prenup/new/FOR EDITS-11.jpg',
+    '/assets/images/prenup/new/FOR EDITS-14.jpg',
     '/assets/images/prenup/new/FOR EDITS-17.jpg',
     '/assets/images/prenup/new/FOR EDITS-20.jpg',
     '/assets/images/prenup/new/FOR EDITS-21.jpg',

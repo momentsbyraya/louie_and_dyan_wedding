@@ -238,7 +238,11 @@ const Hero = () => {
 
       {/* Venue Name - Bottom */}
       <div ref={venueRef} className="absolute bottom-0 left-0 right-0 z-10 text-center pb-8 opacity-0">
-        <div className="text-white alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }} dangerouslySetInnerHTML={{ __html: venue.name.toUpperCase().replace('AQUILA', 'AQUILA<br />') }}>
+        <div
+          className="alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase"
+          style={{ color: '#edb030', textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)' }}
+          dangerouslySetInnerHTML={{ __html: venue.name.toUpperCase().replace('AQUILA', 'AQUILA<br />') }}
+        >
         </div>
       </div>
     </section>
