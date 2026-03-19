@@ -75,7 +75,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
       {/* Modal Content */}
       <div
         ref={contentRef}
-        className={`relative ${themeConfig.paragraph.background} w-full h-full overflow-auto`}
+        className={`relative ${themeConfig.paragraph.background} w-full h-full flex flex-col overflow-hidden`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-300/50">
@@ -89,8 +89,8 @@ const RSVPModal = ({ isOpen, onClose }) => {
         </div>
         
         {/* RSVP Form */}
-        <div>
-          <div className="w-full h-[600px]">
+        <div className="flex-1 min-h-0">
+          <div className="w-full h-full">
             <iframe
               src="https://forms.gle/8pcrXGxUGZash7bN9"
               className="w-full h-full border-0"

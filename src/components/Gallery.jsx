@@ -204,7 +204,7 @@ const Gallery = () => {
 
       {/* Content */}
       <div className="relative z-20 flex items-center justify-center">
-        <div className="w-full mx-auto px-8 sm:px-12 lg:px-16" style={{ maxWidth: '400px' }}>
+        <div className="w-full max-w-md sm:max-w-2xl md:max-w-5xl lg:max-w-6xl mx-auto px-8 sm:px-12 md:px-6 lg:px-8">
           <style>{`
             .overflow-x-auto::-webkit-scrollbar {
               display: none;

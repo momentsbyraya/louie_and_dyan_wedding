@@ -93,7 +93,7 @@ const DressCode = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-12 w-full overflow-hidden bg-white"
+      className="relative py-12 md:py-32 w-full overflow-hidden bg-white"
     >
       {/* Background Image - bg-1 */}
       <div 

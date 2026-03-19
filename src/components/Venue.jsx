@@ -114,7 +114,7 @@ const MapDirections = () => {
       className="relative w-full overflow-hidden mt-20 sm:mt-24 md:mt-32 lg:mt-40 mb-20 sm:mb-24 md:mb-32 lg:mb-40"
     >
       <div className="flex items-center justify-center">
-        <div className="w-full max-w-4xl mx-auto relative">
+        <div className="w-screen max-w-none mx-auto relative">
           {/* Venue Content */}
           <div className="relative">
             {/* Venue Image */}
@@ -122,7 +122,7 @@ const MapDirections = () => {
               ref={imageRef}
               src={venueImages[currentImageIndex]} 
               alt={venue.name} 
-              className={`w-full h-auto transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
+              className={`w-screen h-auto max-h-[600px] object-cover transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
             />
 
             {/* Chevron Navigation - Left */}
