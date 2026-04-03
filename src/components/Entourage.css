@@ -120,32 +120,3 @@
     opacity: 0;
   }
 }
-
-/* Gold Flower Snow Effect */
-.falling-gold-flower {
-  position: absolute;
-  top: -50px;
-  pointer-events: none;
-  z-index: 15;
-  object-fit: contain;
-}
-
-@keyframes fallingGoldFlower {
-  0% {
-    transform: translateY(-50px) rotate(0deg);
-    opacity: 0;
-  }
-  3% {
-    opacity: 0.6;
-  }
-  92% {
-    opacity: 0.6;
-  }
-  98% {
-    opacity: 0.2;
-  }
-  100% {
-    transform: translateY(calc(var(--container-height, 100vh) + 50px)) rotate(360deg);
-    opacity: 0;
-  }
-}

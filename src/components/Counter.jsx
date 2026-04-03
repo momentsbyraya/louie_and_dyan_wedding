@@ -1,30 +1,27 @@
-import React, { useEffect, useRef, useMemo } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Calendar, Clock } from 'lucide-react'
-import { themeConfig } from '../config/themeConfig'
-import { couple } from '../data'
+import theme from '../config/theme.json'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
+
+const rsvpStyleDivider = (
+  <div className="flex w-full max-w-md justify-center items-center sm:max-w-lg">
+    <div className="h-px w-16 flex-shrink-0 bg-[#333333] opacity-40 sm:w-20" />
+    <img
+      src="/assets/images/graphics/graphics-1.svg"
+      alt=""
+      className="mx-4 h-auto w-24 flex-shrink-0 sm:w-32 md:w-36"
+    />
+    <div className="h-px w-16 flex-shrink-0 bg-[#333333] opacity-40 sm:w-20" />
+  </div>
+)
 
 const Counter = ({ countdown }) => {
   const sectionRef = useRef(null)
   const headerRef = useRef(null)
   const countdownRef = useRef(null)
-  const dateTimeRef = useRef(null)
-
-  // Background using opening-2 image
-  const bgStyle = useMemo(() => {
-    return {
-      backgroundImage: 'url(/assets/images/prenup/opening-2.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: '65% center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 0.4
-    }
-  }, [])
-
   useEffect(() => {
     // Scroll-triggered animations
     const tl = gsap.timeline({
@@ -72,64 +69,105 @@ const Counter = ({ countdown }) => {
     <section
       ref={sectionRef}
       id="details"
-      className="relative w-full overflow-hidden pt-20"
+      className="relative w-full overflow-hidden"
     >
-      {/* Background Image - Prenup image */}
-      <div 
-        className="absolute inset-0 bg-no-repeat"
-        style={bgStyle}
+      {/* Background — old book (same asset as Entourage modal) */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
+        }}
+        aria-hidden
       />
-      
+
+      {/* Gold banner — top (same as Entourage modal list) */}
+      <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-center">
+        <img
+          src="/assets/images/graphics/gold-banner-2.png"
+          alt=""
+          className="h-auto w-full"
+        />
+      </div>
+
       {/* Content */}
-      <div className="relative z-20 flex items-center justify-center py-12">
-        <div className="max-w-xs sm:max-w-md lg:max-w-xl w-full mx-auto px-8 sm:px-12 md:px-8 lg:px-16 aspect-square">
+      <div className="relative z-20 flex items-center justify-center px-8 pb-24 pt-28 sm:px-12 sm:pb-28 sm:pt-32 md:px-8 md:pb-32 md:pt-36 lg:px-16">
+        <div className="mx-auto w-full max-w-xs sm:max-w-md lg:max-w-xl">
           {/* Header Section */}
           <div className="text-center">
-            <h2 ref={headerRef} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 font-caribbean pt-4 sm:pt-6 md:pt-8 whitespace-nowrap" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl inline-block leading-none" style={{ lineHeight: '0.8' }}>S</span>
+            <h2 ref={headerRef} className="mb-3 whitespace-nowrap pt-4 font-caribbean text-2xl sm:pt-6 sm:text-3xl md:text-4xl lg:text-5xl md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <span className="inline-block text-4xl leading-none sm:text-5xl md:text-6xl lg:text-7xl" style={{ lineHeight: '0.8' }}>S</span>
               <span className="inline-block">ave the Date</span>
             </h2>
             <div ref={countdownRef}>
-              <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
+              <p className="mx-auto max-w-3xl font-albert text-base font-thin leading-relaxed text-[#333333] sm:text-lg">
                 Mark your calendar for<br />our special day
               </p>
             </div>
           </div>
 
+          <div className="mx-auto mt-10 flex justify-center sm:mt-12">
+            {rsvpStyleDivider}
+          </div>
+
           {/* Countdown Timer */}
-          <div className="flex flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 px-4 mt-16 sm:mt-20 md:mt-24 lg:mt-28 flex-wrap">
+          <div className="mt-8 flex flex-row flex-wrap items-center justify-center gap-4 px-4 sm:mt-10 sm:gap-6 md:gap-8">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
+              <div
+                className="countdown-number mb-1 font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ color: theme.text.brown }}
+              >
                 {countdown.days}
               </div>
-              <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Days</div>
+              <div className="text-xs font-medium text-[#333333]/85 sm:text-sm">Days</div>
             </div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
+              <div
+                className="countdown-number mb-1 font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ color: theme.text.brown }}
+              >
                 {countdown.hours}
               </div>
-              <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Hours</div>
+              <div className="text-xs font-medium text-[#333333]/85 sm:text-sm">Hours</div>
             </div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
+              <div
+                className="countdown-number mb-1 font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ color: theme.text.brown }}
+              >
                 {countdown.minutes}
               </div>
-              <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Minutes</div>
+              <div className="text-xs font-medium text-[#333333]/85 sm:text-sm">Minutes</div>
             </div>
             
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-gilliequest mb-1 countdown-number" style={{ color: '#8B4513' }}>
+              <div
+                className="countdown-number mb-1 font-gilliequest text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ color: theme.text.brown }}
+              >
                 {countdown.seconds}
               </div>
-              <div className="text-xs sm:text-sm text-[#333333] opacity-80 font-medium">Seconds</div>
+              <div className="text-xs font-medium text-[#333333]/85 sm:text-sm">Seconds</div>
             </div>
           </div>
+
+          <div className="mx-auto mt-8 flex justify-center sm:mt-10">
+            {rsvpStyleDivider}
+          </div>
         </div>
+      </div>
+
+      {/* Gold banner — bottom, flipped (same as Entourage modal list) */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center">
+        <img
+          src="/assets/images/graphics/gold-banner-2.png"
+          alt=""
+          className="h-auto w-full scale-y-[-1]"
+        />
       </div>
     </section>
   )
 }
 
-export default Counter 
+export default Counter

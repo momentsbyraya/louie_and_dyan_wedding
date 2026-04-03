@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        'nude-brown': '#bc9e82',
         'wedding': {
           50: '#fdf8f6',
           100: '#f2e8e5',

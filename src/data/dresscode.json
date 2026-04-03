@@ -5,74 +5,10 @@
   },
   "sections": [
     {
-      "title": "Mother of the Couple",
-      "type": "image",
-      "image": "/assets/images/dresscode/mother.png",
-      "description": "Elegant attire in brown shades.",
-      "colorSwatches": [
-        {
-          "name": "Espresso Brown",
-          "image": "/assets/images/dresscode/parents-2.png"
-        },
-        {
-          "name": "Espresso Brown",
-          "image": "/assets/images/dresscode/parents-3.png"
-        }
-      ]
-    },
-    {
-      "title": "Principal Sponsors",
-      "type": "image",
-      "image": "/assets/images/dresscode/princiapl sponors.png",
-      "description": "Formal attire in coordinating brown tones for men and women.",
-      "colorSwatches": [
-        {
-          "name": "Antique Gold",
-          "image": "/assets/images/dresscode/principal-2.png"
-        },
-        {
-          "name": "Antique Gold",
-          "image": "/assets/images/dresscode/principal-3.png"
-        }
-      ]
-    },
-    {
-      "title": "Secondary Sponsors",
-      "type": "image",
-      "image": "/assets/images/dresscode/secondary.png",
-      "description": "Elegant attire in brown shades (e.g. muted bronze or taupe).",
-      "colorSwatches": [
-        {
-          "name": "Muted Bronze",
-          "image": "/assets/images/dresscode/secondary-1.png"
-        },
-        {
-          "name": "Muted Bronze",
-          "image": "/assets/images/dresscode/secondary-2.png"
-        }
-      ]
-    },
-    {
-      "title": "Maid of Honor",
-      "type": "image",
-      "image": "/assets/images/dresscode/maid of hono.png",
-      "description": "Elegant dress in a light brown or champagne-brown tone.",
-      "colorSwatches": [
-        {
-          "name": "Light Champagne/Beige Silk",
-          "image": "/assets/images/dresscode/moh-2.png"
-        },
-        {
-          "name": "Light Champagne/Beige Silk",
-          "image": "/assets/images/dresscode/moh-3.png"
-        }
-      ]
-    },
-    {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Anything in brown shades — formal or semi-formal. Mix textures and tones as you like.",
+      "description": "Any shade of brown for all guests.",
       "colorSwatches": [
         {
           "name": "Guest Palette",

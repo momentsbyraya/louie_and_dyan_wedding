@@ -81,7 +81,8 @@
     "tertiary": "#e7e5e4",
     "accent": "#fefbf3",
     "gold": "#fdf6e7",
-    "dark": "#1c1917"
+    "dark": "#1c1917",
+    "nudeBrown": "#bc9e82"
   },
   "border": {
     "primary": "#d6d3d1",

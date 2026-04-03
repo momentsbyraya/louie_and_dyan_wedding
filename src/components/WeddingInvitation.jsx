@@ -7,10 +7,8 @@ import Hero from './Hero'
 import MusicPlayer from './MusicPlayer'
 import Paragraph from './Paragraph'
 import Counter from './Counter'
-import Gallery from './Gallery'
+import StoryAndGallery from './StoryAndGallery'
 import Schedule from './Schedule'
-import Entourage from './Entourage'
-import LoveStory from './LoveStory'
 import DressCode from './DressCode'
 import MapDirections from './Venue'
 import RSVP from './RSVP'
@@ -50,7 +48,7 @@ const WeddingInvitation = () => {
           <MapDirections />
         </EnhancedLazySection>
 
-          {/* Image Section - Between Schedule and Entourage */}
+          {/* Image Section - Before Schedule */}
           <section className="relative w-full">
             <div className="w-full flex justify-center items-center">
               <img 
@@ -69,25 +67,7 @@ const WeddingInvitation = () => {
           <Schedule />
         </EnhancedLazySection>
         
-        {/* Image Section - After Schedule and Before Entourage */}
-        <section className="relative w-full">
-          <div className="w-full flex justify-center items-center">
-            <img 
-              src="/assets/images/prenup/new/FOR EDITS-11.jpg" 
-              alt="Wedding moment" 
-              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-11.jpg')}
-            />
-          </div>
-        </section>
-      
-        {/* Entourage Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="entourage">
-          <Entourage />
-        </EnhancedLazySection>
-        
-        {/* Image Section - Between Entourage and RSVP */}
+        {/* Image Section - Between Schedule and RSVP */}
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
@@ -138,79 +118,6 @@ const WeddingInvitation = () => {
                 padding-bottom: 28rem !important;
               }
             }
-            @keyframes windBlow {
-              0% {
-                transform: translateX(-150px) translateY(0) rotate(0deg);
-                opacity: 0;
-              }
-              2% {
-                opacity: 0.8;
-              }
-              98% {
-                opacity: 0.8;
-              }
-              100% {
-                transform: translateX(calc(100vw + 150px)) translateY(-300px) rotate(360deg);
-                opacity: 0;
-              }
-            }
-            .wind-leaf {
-              position: absolute;
-              left: 0;
-              pointer-events: none;
-              z-index: 5;
-              opacity: 0;
-              animation: windBlow 15s linear infinite;
-            }
-            .wind-leaf:nth-child(1) {
-              top: 15%;
-              width: 35px;
-              height: 35px;
-              animation-delay: 0s;
-              animation-duration: 16s;
-            }
-            .wind-leaf:nth-child(2) {
-              top: 30%;
-              width: 50px;
-              height: 50px;
-              animation-delay: 3s;
-              animation-duration: 18s;
-            }
-            .wind-leaf:nth-child(3) {
-              top: 50%;
-              width: 40px;
-              height: 40px;
-              animation-delay: 6s;
-              animation-duration: 20s;
-            }
-            .wind-leaf:nth-child(4) {
-              top: 65%;
-              width: 45px;
-              height: 45px;
-              animation-delay: 9s;
-              animation-duration: 17s;
-            }
-            .wind-leaf:nth-child(5) {
-              top: 80%;
-              width: 30px;
-              height: 30px;
-              animation-delay: 12s;
-              animation-duration: 19s;
-            }
-            .wind-leaf:nth-child(6) {
-              top: 25%;
-              width: 38px;
-              height: 38px;
-              animation-delay: 15s;
-              animation-duration: 21s;
-            }
-            .wind-leaf:nth-child(7) {
-              top: 55%;
-              width: 42px;
-              height: 42px;
-              animation-delay: 18s;
-              animation-duration: 16s;
-            }
           `}</style>
           {/* Background Image */}
           <div 
@@ -222,34 +129,8 @@ const WeddingInvitation = () => {
             }}
           />
 
-          {/* Wind Blown Leaves */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-            <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-          </div>
-
-          {/* Leaf Banner - Top */}
-          <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
-            <img 
-              src="/assets/images/graphics/leaf-banner.png" 
-              alt="Decorative graphic"
-              className="w-full h-auto"
-            />
-          </div>
-
-          {/* Love Story Section */}
-          <EnhancedLazySection animationClass="fade-slide-left" sectionName="love-story">
-            <LoveStory />
-          </EnhancedLazySection>
-          
-          {/* Gallery Section */}
-          <EnhancedLazySection animationClass="fade-slide-up" sectionName="gallery">
-            <Gallery />
+          <EnhancedLazySection animationClass="fade-slide-up" sectionName="story-gallery">
+            <StoryAndGallery />
           </EnhancedLazySection>
 
           {/* Leaf Banner - Bottom (Flipped Vertically) */}
@@ -262,8 +143,14 @@ const WeddingInvitation = () => {
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="faq">
+        {/* FAQ Section — wrapper + placeholder use nude brown (not lazy gray shell) */}
+        <EnhancedLazySection
+          animationClass="fade-slide-up"
+          sectionName="faq"
+          className="bg-nude-brown"
+          contentOnlyAnimation
+          placeholder={<div className="min-h-[200px] w-full bg-nude-brown" aria-hidden />}
+        >
           <FAQ />
         </EnhancedLazySection>
         

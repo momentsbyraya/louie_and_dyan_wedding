@@ -17,7 +17,7 @@ export const themeConfig = {
         accent: 'text-wedding-600',    // Accent text color
         muted: 'text-gray-400',        // Muted text color (icons, small text)
         dark: 'text-wedding-800',      // Dark text for light backgrounds
-        theme: 'text-[#ad8369]',      // Custom theme text color
+        theme: 'text-[#bc9e82]',      // Custom theme text color
         pause: 'text-[#dcdcdc]',      // Pause button text color
         custom: 'text-[#44484d]',     // Custom text color
     },
@@ -27,7 +27,7 @@ export const themeConfig = {
         primary: 'border-gray-700',    // Main border color
         secondary: 'border-gray-600',  // Secondary border color
         accent: 'border-wedding-300',  // Accent border color
-        theme: 'border-[#ad8369]',    // Custom theme border color
+        theme: 'border-[#bc9e82]',    // Custom theme border color
     },
 
     // Button Colors
@@ -35,14 +35,14 @@ export const themeConfig = {
         primary: 'bg-wedding-600 hover:bg-wedding-700',  // Primary button
         secondary: 'border border-gray-600 hover:border-gray-400', // Secondary button
         text: 'text-gray-300 hover:text-white', // Button text color
-        theme: 'bg-[#ad8369] hover:bg-[#ad8369]/80', // Custom theme button
+        theme: 'bg-[#bc9e82] hover:bg-[#bc9e82]/80', // Custom theme button
     },
 
     // Hover Effects
     hover: {
         primary: 'hover:bg-wedding-700',     // Primary button hover
         secondary: 'hover:border-gray-400 hover:text-white', // Secondary button hover
-        theme: 'hover:bg-[#ad8369]/80',     // Custom theme hover
+        theme: 'hover:bg-[#bc9e82]/80',     // Custom theme hover
     },
 
     // Container Configuration

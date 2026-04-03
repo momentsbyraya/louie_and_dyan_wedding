@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { X, Building, CreditCard, Smartphone } from 'lucide-react'
 import RSVPModal from './RSVPModal'
+import Entourage from './Entourage'
 import { paymentMethods as paymentMethodsData } from '../data'
 import { themeConfig } from '../config/themeConfig'
 import { weddingConfig } from '../config/weddingConfig'
@@ -114,19 +115,6 @@ const RSVP = () => {
                         <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
                           The RSVP period has ended. For any inquiries or changes to your response, please contact us directly.
                         </p>
-                        <div className="flex justify-center items-center mt-6">
-                          {/* Left horizontal line */}
-                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-
-                          <img
-                            src="/assets/images/graphics/graphics-1.svg"
-                            alt="Decorative graphic"
-                            className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-                          />
-
-                          {/* Right horizontal line */}
-                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-                        </div>
                       </>
                     ) : (
                       <>
@@ -137,36 +125,25 @@ const RSVP = () => {
                         <div className="flex justify-center items-center mt-6">
                           <button
                             onClick={openRSVPModal}
-                            className="flex items-center justify-center gap-2 px-6 py-3 border border-[#999999] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                            style={{ borderRadius: '25px' }}
+                            type="button"
+                            className="flex cursor-pointer items-center justify-center gap-2 rounded-[25px] bg-nude-brown px-6 py-3 font-albert text-white transition-opacity duration-300 hover:opacity-90"
                           >
-                            <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
+                            <span className="text-sm font-thin sm:text-base">
                               Submit your response
                             </span>
                             <ion-icon 
                               name="mail-outline" 
-                              style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                              style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#ffffff' }}
                             ></ion-icon>
                           </button>
-                        </div>
-                        <div className="flex justify-center items-center mt-6">
-                          {/* Left horizontal line */}
-                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-
-                          <img
-                            src="/assets/images/graphics/graphics-1.svg"
-                            alt="Decorative graphic"
-                            className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-                          />
-
-                          {/* Right horizontal line */}
-                          <div className="w-16 h-px bg-[#333333] opacity-40"></div>
                         </div>
                       </>
                     )}
                   </div>
                 </div>
               </div>
+
+              <Entourage embedded />
 
               {/* Gift Registry Section - Matching Layout */}
               <div className="w-full mt-12">
@@ -182,16 +159,16 @@ const RSVP = () => {
                     {/* Gift Registry Button */}
                     <div className="flex justify-center items-center mt-6">
                       <button
+                        type="button"
                         onClick={() => setIsGiftRegistryModalOpen(true)}
-                        className="flex items-center justify-center gap-2 px-6 py-3 border border-[#999999] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                        style={{ borderRadius: '25px' }}
+                        className="flex cursor-pointer items-center justify-center gap-2 rounded-[25px] bg-nude-brown px-6 py-3 font-albert text-white transition-opacity duration-300 hover:opacity-90"
                       >
-                        <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
+                        <span className="text-sm font-thin sm:text-base">
                           Send a Gift
                         </span>
                         <ion-icon 
                           name="gift-outline" 
-                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#ffffff' }}
                         ></ion-icon>
                       </button>
                     </div>

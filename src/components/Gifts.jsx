@@ -77,16 +77,16 @@ const Gifts = () => {
                     {/* Gift Registry Button */}
                     <div className="flex justify-center items-center mt-6">
                       <button
+                        type="button"
                         onClick={() => setIsGiftRegistryModalOpen(true)}
-                        className="flex items-center justify-center gap-2 px-6 py-3 border border-[#999999] hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                        style={{ borderRadius: '25px' }}
+                        className="flex cursor-pointer items-center justify-center gap-2 rounded-[25px] bg-nude-brown px-6 py-3 font-albert text-white transition-opacity duration-300 hover:opacity-90"
                       >
-                        <span className="text-sm sm:text-base font-albert font-thin text-[#333333]">
+                        <span className="text-sm font-thin sm:text-base">
                           Send a Gift
                         </span>
                         <ion-icon 
                           name="gift-outline" 
-                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#333333' }}
+                          style={{ fontSize: '1.25rem', width: '1.25rem', height: '1.25rem', color: '#ffffff' }}
                         ></ion-icon>
                       </button>
                     </div>

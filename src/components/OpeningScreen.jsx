@@ -106,8 +106,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           }}
         />
       </div>
-      {/* Gold overlay for elegant effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#edb030]/40 via-[#d99a1a]/35 to-[#926018]/40 z-[1]" />
+      {/* Brown overlay for warm tone */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#a67c52]/40 via-[#6f4e37]/35 to-[#3e2723]/40 z-[1]" />
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
         {/* You are invited text */}
         <div ref={clickMeRef} className="mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-center click-me-container">

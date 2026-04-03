@@ -63,27 +63,14 @@ const FAQ = () => {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative pt-12 pb-20 w-full overflow-hidden bg-white"
+      className="relative w-full overflow-hidden bg-nude-brown pt-12 pb-20"
     >
-      {/* Background Image Added */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/assets/images/graphics/gold-bg.png)',
-          opacity: 0.00000005,
-          zIndex: 0
-        }}
-      />
-      
-      {/* Gold overlay for elegant effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#edb030]/40 via-[#d99a1a]/35 to-[#926018]/40 z-[1]" />
-      
       {/* FAQ Section */}
       <div className="relative z-20 faq-section">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
           <div ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-caribbean pt-4 sm:pt-6 md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>R</span>
+            <h2 className="mb-3 pt-4 font-caribbean text-3xl text-white sm:pt-6 sm:text-4xl md:pt-8 md:text-5xl lg:text-6xl">
+              <span className="inline-block text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl" style={{ lineHeight: '0.8' }}>R</span>
               <span className="inline-block">eminder</span>
             </h2>
           </div>
@@ -92,15 +79,15 @@ const FAQ = () => {
               {faq.faqData.slice(0, 3).map((item, index) => (
                 <div key={index}>
                   <div className="mb-2">
-                    <p className="text-base sm:text-lg font-albert font-bold text-[#333333] mb-2">
+                    <p className="mb-2 font-albert text-base font-bold text-white sm:text-lg">
                       Q: {item.question}
                     </p>
-                    <p className="text-sm sm:text-base font-albert font-thin text-[#333333] whitespace-pre-line">
+                    <p className="whitespace-pre-line font-albert text-sm font-thin text-white/95 sm:text-base">
                       A: {item.answer}
                     </p>
                   </div>
                   {index < Math.min(3, faq.faqData.length) - 1 && (
-                    <div className="h-px bg-[#333333]/30 mt-6"></div>
+                    <div className="mt-6 h-px bg-white/35"></div>
                   )}
                 </div>
               ))}

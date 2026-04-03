@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import theme from '../config/theme.json'
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
@@ -122,99 +123,14 @@ const Schedule = () => {
         .leaf-banner-pulse-flipped {
           animation: subtlePulseFlipped 3s ease-in-out infinite;
         }
-        @keyframes windBlow {
-          0% {
-            transform: translateX(-150px) translateY(0) rotate(0deg);
-            opacity: 0;
-          }
-          2% {
-            opacity: 0.8;
-          }
-          98% {
-            opacity: 0.8;
-          }
-          100% {
-            transform: translateX(calc(100vw + 150px)) translateY(-300px) rotate(360deg);
-            opacity: 0;
-          }
-        }
-        .wind-leaf {
-          position: absolute;
-          left: 0;
-          pointer-events: none;
-          z-index: 5;
-          opacity: 0;
-          animation: windBlow 15s linear infinite;
-        }
-        .wind-leaf:nth-child(1) {
-          top: 15%;
-          width: 35px;
-          height: 35px;
-          animation-delay: 0s;
-          animation-duration: 16s;
-        }
-        .wind-leaf:nth-child(2) {
-          top: 30%;
-          width: 50px;
-          height: 50px;
-          animation-delay: 3s;
-          animation-duration: 18s;
-        }
-        .wind-leaf:nth-child(3) {
-          top: 50%;
-          width: 40px;
-          height: 40px;
-          animation-delay: 6s;
-          animation-duration: 20s;
-        }
-        .wind-leaf:nth-child(4) {
-          top: 65%;
-          width: 45px;
-          height: 45px;
-          animation-delay: 9s;
-          animation-duration: 17s;
-        }
-        .wind-leaf:nth-child(5) {
-          top: 80%;
-          width: 30px;
-          height: 30px;
-          animation-delay: 12s;
-          animation-duration: 19s;
-        }
-        .wind-leaf:nth-child(6) {
-          top: 25%;
-          width: 38px;
-          height: 38px;
-          animation-delay: 15s;
-          animation-duration: 21s;
-        }
-        .wind-leaf:nth-child(7) {
-          top: 55%;
-          width: 42px;
-          height: 42px;
-          animation-delay: 18s;
-          animation-duration: 16s;
-        }
       `}</style>
-      {/* Background Image - bg-1 */}
+      {/* Background Image - old book */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
-          opacity: 0.4
+          backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)'
         }}
       />
-
-      {/* Wind Blown Leaves */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-        <img src="/assets/images/graphics/leaf.png" alt="Leaf" className="wind-leaf" />
-      </div>
 
       {/* Leaf Banner - Top */}
       <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
@@ -246,18 +162,24 @@ const Schedule = () => {
             <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-[#666666] transform -translate-x-1/2"></div>
 
             {/* Timeline Events */}
-            <div ref={eventsRef} className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
+            <div
+              ref={eventsRef}
+              className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32"
+            >
               {/* Event 1 - 7:00 AM | GUEST GATHERING (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
                     7:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
                     GUEST GATHERING
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Welcome and seating before the ceremony
                   </div>
                 </div>
@@ -282,14 +204,17 @@ const Schedule = () => {
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
                     8:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
                     WEDDING CEREMONY
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Nuptial Mass at the cathedral
                   </div>
                 </div>
@@ -298,14 +223,17 @@ const Schedule = () => {
               {/* Event 3 - 11:00 AM | RECEPTION LUNCH (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
                     11:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
                     RECEPTION LUNCH
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Dos Villa, Barangay Ingas
                   </div>
                 </div>
@@ -330,14 +258,17 @@ const Schedule = () => {
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
                     5:00 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
                     END OF CELEBRATION
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Thank you for celebrating with us
                   </div>
                 </div>

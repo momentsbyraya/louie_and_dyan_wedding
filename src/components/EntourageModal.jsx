@@ -2,52 +2,61 @@ import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
+import EntourageListContent from './EntourageListContent'
 
 const EntourageModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
   const overlayRef = useRef(null)
   const contentRef = useRef(null)
+  const scrollContainerRef = useRef(null)
 
   useEffect(() => {
     if (isOpen) {
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden'
-      
-      // Modal entrance animation
-      gsap.set([overlayRef.current, contentRef.current], { opacity: 0 })
-      gsap.set(contentRef.current, { scale: 0.8, y: 50 })
-      
-      gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: "power2.out" })
-      gsap.to(contentRef.current, { 
-        opacity: 1, 
-        scale: 1, 
-        y: 0, 
-        duration: 0.4, 
-        ease: "back.out(1.7)" 
-      })
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`
+      }
+
+      if (overlayRef.current && contentRef.current) {
+        gsap.set([overlayRef.current, contentRef.current], { opacity: 0 })
+        gsap.set(contentRef.current, { scale: 0.98, y: 12 })
+
+        gsap.to(overlayRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' })
+        gsap.to(contentRef.current, {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.35,
+          ease: 'power2.out',
+        })
+      }
     } else {
-      // Re-enable body scroll when modal is closed
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
     }
 
-    // Cleanup function
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
     }
   }, [isOpen])
 
   const handleClose = () => {
-    // Modal exit animation
-    gsap.to(overlayRef.current, { opacity: 0, duration: 0.2, ease: "power2.out" })
-    gsap.to(contentRef.current, { 
-      opacity: 0, 
-      scale: 0.8, 
-      y: 50, 
-      duration: 0.3, 
-      ease: "power2.out" 
-    }).then(() => {
+    if (!overlayRef.current || !contentRef.current) {
       onClose()
-    })
+      return
+    }
+    gsap.to(overlayRef.current, { opacity: 0, duration: 0.2, ease: 'power2.out' })
+    gsap
+      .to(contentRef.current, {
+        opacity: 0,
+        scale: 0.98,
+        y: 12,
+        duration: 0.25,
+        ease: 'power2.out',
+      })
+      .then(() => onClose())
   }
 
   const handleOverlayClick = (e) => {
@@ -56,61 +65,46 @@ const EntourageModal = ({ isOpen, onClose }) => {
     }
   }
 
-  const handleViewEntourage = () => {
-    handleClose()
-    // Scroll to entourage section after a short delay
-    setTimeout(() => {
-      const entourageSection = document.getElementById('entourage')
-      if (entourageSection) {
-        entourageSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    }, 300)
-  }
-
   if (!isOpen) return null
 
   return createPortal(
-    <div 
+    <div
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999]"
       style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
     >
-      {/* Overlay */}
       <div
         ref={overlayRef}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={handleOverlayClick}
       />
-      
-      {/* Modal Content */}
+
       <div
         ref={contentRef}
-        className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+        className="absolute inset-0 z-10 flex flex-col overflow-hidden"
       >
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-300/50">
-          <h2 className="text-2xl font-caribbean text-gray-900">Entourage</h2>
-          <button
-            onClick={handleClose}
-            className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-200/50 rounded-full transition-colors duration-200"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        
-        {/* Content */}
-        <div className="p-6 text-center">
-          <p className="text-base sm:text-lg font-albert font-thin text-[#333333] mb-6 leading-relaxed">
-            View our complete entourage list on the main page.
-          </p>
-          <button
-            onClick={handleViewEntourage}
-            className="px-6 py-3 bg-[#333333] text-white hover:opacity-80 transition-opacity duration-300 cursor-pointer rounded-lg"
-          >
-            <span className="text-sm sm:text-base font-albert font-thin">
-              View Entourage Section
-            </span>
-          </button>
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
+          }}
+          aria-hidden
+        />
+
+        <button
+          type="button"
+          onClick={handleClose}
+          className="fixed right-4 top-4 z-[10000] rounded-full bg-white/85 p-2 text-gray-700 shadow-sm backdrop-blur-sm transition-colors duration-200 hover:bg-white hover:text-gray-900 sm:right-6 sm:top-5"
+          aria-label="Close"
+        >
+          <X className="h-6 w-6" />
+        </button>
+
+        <div
+          ref={scrollContainerRef}
+          className="relative z-10 min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain"
+        >
+          <EntourageListContent scrollContainerRef={scrollContainerRef} />
         </div>
       </div>
     </div>,

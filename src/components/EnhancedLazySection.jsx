@@ -11,6 +11,8 @@ const EnhancedLazySection = ({
   animationClass = 'fade-slide-up',
   onIntersect = null,
   sectionName = 'unnamed-section',
+  /** When true, fade/slide runs on inner content only so the section background stays solid (no bleed-through). */
+  contentOnlyAnimation = false,
   ...props 
 }) => {
   const { elementRef, isVisible, isLoaded } = useAdvancedLazyLoading({
@@ -37,19 +39,24 @@ const EnhancedLazySection = ({
     }
   }
 
+  const outerMotion = contentOnlyAnimation ? '' : getAnimationClasses()
+  const innerMotion = contentOnlyAnimation ? getAnimationClasses() : ''
+
   return (
     <section 
       ref={elementRef} 
-      className={`transition-all duration-700 ease-out overflow-hidden w-full max-w-full ${getAnimationClasses()} ${className}`}
+      className={`overflow-hidden w-full max-w-full transition-all duration-700 ease-out ${outerMotion} ${className}`.trim()}
       data-section-name={sectionName}
       style={{ 
         transform: 'translateZ(0)', // Force hardware acceleration
-        willChange: 'transform, opacity' // Optimize for animations
+        willChange: contentOnlyAnimation ? 'transform' : 'transform, opacity' // Avoid opacity on wrapper when bg must stay solid
       }}
       {...props}
     >
       {isVisible ? (
-        <div className={`transition-all duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div
+          className={`transition-all ${contentOnlyAnimation ? 'duration-700 ease-out' : 'duration-500'} ${innerMotion} ${isLoaded ? 'opacity-100' : 'opacity-0'}`.trim()}
+        >
           {children}
         </div>
       ) : (
