@@ -156,7 +156,7 @@ const MapDirections = () => {
               
               {/* Location */}
               <p ref={locationRef} className="text-sm sm:text-base font-albert font-thin mb-2 mx-auto" style={{ color: '#A0826D', width: '75%' }}>
-                {venue.address}, {venue.city}, {venue.state} {venue.zip}
+                {[venue.address, venue.city, venue.state].filter(Boolean).join(', ')}{venue.zip ? ` ${venue.zip}` : ''}
               </p>
               
               {/* Category */}

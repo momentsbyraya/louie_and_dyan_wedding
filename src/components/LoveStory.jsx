@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
-import { weddingConfig } from '../config/weddingConfig'
 import { loveStory } from '../data'
 
 // Register ScrollTrigger plugin
@@ -50,7 +48,17 @@ const LoveStory = () => {
           {/* Love Story Content */}
           <div ref={storyRef} className="text-center mb-12">
             <p className="alice-regular font-black text-[#333333] leading-relaxed max-w-3xl mx-auto" style={{ fontWeight: 900, fontSize: '1rem', lineHeight: '1.8' }}>
-              <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>T</span>wo hearts found each other, and their love story began. Through shared moments and quiet conversations, they discovered the beauty of connection. As they stand together, ready to begin this new chapter, they know their love story is just getting started.
+              {loveStory.narrative ? (
+                <>
+                  <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>{loveStory.narrative.charAt(0)}</span>
+                  {loveStory.narrative.slice(1)}
+                </>
+              ) : (
+                <>
+                  <span className="alice-regular font-bold" style={{ fontSize: '1.5rem' }}>T</span>
+                  wo hearts found each other, and their love story began.
+                </>
+              )}
             </p>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { X, Building, CreditCard, Smartphone } from 'lucide-react'
 import RSVPModal from './RSVPModal'
 import { paymentMethods as paymentMethodsData } from '../data'
 import { themeConfig } from '../config/themeConfig'
+import { weddingConfig } from '../config/weddingConfig'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -19,12 +20,12 @@ const RSVP = () => {
 
   const { paymentMethods } = paymentMethodsData
 
-  // Check if RSVP deadline has passed (May 1st)
   const isRSVPDeadlinePassed = () => {
-    const today = new Date()
-    const currentYear = today.getFullYear()
-    const deadline = new Date(currentYear, 4, 1) // May is month 4 (0-indexed)
-    return today >= deadline
+    const raw = weddingConfig.rsvp.deadline
+    if (!raw) return false
+    const [y, m, d] = raw.split('-').map(Number)
+    const deadline = new Date(y, m - 1, d, 23, 59, 59, 999)
+    return new Date() > deadline
   }
 
   const rsvpEnded = isRSVPDeadlinePassed()

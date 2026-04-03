@@ -41,9 +41,25 @@ function copyAssetsPlugin() {
   }
 }
 
+// Map /assets/* → public root so paths like /assets/music/track.mp3 work in dev
+// (publicDir is `assets`, so files live at /music/... without this shim)
+function assetsPathShimPlugin() {
+  return {
+    name: 'assets-path-shim',
+    configureServer(server) {
+      server.middlewares.use((req, _res, next) => {
+        if (req.url && req.url.startsWith('/assets/')) {
+          req.url = req.url.slice('/assets'.length) || '/'
+        }
+        next()
+      })
+    }
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), copyAssetsPlugin()],
+  plugins: [react(), assetsPathShimPlugin(), copyAssetsPlugin()],
   server: {
     port: 3001,
     open: true

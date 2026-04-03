@@ -1,22 +1,23 @@
 {
+  "narrative": "During our college days we met through our mutual friend; she gave her my contact information and she had the gall to make fun of me. Little did she know, I'm a very serious man. Our mutual friend told me to court her. At first I was hesitant, but our friend insisted, so I did. A few months later, I decided to meet her in person, and right there and then I told her I like her and I want to court her. I didn't hear her answer, so I took it as a yes. After four years of hard work, sleepless nights, trying to make her fall in love with me, finally she said yes. Six years later, we decided to get married. Now a new chapter awaits for the both of us, full of love and affection.",
   "timeline": [
     {
-      "title": "First Date",
-      "date": "Tuesday, July 4th, 2023",
-      "description": "Our first official date was filled with laughter, deep conversations, and the undeniable feeling that we had found something special. That evening, we both knew this was the start of something beautiful.",
+      "title": "How we met",
+      "date": "College",
+      "description": "Introduced through a mutual friend — teasing, courting, and a first meeting that changed everything.",
       "image": "couple2"
     },
     {
-      "title": "Meeting the Families",
-      "date": "August 2023",
-      "description": "We introduced each other to our families, and it was clear that everyone could see what we saw in each other. The love and acceptance we received made our bond even stronger.",
+      "title": "Four years",
+      "date": "Courting",
+      "description": "Hard work, sleepless nights, and patience until she said yes.",
       "image": "couple4"
     },
     {
-      "title": "The Proposal",
-      "date": "March 15th, 2024",
-      "description": "On a beautiful spring day, Michael got down on one knee and asked the most important question of our lives. The answer was an immediate and joyful 'Yes!'",
+      "title": "Six years later",
+      "date": "Engaged",
+      "description": "We decided to get married and begin a new chapter together.",
       "image": "couple7"
     }
   ]
-} 
+}

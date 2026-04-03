@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
-import { weddingConfig } from '../config/weddingConfig'
-
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
@@ -250,168 +247,99 @@ const Schedule = () => {
 
             {/* Timeline Events */}
             <div ref={eventsRef} className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
-              {/* Event 1 - 3:00 PM | GUESTS ARRIVAL (Left) */}
+              {/* Event 1 - 7:00 AM | GUEST GATHERING (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    3:00 PM
+                    7:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    GUESTS ARRIVAL
+                    GUEST GATHERING
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    Guests mingle with each other
+                    Welcome and seating before the ceremony
                   </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
                     src="/assets/images/graphics/welcome-sketch.png" 
-                    alt="Guests arrival" 
+                    alt="Guest gathering" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
               </div>
 
-              {/* Event 2 - 4:00 PM | CEREMONY BEGINS (Right) */}
+              {/* Event 2 - 8:00 AM | WEDDING CEREMONY (Right) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex items-center justify-end">
                   <img 
                     src="/assets/images/graphics/church-sketch.png" 
-                    alt="Ceremony begins" 
+                    alt="Wedding ceremony" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    4:00 PM
+                    8:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    CEREMONY BEGINS
+                    WEDDING CEREMONY
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    Entourage make their entrance
+                    Nuptial Mass at the cathedral
                   </div>
                 </div>
               </div>
 
-              {/* Event 3 - 5:00 PM | COCKTAILS (Left) */}
+              {/* Event 3 - 11:00 AM | RECEPTION LUNCH (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    5:00 PM
+                    11:00 AM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    COCKTAILS
+                    RECEPTION LUNCH
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    + some photo and video taking
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
-                  <img 
-                    src="/assets/images/graphics/cocktil-sketch.png" 
-                    alt="Cocktails" 
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
-                  />
-                </div>
-              </div>
-
-              {/* Event 4 - 6:00 PM | PROGRAM BEGINS (Right) */}
-              <div className="flex items-center relative min-h-[60px] opacity-0">
-                <div className="w-1/2 pr-6 text-right flex items-center justify-end">
-                  <img 
-                    src="/assets/images/graphics/program-sketch.png" 
-                    alt="Program begins" 
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
-                  />
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    6:00 PM
-                  </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    PROGRAM BEGINS
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    Laugh, enjoy and create memories
-                  </div>
-                </div>
-              </div>
-
-              {/* Event 5 - 7:00 PM | DINNER TIME (Left) */}
-              <div className="flex items-center relative min-h-[60px] opacity-0">
-                <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    7:00 PM
-                  </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    DINNER TIME
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    Buffet table is open
+                    Dos Villa, Barangay Ingas
                   </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
                     src="/assets/images/graphics/dinner-sketch.png" 
-                    alt="Dinner time" 
+                    alt="Reception lunch" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
               </div>
 
-              {/* Event 6 - 9:00 PM | AFTER PARTY (Right) */}
+              {/* Event 4 - 5:00 PM | END (Right) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex items-center justify-end">
                   <img 
-                    src="/assets/images/graphics/party-sketch.png" 
-                    alt="After party" 
+                    src="/assets/images/graphics/car-sketch.png" 
+                    alt="Celebration ends" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
                   <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    9:00 PM
+                    5:00 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    AFTER PARTY
+                    END OF CELEBRATION
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert text-[#333333] italic opacity-80 mt-1">
-                    Dance, fun and drinks served!
+                    Thank you for celebrating with us
                   </div>
-                </div>
-              </div>
-
-              {/* Event 7 - 10:00 PM | SEND OFF (Left) */}
-              <div className="flex items-center relative min-h-[60px] opacity-0">
-                <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular text-[#333333] mb-1">
-                    10:00 PM
-                  </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert text-[#333333] font-bold">
-                    SEND OFF
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
-                  <img 
-                    src="/assets/images/graphics/car-sketch.png" 
-                    alt="Send off" 
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
-                  />
                 </div>
               </div>
             </div>

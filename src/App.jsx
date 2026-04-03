@@ -14,34 +14,30 @@ function App() {
   const audioRef = useRef(null)
 
   useEffect(() => {
-    // Initialize audio
-    audioRef.current = new Audio(audio.background)
-    audioRef.current.loop = audio.loop
-    audioRef.current.volume = 1.0 // Set to maximum volume
-    audioRef.current.currentTime = 18 // Start at 18 seconds
-    audioRef.current.preload = 'auto'
-    
-    // Handle audio loading errors
-    audioRef.current.addEventListener('error', (e) => {
-      // Audio loading error handled silently
-    })
-    
-    // Handle audio loaded
-    audioRef.current.addEventListener('loadeddata', () => {
-      // Audio loaded successfully
-    })
-    
-    // Handle playing state
-    audioRef.current.addEventListener('playing', () => {
-      // Audio is now playing
-    })
-    
-    // Cleanup audio on component unmount
+    const startTime = typeof audio.startTime === 'number' ? audio.startTime : 0
+    const el = new Audio(audio.background)
+    el.loop = audio.loop !== false
+    el.volume = typeof audio.volume === 'number' ? audio.volume : 1
+    el.currentTime = startTime
+    el.preload = 'auto'
+
+    const restartLoop = () => {
+      if (!el.loop) return
+      el.currentTime = startTime
+      el.play().catch(() => {})
+    }
+
+    el.addEventListener('error', () => {})
+    el.addEventListener('loadeddata', () => {})
+    el.addEventListener('playing', () => {})
+    el.addEventListener('ended', restartLoop)
+
+    audioRef.current = el
+
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
-      }
+      el.removeEventListener('ended', restartLoop)
+      el.pause()
+      audioRef.current = null
     }
   }, [])
 
@@ -76,27 +72,26 @@ function App() {
   }, [])
 
   const handleEnvelopeOpen = async () => {
-    // Start playing music when invitation is revealed (user interaction allows auto-play)
+    const startTime = typeof audio.startTime === 'number' ? audio.startTime : 0
+    const vol = typeof audio.volume === 'number' ? audio.volume : 1
+
     if (audioRef.current) {
       try {
-        // Start audio at 18 seconds and unmuted
-        audioRef.current.currentTime = 18
-        audioRef.current.volume = 1.0
+        audioRef.current.loop = audio.loop !== false
+        audioRef.current.currentTime = startTime
+        audioRef.current.volume = vol
         audioRef.current.muted = false
-        
-        // Check if audio is ready to play
+
         if (audioRef.current.readyState >= 2) {
-          // Audio is loaded enough to play
           const playPromise = audioRef.current.play()
           if (playPromise !== undefined) {
             await playPromise
           }
         } else {
-          // Wait for audio to be ready
           audioRef.current.addEventListener('canplaythrough', async () => {
             try {
-              audioRef.current.currentTime = 18
-              audioRef.current.volume = 1.0
+              audioRef.current.currentTime = startTime
+              audioRef.current.volume = vol
               audioRef.current.muted = false
               const playPromise = audioRef.current.play()
               if (playPromise !== undefined) {
@@ -106,18 +101,16 @@ function App() {
               // Play error handled silently
             }
           }, { once: true })
-          // Load the audio
           audioRef.current.load()
         }
       } catch (error) {
-        // Try to load the audio again if it failed
         try {
           audioRef.current.load()
           await new Promise((resolve) => {
             audioRef.current.addEventListener('canplaythrough', resolve, { once: true })
           })
-          audioRef.current.currentTime = 18
-          audioRef.current.volume = 1.0
+          audioRef.current.currentTime = startTime
+          audioRef.current.volume = vol
           audioRef.current.muted = false
           await audioRef.current.play()
         } catch (retryError) {

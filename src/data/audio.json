@@ -1,5 +1,6 @@
 {
-  "background": "/assets/music/PALAGI  tj.mp3",
-  "volume": 0.5,
-  "loop": true
-} 
+  "background": "/assets/music/PALAGI.mp3",
+  "volume": 1,
+  "loop": true,
+  "startTime": 0
+}

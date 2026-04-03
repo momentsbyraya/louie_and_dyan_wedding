@@ -291,9 +291,8 @@ const Entourage = () => {
   const heraldOfBride = entourage.entourageList.find(item => item.category === "Herald of the bride")
 
   // Get couple names from config
-  // For header display (with drop caps) - Use "Grace" for bride
   const groomFirstName = weddingConfig.couple.groom.firstName.charAt(0).toUpperCase() + weddingConfig.couple.groom.firstName.slice(1).toLowerCase()
-  const brideFirstName = "Grace"
+  const brideFirstName = weddingConfig.couple.bride.firstName
   const brideFirstNameFormatted = brideFirstName.charAt(0).toUpperCase() + brideFirstName.slice(1).toLowerCase()
   const groomFirstLetter = groomFirstName.charAt(0)
   const brideFirstLetter = brideFirstNameFormatted.charAt(0)
@@ -302,7 +301,7 @@ const Entourage = () => {
   
   // For BRIDE & GROOM section (full names in uppercase)
   const groomFullName = weddingConfig.couple.groom.fullName || `${weddingConfig.couple.groom.firstName.toUpperCase()} ${weddingConfig.couple.groom.lastName.toUpperCase()}`
-  const brideFullName = "DIVINE GRACE DIZON"
+  const brideFullName = weddingConfig.couple.bride.fullName || `${weddingConfig.couple.bride.firstName.toUpperCase()} ${weddingConfig.couple.bride.lastName.toUpperCase()}`
 
   return (
     <>

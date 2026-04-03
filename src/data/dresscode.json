@@ -1,14 +1,14 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request our guests to dress in elegant, formal attire to celebrate our special day."
+    "description": "We kindly request attire in brown shades — from soft tan and camel to rich chocolate and espresso."
   },
   "sections": [
     {
       "title": "Mother of the Couple",
       "type": "image",
       "image": "/assets/images/dresscode/mother.png",
-      "description": "Any elegant attire in espresso brown.",
+      "description": "Elegant attire in brown shades.",
       "colorSwatches": [
         {
           "name": "Espresso Brown",
@@ -24,7 +24,7 @@
       "title": "Principal Sponsors",
       "type": "image",
       "image": "/assets/images/dresscode/princiapl sponors.png",
-      "description": "Barong and black pants for men. Antique gold dress for women.",
+      "description": "Formal attire in coordinating brown tones for men and women.",
       "colorSwatches": [
         {
           "name": "Antique Gold",
@@ -40,7 +40,7 @@
       "title": "Secondary Sponsors",
       "type": "image",
       "image": "/assets/images/dresscode/secondary.png",
-      "description": "Elegant attire in muted bronze for women.",
+      "description": "Elegant attire in brown shades (e.g. muted bronze or taupe).",
       "colorSwatches": [
         {
           "name": "Muted Bronze",
@@ -56,7 +56,7 @@
       "title": "Maid of Honor",
       "type": "image",
       "image": "/assets/images/dresscode/maid of hono.png",
-      "description": "Light champagne elegant dress.",
+      "description": "Elegant dress in a light brown or champagne-brown tone.",
       "colorSwatches": [
         {
           "name": "Light Champagne/Beige Silk",
@@ -72,7 +72,7 @@
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Barong and black pants for men, formal evening gown with the palette given for girls.",
+      "description": "Anything in brown shades — formal or semi-formal. Mix textures and tones as you like.",
       "colorSwatches": [
         {
           "name": "Guest Palette",

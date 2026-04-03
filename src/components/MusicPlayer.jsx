@@ -11,32 +11,35 @@ const MusicPlayer = () => {
 
 
   useEffect(() => {
-    // Initialize audio
-    audioRef.current = new Audio(audio.background)
-    audioRef.current.loop = audio.loop
-    audioRef.current.volume = audio.volume
+    const startTime = typeof audio.startTime === 'number' ? audio.startTime : 0
+    const el = new Audio(audio.background)
+    el.loop = audio.loop !== false
+    el.volume = typeof audio.volume === 'number' ? audio.volume : 0.5
+    el.currentTime = startTime
 
-    // Update duration when metadata is loaded
-    audioRef.current.addEventListener('loadedmetadata', () => {
-      setDuration(audioRef.current.duration)
-    })
-
-    // Update current time as audio plays
-    audioRef.current.addEventListener('timeupdate', () => {
-      setCurrentTime(audioRef.current.currentTime)
-    })
-
-    // Handle audio end
-    audioRef.current.addEventListener('ended', () => {
-      setIsPlaying(false)
-    })
-
-    // Cleanup audio on component unmount
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause()
-        audioRef.current = null
+    const onLoadedMetadata = () => setDuration(el.duration)
+    const onTimeUpdate = () => setCurrentTime(el.currentTime)
+    const onEnded = () => {
+      if (el.loop) {
+        el.currentTime = startTime
+        el.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false))
+        return
       }
+      setIsPlaying(false)
+    }
+
+    el.addEventListener('loadedmetadata', onLoadedMetadata)
+    el.addEventListener('timeupdate', onTimeUpdate)
+    el.addEventListener('ended', onEnded)
+
+    audioRef.current = el
+
+    return () => {
+      el.removeEventListener('loadedmetadata', onLoadedMetadata)
+      el.removeEventListener('timeupdate', onTimeUpdate)
+      el.removeEventListener('ended', onEnded)
+      el.pause()
+      audioRef.current = null
     }
   }, [])
 

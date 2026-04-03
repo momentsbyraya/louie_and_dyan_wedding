@@ -54,8 +54,9 @@ const Hero = () => {
 
   const dateInfo = formatDate(weddingConfig.wedding.date)
   const venue = venues.ceremony
-  const shortBrideName = "Grace"
+  const shortBrideName = weddingConfig.couple.bride.firstName.charAt(0).toUpperCase() + weddingConfig.couple.bride.firstName.slice(1).toLowerCase()
   const groomName = weddingConfig.couple.groom.firstName.charAt(0).toUpperCase() + weddingConfig.couple.groom.firstName.slice(1).toLowerCase()
+  const heroVenueLabel = (venue.shortName || venue.name).toUpperCase()
   const heroGold = '#D4AF37'
   const heroWhiteTextShadow = '0 2px 4px rgba(255, 255, 255, 0.6)'
 
@@ -256,10 +257,10 @@ const Hero = () => {
       {/* Venue Name - Bottom */}
       <div ref={venueRef} className="hero-venue-bottom absolute bottom-0 left-0 right-0 z-10 text-center pb-8 opacity-0">
         <div
-          className="hero-venue-name alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase"
+          className="hero-venue-name alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase px-4 max-w-4xl mx-auto"
           style={{ color: heroGold, textShadow: heroWhiteTextShadow }}
-          dangerouslySetInnerHTML={{ __html: venue.name.toUpperCase().replace('AQUILA', 'AQUILA<br />') }}
         >
+          {heroVenueLabel}
         </div>
       </div>
     </section>

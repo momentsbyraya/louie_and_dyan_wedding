@@ -1,21 +1,21 @@
 {
   "bride": {
-    "firstName": "Divine Grace",
-    "lastName": "Dizon",
-    "fullName": "DIVINE GRACE DIZON"
+    "firstName": "Carla",
+    "lastName": "S. Prohibido",
+    "fullName": "CARLA S. PROHIBIDO"
   },
   "groom": {
-    "firstName": "Nilon",
-    "lastName": "Magbanua Jr",
-    "fullName": "NILON MAGBANUA JR"
+    "firstName": "John Aerol",
+    "lastName": "D. Azcarraga",
+    "fullName": "JOHN AEROL D. AZCARRAGA"
   },
-  "together": "NILON & DIVINE",
+  "together": "JOHN AEROL & CARLA",
   "wedding": {
-    "date": "2026-06-12",
-    "time": "4:00 PM",
-    "dayOfWeek": "Friday",
-    "month": "June",
-    "day": "12",
+    "date": "2026-05-30",
+    "time": "8:00 AM",
+    "dayOfWeek": "Saturday",
+    "month": "May",
+    "day": "30",
     "year": "2026"
   }
 }
