@@ -2,7 +2,6 @@
   "paymentMethods": [
     {
       "name": "Gcash",
-      "image": "/assets/images/monetary-gifts/gcash-logo.png",
       "accountInfo": {
         "provider": "Gcash",
         "accountNumber": "0912 *** ****",
@@ -10,4 +9,4 @@
       }
     }
   ]
-} 
+}

@@ -9,7 +9,7 @@ import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showInvitation, setShowInvitation] = useState(false) // Set to false to show opening screen first
+  const [showInvitation, setShowInvitation] = useState(true) // Skip opening screen (prenup assets removed)
   const [isLoading, setIsLoading] = useState(true)
   const audioRef = useRef(null)
 

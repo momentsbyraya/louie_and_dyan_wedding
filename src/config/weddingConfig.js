@@ -40,14 +40,9 @@ export const weddingConfig = {
 
   // Photos and Media
   photos: {
-    hero: "/assets/images/hero-couple.jpg",
-    gallery: [
-      "/assets/images/couple-1.jpg",
-      "/assets/images/couple-2.jpg",
-      "/assets/images/couple-3.jpg",
-      "/assets/images/couple-4.jpg"
-    ],
-    background: "/assets/images/background-pattern.jpg"
+    hero: "",
+    gallery: [],
+    background: ""
   },
 
   // Additional Information
