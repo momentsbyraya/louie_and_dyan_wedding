@@ -25,7 +25,7 @@ export const weddingConfig = {
     deadline: "2026-05-07",
     email: "rsvp@johnsonwilliams.com",
     phone: "(555) 123-4567",
-    website: "https://johnsonwilliams.rsvp",
+    website: "https://forms.gle/w1qh6xDKXoYvEwPv8",
     message: "Please RSVP by May 7th, 2026"
   },
 

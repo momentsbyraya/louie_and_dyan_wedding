@@ -81,7 +81,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
         <div 
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/assets/images/prenup/opening-1.png)',
+            backgroundImage: 'url(/assets/images/prenup/JEK09876.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -90,7 +90,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
         <div 
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/assets/images/prenup/opening-2.png)',
+            backgroundImage: 'url(/assets/images/prenup/JEK09820.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -99,7 +99,7 @@ function OpeningScreen({ onEnvelopeOpen }) {
         <div 
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: 'url(/assets/images/prenup/opening-3.png)',
+            backgroundImage: 'url(/assets/images/prenup/JEK00070.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'

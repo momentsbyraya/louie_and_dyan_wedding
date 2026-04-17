@@ -8,32 +8,62 @@ import theme from '../config/theme.json'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Polaroid photos paired with love-story paragraphs (jr Moments.jsx pattern) */
-const POLAROID_IMAGES = [
-  '/assets/images/prenup/new/FOR EDITS-2.jpg',
-  '/assets/images/prenup/new/FOR EDITS-3.jpg',
-  '/assets/images/prenup/new/FOR EDITS-4.jpg',
-  '/assets/images/prenup/new/FOR EDITS-5.jpg',
-  '/assets/images/prenup/new/FOR EDITS-7.jpg',
-  '/assets/images/prenup/new/FOR EDITS-13.jpg',
+/** Prenup shots used as hero or full-bleed elsewhere — omit from Moments gallery */
+const PRENUP_USED_HERO_OR_BLEED = new Set([
+  'JEK00146', // Hero
+  'JEK09876', // Invitation bleed + opening
+  'JEK09919', // Invitation bleed
+  'JEK09996', // Invitation bleed
+  'JEK09820', // RSVP bleed + opening
+])
+
+const PRENUP_ALL_SORTED = [
+  'JEK00022',
+  'JEK00070',
+  'JEK00112',
+  'JEK00146',
+  'JEK00152',
+  'JEK00183',
+  'JEK09602',
+  'JEK09604',
+  'JEK09627',
+  'JEK09634',
+  'JEK09644',
+  'JEK09671',
+  'JEK09698',
+  'JEK09712',
+  'JEK09800',
+  'JEK09820',
+  'JEK09876',
+  'JEK09916',
+  'JEK09919',
+  'JEK09996',
 ]
 
-const GALLERY_IMAGES = [
-  '/assets/images/prenup/new/FOR EDITS-2.jpg',
-  '/assets/images/prenup/new/FOR EDITS-3.jpg',
-  '/assets/images/prenup/new/FOR EDITS-4.jpg',
-  '/assets/images/prenup/new/FOR EDITS-5.jpg',
-  '/assets/images/prenup/new/FOR EDITS-7.jpg',
-  '/assets/images/prenup/new/FOR EDITS-13.jpg',
-  '/assets/images/prenup/new/FOR EDITS-14.jpg',
-  '/assets/images/prenup/new/FOR EDITS-17.jpg',
-  '/assets/images/prenup/new/FOR EDITS-20.jpg',
-  '/assets/images/prenup/new/FOR EDITS-21.jpg',
-  '/assets/images/prenup/new/FOR EDITS-22.jpg',
-  '/assets/images/prenup/new/FOR EDITS-25.jpg',
-  '/assets/images/prenup/new/FOR EDITS-26.jpg',
-  '/assets/images/prenup/new/FOR EDITS-30.jpg',
-]
+const PRENUP_FOR_MOMENTS = PRENUP_ALL_SORTED.filter((id) => !PRENUP_USED_HERO_OR_BLEED.has(id)).map(
+  (id) => `/assets/images/prenup/${id}.jpg`
+)
+
+/** Polaroid photos paired with love-story paragraphs (jr Moments.jsx pattern) */
+const POLAROID_IMAGES = PRENUP_FOR_MOMENTS.slice(0, 6)
+
+/** Masonry gallery — other prenup-only shots (no overlap with polaroid row above) */
+const GALLERY_IMAGES = (() => {
+  const g = [...PRENUP_FOR_MOMENTS.slice(6)]
+  const swap = (idA, idB) => {
+    const i = g.findIndex((src) => src.includes(idA))
+    const j = g.findIndex((src) => src.includes(idB))
+    if (i !== -1 && j !== -1) {
+      const t = g[i]
+      g[i] = g[j]
+      g[j] = t
+    }
+  }
+  swap('JEK09604', 'JEK09712')
+  swap('JEK09644', 'JEK09671')
+  swap('JEK09671', 'JEK09698')
+  return g
+})()
 
 function getStoryParagraphs() {
   if (Array.isArray(loveStory.paragraphs) && loveStory.paragraphs.length > 0) {
@@ -80,6 +110,13 @@ function getMomentsGalleryGridColumn(index, total) {
   if (patternIndex === 1) return 'span 2'
   if (patternIndex === 2) return 'span 2'
   return 'span 1'
+}
+
+/** Vertical focus for `object-fit: cover` — not topmost (avoid `top` / `0%`) */
+function getGalleryTileObjectPosition(imageSrc, isLastItem) {
+  if (isLastItem) return 'center 30%'
+  if (imageSrc.includes('JEK09698')) return 'center 40%'
+  return 'center center'
 }
 
 function StoryPolaroid({ image, rotation, polaroidIndex, objectPosition, onOpen }) {
@@ -427,6 +464,16 @@ const StoryAndGallery = () => {
         className="relative pb-24 sm:pb-32 md:pb-40 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)' }}
       >
+        <style>{`
+          @media (min-width: 992px) {
+            .gallery-jek09698 {
+              object-position: center 31% !important;
+            }
+            .gallery-jek09604 {
+              object-position: center top !important;
+            }
+          }
+        `}</style>
         <div ref={galleryTitleRef} className="relative z-10 mb-12 sm:mb-16">
           <div
             className="relative z-10"
@@ -480,12 +527,14 @@ const StoryAndGallery = () => {
                   <img
                     src={image}
                     alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${
+                      image.includes('JEK09698') ? 'gallery-jek09698' : ''
+                    } ${image.includes('JEK09604') ? 'gallery-jek09604' : ''}`}
                     style={{
                       height: '100%',
                       willChange: 'transform',
                       backfaceVisibility: 'hidden',
-                      objectPosition: isLastItem ? 'center 30%' : 'center center',
+                      objectPosition: getGalleryTileObjectPosition(image, isLastItem),
                     }}
                     loading="lazy"
                   />
@@ -604,6 +653,11 @@ const StoryAndGallery = () => {
                 src={GALLERY_IMAGES[galleryImageIndex]}
                 alt=""
                 className="max-w-full max-h-[90vh] object-contain"
+                style={
+                  GALLERY_IMAGES[galleryImageIndex]?.includes('JEK09698')
+                    ? { objectPosition: 'center 40%' }
+                    : undefined
+                }
               />
             </div>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm">

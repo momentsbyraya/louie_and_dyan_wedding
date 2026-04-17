@@ -52,11 +52,11 @@ const WeddingInvitation = () => {
           <section className="relative w-full">
             <div className="w-full flex justify-center items-center">
               <img 
-                src="/assets/images/prenup/new/FOR EDITS-8.jpg" 
+                src="/assets/images/prenup/JEK09876.jpg" 
                 alt="Wedding moment" 
                 className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
                 style={{ width: '100vw' }}
-                onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-8.jpg')}
+                onClick={() => setSelectedImage('/assets/images/prenup/JEK09876.jpg')}
               />
             </div>
           </section>
@@ -71,11 +71,11 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
-              src="/assets/images/prenup/new/FOR EDITS-26.jpg" 
+              src="/assets/images/prenup/JEK09919.jpg" 
               alt="Wedding moment" 
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-26.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/JEK09919.jpg')}
             />
           </div>
         </section>
@@ -94,11 +94,11 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
-              src="/assets/images/prenup/new/FOR EDITS-25.jpg" 
+              src="/assets/images/prenup/JEK09996.jpg" 
               alt="Wedding moment" 
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/new/FOR EDITS-25.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/JEK09996.jpg')}
             />
           </div>
         </section>

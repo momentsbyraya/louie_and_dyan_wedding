@@ -9,7 +9,7 @@ import { audio } from './data'
 
 function App() {
   const [isRSVPModalOpen, setIsRSVPModalOpen] = useState(false)
-  const [showInvitation, setShowInvitation] = useState(true) // Skip opening screen (prenup assets removed)
+  const [showInvitation, setShowInvitation] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const audioRef = useRef(null)
 
@@ -44,11 +44,11 @@ function App() {
   // Preload essential images
   useEffect(() => {
     const essentialImages = [
-      '/assets/images/prenup/opening-1.png',
-      '/assets/images/prenup/opening-2.png',
-      '/assets/images/prenup/opening-3.png',
-      '/assets/images/prenup/FOR EDITS-28.jpg', // Hero background image
-      '/assets/images/graphics/old-book-bg.png' // Hero top layer background
+      '/assets/images/prenup/JEK09876.jpg',
+      '/assets/images/prenup/JEK09820.jpg',
+      '/assets/images/prenup/JEK00070.jpg',
+      '/assets/images/prenup/JEK00146.jpg',
+      '/assets/images/graphics/old-book-bg.png'
     ]
 
     let loadedCount = 0

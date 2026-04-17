@@ -18,14 +18,11 @@ const Hero = () => {
   // Background style - centered, no zoom
   const bgStyle = useMemo(() => {
     return {
-      backgroundImage: `url("/assets/images/prenup/new/FOR EDITS-23.jpg")`,
+      backgroundImage: `url("/assets/images/prenup/JEK00146.jpg")`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       opacity: 1,
-      '@media (min-width: 992px)': {
-        backgroundPosition: 'center bottom'
-      }
     }
   }, [])
 
@@ -59,6 +56,9 @@ const Hero = () => {
   const heroVenueLabel = (venue.shortName || venue.name).toUpperCase()
   const heroGold = '#D4AF37'
   const heroWhiteTextShadow = '0 2px 4px rgba(255, 255, 255, 0.6)'
+  const heroWhiteOnPhoto = '#FFFFFF'
+  const heroWhiteReadableShadow =
+    '0 1px 2px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.4)'
 
   useEffect(() => {
     // Create a timeline for sequential scroll animations
@@ -154,8 +154,9 @@ const Hero = () => {
       <style>{`
         @media (min-width: 992px) {
           .hero-bg-image {
-            background-position: center bottom !important;
-          }
+            /* Slightly above center; not topmost (avoid center top / 0%) */
+            background-position: center 72% !important;
+          
           .hero-monogram {
             width: 18rem !important;
           }
@@ -208,16 +209,15 @@ const Hero = () => {
 
         {/* Couple Names - Serif Dark Gold Gradient */}
         <div ref={coupleNameRef} className="-mt-4 sm:-mt-6 md:-mt-8 mb-6 sm:mb-8 flex justify-center items-center w-full opacity-0">
-          <h1 className="hero-couple-title text-center uppercase whitespace-nowrap leading-tight" style={{ 
-            fontFamily: 'Caudex, serif', 
-            background: 'linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #F4D03F 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', 
-            textShadow: heroWhiteTextShadow,
-            filter: 'drop-shadow(0 2px 4px rgba(255, 255, 255, 0.4))'
-          }}>
+          <h1
+            className="hero-couple-title text-center uppercase whitespace-nowrap leading-tight"
+            style={{
+              fontFamily: 'Caudex, serif',
+              color: heroWhiteOnPhoto,
+              fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+              textShadow: heroWhiteReadableShadow,
+            }}
+          >
             {groomName.toUpperCase()} & {shortBrideName.toUpperCase()}
           </h1>
         </div>
@@ -225,30 +225,54 @@ const Hero = () => {
         {/* Date and Time */}
         <div ref={dateRef} className="mb-2 sm:mb-3 lg:hidden opacity-0">
           {/* Month - Centered */}
-          <div className="alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider text-center" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
+          <div
+            className="alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider text-center"
+            style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
+          >
             {dateInfo.month}
           </div>
           {/* Day of Week, Day Number, and Time */}
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 max-w-md mx-auto">
             {/* Day of Week - Left with lines */}
             <div className="flex flex-col items-center">
-              <div className="w-12 sm:w-16 md:w-20 h-px mb-0" style={{ backgroundColor: heroGold, boxShadow: '0 0 4px rgba(255, 255, 255, 0.6)' }}></div>
-              <div className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
+              <div
+                className="w-12 sm:w-16 md:w-20 h-px mb-0"
+                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
+              />
+              <div
+                className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider"
+                style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
+              >
                 {dateInfo.dayOfWeek}
               </div>
-              <div className="w-12 sm:w-16 md:w-20 h-px mt-0" style={{ backgroundColor: heroGold, boxShadow: '0 0 4px rgba(255, 255, 255, 0.6)' }}></div>
+              <div
+                className="w-12 sm:w-16 md:w-20 h-px mt-0"
+                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
+              />
             </div>
             {/* Day Number - Large and Centered */}
-            <div className="alice-regular font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
+            <div
+              className="alice-regular font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+              style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
+            >
               {dateInfo.day}
             </div>
             {/* Time - Right with lines */}
             <div className="flex flex-col items-center">
-              <div className="w-12 sm:w-16 md:w-20 h-px mb-0" style={{ backgroundColor: heroGold, boxShadow: '0 0 4px rgba(255, 255, 255, 0.6)' }}></div>
-              <div className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
+              <div
+                className="w-12 sm:w-16 md:w-20 h-px mb-0"
+                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
+              />
+              <div
+                className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider"
+                style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
+              >
                 {venue.time.replace(/\s/g, '').toUpperCase()}
               </div>
-              <div className="w-12 sm:w-16 md:w-20 h-px mt-0" style={{ backgroundColor: heroGold, boxShadow: '0 0 4px rgba(255, 255, 255, 0.6)' }}></div>
+              <div
+                className="w-12 sm:w-16 md:w-20 h-px mt-0"
+                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
+              />
             </div>
           </div>
         </div>
@@ -258,7 +282,7 @@ const Hero = () => {
       <div ref={venueRef} className="hero-venue-bottom absolute bottom-0 left-0 right-0 z-10 text-center pb-8 opacity-0">
         <div
           className="hero-venue-name alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase px-4 max-w-4xl mx-auto"
-          style={{ color: heroGold, textShadow: heroWhiteTextShadow }}
+          style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
         >
           {heroVenueLabel}
         </div>

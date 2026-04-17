@@ -109,41 +109,29 @@ const Gifts = () => {
 
       {/* Gift Registry Modal */}
       {isGiftRegistryModalOpen && createPortal(
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onClick={() => setIsGiftRegistryModalOpen(false)}
-          />
-          
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Header - Sticky */}
-            <div className="sticky top-0 bg-white z-10 flex items-center justify-between p-6 border-b border-gray-200 rounded-t-2xl">
-              <h3 className="text-2xl sm:text-3xl alice-regular font-black text-gray-800" style={{ fontWeight: 900 }}>Methods:</h3>
-              <button
-                onClick={() => setIsGiftRegistryModalOpen(false)}
-                className="text-gray-500 hover:text-gray-800 transition-colors duration-200"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Content - Only Monetary Gifts Images */}
-            <div className="p-6">
-              <div className="flex flex-col gap-4">
-                        <img 
-                  src="/assets/images/monetary-gifts/gcash.jpg" 
-                  alt="GCash" 
-                  className="w-full h-auto object-contain"
-                />
-                <img 
-                  src="/assets/images/monetary-gifts/maribank.jpg" 
-                  alt="MariBank" 
-                  className="w-full h-auto object-contain"
-                        />
-                      </div>
-            </div>
+        <div
+          className="fixed inset-0 z-[10000] flex items-center justify-center"
+          onClick={() => setIsGiftRegistryModalOpen(false)}
+        >
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsGiftRegistryModalOpen(false)
+            }}
+            className="absolute right-4 top-4 z-[10001] rounded-full bg-white/10 p-2 text-white transition-colors duration-200 hover:bg-white/20"
+            aria-label="Close"
+          >
+            <X className="h-7 w-7" />
+          </button>
+          <div className="relative z-[10001] max-h-[92vh] max-w-[92vw] p-3">
+            <img
+              src="/assets/images/monetary-gifts/gcash.jpg"
+              alt="GCash"
+              className="max-h-[88vh] max-w-[88vw] object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
           </div>
         </div>,
         document.body

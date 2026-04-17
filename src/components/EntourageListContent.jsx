@@ -9,11 +9,13 @@ import './Entourage.css'
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
 
-const entourageTitleGradientStyle = {
+/** Same gold gradient + clip pattern as Venue section title (`Location`); no `display: inline-block` so stacked names stay on separate lines */
+const locationTitleGradient = {
   background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)',
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
+  color: 'transparent',
 }
 
 const EntourageListContent = ({ scrollContainerRef }) => {
@@ -36,6 +38,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
   const coinBearerRef = useRef(null)
   const flowerLadiesRef = useRef(null)
   const heraldOfBrideRef = useRef(null)
+  const groomFullNameRef = useRef(null)
+  const brideFullNameRef = useRef(null)
 
   useEffect(() => {
     const scroller = scrollContainerRef?.current
@@ -44,7 +48,9 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       gsap.set(sectionRef.current, { opacity: 1, x: 0 })
     }
 
-    const allNameElements = sectionRef.current?.querySelectorAll('p.font-poppins, .ninong-item, .ninang-item, .groomsmen-item, .bridesmaids-item')
+    const allNameElements = sectionRef.current?.querySelectorAll(
+      'p.font-poppins:not(.entourage-couple-full-name), .ninong-item, .ninang-item, .groomsmen-item, .bridesmaids-item'
+    )
     if (allNameElements && allNameElements.length > 0) {
       gsap.set(allNameElements, { opacity: 0, y: 20 })
     }
@@ -67,6 +73,16 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
     )
 
+    // GROOM / BRIDE full names — same timeline as header (not tied to Parents scroll; fixes invisible bride in modal)
+    if (groomFullNameRef.current && brideFullNameRef.current) {
+      gsap.set([groomFullNameRef.current, brideFullNameRef.current], { opacity: 0, y: 16 })
+      tl.fromTo(
+        [groomFullNameRef.current, brideFullNameRef.current],
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' },
+        '-=0.35'
+      )
+    }
 
     // Collect all names from Parents down to Flower Girls for sequential row-by-row animation
     const allNameRows = []
@@ -99,23 +115,6 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       }
     }
     
-    // BRIDE & GROOM section - collect rows
-    if (coupleRef.current) {
-      const groomName = coupleRef.current.querySelectorAll('.flex-1:first-child p.font-poppins')
-      const brideName = coupleRef.current.querySelectorAll('.flex-1:last-child p.font-poppins')
-      
-      if (groomName.length > 0 && brideName.length > 0) {
-        gsap.set([...groomName, ...brideName], { opacity: 0, y: 20 })
-        const row = []
-        if (groomName[0]) row.push(groomName[0])
-        if (brideName[0]) row.push(brideName[0])
-        if (row.length > 0) {
-          allNameRows.push({ elements: row, time: currentTime })
-          currentTime += 0.2
-        }
-      }
-    }
-
     // Bestman and Maid of Honor - collect rows (right after Secondary Sponsors)
     if (bestmanRef.current && maidOfHonorRef.current) {
       const bestmanNames = bestmanRef.current.querySelectorAll('p.font-poppins')
@@ -263,12 +262,6 @@ const EntourageListContent = ({ scrollContainerRef }) => {
   const flowerLadies = entourage.entourageList.find(item => item.category === "Flower Ladies")
   const heraldOfBride = entourage.entourageList.find(item => item.category === "Herald of the bride")
 
-  // Short first names for main title above NUPTIALS (groom: first name only, e.g. JOHN)
-  const groomHeaderName =
-    (weddingConfig.couple.groom.firstName || '').trim().split(/\s+/)[0]?.toUpperCase() || ''
-  const brideHeaderName =
-    (weddingConfig.couple.bride.firstName || '').trim().split(/\s+/)[0]?.toUpperCase() || ''
-
   // BRIDE & GROOM row — full names in uppercase
   const groomFullName =
     weddingConfig.couple.groom.fullName ||
@@ -328,51 +321,69 @@ const EntourageListContent = ({ scrollContainerRef }) => {
         {/* Content */}
         <div className="relative z-20 flex items-center justify-center">
           <div className="max-w-xs sm:max-w-md lg:max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-6 lg:px-8">
-            {/* Header Section */}
-            <div className="text-center mb-12">
-              <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-8">
-                {/* Couple names above NUPTIALS — short first names; wraps on small screens so both show */}
-                <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1 px-1 pt-4 text-center sm:gap-x-3 sm:pt-6 md:pt-8">
-                  <span
-                    className="font-caribbean text-3xl leading-none sm:text-4xl md:text-5xl lg:text-6xl"
-                    style={entourageTitleGradientStyle}
-                  >
-                    {groomHeaderName}
-                  </span>
-                  <span
-                    className="font-caribbean text-lg leading-none sm:text-xl md:text-2xl lg:text-3xl"
-                    style={entourageTitleGradientStyle}
-                  >
-                    &
-                  </span>
-                  <span
-                    className="font-caribbean text-3xl leading-none sm:text-4xl md:text-5xl lg:text-6xl"
-                    style={entourageTitleGradientStyle}
-                  >
-                    {brideHeaderName}
-                  </span>
-                </div>
-                {/* NUPTIALS */}
-                <div className="caudex-bold text-base sm:text-lg md:text-xl lg:text-2xl block leading-none uppercase mt-4" style={{ lineHeight: '0.8', color: theme.text.secondary }}>
-                  NUPTIALS
-                </div>
-          </h2>
+            {/* Header — couple names use same typographic pattern as Venue "Location" title */}
+            <div
+              ref={headerRef}
+              className="entourage-modal-header-names normal-case mb-12 flex flex-col items-center text-center pt-4 sm:pt-6 md:pt-8"
+            >
+              <h2
+                className="mb-1 flex flex-wrap items-baseline justify-center gap-x-1 font-caribbean text-3xl sm:mb-2 sm:gap-x-2 sm:text-4xl md:text-5xl lg:text-6xl"
+                style={locationTitleGradient}
+              >
+                <span
+                  className="inline-block font-caribbean text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
+                  style={{ lineHeight: '0.8' }}
+                >
+                  J
+                </span>
+                <span className="inline-block font-caribbean">ohn Aerol</span>
+                <span
+                  className="inline-block font-caribbean text-lg leading-none sm:text-xl md:text-2xl lg:text-3xl [margin-inline:0.5rem] sm:[margin-inline:0.75rem] md:[margin-inline:1rem]"
+                  aria-hidden
+                >
+                  &
+                </span>
+              </h2>
+              <h2
+                className="mb-6 font-caribbean text-3xl sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl"
+                style={{ ...locationTitleGradient, lineHeight: 1.75 }}
+              >
+                <span
+                  className="inline-block font-caribbean text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+                  style={{ lineHeight: 1.25 }}
+                >
+                  C
+                </span>
+                <span className="inline-block font-caribbean leading-loose">arla</span>
+              </h2>
+              <div
+                className="caudex-bold block text-base uppercase leading-none sm:text-lg md:text-xl lg:text-2xl"
+                style={{ lineHeight: '0.8', color: theme.text.secondary }}
+              >
+                NUPTIALS
+              </div>
             </div>
 
             {/* BRIDE & GROOM Section */}
-            <div ref={coupleRef} className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
+            <div ref={coupleRef} className="mb-6 flex min-w-0 flex-row gap-4 sm:gap-6 justify-center items-center">
               {/* Groom */}
-              <div className="flex-1">
+              <div className="min-w-0 flex-1">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: theme.text.brown }}>GROOM</p>
-                <p className="text-right font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words">
+                <p
+                  ref={groomFullNameRef}
+                  className="entourage-couple-full-name text-right font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words"
+                >
                   {groomFullName}
                 </p>
               </div>
 
               {/* Bride */}
-              <div className="flex-1">
+              <div className="min-w-0 flex-1">
                 <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: theme.text.brown }}>BRIDE</p>
-                <p className="text-left font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words">
+                <p
+                  ref={brideFullNameRef}
+                  className="entourage-couple-full-name text-left font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words"
+                >
                   {brideFullName}
                 </p>
               </div>

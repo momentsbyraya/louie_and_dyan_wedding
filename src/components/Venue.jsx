@@ -31,8 +31,8 @@ const MapDirections = () => {
   const ceremony = venuesData.ceremony
   const reception = venuesData.reception
 
-  const ceremonyImageSrc = '/assets/images/venues/ceremony.png'
-  const receptionImageSrc = '/assets/images/venues/reception.png'
+  const ceremonyImageSrc = '/assets/images/venues/ceremony.jpg'
+  const receptionImageSrc = '/assets/images/venues/reception.jpg'
 
   useEffect(() => {
     const triggers = []

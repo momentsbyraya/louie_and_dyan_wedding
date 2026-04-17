@@ -90,6 +90,9 @@ const DressCode = () => {
     }
   }, [])
 
+  const sections = dresscode.sections || []
+  const hasSingleSection = sections.length === 1
+
   return (
     <section
       ref={sectionRef}
@@ -136,13 +139,20 @@ const DressCode = () => {
           </div>
 
           {/* Dress Code Content - Grid layout for 5 categories */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {dresscode.sections && dresscode.sections.map((section, index) => {
+          <div
+            className={`grid grid-cols-1 gap-6 lg:gap-8 ${
+              hasSingleSection ? 'justify-items-center' : 'lg:grid-cols-2'
+            }`}
+          >
+            {sections && sections.map((section, index) => {
               const isEven = index % 2 === 0
               const shouldReverse = section.title === "Principal Sponsors" || section.title === "Maid of Honor"
               const isGuests = section.title === "Guests"
               return (
-                <div key={index} className="relative overflow-visible">
+                <div
+                  key={index}
+                  className={`relative overflow-visible ${hasSingleSection ? 'w-full max-w-[450px]' : ''}`}
+                >
                   <div className="relative overflow-visible">
                     <div 
                       ref={el => categoryRefs.current[index] = el}
@@ -151,17 +161,17 @@ const DressCode = () => {
                       {/* Category Image and Details - Side by side on mobile, stacked on desktop */}
                       <div className={`flex flex-row lg:flex-col xl:flex-col gap-6 md:gap-8 lg:gap-6 items-start`}>
                         {/* Category Details */}
-                        <div className={`w-1/2 lg:w-full flex flex-col ${shouldReverse ? 'text-left lg:text-left order-2 xl:order-1' : (isEven ? 'text-right lg:text-left order-1 xl:order-1' : 'text-left lg:text-left order-1 xl:order-1')}`}>
+                        <div className={`w-1/2 lg:w-full flex flex-col ${hasSingleSection ? 'text-center order-1' : (shouldReverse ? 'text-left lg:text-left order-2 xl:order-1' : (isEven ? 'text-right lg:text-left order-1 xl:order-1' : 'text-left lg:text-left order-1 xl:order-1'))}`}>
                           {/* Category Name and Description Container */}
                           <div className="w-full">
                             {/* Category Name */}
-                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#333333] mb-2 ${shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left')}`}>
+                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#333333] mb-2 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
                               {section.title}
                             </div>
                             
                             {/* Description */}
                             {section.description && (
-                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 ${shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left')}`}>
+                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
                                 {section.description}
                               </p>
                             )}
