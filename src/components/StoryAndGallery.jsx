@@ -12,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger)
 const PRENUP_USED_HERO_OR_BLEED = new Set([
   'JEK00146', // Hero
   'JEK09876', // Invitation bleed + opening
-  'JEK09919', // Invitation bleed
   'JEK09996', // Invitation bleed
   'JEK09820', // RSVP bleed + opening
 ])
@@ -92,9 +91,7 @@ function getStoryParagraphs() {
 }
 
 /** 3-column masonry: full, 1/3+2/3, 2/3+1/3, … — matches jr-and-centenie Moments.jsx */
-function getMomentsGalleryGridColumn(index, total) {
-  const isLastItem = index === total - 1
-  if (isLastItem) return 'span 3'
+function getMomentsGalleryGridColumn(index) {
   if (index === 0) return 'span 3'
   if (index === 1) return 'span 1'
   if (index === 2) return 'span 2'
@@ -113,8 +110,7 @@ function getMomentsGalleryGridColumn(index, total) {
 }
 
 /** Vertical focus for `object-fit: cover` — not topmost (avoid `top` / `0%`) */
-function getGalleryTileObjectPosition(imageSrc, isLastItem) {
-  if (isLastItem) return 'center 30%'
+function getGalleryTileObjectPosition(imageSrc) {
   if (imageSrc.includes('JEK09698')) return 'center 40%'
   return 'center center'
 }
@@ -506,8 +502,7 @@ const StoryAndGallery = () => {
         <div className="max-w-xs sm:max-w-md lg:max-w-3xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4" style={{ gridAutoRows: '1fr' }}>
             {GALLERY_IMAGES.map((image, index) => {
-              const gridColumn = getMomentsGalleryGridColumn(index, GALLERY_IMAGES.length)
-              const isLastItem = index === GALLERY_IMAGES.length - 1
+              const gridColumn = getMomentsGalleryGridColumn(index)
               return (
                 <div
                   key={index}
@@ -534,7 +529,7 @@ const StoryAndGallery = () => {
                       height: '100%',
                       willChange: 'transform',
                       backfaceVisibility: 'hidden',
-                      objectPosition: getGalleryTileObjectPosition(image, isLastItem),
+                      objectPosition: getGalleryTileObjectPosition(image),
                     }}
                     loading="lazy"
                   />

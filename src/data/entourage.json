@@ -1,163 +1,77 @@
 {
   "parents": {
     "groom": {
-      "father": "NILON POLVES MAGBANUA SR. (+)",
-      "mother": "JULIE GANCIA MAGBANUA"
+      "father": "Mr. Abner Q. Azcarraga",
+      "mother": "Mrs. Rosalie D. Azcarraga"
     },
     "bride": {
-      "father": "EDUARDO DIZON SR.",
-      "mother": "REGINA DIZON"
+      "father": "Mr. Donato A. Prohibido",
+      "mother": "Mrs. Alelie S. Prohibido"
     }
   },
-  "entourageList": [
-    {
-      "category": "Principal Sponsors",
-      "items": [
-        {
-          "ninong": "MR. CHARLES MICHAEL SAMACO CANDOR"
-        },
-        {
-          "ninong": "MR. NICANDRO MAÑAS MONTAÑA JR."
-        },
-        {
-          "ninong": "MR. EDUARDO NOVILLAS"
-        },
-        {
-          "ninong": "MR. ROBERT JOHN TOLENTINO"
-        },
-        {
-          "ninong": "MR. RODEL NEMESIO SANTIAGO"
-        },
-        {
-          "ninong": "MR. BIENVENIDO GOROSPE JR"
-        },
-        {
-          "ninong": "MR. VAN VINCENT PANGILINAN"
-        },
-        {
-          "ninong": "MR. AL GEMRADY BATHAN"
-        },
-        {
-          "ninong": "MR. JEROME DEL ROSARIO"
-        },
-        {
-          "ninong": "MR. CENN ANDREW NUYDA"
-        },
-        {
-          "ninang": "MRS. JASMINE CONSUELO BRIGITTA GOMEZ"
-        },
-        {
-          "ninong": "MR. JERRY MAGUSARA DIADIO",
-          "ninang": "MRS. SALOME LOPEZ DIADIO"
-        },
-        {
-          "ninang": "MRS. ELVIRA ADELANTAR"
-        },
-        {
-          "ninong": "MR. JERRY GASTALLA YGLORIA",
-          "ninang": "MRS. MA. CRISTINA PIALAN YGLORIA"
-        },
-        {
-          "ninang": "MRS ARLENE DE VERA",
-          "ninong": "MR ENRIQUE DE VERA"
-        },
-        {
-          "ninang": "MRS CHARITO MAPILIS",
-          "ninong": "MR LEONCIO MAPILIS"
-        },
-        {
-          "ninang": "MRS ARLINA DE GUZMAN"
+  "principalSponsors": {
+    "items": [
+      { "ninong": "Mrs. Irene O. Aveno", "ninang": "Mr. Christian M. Rutaquio" },
+      { "ninong": "Mrs. Mona A. Dafang", "ninang": "Kons. Nelson M. Sabiduria" },
+      { "ninong": "Mrs. Linda P. Dizon", "ninang": "Mr. Edwin M. Aquino" },
+      { "ninong": "Mrs. Luzviminda T. Buerano", "ninang": "Dr. Allan L. Azcarraga" },
+      { "ninong": "Mrs. Jhoy Galang", "ninang": "Mr. Rolando Galang" },
+      { "ninong": "Mr. Reynaldo A. Beso", "ninang": "Mrs. Rowena O. Sagun" },
+      { "ninong": "Mr. Rodel Platino", "ninang": "Dr. Kristy Pestañas C. Bustonera" },
+      { "ninong": "Dr. Kris Alden A. Puserio", "ninang": "Mrs. Maricel P. Vargas" },
+      { "ninong": "Mr. Ronald T. Astrera", "ninang": "Mrs. Mayla Vicencio" },
+      { "ninong": "Mr. Jeric V. Prudente", "ninang": "Mrs. Marry Grace M. Saynes" },
+      { "ninong": "Mr. Dennis Q. Azcarraga", "ninang": "Mrs. Elionora C. Miras" },
+      { "ninong": "Mr. Joel P. Hebres", "ninang": "Mrs. Leny P. Miras" },
+      { "ninong": "Mr. John Rey A. Calzado", "ninang": "Mrs. Brenda Rillion" },
+      { "ninong": "Mr. Nonato C. Crisostomo", "ninang": "Mrs. Arlene S. Moises" },
+      { "ninong": "Mr. Espiridion G. combalicer", "ninang": "Mrs. Vevilyn Turgo" },
+      { "ninong": "Mr. Jaylim Tropicales", "ninang": "Mrs. Maridel America" }
+    ]
+  },
+  "bridalParty": {
+    "assistSubtitle": "To Assist us in our needs",
+    "guideSubtitle": "To guide us in our way",
+    "bestman": "Mr. Paul Aeron D. Azcarraga",
+    "maidOfHonor": "Ms. Janine S. Prohibido",
+    "groomsMenBridesmaids": [
+      { "groomsman": "Mr. Dave John V. Tadeo", "bridesmaid": "Ms. Jhoyce Anne G. Virrey" },
+      { "groomsman": "Mr. Carl B. Avellaneda", "bridesmaid": "Mrs. Angelica A. Avellaneda" },
+      { "groomsman": "Mr. Amiel Kiefer F. Azcarraga", "bridesmaid": "Ms. Alliah P. Oriola" },
+      { "groomsman": "Mr. Kim Gerald B. Cabuan", "bridesmaid": "Ms. Kristelle Grace T. Potestades" },
+      { "groomsman": "Mr. Sevier Jhon B. Peñaojas", "bridesmaid": "Ms. Zaira F. Suaverdez" },
+      { "groomsman": "Mr. John Aries S. Moises", "bridesmaid": "Ms. Karren Cleo S. Sol" }
+    ]
+  },
+  "secondarySponsors": {
+    "candle": {
+      "tagline": "TO LIGHT OUR PATH",
+      "left": "Mr. Mark Joseph R. Virrey",
+      "right": "Ms. Maureen B. Peñamante"
     },
-    {
-          "ninang": "MRS ERLINDA JOSON"
-    },
-    {
-          "ninong": "MR. MARIO DE GUZMAN"
-        },
-        {
-          "ninong": "MR. RICKY DE GUZMAN"
-        }
+    "veil": {
+      "tagline": "TO CLOTHE US AS ONE",
+      "pairs": [
+        { "left": "Mr. Sarjay Anthony G. Cruz", "right": "Mrs. Krizza A. Cruz" },
+        { "left": "Mr. Renell S. Prohibido", "right": "Ms. Renalyn E. Cipriano" }
       ]
     },
-    {
-      "category": "Secondary Sponsors",
-      "bestman": "SIDNEY ANGELO MAGBANUA",
-      "matronOfHonor": "ANGEL RUTH DIZON GARCIA"
-    },
-    {
-      "category": "Candle 1",
-      "names": [
-        "DAVID JOHN TROMPETA",
-        "FRANCESCA FAITH ANTONIO"
-      ]
-    },
-    {
-      "category": "Veil 1",
-      "names": [
-        "EDUARDO DIZON JR.",
-        "KRISTINE MAE MOLATO DIZON"
-      ]
-    },
-    {
-      "category": "Cord 1",
-      "names": [
-        "LUIS ANGELO GARCIA",
-        "STEPHANIE MAGBANUA"
-      ]
-    },
-    {
-      "category": "Candle 2",
-      "names": [
-        "ALEXANDER VITO CRUZ",
-        "PAOLO ACIERTO"
-      ]
-    },
-    {
-      "category": "Veil 2",
-      "names": [
-        "HAYDN DANIELLE INOFERIO",
-        "JENNIFER MARIE JOCSON"
-      ]
-    },
-    {
-      "category": "Cord 2",
-      "names": [
-        "BYRON DELGADO",
-        "SAMANTHA GOMEZ"
-      ]
-    },
-    {
-      "category": "Ring Bearer",
-      "names": [
-        "JHON CHRISTIAN MAPILIS"
-      ]
-    },
-    {
-      "category": "Bible Bearer",
-      "names": [
-        "JHON CARLO MAPILIS"
-      ]
-    },
-    {
-      "category": "Coin Bearer",
-      "names": [
-        "JHONLEI MAPILIS"
-      ]
-    },
-    {
-      "category": "Flower Ladies",
-      "names": [
-        "JAMELLE DE JOYA-RILLERIA",
-        "TANYA MALLORCA",
-        "CRISMAE SALDIVAR",
-        "ZHARMELLA ARRIOLA"
-      ]
-    },
-    {
-      "category": "Herald of the bride",
-      "names": [
-        "THALIA ANGELICA GARCIA"
+    "cord": {
+      "tagline": "TO BIND US TOGETHER",
+      "pairs": [
+        { "left": "Mr. Lorenz Dale A. Mortiz", "right": "Ms. Roena Grace A. Gurango" },
+        { "left": "Mr. Michael S. Moises", "right": "Ms. Jeseca S. Moises" }
       ]
     }
-  ]
+  },
+  "flowerGirls": [
+    "Britany Kyleigh U. Castulo",
+    "Shanaia U. Castulo",
+    "Zia Amara A. añonuevo",
+    "Alice Kristen Wacira",
+    "Rhian Kaye N. Prohibido"
+  ],
+  "ringBearer": "Vance Kaiden Puserio",
+  "coinBearer": "Lance Kervy A. Arcilla",
+  "bibleBearer": "John P. Garnica"
 }

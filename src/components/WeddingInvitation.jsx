@@ -67,17 +67,30 @@ const WeddingInvitation = () => {
           <Schedule />
         </EnhancedLazySection>
         
-        {/* Image Section - Between Schedule and RSVP */}
-        <section className="relative w-full">
-          <div className="w-full flex justify-center items-center">
-            <img 
-              src="/assets/images/prenup/JEK09919.jpg" 
-              alt="Wedding moment" 
-              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/JEK09919.jpg')}
-            />
-          </div>
+        {/* YouTube — Between Schedule and RSVP (full viewport width, edge-to-edge) */}
+        <section
+          className="relative m-0 max-w-none border-0 p-0"
+          style={{
+            width: '100vw',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+        >
+          <iframe
+            className="m-0 block border-0 p-0"
+            style={{
+              width: '100vw',
+              height: '56.25vw',
+              margin: 0,
+              padding: 0,
+              verticalAlign: 'bottom',
+            }}
+            src="https://www.youtube.com/embed/X-bzAsWAoF4?autoplay=1&mute=1&playsinline=1&rel=0"
+            title="Wedding video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+          />
         </section>
         
         {/* RSVP Section - Full Width */}
