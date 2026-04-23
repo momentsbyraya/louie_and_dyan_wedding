@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
@@ -19,6 +19,9 @@ import EnhancedLazySection from './EnhancedLazySection'
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
   const [selectedImage, setSelectedImage] = useState(null)
+  const [hasUserScrolled, setHasUserScrolled] = useState(false)
+  const [shouldAutoplayVideo, setShouldAutoplayVideo] = useState(false)
+  const videoSectionRef = useRef(null)
 
   useEffect(() => {
     // Initial page load animation
@@ -33,6 +36,33 @@ const WeddingInvitation = () => {
 
     return () => clearInterval(timer)
   }, [])
+
+  useEffect(() => {
+    const onFirstScroll = () => {
+      setHasUserScrolled(true)
+    }
+
+    window.addEventListener('scroll', onFirstScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onFirstScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!hasUserScrolled || !videoSectionRef.current || shouldAutoplayVideo) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (!entry?.isIntersecting) return
+        setShouldAutoplayVideo(true)
+        observer.disconnect()
+      },
+      { threshold: 0.35 }
+    )
+
+    observer.observe(videoSectionRef.current)
+
+    return () => observer.disconnect()
+  }, [hasUserScrolled, shouldAutoplayVideo])
 
   return (
     <div className="min-h-screen w-full overflow-hidden">
@@ -69,6 +99,7 @@ const WeddingInvitation = () => {
         
         {/* YouTube — Between Schedule and RSVP (full viewport width, edge-to-edge) */}
         <section
+          ref={videoSectionRef}
           className="relative m-0 max-w-none border-0 p-0"
           style={{
             width: '100vw',
@@ -85,7 +116,9 @@ const WeddingInvitation = () => {
               padding: 0,
               verticalAlign: 'bottom',
             }}
-            src="https://www.youtube.com/embed/X-bzAsWAoF4?autoplay=1&mute=1&playsinline=1&rel=0"
+            src={`https://www.youtube.com/embed/X-bzAsWAoF4?autoplay=${
+              shouldAutoplayVideo ? 1 : 0
+            }&mute=1&playsinline=1&rel=0`}
             title="Wedding video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
