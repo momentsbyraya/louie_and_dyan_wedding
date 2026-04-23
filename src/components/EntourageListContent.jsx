@@ -102,7 +102,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
     let currentTime = 0
 
     if (parentsRef.current) {
-      const allParentsContainers = parentsRef.current.querySelectorAll('.flex-1')
+      const allParentsContainers = parentsRef.current.querySelectorAll(':scope > div')
       if (allParentsContainers.length >= 2) {
         const groomParentsContainer = allParentsContainers[0]
         const brideParentsContainer = allParentsContainers[1]
@@ -351,8 +351,11 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               </div>
             </div>
 
-            <div ref={coupleRef} className="mb-6 flex min-w-0 flex-row gap-4 sm:gap-6 justify-center items-center">
-              <div className="min-w-0 flex-1">
+            <div
+              ref={coupleRef}
+              className="mb-6 grid min-w-0 grid-cols-2 gap-4 sm:gap-6 justify-center items-center"
+            >
+              <div className="min-w-0">
                 <p
                   className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase"
                   style={{ color: theme.text.brown }}
@@ -367,7 +370,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </p>
               </div>
 
-              <div className="min-w-0 flex-1">
+              <div className="min-w-0">
                 <p
                   className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase"
                   style={{ color: theme.text.brown }}
@@ -390,8 +393,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               Bridal Entourage
             </h3>
 
-            <div ref={parentsRef} className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-start">
-              <div className="flex-1">
+            <div ref={parentsRef} className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
+              <div className="min-w-0">
                 <p
                   className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase"
                   style={{ color: theme.text.brown }}
@@ -408,7 +411,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </div>
               </div>
 
-              <div className="flex-1">
+              <div className="min-w-0">
                 <p
                   className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase"
                   style={{ color: theme.text.brown }}
@@ -439,13 +442,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {principalItems.map((item, index) => {
                     if (item.ninong && item.ninang) {
                       return (
-                        <div key={index} className="flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                          <div className="flex-1 text-right">
+                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                          <div className="min-w-0 text-right">
                             <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {item.ninong}
                             </p>
                           </div>
-                          <div className="flex-1 text-left">
+                          <div className="min-w-0 text-left">
                             <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {item.ninang}
                             </p>
@@ -474,8 +477,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {bridalParty.assistSubtitle}
                 </p>
 
-                <div className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                  <div ref={bestmanRef} className="flex-1">
+                <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                  <div ref={bestmanRef} className="min-w-0">
                     <p
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase"
                       style={{ color: theme.text.brown }}
@@ -489,7 +492,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     )}
                   </div>
 
-                  <div ref={maidOfHonorRef} className="flex-1">
+                  <div ref={maidOfHonorRef} className="min-w-0">
                     <p
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase"
                       style={{ color: theme.text.brown }}
@@ -511,8 +514,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {bridalParty.guideSubtitle}
                 </p>
 
-                <div className="mb-2 flex flex-row gap-4 sm:gap-6 justify-center items-start">
-                  <div className="flex-1 text-right">
+                <div className="mb-2 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
+                  <div className="min-w-0 text-right">
                     <p
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap uppercase"
                       style={{ color: theme.text.brown }}
@@ -520,7 +523,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Groom&apos;s men
                     </p>
                   </div>
-                  <div className="flex-1 text-left">
+                  <div className="min-w-0 text-left">
                     <p
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap uppercase"
                       style={{ color: theme.text.brown }}
@@ -532,13 +535,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
 
                 <div ref={groomsMenBridesmaidsRef} className="space-y-2">
                   {gmPairs.map((pair, index) => (
-                    <div key={index} className="flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                      <div className="flex-1 text-right">
+                    <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                      <div className="min-w-0 text-right">
                         <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                           {pair.groomsman}
                         </p>
                       </div>
-                      <div className="flex-1 text-left">
+                      <div className="min-w-0 text-left">
                         <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                           {pair.bridesmaid}
                         </p>
@@ -572,13 +575,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     >
                       {candle.tagline}
                     </p>
-                    <div ref={candleBlockRef} className="flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                      <div className="flex-1 text-right">
+                    <div ref={candleBlockRef} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                      <div className="min-w-0 text-right">
                         <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                           {candle.left}
                         </p>
                       </div>
-                      <div className="flex-1 text-left">
+                      <div className="min-w-0 text-left">
                         <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                           {candle.right}
                         </p>
@@ -603,13 +606,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     </p>
                     <div ref={veilBlockRef} className="space-y-2">
                       {veil.pairs.map((pair, index) => (
-                        <div key={index} className="flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                          <div className="flex-1 text-right">
+                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                          <div className="min-w-0 text-right">
                             <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {pair.left}
                             </p>
                           </div>
-                          <div className="flex-1 text-left">
+                          <div className="min-w-0 text-left">
                             <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {pair.right}
                             </p>
@@ -636,13 +639,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     </p>
                     <div ref={cordBlockRef} className="space-y-2">
                       {cord.pairs.map((pair, index) => (
-                        <div key={index} className="flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                          <div className="flex-1 text-right">
+                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                          <div className="min-w-0 text-right">
                             <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {pair.left}
                             </p>
                           </div>
-                          <div className="flex-1 text-left">
+                          <div className="min-w-0 text-left">
                             <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
                               {pair.right}
                             </p>
@@ -677,8 +680,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             )}
 
             {(entourage.ringBearer || entourage.coinBearer) && (
-              <div className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-start">
-                <div ref={ringBearerRef} className="flex-1 flex flex-col gap-2 items-center">
+              <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
+                <div ref={ringBearerRef} className="min-w-0 flex flex-col gap-2 items-center">
                   <p
                     className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase"
                     style={{ color: theme.text.brown }}
@@ -691,7 +694,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     </p>
                   )}
                 </div>
-                <div ref={coinBearerRef} className="flex-1 flex flex-col gap-2 items-center">
+                <div ref={coinBearerRef} className="min-w-0 flex flex-col gap-2 items-center">
                   <p
                     className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase"
                     style={{ color: theme.text.brown }}
