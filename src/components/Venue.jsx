@@ -110,19 +110,10 @@ const MapDirections = () => {
               >
                 Location
               </h2>
-              <div ref={venueContentRef}>
+              <div ref={venueContentRef} className="mb-6 sm:mb-8 md:mb-10">
                 <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed">
                   We will be waiting for you at the address
                 </p>
-                <div className="flex justify-center items-center my-4 sm:my-6 md:my-8">
-                  <div className="w-16 h-px bg-[#333333] opacity-40" />
-                  <img
-                    src="/assets/images/graphics/single-flower-1.png"
-                    alt=""
-                    className="w-20 sm:w-24 md:w-32 h-auto mx-4"
-                  />
-                  <div className="w-16 h-px bg-[#333333] opacity-40" />
-                </div>
               </div>
             </div>
 

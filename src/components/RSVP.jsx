@@ -205,12 +205,12 @@ const RSVP = () => {
               {/* Photo Section */}
               <div className="w-screen -mx-8 sm:-mx-12 lg:-mx-16">
                 <img 
-                  src="/assets/images/prenup/IMG_7602.jpg"
+                  src="/assets/images/prenup/IMG_8018.jpg"
                   alt="Wedding photo"
                   className="w-full h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
                   style={{ width: '100vw' }}
                   loading="lazy"
-                  onClick={() => setSelectedPhoto('/assets/images/prenup/IMG_7602.jpg')}
+                  onClick={() => setSelectedPhoto('/assets/images/prenup/IMG_8018.jpg')}
                 />
               </div>
             </div>

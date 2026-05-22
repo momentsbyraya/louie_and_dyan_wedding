@@ -53,6 +53,7 @@ const AutoplayYouTube = ({
     `&iv_load_policy=3` +
     `&disablekb=1` +
     `&fs=0` +
+    `&cc_load_policy=0` +
     `&loop=1` +
     `&playlist=${videoId}`
 

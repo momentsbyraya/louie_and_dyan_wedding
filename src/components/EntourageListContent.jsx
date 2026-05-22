@@ -23,6 +23,11 @@ function collectPairedNameRows(containerEl, allNameRows, startTime, step = 0.2) 
       gsap.set([pairedNinong, pairedNinang], { opacity: 0, y: 20 })
       allNameRows.push({ elements: [pairedNinong, pairedNinang], time: t })
       t += step
+    } else if (pairedNinong || pairedNinang) {
+      const solo = pairedNinong || pairedNinang
+      gsap.set(solo, { opacity: 0, y: 20 })
+      allNameRows.push({ elements: [solo], time: t })
+      t += step
     }
   })
   return t
@@ -45,6 +50,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
   const cordBlockRef = useRef(null)
   const ringBearerRef = useRef(null)
   const coinBearerRef = useRef(null)
+  const candleBearerRef = useRef(null)
   const bibleBearerRef = useRef(null)
   const flowerLadiesRef = useRef(null)
   const groomFullNameRef = useRef(null)
@@ -229,6 +235,17 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       }
     }
 
+    if (candleBearerRef.current) {
+      const names = candleBearerRef.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach((name) => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
+
     if (bibleBearerRef.current) {
       const names = bibleBearerRef.current.querySelectorAll('p.font-poppins')
       if (names.length > 0) {
@@ -366,7 +383,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </p>
                 <p
                   ref={brideFullNameRef}
-                  className="entourage-couple-full-name text-left font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words"
+                  className="entourage-couple-full-name text-left font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] whitespace-nowrap"
                 >
                   {brideFullName}
                 </p>
@@ -529,7 +546,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                       <div className="min-w-0 text-right">
                         {pair.groomsman ? (
-                          <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                          <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
                             {pair.groomsman}
                           </p>
                         ) : (
@@ -538,7 +555,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       </div>
                       <div className="min-w-0 text-left">
                         {pair.bridesmaid ? (
-                          <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                          <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
                             {pair.bridesmaid}
                           </p>
                         ) : (
@@ -695,7 +712,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
 
             {(entourage.candleBearer || entourage.bibleBearer) && (
               <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
-                <div className="min-w-0 flex flex-col gap-2 items-center">
+                <div ref={candleBearerRef} className="min-w-0 flex flex-col gap-2 items-center">
                   {entourage.candleBearer && (
                     <>
                       <p
@@ -704,7 +721,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       >
                         Candle Bearer
                       </p>
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight text-center">
                         {entourage.candleBearer}
                       </p>
                     </>
@@ -719,7 +736,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       >
                         Bible Bearer
                       </p>
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight text-center">
                         {entourage.bibleBearer}
                       </p>
                     </>

@@ -15,7 +15,7 @@ import RSVP from './RSVP'
 import FAQ from './FAQ'
 import Footer from './Footer'
 import EnhancedLazySection from './EnhancedLazySection'
-import AutoplayYouTube from './AutoplayYouTube'
+import AutoplayVideo from './AutoplayVideo'
 
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -54,21 +54,25 @@ const WeddingInvitation = () => {
           <MapDirections />
         </EnhancedLazySection>
 
-          {/* Video Section - Before Schedule */}
-          <section className="relative w-screen m-0 p-0" style={{ width: '100vw' }}>
-            <AutoplayYouTube
-              videoId="JHBuoOxjeUA"
-              title="Jade and Vannie wedding video"
-              threshold={0.4}
+        {/* Prenup photo — Between Location and Schedule */}
+        <section className="relative w-full">
+          <div className="w-full flex justify-center items-center">
+            <img
+              src="/assets/images/prenup/IMG_7602.jpg"
+              alt="Jade and Vannie"
+              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ width: '100vw' }}
+              loading="lazy"
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_7602.jpg')}
             />
-          </section>
-        
-        
+          </div>
+        </section>
+
         {/* Schedule Section */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="schedule">
           <Schedule />
         </EnhancedLazySection>
-        
+
         {/* Prenup photo — Between Schedule and RSVP */}
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
@@ -82,12 +86,12 @@ const WeddingInvitation = () => {
             />
           </div>
         </section>
-        
+
         {/* RSVP Section - Full Width */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="rsvp">
           <RSVP />
         </EnhancedLazySection>
-        
+
         {/* Dress Code Section */}
         <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
           <DressCode />
@@ -156,7 +160,16 @@ const WeddingInvitation = () => {
         >
           <FAQ />
         </EnhancedLazySection>
-        
+
+        {/* Video Section - After FAQ */}
+        <section className="relative w-screen m-0 p-0" style={{ width: '100vw' }}>
+          <AutoplayVideo
+            src="/assets/video/last.mov"
+            threshold={0.4}
+            aspectRatio="16 / 9"
+          />
+        </section>
+
         {/* Footer */}
         <Footer />
         
