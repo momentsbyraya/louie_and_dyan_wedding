@@ -15,6 +15,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Carattere:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 
 /* Canterbury Font */
 @font-face {
@@ -147,6 +148,24 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Safari iOS: avoid white gap under full-viewport hero */
+.hero-viewport-height {
+  height: 100vh;
+  height: 100dvh;
+  height: 100svh;
+  min-height: -webkit-fill-available;
+}
+
+/* Safari / iOS: lighter GPU path (see utils/safariCompat.js) */
+.safari-lite .hero-svg-blur-rect {
+  filter: none !important;
+}
+
+.safari-lite .modal-backdrop-blur {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
 body {
@@ -297,6 +316,17 @@ body {
   font-family: "Caribbean", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.font-homemade,
+h1.font-homemade,
+h2.font-homemade,
+h3.font-homemade,
+.font-homemade * {
+  font-family: 'Homemade Apple', cursive !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0.01em;
 }
 
   .fleur-de-leah-regular {

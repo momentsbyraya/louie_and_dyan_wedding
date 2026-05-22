@@ -1,13 +1,6 @@
 import React from 'react'
 import GradientLayer from './GradientLayer'
-
-const goldTitleStyle = {
-  background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-  color: 'transparent',
-}
+import { sectionTitleStyle } from '../config/themeConfig'
 
 const ImageBanner = ({
   src,
@@ -62,15 +55,15 @@ const ImageBanner = ({
         <div className="w-full text-center px-2">
           {subtitle && (
             <p
-              className="font-caribbean text-3xl sm:text-4xl md:text-5xl mb-1"
-              style={goldTitleStyle}
+              className="text-4xl sm:text-5xl md:text-6xl mb-1"
+              style={sectionTitleStyle}
             >
               {subtitle}
             </p>
           )}
           <h2
-            className="font-caribbean text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4"
-            style={goldTitleStyle}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-3 sm:mb-4"
+            style={sectionTitleStyle}
           >
             {title}
           </h2>

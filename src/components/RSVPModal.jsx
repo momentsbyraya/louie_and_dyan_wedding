@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { X } from 'lucide-react'
 import { themeConfig } from '../config/themeConfig'
-import { weddingConfig } from '../config/weddingConfig'
 
 const RSVPModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null)
@@ -89,15 +88,11 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        {/* Embedded RSVP form */}
-        <div className="flex-1 min-h-0 p-2 sm:p-4">
-          <iframe
-            src={`${weddingConfig.rsvp.website}${weddingConfig.rsvp.website.includes('?') ? '&' : '?'}embedded=true`}
-            title="RSVP Form"
-            className="h-full w-full rounded-lg border-0 bg-white"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        {/* RSVP placeholder */}
+        <div className="flex-1 min-h-0 p-2 sm:p-4 flex items-center justify-center">
+          <p className="font-albert text-lg sm:text-xl md:text-2xl tracking-widest text-[#333333]/80 uppercase text-center">
+            To be added
+          </p>
         </div>
       </div>
     </div>,

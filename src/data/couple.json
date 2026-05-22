@@ -1,22 +1,21 @@
 {
   "bride": {
-    "firstName": "Carla",
-    "lastName": "S. Prohibido",
-    "fullName": "CARLA S. PROHIBIDO"
+    "firstName": "Vannie",
+    "lastName": "Baylon Opstal",
+    "fullName": "VANNIE REGINE BAYLON OPSTAL"
   },
   "groom": {
-    "firstName": "John Aerol",
-    "lastName": "D. Azcarraga",
-    "fullName": "JOHN AEROL D. AZCARRAGA"
+    "firstName": "Jade",
+    "lastName": "Tampus Nillos",
+    "fullName": "JADE ANGELO TAMPUS NILLOS"
   },
-  "together": "JOHN AEROL & CARLA",
+  "together": "JADE & VANNIE",
   "wedding": {
-    "date": "2026-05-30",
-    "time": "8:00 AM",
+    "date": "2026-08-22",
+    "time": "2:30 PM",
     "dayOfWeek": "Saturday",
-    "month": "May",
-    "day": "30",
+    "month": "August",
+    "day": "22",
     "year": "2026"
   }
 }
-

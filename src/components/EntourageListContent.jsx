@@ -4,17 +4,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { entourage } from '../data'
 import { weddingConfig } from '../config/weddingConfig'
 import theme from '../config/theme.json'
+import { sectionTitleStyle } from '../config/themeConfig'
 import './Entourage.css'
 
 gsap.registerPlugin(ScrollTrigger)
-
-const locationTitleGradient = {
-  background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-  color: 'transparent',
-}
 
 /** Push paired-row animations from rows containing `.paired-ninong-item` / `.paired-ninang-item`. */
 function collectPairedNameRows(containerEl, allNameRows, startTime, step = 0.2) {
@@ -43,6 +36,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
   const principalSponsorsRef = useRef(null)
   const bestmanRef = useRef(null)
   const maidOfHonorRef = useRef(null)
+  const matronOfHonorRef = useRef(null)
+  const bridesmanRef = useRef(null)
   const groomsMenBridesmaidsRef = useRef(null)
   const secondarySponsorsRef = useRef(null)
   const candleBlockRef = useRef(null)
@@ -168,7 +163,29 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       }
     }
 
+    if (matronOfHonorRef.current) {
+      const names = matronOfHonorRef.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach((name) => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
+
     currentTime = collectPairedNameRows(groomsMenBridesmaidsRef.current, allNameRows, currentTime)
+
+    if (bridesmanRef.current) {
+      const names = bridesmanRef.current.querySelectorAll('p.font-poppins')
+      if (names.length > 0) {
+        gsap.set(names, { opacity: 0, y: 20 })
+        Array.from(names).forEach((name) => {
+          allNameRows.push({ elements: [name], time: currentTime })
+          currentTime += 0.1
+        })
+      }
+    }
 
     if (candleBlockRef.current) {
       const pairedNinong = candleBlockRef.current.querySelector('.paired-ninong-item')
@@ -313,41 +330,11 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               ref={headerRef}
               className="entourage-modal-header-names normal-case mb-12 flex flex-col items-center text-center pt-4 sm:pt-6 md:pt-8"
             >
-              <h2
-                className="mb-1 flex flex-wrap items-baseline justify-center gap-x-1 font-caribbean text-3xl sm:mb-2 sm:gap-x-2 sm:text-4xl md:text-5xl lg:text-6xl"
-                style={locationTitleGradient}
-              >
-                <span
-                  className="inline-block font-caribbean text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
-                  style={{ lineHeight: '0.8' }}
-                >
-                  J
-                </span>
-                <span className="inline-block font-caribbean">ohn Aerol</span>
-                <span
-                  className="inline-block font-caribbean text-lg leading-none sm:text-xl md:text-2xl lg:text-3xl [margin-inline:0.5rem] sm:[margin-inline:0.75rem] md:[margin-inline:1rem]"
-                  aria-hidden
-                >
-                  &
-                </span>
-              </h2>
-              <h2
-                className="mb-6 font-caribbean text-3xl sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl"
-                style={{ ...locationTitleGradient, lineHeight: 1.75 }}
-              >
-                <span
-                  className="inline-block font-caribbean text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
-                  style={{ lineHeight: 1.25 }}
-                >
-                  C
-                </span>
-                <span className="inline-block font-caribbean leading-loose">arla</span>
-              </h2>
               <div
                 className="caudex-bold block text-base uppercase leading-none sm:text-lg md:text-xl lg:text-2xl"
                 style={{ lineHeight: '0.8', color: theme.text.secondary }}
               >
-                NUPTIALS
+                ENTOURAGE
               </div>
             </div>
 
@@ -402,12 +389,14 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   PARENTS OF THE GROOM
                 </p>
                 <div className="text-right">
-                  <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                    {entourage.parents.groom.father}
-                  </p>
-                  <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis mt-1">
-                    {entourage.parents.groom.mother}
-                  </p>
+                  {(entourage.parents?.groom?.members || []).map((name, idx) => (
+                    <p
+                      key={idx}
+                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
+                    >
+                      {name}
+                    </p>
+                  ))}
                 </div>
               </div>
 
@@ -419,12 +408,14 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   PARENTS OF THE BRIDE
                 </p>
                 <div className="text-left">
-                  <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                    {entourage.parents.bride.father}
-                  </p>
-                  <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis mt-1">
-                    {entourage.parents.bride.mother}
-                  </p>
+                  {(entourage.parents?.bride?.members || []).map((name, idx) => (
+                    <p
+                      key={idx}
+                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
+                    >
+                      {name}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -444,12 +435,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       return (
                         <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                           <div className="min-w-0 text-right">
-                            <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
+                            <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
                               {item.ninong}
                             </p>
                           </div>
                           <div className="min-w-0 text-left">
-                            <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
+                            <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
                               {item.ninang}
                             </p>
                           </div>
@@ -458,7 +449,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     }
                     return (
                       <div key={index} className="flex justify-center">
-                        <p className="unpaired-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-center whitespace-nowrap overflow-hidden text-ellipsis">
+                        <p className="unpaired-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-center whitespace-nowrap">
                           {item.ninong || item.ninang}
                         </p>
                       </div>
@@ -470,13 +461,6 @@ const EntourageListContent = ({ scrollContainerRef }) => {
 
             {bridalParty && (
               <div className="mb-6">
-                <p
-                  className="caudex-bold mb-3 text-center text-[10px] uppercase leading-snug sm:text-[12px] md:text-[13px]"
-                  style={{ color: theme.text.secondary }}
-                >
-                  {bridalParty.assistSubtitle}
-                </p>
-
                 <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                   <div ref={bestmanRef} className="min-w-0">
                     <p
@@ -486,7 +470,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Best Man
                     </p>
                     {bridalParty.bestman && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-right">
                         {bridalParty.bestman}
                       </p>
                     )}
@@ -500,19 +484,26 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Maid of Honor
                     </p>
                     {bridalParty.maidOfHonor && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-left">
                         {bridalParty.maidOfHonor}
                       </p>
                     )}
                   </div>
                 </div>
 
-                <p
-                  className="caudex-bold mb-3 text-center text-[10px] uppercase leading-snug sm:text-[12px] md:text-[13px]"
-                  style={{ color: theme.text.secondary }}
-                >
-                  {bridalParty.guideSubtitle}
-                </p>
+                {bridalParty.matronOfHonor && (
+                  <div ref={matronOfHonorRef} className="mb-6 flex flex-col items-center gap-2 text-center">
+                    <p
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold whitespace-nowrap uppercase"
+                      style={{ color: theme.text.brown }}
+                    >
+                      Matron of Honor
+                    </p>
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                      {bridalParty.matronOfHonor}
+                    </p>
+                  </div>
+                )}
 
                 <div className="mb-2 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
                   <div className="min-w-0 text-right">
@@ -520,7 +511,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap uppercase"
                       style={{ color: theme.text.brown }}
                     >
-                      Groom&apos;s men
+                      Groomsmen
                     </p>
                   </div>
                   <div className="min-w-0 text-left">
@@ -528,7 +519,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap uppercase"
                       style={{ color: theme.text.brown }}
                     >
-                      Bride&apos;s Maids
+                      Bridesmaids
                     </p>
                   </div>
                 </div>
@@ -537,18 +528,40 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {gmPairs.map((pair, index) => (
                     <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                       <div className="min-w-0 text-right">
-                        <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                          {pair.groomsman}
-                        </p>
+                        {pair.groomsman ? (
+                          <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                            {pair.groomsman}
+                          </p>
+                        ) : (
+                          <span aria-hidden="true">&nbsp;</span>
+                        )}
                       </div>
                       <div className="min-w-0 text-left">
-                        <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                          {pair.bridesmaid}
-                        </p>
+                        {pair.bridesmaid ? (
+                          <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                            {pair.bridesmaid}
+                          </p>
+                        ) : (
+                          <span aria-hidden="true">&nbsp;</span>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
+
+                {bridalParty.bridesman && (
+                  <div ref={bridesmanRef} className="mt-6 flex flex-col items-center gap-2 text-center">
+                    <p
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold whitespace-nowrap uppercase"
+                      style={{ color: theme.text.brown }}
+                    >
+                      Bridesman
+                    </p>
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                      {bridalParty.bridesman}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
@@ -564,28 +577,18 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 {candle && (
                   <div className="mb-6">
                     <p
-                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-1 whitespace-nowrap text-center uppercase"
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-3 whitespace-nowrap text-center uppercase"
                       style={{ color: theme.text.brown }}
                     >
                       Candle
                     </p>
-                    <p
-                      className="caudex-bold mb-3 text-center text-[9px] uppercase leading-snug sm:text-[11px] md:text-[12px]"
-                      style={{ color: theme.text.secondary }}
-                    >
-                      {candle.tagline}
-                    </p>
-                    <div ref={candleBlockRef} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
-                      <div className="min-w-0 text-right">
-                        <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                          {candle.left}
-                        </p>
-                      </div>
-                      <div className="min-w-0 text-left">
-                        <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                          {candle.right}
-                        </p>
-                      </div>
+                    <div ref={candleBlockRef} className="flex flex-col items-center gap-2">
+                      <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                        {candle.left}
+                      </p>
+                      <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                        {candle.right}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -593,30 +596,20 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 {veil?.pairs?.length > 0 && (
                   <div className="mb-6">
                     <p
-                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-1 whitespace-nowrap text-center uppercase"
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-3 whitespace-nowrap text-center uppercase"
                       style={{ color: theme.text.brown }}
                     >
                       Veil
                     </p>
-                    <p
-                      className="caudex-bold mb-3 text-center text-[9px] uppercase leading-snug sm:text-[11px] md:text-[12px]"
-                      style={{ color: theme.text.secondary }}
-                    >
-                      {veil.tagline}
-                    </p>
                     <div ref={veilBlockRef} className="space-y-2">
                       {veil.pairs.map((pair, index) => (
-                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
-                          <div className="min-w-0 text-right">
-                            <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                              {pair.left}
-                            </p>
-                          </div>
-                          <div className="min-w-0 text-left">
-                            <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                              {pair.right}
-                            </p>
-                          </div>
+                        <div key={index} className="flex flex-col items-center gap-2">
+                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                            {pair.left}
+                          </p>
+                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                            {pair.right}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -626,30 +619,20 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 {cord?.pairs?.length > 0 && (
                   <div className="mb-6">
                     <p
-                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-1 whitespace-nowrap text-center uppercase"
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-3 whitespace-nowrap text-center uppercase"
                       style={{ color: theme.text.brown }}
                     >
                       Cord
                     </p>
-                    <p
-                      className="caudex-bold mb-3 text-center text-[9px] uppercase leading-snug sm:text-[11px] md:text-[12px]"
-                      style={{ color: theme.text.secondary }}
-                    >
-                      {cord.tagline}
-                    </p>
                     <div ref={cordBlockRef} className="space-y-2">
                       {cord.pairs.map((pair, index) => (
-                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
-                          <div className="min-w-0 text-right">
-                            <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                              {pair.left}
-                            </p>
-                          </div>
-                          <div className="min-w-0 text-left">
-                            <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis">
-                              {pair.right}
-                            </p>
-                          </div>
+                        <div key={index} className="flex flex-col items-center gap-2">
+                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                            {pair.left}
+                          </p>
+                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                            {pair.right}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -670,7 +653,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {flowerGirls.map((name, index) => (
                     <p
                       key={index}
-                      className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center"
+                      className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center"
                     >
                       {name}
                     </p>
@@ -689,7 +672,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     Ring Bearer
                   </p>
                   {entourage.ringBearer && (
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
                       {entourage.ringBearer}
                     </p>
                   )}
@@ -702,7 +685,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     Coin Bearer
                   </p>
                   {entourage.coinBearer && (
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
                       {entourage.coinBearer}
                     </p>
                   )}
@@ -710,18 +693,37 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               </div>
             )}
 
-            {entourage.bibleBearer && (
-              <div className="mb-6">
-                <div ref={bibleBearerRef} className="flex flex-col gap-2 justify-center items-center">
-                  <p
-                    className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase"
-                    style={{ color: theme.text.brown }}
-                  >
-                    Bible Bearer
-                  </p>
-                  <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
-                    {entourage.bibleBearer}
-                  </p>
+            {(entourage.candleBearer || entourage.bibleBearer) && (
+              <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
+                <div className="min-w-0 flex flex-col gap-2 items-center">
+                  {entourage.candleBearer && (
+                    <>
+                      <p
+                        className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase"
+                        style={{ color: theme.text.brown }}
+                      >
+                        Candle Bearer
+                      </p>
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                        {entourage.candleBearer}
+                      </p>
+                    </>
+                  )}
+                </div>
+                <div ref={bibleBearerRef} className="min-w-0 flex flex-col gap-2 items-center">
+                  {entourage.bibleBearer && (
+                    <>
+                      <p
+                        className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase"
+                        style={{ color: theme.text.brown }}
+                      >
+                        Bible Bearer
+                      </p>
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                        {entourage.bibleBearer}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             )}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import EntourageModal from './EntourageModal'
+import { sectionTitleStyle } from '../config/themeConfig'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -48,17 +49,11 @@ const Entourage = ({ embedded = false }) => {
       <div ref={contentRef} className="flex w-full flex-col items-center">
         <div className="w-full text-center">
           <h2
-            className="mb-3 pt-4 font-caribbean text-3xl sm:pt-6 sm:text-4xl md:text-5xl lg:text-6xl"
-            style={{
-              background:
-                'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
+            className="mb-3 pt-4 text-4xl sm:pt-6 sm:text-5xl md:text-6xl lg:text-7xl"
+            style={sectionTitleStyle}
           >
             <span
-              className="inline-block text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
+              className="inline-block text-6xl leading-none sm:text-7xl md:text-8xl lg:text-9xl"
               style={{ lineHeight: '0.8' }}
             >
               E

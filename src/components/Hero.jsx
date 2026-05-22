@@ -1,43 +1,23 @@
-import React, { useEffect, useRef, useMemo } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { weddingConfig } from '../config/weddingConfig'
-import { venues } from '../data'
+import { couple, venues } from '../data'
+import { getTimeUntilWedding } from '../utils/countdown'
+import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger)
+const HERO_BG_IMAGE = '/assets/images/prenup/IMG_7213.jpg'
 
 const Hero = () => {
-  const heroRef = useRef(null)
-  const invitedRef = useRef(null)
-  const monogramRef = useRef(null)
-  const coupleNameRef = useRef(null)
+  const [countdown, setCountdown] = useState(() => getTimeUntilWedding())
+
+  const invitationTextRef = useRef(null)
+  const coupleNamesRef = useRef(null)
   const dateRef = useRef(null)
-  const venueRef = useRef(null)
+  const countdownDaysRef = useRef(null)
+  const countdownHoursRef = useRef(null)
+  const countdownMinutesRef = useRef(null)
+  const countdownSecondsRef = useRef(null)
+  const heroImgRef = useRef(null)
 
-  // Background style - centered, no zoom
-  const bgStyle = useMemo(() => {
-    return {
-      backgroundImage: `url("/assets/images/prenup/JEK00146.jpg")`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 1,
-    }
-  }, [])
-
-  // Top background layer style
-  const bgTopStyle = useMemo(() => {
-    return {
-      backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      opacity: 0.1
-    }
-  }, [])
-
-  // Format date helper
   const formatDate = (dateString) => {
     const date = new Date(dateString)
     const day = date.getDate()
@@ -45,250 +25,380 @@ const Hero = () => {
       dayOfWeek: date.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase(),
       month: date.toLocaleDateString('en-US', { month: 'long' }).toUpperCase(),
       day: day.toString().padStart(2, '0'),
-      year: date.getFullYear().toString()
+      year: date.getFullYear().toString(),
     }
   }
 
-  const dateInfo = formatDate(weddingConfig.wedding.date)
+  const dateInfo = useMemo(() => formatDate(couple.wedding.date), [couple.wedding.date])
+
+  const toTitleCase = (value) =>
+    value
+      ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+      : ''
+
+  const [heroGroomName, heroBrideName] = useMemo(() => {
+    return [toTitleCase(couple.groom.firstName), toTitleCase(couple.bride.firstName)]
+  }, [couple.groom.firstName, couple.bride.firstName])
+
   const venue = venues.ceremony
-  const shortBrideName = weddingConfig.couple.bride.firstName.charAt(0).toUpperCase() + weddingConfig.couple.bride.firstName.slice(1).toLowerCase()
-  const groomName = weddingConfig.couple.groom.firstName.charAt(0).toUpperCase() + weddingConfig.couple.groom.firstName.slice(1).toLowerCase()
-  const heroVenueLabel = (venue.shortName || venue.name).toUpperCase()
-  const heroGold = '#D4AF37'
-  const heroWhiteTextShadow = '0 2px 4px rgba(255, 255, 255, 0.6)'
-  const heroWhiteOnPhoto = '#FFFFFF'
-  const heroWhiteReadableShadow =
-    '0 1px 2px rgba(0, 0, 0, 0.55), 0 2px 12px rgba(0, 0, 0, 0.4)'
+  const safariLite = shouldUseSafariLiteMode()
+  const heroSvgFilter = safariLite ? undefined : 'url(#heroTopBlurFilter)'
+  const heroBottomSvgFilter = safariLite ? undefined : 'url(#heroBottomBlurFilter)'
 
   useEffect(() => {
-    // Create a timeline for sequential scroll animations
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top 90%",
-        end: "bottom 10%",
-        scrub: false,
-        toggleActions: "play none none none"
-      }
-    })
+    heroImgRef.current?.setAttribute('fetchpriority', 'high')
+  }, [])
 
-    // Animate invited text first
-    if (invitedRef.current) {
-      tl.fromTo(invitedRef.current, 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: "ease.out"
-        }
-      )
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCountdown(getTimeUntilWedding())
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const animatedRefs = [
+      invitationTextRef,
+      coupleNamesRef,
+      dateRef,
+      countdownDaysRef,
+      countdownHoursRef,
+      countdownMinutesRef,
+      countdownSecondsRef,
+    ].map((r) => r.current)
+
+    if (invitationTextRef.current) gsap.set(invitationTextRef.current, { opacity: 0, y: 20 })
+    if (coupleNamesRef.current) gsap.set(coupleNamesRef.current, { opacity: 0, y: 30 })
+    if (dateRef.current) gsap.set(dateRef.current, { opacity: 0, y: 20 })
+    if (countdownDaysRef.current) gsap.set(countdownDaysRef.current, { opacity: 0, y: 20 })
+    if (countdownHoursRef.current) gsap.set(countdownHoursRef.current, { opacity: 0, y: 20 })
+    if (countdownMinutesRef.current) gsap.set(countdownMinutesRef.current, { opacity: 0, y: 20 })
+    if (countdownSecondsRef.current) gsap.set(countdownSecondsRef.current, { opacity: 0, y: 20 })
+
+    const tl = gsap.timeline({ delay: 0.3 })
+
+    if (invitationTextRef.current) {
+      tl.to(invitationTextRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      })
     }
-    // Animate monogram second
-    if (monogramRef.current) {
-      tl.fromTo(monogramRef.current, 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: "ease.out"
-        },
-        "-=0.8" // Start 0.8s before previous animation ends
-      )
+    if (coupleNamesRef.current) {
+      tl.to(coupleNamesRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+      })
     }
-    // Animate couple name third
-    if (coupleNameRef.current) {
-      tl.fromTo(coupleNameRef.current, 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: "ease.out"
-        },
-        "-=0.8"
-      )
-    }
-    // Animate date
     if (dateRef.current) {
-      tl.fromTo(dateRef.current, 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: "ease.out"
-        },
-        "-=0.8"
-      )
+      tl.to(dateRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
     }
-    // Animate venue after date
-    if (venueRef.current) {
-      tl.fromTo(venueRef.current, 
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.2, 
-          ease: "ease.out"
-        },
-        "-=0.8"
-      )
+    if (countdownDaysRef.current) {
+      tl.to(countdownDaysRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
+    }
+    if (countdownHoursRef.current) {
+      tl.to(countdownHoursRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
+    }
+    if (countdownMinutesRef.current) {
+      tl.to(countdownMinutesRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
+    }
+    if (countdownSecondsRef.current) {
+      tl.to(countdownSecondsRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
     }
 
-    // Cleanup ScrollTrigger instances
+    const cancelFallback = scheduleGsapRevealFallback(animatedRefs, { delayMs: 3000 })
+
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+      tl.kill()
+      cancelFallback()
     }
   }, [])
 
+  const heroAlt = couple.together.replace('&', 'and')
+
+  const heroInk = '#094a2f'
+  const heroCoupleColor = '#3e2a1a'
+  const heroLabelLight = '#F8F3EA'
+  const heroLabelShadow =
+    '0 1px 3px rgba(9, 74, 47, 0.45), 0 0 12px rgba(9, 74, 47, 0.25)'
+  const heroContrastShadow =
+    '0 1px 0 rgba(255, 251, 248, 0.75), 0 1px 10px rgba(248, 243, 234, 0.9)'
+
+  const countdownBoxStyle = {
+    color: heroInk,
+    backgroundColor: 'rgba(248, 243, 234, 0.65)',
+    borderRadius: '8px',
+    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 4px rgba(9,74,47,0.15)',
+  }
 
   return (
-    <>
-      <section
-        ref={heroRef}
-        className="relative w-full overflow-hidden flex flex-col items-center justify-center py-8 px-4"
-        style={{ height: '100svh' }}
+    <div
+      data-hero-section="true"
+      className="hero-viewport-height relative w-full overflow-x-hidden overflow-y-hidden"
+    >
+      <img
+        ref={heroImgRef}
+        src={HERO_BG_IMAGE}
+        alt={heroAlt}
+        className="h-full w-full object-cover"
+        style={{ objectPosition: '45% center' }}
+        decoding="async"
+        draggable={false}
+      />
+
+      <svg
+        className="pointer-events-none absolute left-0 top-0 z-10 h-64 w-full sm:h-80 md:h-96 lg:h-[28rem]"
+        preserveAspectRatio="none"
+        viewBox="0 0 1200 400"
+        xmlns="http://www.w3.org/2000/svg"
       >
-      <style>{`
-        @media (min-width: 992px) {
-          .hero-bg-image {
-            /* Slightly above center; not topmost (avoid center top / 0%) */
-            background-position: center 72% !important;
-          
-          .hero-monogram {
-            width: 18rem !important;
-          }
-          .hero-content-container {
-            padding-top: 2.5rem !important;
-          }
-          .hero-couple-title {
-            font-size: clamp(1.25rem, 2vw, 1.9rem) !important;
-          }
-          .hero-venue-bottom {
-            padding-bottom: 1rem !important;
-          }
-          .hero-venue-name {
-            font-size: 0.95rem !important;
-          }
-        }
-      `}</style>
-      {/* Background Image - centered, no zoom */}
-      <div 
-        className="absolute inset-0 z-0 hero-bg-image"
-        style={bgStyle}
-      />
-      {/* Top Background Layer - old-book-bg */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={bgTopStyle}
-      />
-      
-      {/* Content Container */}
-      <div className="hero-content-container relative z-10 h-full flex flex-col items-center justify-start pt-8 sm:pt-12 md:pt-16 lg:pt-20">
-        {/* "YOU ARE INVITED" - Top Header */}
-        <div ref={invitedRef} className="mb-6 sm:mb-8 text-center opacity-0">
-          <div className="caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
-            YOU ARE INVITED
-          </div>
-          <div className="caudex-bold text-xs sm:text-sm md:text-base tracking-widest leading-none uppercase mt-2" style={{ color: heroGold, textShadow: heroWhiteTextShadow }}>
-            TO THE WEDDING OF
-          </div>
-        </div>
+        <defs>
+          <filter id="heroTopBlurFilter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+          </filter>
+          <linearGradient id="heroTopCreamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(248, 243, 234, 0.94)" />
+            <stop offset="40%" stopColor="rgba(248, 243, 234, 0.82)" />
+            <stop offset="68%" stopColor="rgba(203, 203, 192, 0.48)" />
+            <stop offset="100%" stopColor="rgba(248, 243, 234, 0)" />
+          </linearGradient>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          fill="url(#heroTopCreamGrad)"
+          className="hero-svg-blur-rect"
+          filter={heroSvgFilter}
+        />
+      </svg>
 
-        {/* Monogram */}
-        <div ref={monogramRef} className="flex justify-center opacity-0">
-          <img 
-            src="/assets/images/graphics/monogram.png" 
-            alt="Monogram" 
-            className="hero-monogram w-48 sm:w-64 md:w-80 h-auto"
-            style={{ filter: 'drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4))' }}
-          />
-        </div>
-
-        {/* Couple Names - Serif Dark Gold Gradient */}
-        <div ref={coupleNameRef} className="-mt-4 sm:-mt-6 md:-mt-8 mb-6 sm:mb-8 flex justify-center items-center w-full opacity-0">
-          <h1
-            className="hero-couple-title text-center uppercase whitespace-nowrap leading-tight"
+      <div className="absolute left-0 right-0 top-0 z-20 px-4 pt-12 sm:px-6 sm:pt-16 md:px-8 md:pt-20 lg-custom:px-2 lg-custom:pt-8 lg:pt-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <p
+            ref={invitationTextRef}
+            className="mb-2 text-xs font-semibold uppercase tracking-wider sm:mb-3 sm:text-sm md:mb-4 md:text-base lg:text-lg"
             style={{
-              fontFamily: 'Caudex, serif',
-              color: heroWhiteOnPhoto,
-              fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-              textShadow: heroWhiteReadableShadow,
+              fontFamily: 'Albert Sans, sans-serif',
+              color: heroInk,
+              textShadow: heroContrastShadow,
             }}
           >
-            {groomName.toUpperCase()} & {shortBrideName.toUpperCase()}
-          </h1>
-        </div>
-
-        {/* Date and Time */}
-        <div ref={dateRef} className="mb-2 sm:mb-3 lg:hidden opacity-0">
-          {/* Month - Centered */}
-          <div
-            className="alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider text-center"
-            style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
+            YOU ARE INVITED TO
+            <br />
+            THE WEDDING OF
+          </p>
+          <p
+            ref={coupleNamesRef}
+            className="mx-auto mb-3 mt-4 max-w-full px-2 text-center text-5xl leading-none whitespace-nowrap sm:mb-4 sm:mt-5 md:mb-6 md:mt-6 lg:mb-8 lg:mt-8 sm:text-6xl md:text-7xl lg:text-8xl lg-custom:text-[clamp(2.75rem,9vw,4.25rem)] xl:text-[clamp(3.5rem,10vw,8rem)]"
+            style={{
+              fontFamily: 'Pinyon Script, cursive',
+              color: heroCoupleColor,
+              textShadow: heroContrastShadow,
+            }}
           >
-            {dateInfo.month}
-          </div>
-          {/* Day of Week, Day Number, and Time */}
-          <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 max-w-md mx-auto">
-            {/* Day of Week - Left with lines */}
-            <div className="flex flex-col items-center">
-              <div
-                className="w-12 sm:w-16 md:w-20 h-px mb-0"
-                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
-              />
-              <div
-                className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider"
-                style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
-              >
-                {dateInfo.dayOfWeek}
-              </div>
-              <div
-                className="w-12 sm:w-16 md:w-20 h-px mt-0"
-                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
-              />
-            </div>
-            {/* Day Number - Large and Centered */}
-            <div
-              className="alice-regular font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-              style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
-            >
-              {dateInfo.day}
-            </div>
-            {/* Time - Right with lines */}
-            <div className="flex flex-col items-center">
-              <div
-                className="w-12 sm:w-16 md:w-20 h-px mb-0"
-                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
-              />
-              <div
-                className="alice-regular font-bold text-xs sm:text-sm md:text-base tracking-wider"
-                style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
-              >
-                {venue.time.replace(/\s/g, '').toUpperCase()}
-              </div>
-              <div
-                className="w-12 sm:w-16 md:w-20 h-px mt-0"
-                style={{ backgroundColor: heroWhiteOnPhoto, boxShadow: '0 0 6px rgba(0, 0, 0, 0.35)' }}
-              />
-            </div>
-          </div>
+            {heroGroomName} & {heroBrideName}
+          </p>
         </div>
       </div>
 
-      {/* Venue Name - Bottom */}
-      <div ref={venueRef} className="hero-venue-bottom absolute bottom-0 left-0 right-0 z-10 text-center pb-8 opacity-0">
-        <div
-          className="hero-venue-name alice-regular font-bold text-sm sm:text-base md:text-lg tracking-wider uppercase px-4 max-w-4xl mx-auto"
-          style={{ color: heroWhiteOnPhoto, textShadow: heroWhiteReadableShadow }}
-        >
-          {heroVenueLabel}
+      <svg
+        className="pointer-events-none absolute bottom-[-1rem] left-0 z-10 h-64 w-full sm:h-80 md:h-96 lg:h-[28rem]"
+        preserveAspectRatio="none"
+        viewBox="0 0 1200 400"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <filter id="heroBottomBlurFilter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+          </filter>
+          <linearGradient id="heroBottomForestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(111, 78, 55, 0)" />
+            <stop offset="32%" stopColor="rgba(111, 78, 55, 0.52)" />
+            <stop offset="62%" stopColor="rgba(111, 78, 55, 0.85)" />
+            <stop offset="100%" stopColor="rgba(70, 47, 32, 0.92)" />
+          </linearGradient>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          fill="url(#heroBottomForestGrad)"
+          className="hero-svg-blur-rect"
+          filter={heroBottomSvgFilter}
+        />
+      </svg>
+
+      <div className="absolute bottom-0 left-0 right-0 z-20 px-4 pb-8 sm:px-6 sm:pb-12 md:px-8 md:pb-16 lg:pb-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <div ref={dateRef}>
+            <div
+              className="mb-2 text-center text-base tracking-wider sm:mb-3 sm:text-lg md:text-xl lg-custom:mb-2 lg-custom:text-base"
+              style={{ color: '#FFFFFF', fontFamily: 'Alice, serif', fontWeight: 'bold' }}
+            >
+              {dateInfo.month}
+            </div>
+            <div className="mx-auto flex max-w-md items-center justify-center gap-4 sm:gap-6 md:gap-8 lg-custom:gap-4">
+              <div className="flex flex-col items-center">
+                <div
+                  className="mb-0 h-px w-16 sm:w-20 md:w-24 lg:w-28 lg-custom:w-16"
+                  style={{ backgroundColor: '#FFFFFF' }}
+                />
+                <div
+                  className="mb-1 mt-1 text-sm tracking-wider sm:text-base md:text-lg lg-custom:text-sm"
+                  style={{ color: '#FFFFFF', fontFamily: 'Alice, serif', fontWeight: 'bold' }}
+                >
+                  {dateInfo.dayOfWeek}
+                </div>
+                <div
+                  className="mt-0 h-px w-16 sm:w-20 md:w-24 lg:w-28 lg-custom:w-16"
+                  style={{ backgroundColor: '#FFFFFF' }}
+                />
+              </div>
+              <div
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg-custom:text-5xl"
+                style={{
+                  color: '#FFFFFF',
+                  fontFamily: 'Alice, serif',
+                  fontWeight: 'bold',
+                  textShadow:
+                    '0 0 10px rgba(170, 141, 90, 0.8), 0 0 20px rgba(170, 141, 90, 0.5), 0 0 30px rgba(170, 141, 90, 0.35)',
+                }}
+              >
+                {dateInfo.day}
+              </div>
+              <div className="flex flex-col items-center">
+                <div
+                  className="mb-0 h-px w-16 sm:w-20 md:w-24 lg:w-28 lg-custom:w-16"
+                  style={{ backgroundColor: '#FFFFFF' }}
+                />
+                <div
+                  className="mb-1 mt-1 text-sm tracking-wider sm:text-base md:text-lg lg-custom:text-sm"
+                  style={{ color: '#FFFFFF', fontFamily: 'Alice, serif', fontWeight: 'bold' }}
+                >
+                  {(venue.time || couple.wedding.time || '').replace(/\s/g, '').toUpperCase()}
+                </div>
+                <div
+                  className="mt-0 h-px w-16 sm:w-20 md:w-24 lg:w-28 lg-custom:w-16"
+                  style={{ backgroundColor: '#FFFFFF' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center space-x-2 sm:mt-10 sm:space-x-3 md:mt-12 md:space-x-4 lg:mt-16 lg-custom:mt-4 lg-custom:space-x-1 xl:mt-20">
+            <div ref={countdownDaysRef} className="text-center">
+              <div
+                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
+                style={countdownBoxStyle}
+              >
+                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
+                  {countdown.days}
+                </div>
+              </div>
+              <div
+                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
+                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+              >
+                Days
+              </div>
+            </div>
+            <div
+              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
+              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+            >
+              :
+            </div>
+            <div ref={countdownHoursRef} className="text-center">
+              <div
+                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
+                style={countdownBoxStyle}
+              >
+                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
+                  {countdown.hours}
+                </div>
+              </div>
+              <div
+                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
+                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+              >
+                Hours
+              </div>
+            </div>
+            <div
+              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
+              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+            >
+              :
+            </div>
+            <div ref={countdownMinutesRef} className="text-center">
+              <div
+                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
+                style={countdownBoxStyle}
+              >
+                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
+                  {countdown.minutes}
+                </div>
+              </div>
+              <div
+                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
+                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+              >
+                Minutes
+              </div>
+            </div>
+            <div
+              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
+              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+            >
+              :
+            </div>
+            <div ref={countdownSecondsRef} className="text-center">
+              <div
+                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
+                style={countdownBoxStyle}
+              >
+                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
+                  {countdown.seconds}
+                </div>
+              </div>
+              <div
+                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
+                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+              >
+                Seconds
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    </>
+    </div>
   )
 }
 

@@ -9,7 +9,7 @@ const DynamicTitle = () => {
     month: 'long',
     day: 'numeric'
   })
-  const socialImagePath = '/assets/images/prenup/JEK09916.jpg'
+  const socialImagePath = '/assets/images/prenup/IMG_7602.jpg'
   const socialImageUrl =
     typeof window !== 'undefined'
       ? `${window.location.origin}${socialImagePath}`

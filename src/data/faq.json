@@ -1,24 +1,16 @@
 {
   "faqData": [
     {
-      "question": "What time should I arrive?",
-      "answer": "Please arrive at least 30 minutes before the ceremony start time. This allows time for parking, seating, and getting settled."
+      "question": "Can guests take photos during the ceremony?",
+      "answer": "We kindly ask guests to refrain from taking photos or videos during the bridal march. Our professional photographers will capture this special moment. Please wait until after the ceremony before sharing on social media. A QR code will be provided for photo sharing."
     },
     {
-      "question": "Can I bring a plus one?",
-      "answer": "We kindly request that you do not bring a plus one. This is an intimate celebration, and we have limited seating. Please RSVP only for yourself."
+      "question": "What is the wedding dress code?",
+      "answer": "Formal attire is kindly requested in the color palette provided. To honor the groom & bride, white is reserved exclusively for them. We kindly ask guests to avoid slippers, shorts, jeans, and T-shirts."
     },
     {
-      "question": "Are children welcome?",
-      "answer": "This is an adults-only celebration. We kindly request no children. We appreciate you making arrangements for childcare."
-    },
-    {
-      "question": "What type of food will be served?",
-      "answer": "We will be serving a plated dinner with multiple course options. Please indicate any dietary restrictions when you RSVP, and we'll do our best to accommodate your needs."
-    },
-    {
-      "question": "Is there parking available?",
-      "answer": "Yes, both venues have parking available. The ceremony venue has on-site parking, and the reception venue offers valet parking."
+      "question": "Are children allowed at the wedding?",
+      "answer": "While we love children, we are only able to accommodate those who are part of the entourage. We appreciate your understanding and cooperation. We also kindly request no plus ones."
     }
   ]
-} 
+}

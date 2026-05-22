@@ -1,14 +1,20 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request attire in brown shades — from soft tan and camel to rich chocolate and espresso."
+    "description": "We kindly request attire in our color palette — brown, blush pink, beige, and taupe."
   },
   "sections": [
     {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Any shade of brown for all guests.",
+      "description": "Brown, blush pink, beige, or taupe for all guests.",
+      "colors": [
+        { "name": "Brown", "hex": "#6F4E37" },
+        { "name": "Blush Pink", "hex": "#E8C5C0" },
+        { "name": "Beige", "hex": "#E8DCC4" },
+        { "name": "Taupe", "hex": "#B8A99A" }
+      ],
       "colorSwatches": [
         {
           "name": "Guest Palette",

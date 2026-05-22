@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { themeConfig } from '../config/themeConfig'
+import { themeConfig, sectionTitleStyle } from '../config/themeConfig'
 import { dresscode, images } from '../data'
 
 // Register ScrollTrigger plugin
@@ -127,9 +127,11 @@ const DressCode = () => {
           {/* Dress Code Title */}
           <div ref={dressCodeTitleRef} className="text-center mb-12 sm:mb-16">
             <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 font-caribbean pt-4 sm:pt-6 md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>D</span>
-                <span className="inline-block">ress Code</span>
+              <h2
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 leading-tight whitespace-nowrap pt-4 sm:pt-6 md:pt-8"
+                style={sectionTitleStyle}
+              >
+                Dress Code
               </h2>
               {/* General Dress Code Description */}
               <p className="text-base sm:text-lg font-albert font-thin italic text-[#333333] mt-4">
@@ -188,7 +190,7 @@ const DressCode = () => {
                                     onMouseLeave={() => setActiveTooltip(null)}
                                     onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                   >
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                                    <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded overflow-hidden" style={{ aspectRatio: '1/1' }}>
                                       <img 
                                         src={swatch.image} 
                                         alt={swatch.name}
@@ -214,7 +216,7 @@ const DressCode = () => {
                                       onMouseLeave={() => setActiveTooltip(null)}
                                       onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
                                     >
-                                      <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded cursor-pointer" style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}></div>
+                                      <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded cursor-pointer" style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}></div>
                                       {activeTooltip === `${index}-${swatchIndex}` && (
                                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
                                           {color.name}
@@ -244,33 +246,39 @@ const DressCode = () => {
                       </div>
                       
                       {/* Guest Palette Swatches - At the bottom for Guests section only */}
-                      {isGuests && section.colorSwatches && (
-                        <div className="flex gap-2 justify-center mt-4">
-                          {section.colorSwatches.map((swatch, swatchIndex) => (
-                            <div 
-                              key={swatchIndex}
-                              className="relative group"
-                              onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
-                              onMouseLeave={() => setActiveTooltip(null)}
-                              onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
-                            >
-                              <div className="rounded overflow-hidden">
-                                <img 
-                                  src={swatch.image} 
-                                  alt={swatch.name}
-                                  className="h-auto cursor-pointer object-contain"
-                                  style={{ maxWidth: '200px' }}
-                                />
-                              </div>
-                              {activeTooltip === `${index}-${swatchIndex}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
-                                  {swatch.name}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
-                                </div>
-                              )}
+                      {isGuests && (
+                        <>
+                          {section.colors && section.colors.length > 0 && (
+                            <div className="flex gap-3 justify-center mt-6 flex-wrap">
+                              {section.colors.map((color, colorIndex) => {
+                                const swatchIndex = (section.colorSwatches?.length || 0) + colorIndex
+                                return (
+                                  <div
+                                    key={`color-${colorIndex}`}
+                                    className="relative group flex flex-col items-center"
+                                    onMouseEnter={() => setActiveTooltip(`${index}-${swatchIndex}`)}
+                                    onMouseLeave={() => setActiveTooltip(null)}
+                                    onClick={() => setActiveTooltip(activeTooltip === `${index}-${swatchIndex}` ? null : `${index}-${swatchIndex}`)}
+                                  >
+                                    <div
+                                      className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full cursor-pointer shadow-sm border border-white/60"
+                                      style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}
+                                    ></div>
+                                    <span className="mt-2 text-xs sm:text-sm font-albert text-[#333333]">
+                                      {color.name}
+                                    </span>
+                                    {activeTooltip === `${index}-${swatchIndex}` && (
+                                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none" style={{ position: 'absolute' }}>
+                                        {color.name}
+                                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black"></div>
+                                      </div>
+                                    )}
+                                  </div>
+                                )
+                              })}
                             </div>
-                          ))}
-                        </div>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>

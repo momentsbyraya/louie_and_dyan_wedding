@@ -54,7 +54,7 @@ export const themeConfig = {
 
     // Calendar Configuration
     calendar: {
-        weddingDate: '2026-05-30',          // Wedding date (YYYY-MM-DD format)
+        weddingDate: '2026-08-22',          // Wedding date (YYYY-MM-DD format)
         highlightColor: 'bg-[#6c756a]',     // Color for wedding date highlight
         heartColor: 'text-[#6c756a]',       // Color for heart icon
         textColor: 'text-gray-700',         // Calendar text color
@@ -125,6 +125,12 @@ export const themePresets = {
             accent: 'text-orange-600',
         }
     }
+}
+
+// Section heading text (solid brown, Pinyon Script — matches Hero couple names)
+export const sectionTitleStyle = {
+    color: '#6f4e37',
+    fontFamily: 'Pinyon Script, cursive',
 }
 
 // Helper function to get theme colors

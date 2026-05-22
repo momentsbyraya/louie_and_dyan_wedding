@@ -5,6 +5,7 @@ import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
 import Loader from './components/Loader'
+import ApprovalWatermark from './components/ApprovalWatermark'
 import { audio } from './data'
 
 function App() {
@@ -44,10 +45,8 @@ function App() {
   // Preload essential images
   useEffect(() => {
     const essentialImages = [
-      '/assets/images/prenup/JEK09876.jpg',
-      '/assets/images/prenup/JEK09820.jpg',
-      '/assets/images/prenup/JEK00070.jpg',
-      '/assets/images/prenup/JEK00146.jpg',
+      '/assets/images/prenup/IMG_7602.jpg',
+      '/assets/images/prenup/IMG_7213.jpg',
       '/assets/images/graphics/old-book-bg.png'
     ]
 
@@ -140,6 +139,7 @@ function App() {
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>
       )}
+      <ApprovalWatermark />
     </div>
   )
 }

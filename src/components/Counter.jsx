@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import theme from '../config/theme.json'
+import { sectionTitleStyle } from '../config/themeConfig'
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger)
@@ -94,9 +95,12 @@ const Counter = ({ countdown }) => {
         <div className="mx-auto w-full max-w-xs sm:max-w-md lg:max-w-xl">
           {/* Header Section */}
           <div className="text-center">
-            <h2 ref={headerRef} className="mb-3 whitespace-nowrap pt-4 font-caribbean text-2xl sm:pt-6 sm:text-3xl md:text-4xl lg:text-5xl md:pt-8" style={{ background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              <span className="inline-block text-4xl leading-none sm:text-5xl md:text-6xl lg:text-7xl" style={{ lineHeight: '0.8' }}>S</span>
-              <span className="inline-block">ave the Date</span>
+            <h2
+              ref={headerRef}
+              className="mb-3 whitespace-nowrap pt-4 text-4xl sm:pt-6 sm:text-5xl md:text-6xl lg:text-7xl md:pt-8 leading-tight"
+              style={sectionTitleStyle}
+            >
+              Save the Date
             </h2>
             <div ref={countdownRef}>
               <p className="mx-auto max-w-3xl font-albert text-base font-thin leading-relaxed text-[#333333] sm:text-lg">

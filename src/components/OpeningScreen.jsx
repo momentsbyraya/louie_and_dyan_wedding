@@ -76,36 +76,16 @@ function OpeningScreen({ onEnvelopeOpen }) {
       ref={openingSectionRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
     >
-      {/* Background Grid - 1 column, 3 rows */}
-      <div className="absolute inset-0 grid grid-cols-1 grid-rows-3">
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/assets/images/prenup/JEK09876.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/assets/images/prenup/JEK09820.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/assets/images/prenup/JEK00070.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
-      </div>
+      {/* Background — single photo */}
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(/assets/images/prenup/IMG_7602.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
       {/* Brown overlay for warm tone */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#a67c52]/40 via-[#6f4e37]/35 to-[#3e2723]/40 z-[1]" />
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>

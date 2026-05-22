@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'lg-custom': '992px',
+      },
       colors: {
         'nude-brown': '#bc9e82',
         'wedding': {

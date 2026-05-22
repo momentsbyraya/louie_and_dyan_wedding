@@ -22,11 +22,11 @@ export const weddingConfig = {
 
   // RSVP Information
   rsvp: {
-    deadline: "2026-05-07",
-    email: "rsvp@johnsonwilliams.com",
-    phone: "(555) 123-4567",
-    website: "https://forms.gle/w1qh6xDKXoYvEwPv8",
-    message: "Please RSVP by May 7th, 2026"
+    deadline: "2026-07-22",
+    email: "",
+    phone: "",
+    website: "",
+    message: "Please RSVP by July 22nd, 2026"
   },
 
   // Theme and Styling
@@ -47,18 +47,18 @@ export const weddingConfig = {
 
   // Additional Information
   details: {
-    hashtag: "#JohnsonWilliams2024",
-    website: "https://johnsonwilliams.com",
-    registry: "https://registry.example.com",
+    hashtag: "#JadeAndVannie2026",
+    website: "",
+    registry: "",
     message: "We're excited to celebrate our special day with you!",
-    covidInfo: "We're following local health guidelines. Please stay home if you're feeling unwell."
+    covidInfo: ""
   },
 
   // Social Media
   social: {
-    instagram: "@johnsonwilliams",
-    facebook: "JohnsonWilliamsWedding",
-    twitter: "@johnsonwilliams"
+    instagram: "",
+    facebook: "",
+    twitter: ""
   }
 };
 

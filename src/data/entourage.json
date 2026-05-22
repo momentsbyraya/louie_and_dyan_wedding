@@ -1,77 +1,78 @@
 {
   "parents": {
     "groom": {
-      "father": "Mr. Abner Q. Azcarraga",
-      "mother": "Mrs. Rosalie D. Azcarraga"
+      "members": [
+        "Mr. John Nillos",
+        "Mrs. Adelina Nillos"
+      ]
     },
     "bride": {
-      "father": "Mr. Donato A. Prohibido",
-      "mother": "Mrs. Alelie S. Prohibido"
+      "members": [
+        "Mr. Leo Van Opstal",
+        "Mr. Raul Labroso",
+        "Mrs. Lydia Van Opstal"
+      ]
     }
   },
   "principalSponsors": {
     "items": [
-      { "ninong": "Mr. Christian M. Rutaquio", "ninang": "Mrs. Ireen O. Aveno" },
-      { "ninong": "Kons. Nelson M. Sabiduria", "ninang": "Mrs. Mona A. Dafang" },
-      { "ninong": "Mr. Edwin M. Aquino", "ninang": "Mrs. Linda P. Dizon" },
-      { "ninong": "Dr. Allan L. Azcarraga", "ninang": "Mrs. Luzviminda T. Buerano" },
-      { "ninong": "Mr. Rolando Galang", "ninang": "Mrs. Jhoy Galang" },
-      { "ninong": "Mr. Reynaldo A. Beso", "ninang": "Mrs. Rowena O. Sagun" },
-      { "ninong": "Mr. Rodel Platino", "ninang": "Dr. Kristy Pestañas C. Bustonera" },
-      { "ninong": "Mr. Kris Alden Puserio", "ninang": "Mrs. Maricel P. Vargas" },
-      { "ninong": "Mr. Ronald T. Astrera", "ninang": "Mrs. Mayla Vicencio" },
-      { "ninong": "Mr. Jeric V. Prudente", "ninang": "Mrs. Marry Grace M. Saynes" },
-      { "ninong": "Mr. Dennis Q. Azcarraga", "ninang": "Mrs. Elionora C. Miras" },
-      { "ninong": "Mr. Joel P. Hebres", "ninang": "Mrs. Leny P. Miras" },
-      { "ninong": "Mr. John Rey A. Calzado", "ninang": "Mrs. Brenda Rillion" },
-      { "ninong": "Mr. Nonato C. Crisostomo", "ninang": "Mrs. Arlene S. Moises" },
-      { "ninong": "Mr. Espiridion G. combalicer", "ninang": "Mrs. Vevilyn Turgo" },
-      { "ninong": "Mr. Jaylim Tropicales", "ninang": "Mrs. Maridel America" }
+      { "ninong": "Atty. Samuel Laurente", "ninang": "Engr. Nancy Laurente" },
+      { "ninong": "Engr. Guillermo Laurente", "ninang": "Mrs. Sulficia Laurente" },
+      { "ninong": "Engr. Eduardo Laurente", "ninang": "Engr. Jenneth Laurente" },
+      { "ninong": "Mr. Francisco Bunal", "ninang": "Mrs. Gina Bunal" },
+      { "ninong": "Mr. Franklin Tan Jr.", "ninang": "Mrs. Rosemarie Arroyo-Chua" },
+      { "ninong": "Mr. Aristotle Rosaldo", "ninang": "Engr. Jona Rosaldo" },
+      { "ninong": "Mr. Ramil Bujawe", "ninang": "Mrs. Gina Bujawe" },
+      { "ninong": "Engr. Teodoro Moncera Jr.", "ninang": "Mrs. Salina Moncera" },
+      { "ninong": "Mr. Sancho Barrios Jr.", "ninang": "Mrs. Lea Barrios" },
+      { "ninong": "Mr. Felipe Noquial Jr.", "ninang": "Mrs. Vangie Tañada" },
+      { "ninong": "Mr. Pepito Dela Cruz", "ninang": "Mrs. Nida Dela Cruz" },
+      { "ninong": "Mr. Jessie Del Rosario", "ninang": "Mrs. Emma Del Rosario" },
+      { "ninong": "Mr. Gregorio Jimenez", "ninang": "Mrs. Myrna Jimenez" },
+      { "ninong": "Mr. Ronald Delis", "ninang": "Mrs. Chona Delis" },
+      { "ninong": "Mr. Erlindo Suan", "ninang": "Mrs. Jocelyn Suan" },
+      { "ninong": "Mr. Robert De Guzman", "ninang": "Mrs. Jesusa De Guzman" }
     ]
   },
   "bridalParty": {
-    "assistSubtitle": "To Assist us in our needs",
-    "guideSubtitle": "To guide us in our way",
-    "bestman": "Mr. Paul Aeron D. Azcarraga",
-    "maidOfHonor": "Ms. Janine S. Prohibido",
+    "bestman": "John Nillos Jr.",
+    "maidOfHonor": "Kimberly Van Opstal",
+    "matronOfHonor": "Ashley Basto-Orbase",
+    "bridesman": "Emilio Hortillosa",
     "groomsMenBridesmaids": [
-      { "groomsman": "Mr. Dave John V. Tadeo", "bridesmaid": "Ms. Jhoyce Anne G. Virrey" },
-      { "groomsman": "Mr. Jasper Carl B. Avellaneda", "bridesmaid": "Mrs. Angelica A. Avellaneda" },
-      { "groomsman": "Mr. Ammiel Keiffer F. Azcarraga", "bridesmaid": "Ms. Alliah P. Oriola" },
-      { "groomsman": "Mr. Kim Gerald B. Cabuan", "bridesmaid": "Ms. Kristelle Grace T. Potestades" },
-      { "groomsman": "Mr. Sevier Jhon B. Peñaojas", "bridesmaid": "Ms. Zaira F. Suaverdez" },
-      { "groomsman": "Mr. John Aries S. Moises", "bridesmaid": "Ms. Karren Cleo S. Sol" }
+      { "groomsman": "Lanz Orbase", "bridesmaid": "Camille Pura-Uy" },
+      { "groomsman": "Segundino Lumanog", "bridesmaid": "Angelica Cabanatan" },
+      { "groomsman": "Luigi Silvestre", "bridesmaid": "Athena Dimagiliw" },
+      { "groomsman": "Spencer Tañada", "bridesmaid": "Gellen Bellano" },
+      { "groomsman": "Yancy Fabro", "bridesmaid": "Aura Mae Laurente" },
+      { "groomsman": "Renso Ileto", "bridesmaid": "Charina Laurente" },
+      { "groomsman": "Vohn Cruz", "bridesmaid": "Iris Aguilos" },
+      { "groomsman": "Jerome Magbago", "bridesmaid": "Jead Ann Nillos-Albuna" },
+      { "groomsman": "Romeo Estepa", "bridesmaid": "" }
     ]
   },
   "secondarySponsors": {
-    "candle": {
-      "tagline": "TO LIGHT OUR PATH",
-      "left": "Mr. Mark Joseph R. Virrey",
-      "right": "Ms. Maureen B. Peñamante"
-    },
     "veil": {
-      "tagline": "TO CLOTHE US AS ONE",
       "pairs": [
-        { "left": "Mr. Sarjay Anthony G. Cruz", "right": "Mrs. Krizza A. Cruz" },
-        { "left": "Mr. Renell S. Prohibido", "right": "Ms. Renalyn E. Cipriano" }
+        { "left": "Clint Van Opstal", "right": "Samantha Tugadi" }
       ]
     },
+    "candle": {
+      "left": "Ben Opstal",
+      "right": "Louvette Pallasigui"
+    },
     "cord": {
-      "tagline": "TO BIND US TOGETHER",
       "pairs": [
-        { "left": "Mr. Lorenz Dale A. Mortiz", "right": "Ms. Roena Grace A. Gurango" },
-        { "left": "Mr. Michael S. Moises", "right": "Ms. Jeseca S. Moises" }
+        { "left": "Yousef Alzebeidy", "right": "Margeleine Marquez" }
       ]
     }
   },
   "flowerGirls": [
-    "Britany Kyleigh U. Castulo",
-    "Shanaia U. Castulo",
-    "Zia Amara A. añonuevo",
-    "Alice Kristen Wacira",
-    "Rhian Kaye N. Prohibido"
+    "Vien Johanie Albuna",
+    "Vaughn Adielayne Albuna"
   ],
-  "ringBearer": "Vance Kaiden Puserio",
-  "coinBearer": "Lance Kervy A. Arcilla",
-  "bibleBearer": "John P. Garnica"
+  "ringBearer": "Iñigo Rosaldo",
+  "candleBearer": "Vlad Melvin Albuna",
+  "coinBearer": "Sebastian Rosaldo",
+  "bibleBearer": "Viktor Francis Albuna"
 }

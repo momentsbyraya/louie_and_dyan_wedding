@@ -5,38 +5,37 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { loveStory } from '../data'
 import theme from '../config/theme.json'
+import { sectionTitleStyle } from '../config/themeConfig'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Prenup shots used as hero or full-bleed elsewhere — omit from Moments gallery */
+/** Prenup shots used as hero, paragraph, or full-bleed elsewhere — omit from Moments gallery */
 const PRENUP_USED_HERO_OR_BLEED = new Set([
-  'JEK00146', // Hero
-  'JEK09876', // Invitation bleed + opening
-  'JEK09996', // Invitation bleed
-  'JEK09820', // RSVP bleed + opening
+  'IMG_7213',   // Hero background
+  'IMG_7602',   // Opening screen background + social/og + favicon
+  'IMG_6594-2', // Invitation bleed 1
+  'IMG_8520',   // Invitation bleed 2
+  'IMG_8902',   // Invitation bleed between Schedule and RSVP
+  'IMG_9594',   // RSVP bleed
+  'IMG_7641',   // "When two hearts met" paragraph
 ])
 
 const PRENUP_ALL_SORTED = [
-  'JEK00022',
-  'JEK00070',
-  'JEK00112',
-  'JEK00146',
-  'JEK00152',
-  'JEK00183',
-  'JEK09602',
-  'JEK09604',
-  'JEK09627',
-  'JEK09634',
-  'JEK09644',
-  'JEK09671',
-  'JEK09698',
-  'JEK09712',
-  'JEK09800',
-  'JEK09820',
-  'JEK09876',
-  'JEK09916',
-  'JEK09919',
-  'JEK09996',
+  'IMG_6594-2',
+  'IMG_6736',
+  'IMG_6848',
+  'IMG_7213',
+  'IMG_7347',
+  'IMG_7602',
+  'IMG_7641',
+  'IMG_8018',
+  'IMG_8520',
+  'IMG_8852',
+  'IMG_8902',
+  'IMG_8978',
+  'IMG_9207',
+  'IMG_9490',
+  'IMG_9594',
 ]
 
 const PRENUP_FOR_MOMENTS = PRENUP_ALL_SORTED.filter((id) => !PRENUP_USED_HERO_OR_BLEED.has(id)).map(
@@ -44,25 +43,10 @@ const PRENUP_FOR_MOMENTS = PRENUP_ALL_SORTED.filter((id) => !PRENUP_USED_HERO_OR
 )
 
 /** Polaroid photos paired with love-story paragraphs (jr Moments.jsx pattern) */
-const POLAROID_IMAGES = PRENUP_FOR_MOMENTS.slice(0, 6)
+const POLAROID_IMAGES = PRENUP_FOR_MOMENTS.slice(0, 4)
 
 /** Masonry gallery — other prenup-only shots (no overlap with polaroid row above) */
-const GALLERY_IMAGES = (() => {
-  const g = [...PRENUP_FOR_MOMENTS.slice(6)]
-  const swap = (idA, idB) => {
-    const i = g.findIndex((src) => src.includes(idA))
-    const j = g.findIndex((src) => src.includes(idB))
-    if (i !== -1 && j !== -1) {
-      const t = g[i]
-      g[i] = g[j]
-      g[j] = t
-    }
-  }
-  swap('JEK09604', 'JEK09712')
-  swap('JEK09644', 'JEK09671')
-  swap('JEK09671', 'JEK09698')
-  return g
-})()
+const GALLERY_IMAGES = [...PRENUP_FOR_MOMENTS.slice(4)]
 
 function getStoryParagraphs() {
   if (Array.isArray(loveStory.paragraphs) && loveStory.paragraphs.length > 0) {
@@ -111,7 +95,6 @@ function getMomentsGalleryGridColumn(index) {
 
 /** Vertical focus for `object-fit: cover` — not topmost (avoid `top` / `0%`) */
 function getGalleryTileObjectPosition(imageSrc) {
-  if (imageSrc.includes('JEK09698')) return 'center 40%'
   return 'center center'
 }
 
@@ -159,15 +142,6 @@ function StoryPolaroid({ image, rotation, polaroidIndex, objectPosition, onOpen 
       </div>
     </div>
   )
-}
-
-const momentsTitleGradient = {
-  background: 'linear-gradient(135deg, #edb030 0%, #d99a1a 20%, #926018 50%, #775016 100%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-  color: 'transparent',
-  display: 'inline-block',
 }
 
 const StoryAndGallery = () => {
@@ -382,20 +356,17 @@ const StoryAndGallery = () => {
           className="relative z-20 mx-auto max-w-5xl px-4 sm:px-6 md:px-8"
         >
           <h2
-            className="mb-10 text-center font-caribbean text-3xl leading-tight text-white sm:mb-12 sm:text-4xl md:text-5xl"
-            style={{ color: '#ffffff' }}
+            className="mb-10 text-center text-4xl leading-tight whitespace-nowrap sm:mb-12 sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{ ...sectionTitleStyle, color: '#ffffff' }}
           >
-            Our
-            <br />
-            Love Story
+            Our Love Story
           </h2>
 
           <div className="relative z-10 flex flex-col gap-12 sm:gap-16 md:gap-20">
             {paragraphs.map((paragraph, index) => {
               const photoLeft = index % 2 === 0
               const image = POLAROID_IMAGES[index]
-              const polaroidObjectPosition =
-                index === 3 || index === 4 ? '50% 28%' : undefined
+              const polaroidObjectPosition = undefined
 
               return (
                 <div
@@ -460,16 +431,6 @@ const StoryAndGallery = () => {
         className="relative pb-24 sm:pb-32 md:pb-40 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)' }}
       >
-        <style>{`
-          @media (min-width: 992px) {
-            .gallery-jek09698 {
-              object-position: center 31% !important;
-            }
-            .gallery-jek09604 {
-              object-position: center top !important;
-            }
-          }
-        `}</style>
         <div ref={galleryTitleRef} className="relative z-10 mb-12 sm:mb-16">
           <div
             className="relative z-10"
@@ -483,16 +444,10 @@ const StoryAndGallery = () => {
             <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto px-6 py-6 sm:py-8 md:py-10">
               <h3 className="text-center">
                 <span
-                  className="font-caribbean text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none"
-                  style={momentsTitleGradient}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight whitespace-nowrap inline-block"
+                  style={sectionTitleStyle}
                 >
-                  <span
-                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none"
-                    style={{ lineHeight: '0.8' }}
-                  >
-                    M
-                  </span>
-                  oments
+                  Moments
                 </span>
               </h3>
             </div>
@@ -522,9 +477,7 @@ const StoryAndGallery = () => {
                   <img
                     src={image}
                     alt=""
-                    className={`w-full h-full object-cover hover:scale-105 transition-transform duration-300 ${
-                      image.includes('JEK09698') ? 'gallery-jek09698' : ''
-                    } ${image.includes('JEK09604') ? 'gallery-jek09604' : ''}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     style={{
                       height: '100%',
                       willChange: 'transform',
@@ -648,11 +601,6 @@ const StoryAndGallery = () => {
                 src={GALLERY_IMAGES[galleryImageIndex]}
                 alt=""
                 className="max-w-full max-h-[90vh] object-contain"
-                style={
-                  GALLERY_IMAGES[galleryImageIndex]?.includes('JEK09698')
-                    ? { objectPosition: 'center 40%' }
-                    : undefined
-                }
               />
             </div>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm">
