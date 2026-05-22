@@ -88,11 +88,16 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        {/* RSVP placeholder */}
-        <div className="flex-1 min-h-0 p-2 sm:p-4 flex items-center justify-center">
-          <p className="font-albert text-lg sm:text-xl md:text-2xl tracking-widest text-[#333333]/80 uppercase text-center">
-            To be added
-          </p>
+        {/* RSVP Google Form */}
+        <div className="flex-1 min-h-0 p-2 sm:p-4">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeIHfVx4zbZF9JJ9sFUANQ4TpxbzRMEzvXFaGJ5fFREi_FwlA/viewform?embedded=true"
+            title="RSVP form"
+            className="w-full h-full border-0"
+            loading="lazy"
+          >
+            Loading…
+          </iframe>
         </div>
       </div>
     </div>,

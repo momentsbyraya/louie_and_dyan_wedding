@@ -298,18 +298,19 @@
 /* Opening background pulsing animation */
 @keyframes openingBgPulse {
   0%, 100% {
-    opacity: 1;
     transform: scale(1);
+    filter: brightness(1);
   }
   50% {
-    opacity: 0.5;
-    transform: scale(1.15);
+    transform: scale(1.06);
+    filter: brightness(1.12);
   }
 }
 
 .opening-bg-pulse {
   background-size: cover !important;
   animation: openingBgPulse 4s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 /* Opening section zoom in and fadeout */

@@ -76,25 +76,23 @@ function OpeningScreen({ onEnvelopeOpen }) {
       ref={openingSectionRef}
       className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
     >
-      {/* Background — single photo */}
+      {/* Background — old book texture with infinite pulse */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        className="opening-bg-pulse absolute inset-0 w-full h-full bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/assets/images/prenup/IMG_7602.jpg)',
+          backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       />
-      {/* Brown overlay for warm tone */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#a67c52]/40 via-[#6f4e37]/35 to-[#3e2723]/40 z-[1]" />
       <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
         {/* You are invited text */}
         <div ref={clickMeRef} className="mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-center click-me-container">
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight" style={{ color: '#FFFFFF', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3)' }}>
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight" style={{ color: '#3e2723' }}>
             YOU ARE GRACIOUSLY
           </p>
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight" style={{ fontFamily: 'Pinyon Script, cursive', color: '#FFFFFF', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3)' }}>
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight" style={{ fontFamily: 'Pinyon Script, cursive', color: '#3e2723' }}>
             Invited
           </p>
         </div>
@@ -136,9 +134,8 @@ function OpeningScreen({ onEnvelopeOpen }) {
           <p 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-foglihten uppercase leading-tight"
             style={{ 
-              color: '#FFFFFF',
-              fontSize: 'clamp(1.5rem, 4vw, 48px)',
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.3)'
+              color: '#3e2723',
+              fontSize: 'clamp(1.5rem, 4vw, 48px)'
             }}
           >
             CLICK TO OPEN

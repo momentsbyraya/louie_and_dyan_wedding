@@ -5,7 +5,6 @@ import RSVPModal from './components/RSVPModal'
 import DynamicTitle from './components/DynamicTitle'
 import OpeningScreen from './components/OpeningScreen'
 import Loader from './components/Loader'
-import ApprovalWatermark from './components/ApprovalWatermark'
 import { audio } from './data'
 
 function App() {
@@ -139,7 +138,6 @@ function App() {
           <RSVPModal isOpen={isRSVPModalOpen} onClose={() => setIsRSVPModalOpen(false)} />
         </>
       )}
-      <ApprovalWatermark />
     </div>
   )
 }

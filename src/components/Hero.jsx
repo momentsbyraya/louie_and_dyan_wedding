@@ -1,21 +1,15 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { gsap } from 'gsap'
 import { couple, venues } from '../data'
-import { getTimeUntilWedding } from '../utils/countdown'
 import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
 const HERO_BG_IMAGE = '/assets/images/prenup/IMG_7213.jpg'
 
 const Hero = () => {
-  const [countdown, setCountdown] = useState(() => getTimeUntilWedding())
-
   const invitationTextRef = useRef(null)
   const coupleNamesRef = useRef(null)
   const dateRef = useRef(null)
-  const countdownDaysRef = useRef(null)
-  const countdownHoursRef = useRef(null)
-  const countdownMinutesRef = useRef(null)
-  const countdownSecondsRef = useRef(null)
+  const receptionRef = useRef(null)
   const heroImgRef = useRef(null)
 
   const formatDate = (dateString) => {
@@ -41,6 +35,7 @@ const Hero = () => {
   }, [couple.groom.firstName, couple.bride.firstName])
 
   const venue = venues.ceremony
+  const reception = venues.reception
   const safariLite = shouldUseSafariLiteMode()
   const heroSvgFilter = safariLite ? undefined : 'url(#heroTopBlurFilter)'
   const heroBottomSvgFilter = safariLite ? undefined : 'url(#heroBottomBlurFilter)'
@@ -50,30 +45,17 @@ const Hero = () => {
   }, [])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCountdown(getTimeUntilWedding())
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
     const animatedRefs = [
       invitationTextRef,
       coupleNamesRef,
       dateRef,
-      countdownDaysRef,
-      countdownHoursRef,
-      countdownMinutesRef,
-      countdownSecondsRef,
+      receptionRef,
     ].map((r) => r.current)
 
     if (invitationTextRef.current) gsap.set(invitationTextRef.current, { opacity: 0, y: 20 })
     if (coupleNamesRef.current) gsap.set(coupleNamesRef.current, { opacity: 0, y: 30 })
     if (dateRef.current) gsap.set(dateRef.current, { opacity: 0, y: 20 })
-    if (countdownDaysRef.current) gsap.set(countdownDaysRef.current, { opacity: 0, y: 20 })
-    if (countdownHoursRef.current) gsap.set(countdownHoursRef.current, { opacity: 0, y: 20 })
-    if (countdownMinutesRef.current) gsap.set(countdownMinutesRef.current, { opacity: 0, y: 20 })
-    if (countdownSecondsRef.current) gsap.set(countdownSecondsRef.current, { opacity: 0, y: 20 })
+    if (receptionRef.current) gsap.set(receptionRef.current, { opacity: 0, y: 20 })
 
     const tl = gsap.timeline({ delay: 0.3 })
 
@@ -101,35 +83,11 @@ const Hero = () => {
         ease: 'power2.out',
       })
     }
-    if (countdownDaysRef.current) {
-      tl.to(countdownDaysRef.current, {
+    if (receptionRef.current) {
+      tl.to(receptionRef.current, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-      })
-    }
-    if (countdownHoursRef.current) {
-      tl.to(countdownHoursRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-      })
-    }
-    if (countdownMinutesRef.current) {
-      tl.to(countdownMinutesRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-      })
-    }
-    if (countdownSecondsRef.current) {
-      tl.to(countdownSecondsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
+        duration: 0.6,
         ease: 'power2.out',
       })
     }
@@ -144,20 +102,10 @@ const Hero = () => {
 
   const heroAlt = couple.together.replace('&', 'and')
 
-  const heroInk = '#094a2f'
+  const heroInk = '#3e2418'
   const heroCoupleColor = '#3e2a1a'
-  const heroLabelLight = '#F8F3EA'
-  const heroLabelShadow =
-    '0 1px 3px rgba(9, 74, 47, 0.45), 0 0 12px rgba(9, 74, 47, 0.25)'
   const heroContrastShadow =
     '0 1px 0 rgba(255, 251, 248, 0.75), 0 1px 10px rgba(248, 243, 234, 0.9)'
-
-  const countdownBoxStyle = {
-    color: heroInk,
-    backgroundColor: 'rgba(248, 243, 234, 0.65)',
-    borderRadius: '8px',
-    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 4px rgba(9,74,47,0.15)',
-  }
 
   return (
     <div
@@ -312,89 +260,28 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex items-center justify-center space-x-2 sm:mt-10 sm:space-x-3 md:mt-12 md:space-x-4 lg:mt-16 lg-custom:mt-4 lg-custom:space-x-1 xl:mt-20">
-            <div ref={countdownDaysRef} className="text-center">
-              <div
-                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
-                style={countdownBoxStyle}
-              >
-                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
-                  {countdown.days}
-                </div>
-              </div>
-              <div
-                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
-                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
-              >
-                Days
-              </div>
-            </div>
-            <div
-              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
-              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+          <div
+            ref={receptionRef}
+            className="mx-auto mt-8 max-w-2xl text-center sm:mt-10 md:mt-12 lg:mt-16 lg-custom:mt-6"
+          >
+            <p
+              className="mb-2 text-xs tracking-[0.25em] sm:text-sm md:text-base"
+              style={{ color: '#FFFFFF', fontFamily: 'Alice, serif', fontWeight: 'bold' }}
             >
-              :
-            </div>
-            <div ref={countdownHoursRef} className="text-center">
-              <div
-                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
-                style={countdownBoxStyle}
-              >
-                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
-                  {countdown.hours}
-                </div>
-              </div>
-              <div
-                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
-                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
-              >
-                Hours
-              </div>
-            </div>
-            <div
-              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
-              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
+              RECEPTION
+            </p>
+            <p
+              className="px-4 text-lg leading-snug sm:text-xl md:text-2xl lg:text-3xl lg-custom:text-lg"
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 500,
+                textShadow:
+                  '0 0 10px rgba(170, 141, 90, 0.8), 0 0 20px rgba(170, 141, 90, 0.5), 0 0 30px rgba(170, 141, 90, 0.35)',
+              }}
             >
-              :
-            </div>
-            <div ref={countdownMinutesRef} className="text-center">
-              <div
-                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
-                style={countdownBoxStyle}
-              >
-                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
-                  {countdown.minutes}
-                </div>
-              </div>
-              <div
-                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
-                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
-              >
-                Minutes
-              </div>
-            </div>
-            <div
-              className="text-xl font-albert font-semibold sm:text-2xl md:text-3xl lg-custom:text-base"
-              style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
-            >
-              :
-            </div>
-            <div ref={countdownSecondsRef} className="text-center">
-              <div
-                className="flex h-16 w-16 items-center justify-center sm:h-20 sm:w-20 md:h-24 md:w-24 lg-custom:h-16 lg-custom:w-16"
-                style={countdownBoxStyle}
-              >
-                <div className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg-custom:text-xl xl:text-xl">
-                  {countdown.seconds}
-                </div>
-              </div>
-              <div
-                className="mt-2 text-[10px] font-albert font-medium sm:text-xs lg-custom:text-[10px]"
-                style={{ color: heroLabelLight, textShadow: heroLabelShadow }}
-              >
-                Seconds
-              </div>
-            </div>
+              {reception.name}
+            </p>
           </div>
         </div>
       </div>

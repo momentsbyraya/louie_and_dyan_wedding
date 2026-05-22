@@ -162,7 +162,13 @@ const MapDirections = () => {
                           >
                             {activeVenue.label}
                           </p>
-                          <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333] mb-2 text-center">
+                          <div
+                            className={`font-albert font-bold text-[#333333] mb-2 text-center ${
+                              activeVenue.key === 'reception'
+                                ? 'text-xs sm:text-sm md:text-base uppercase tracking-wide'
+                                : 'text-sm sm:text-base md:text-lg'
+                            }`}
+                          >
                             {activeVenue.data.name}
                           </div>
                           <p className="text-[10px] sm:text-xs font-albert font-thin text-[#333333] text-center">

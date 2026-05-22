@@ -12,11 +12,9 @@ gsap.registerPlugin(ScrollTrigger)
 /** Prenup shots used as hero, paragraph, or full-bleed elsewhere — omit from Moments gallery */
 const PRENUP_USED_HERO_OR_BLEED = new Set([
   'IMG_7213',   // Hero background
-  'IMG_7602',   // Opening screen background + social/og + favicon
-  'IMG_6594-2', // Invitation bleed 1
   'IMG_8520',   // Invitation bleed 2
   'IMG_8902',   // Invitation bleed between Schedule and RSVP
-  'IMG_9594',   // RSVP bleed
+  'IMG_9594',   // Countdown background + RSVP bleed
   'IMG_7641',   // "When two hearts met" paragraph
 ])
 

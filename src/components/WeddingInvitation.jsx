@@ -15,6 +15,7 @@ import RSVP from './RSVP'
 import FAQ from './FAQ'
 import Footer from './Footer'
 import EnhancedLazySection from './EnhancedLazySection'
+import AutoplayYouTube from './AutoplayYouTube'
 
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -39,6 +40,11 @@ const WeddingInvitation = () => {
       <main className="main-container h-full section-container">
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
+
+        {/* Wedding Details - Save the Date (right after Hero) */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
+        </EnhancedLazySection>
         
         {/* Music Player Section - Hidden for now */}
         {/* <MusicPlayer /> */}
@@ -48,17 +54,13 @@ const WeddingInvitation = () => {
           <MapDirections />
         </EnhancedLazySection>
 
-          {/* Image Section - Before Schedule */}
-          <section className="relative w-full">
-            <div className="w-full flex justify-center items-center">
-              <img 
-                src="/assets/images/prenup/IMG_6594-2.jpg" 
-                alt="Wedding moment" 
-                className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
-                style={{ width: '100vw' }}
-                onClick={() => setSelectedImage('/assets/images/prenup/IMG_6594-2.jpg')}
-              />
-            </div>
+          {/* Video Section - Before Schedule */}
+          <section className="relative w-screen m-0 p-0" style={{ width: '100vw' }}>
+            <AutoplayYouTube
+              videoId="JHBuoOxjeUA"
+              title="Jade and Vannie wedding video"
+              threshold={0.4}
+            />
           </section>
         
         
@@ -153,11 +155,6 @@ const WeddingInvitation = () => {
           placeholder={<div className="min-h-[200px] w-full bg-nude-brown" aria-hidden />}
         >
           <FAQ />
-        </EnhancedLazySection>
-        
-        {/* Wedding Details - Save the Date */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
         </EnhancedLazySection>
         
         {/* Footer */}
