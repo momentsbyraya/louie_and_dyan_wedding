@@ -9,42 +9,20 @@ import { sectionTitleStyle } from '../config/themeConfig'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Prenup shots used as hero, paragraph, or full-bleed elsewhere — omit from Moments gallery */
-const PRENUP_USED_HERO_OR_BLEED = new Set([
-  'IMG_7213',   // Hero background
-  'IMG_8520',   // Invitation bleed 2
-  'IMG_8902',   // Invitation bleed between Schedule and RSVP
-  'IMG_9594',   // Countdown background + RSVP bleed
-  'IMG_7641',   // "When two hearts met" paragraph
-])
-
-const PRENUP_ALL_SORTED = [
-  'IMG_6594-2',
-  'IMG_6736',
-  'IMG_6848',
-  'IMG_7213',
-  'IMG_7347',
-  'IMG_7602',
-  'IMG_7641',
-  'IMG_8018',
-  'IMG_8520',
-  'IMG_8852',
-  'IMG_8902',
-  'IMG_8978',
-  'IMG_9207',
-  'IMG_9490',
-  'IMG_9594',
-]
-
-const PRENUP_FOR_MOMENTS = PRENUP_ALL_SORTED.filter((id) => !PRENUP_USED_HERO_OR_BLEED.has(id)).map(
-  (id) => `/assets/images/prenup/${id}.jpg`
-)
+/** Resolve a prenup id (e.g. "IMG_6736" or "IMG_6594-2") to its public URL, picking the right extension. */
+const PRENUP_EXTENSIONS = {
+  'IMG_6594-2': 'jpeg',
+  'IMG_6736': 'jpeg',
+}
+const prenupSrc = (id) => `/assets/images/prenup/${id}.${PRENUP_EXTENSIONS[id] || 'jpg'}`
 
 /** Polaroid photos paired with love-story paragraphs (jr Moments.jsx pattern) */
-const POLAROID_IMAGES = PRENUP_FOR_MOMENTS.slice(0, 4)
+const POLAROID_IDS = ['IMG_6848', 'IMG_7347', 'IMG_8852', 'IMG_8978']
+const POLAROID_IMAGES = POLAROID_IDS.map(prenupSrc)
 
-/** Masonry gallery — other prenup-only shots (no overlap with polaroid row above) */
-const GALLERY_IMAGES = [...PRENUP_FOR_MOMENTS.slice(4)]
+/** Masonry "Moments" gallery — explicit order, no overlap with polaroids or full-bleed shots */
+const GALLERY_IDS = ['IMG_7602', 'IMG_8018', 'IMG_9207', 'IMG_9490', 'IMG_7641']
+const GALLERY_IMAGES = GALLERY_IDS.map(prenupSrc)
 
 function getStoryParagraphs() {
   if (Array.isArray(loveStory.paragraphs) && loveStory.paragraphs.length > 0) {

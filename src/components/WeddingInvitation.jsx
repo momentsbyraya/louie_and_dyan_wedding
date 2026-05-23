@@ -58,12 +58,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/IMG_7602.jpg"
+              src="/assets/images/prenup/IMG_6736.jpeg"
               alt="Jade and Vannie"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/IMG_7602.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_6736.jpeg')}
             />
           </div>
         </section>
