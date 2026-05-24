@@ -87,26 +87,13 @@ const RSVP = () => {
         {/* Content */}
         <div className="relative z-20 flex items-center justify-center min-h-[500px]">
           <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
-            <div className="flex justify-center items-center">
-              {/* Left horizontal line */}
-              <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-
-              <img
-                src="/assets/images/graphics/graphics-1.svg"
-                alt="Decorative graphic"
-                className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-              />
-
-              {/* Right horizontal line */}
-              <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-            </div>
             <div ref={contentRef} className="flex flex-col items-center w-full">
 
               {/* RSVP Section - Matching Entourage Layout */}
               <div className="w-full">
                 <div className="text-center">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 pt-4 sm:pt-6 md:pt-8" style={sectionTitleStyle}>
-                    <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl inline-block leading-none" style={{ lineHeight: '0.8' }}>R</span>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 pt-4 sm:pt-6 md:pt-8" style={sectionTitleStyle}>
+                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>R</span>
                     <span className="inline-block">svp</span>
                   </h2>
                   <div>
@@ -148,8 +135,8 @@ const RSVP = () => {
               {/* Gift Registry Section - Matching Layout */}
               <div className="w-full mt-12">
                 <div className="text-center">
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 pt-4 sm:pt-6 md:pt-8" style={sectionTitleStyle}>
-                    <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl inline-block leading-none" style={{ lineHeight: '0.8' }}>G</span>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 pt-4 sm:pt-6 md:pt-8" style={sectionTitleStyle}>
+                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl inline-block leading-none" style={{ lineHeight: '0.8' }}>G</span>
                     <span className="inline-block">ifts</span>
                   </h2>
                   <div>
@@ -174,20 +161,6 @@ const RSVP = () => {
                         </button>
                       </div>
                     )}
-
-                    <div className="flex justify-center items-center mt-8">
-                      {/* Left horizontal line */}
-                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-
-                      <img
-                        src="/assets/images/graphics/graphics-1.svg"
-                        alt="Decorative graphic"
-                        className="w-32 sm:w-40 md:w-48 h-auto mx-4"
-                      />
-
-                      {/* Right horizontal line */}
-                      <div className="w-16 h-px bg-[#333333] opacity-40"></div>
-                    </div>
                   </div>
                 </div>
               </div>

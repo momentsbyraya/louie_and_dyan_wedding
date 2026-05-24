@@ -148,7 +148,7 @@ const Schedule = () => {
           {/* Wedding Program Title */}
           <div ref={titleRef} className="text-center mb-12 sm:mb-16">
             <h2
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 leading-tight whitespace-nowrap"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 leading-tight whitespace-nowrap"
               style={sectionTitleStyle}
             >
               Wedding Program

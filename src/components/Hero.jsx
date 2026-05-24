@@ -167,7 +167,7 @@ const Hero = () => {
             ref={coupleNamesRef}
             className="mx-auto mb-3 mt-4 max-w-full px-2 text-center text-5xl leading-none whitespace-nowrap sm:mb-4 sm:mt-5 md:mb-6 md:mt-6 lg:mb-8 lg:mt-8 sm:text-6xl md:text-7xl lg:text-8xl lg-custom:text-[clamp(2.75rem,9vw,4.25rem)] xl:text-[clamp(3.5rem,10vw,8rem)]"
             style={{
-              fontFamily: 'Pinyon Script, cursive',
+              fontFamily: '"Homemade Apple", cursive',
               color: heroCoupleColor,
               textShadow: heroContrastShadow,
             }}

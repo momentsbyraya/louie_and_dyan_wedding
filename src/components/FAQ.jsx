@@ -71,7 +71,7 @@ const FAQ = () => {
           <div ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
             <h2
               className="mb-3 pt-4 text-4xl text-white sm:pt-6 sm:text-5xl md:pt-8 md:text-6xl lg:text-7xl leading-tight whitespace-nowrap"
-              style={{ fontFamily: 'Pinyon Script, cursive' }}
+              style={{ fontFamily: '"Homemade Apple", cursive' }}
             >
               Reminder
             </h2>

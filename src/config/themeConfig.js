@@ -127,10 +127,10 @@ export const themePresets = {
     }
 }
 
-// Section heading text (solid brown, Pinyon Script — matches Hero couple names)
+// Section heading text (solid brown, Homemade Apple — handwritten look)
 export const sectionTitleStyle = {
     color: '#6f4e37',
-    fontFamily: 'Pinyon Script, cursive',
+    fontFamily: '"Homemade Apple", cursive',
 }
 
 // Helper function to get theme colors

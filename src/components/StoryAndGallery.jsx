@@ -321,7 +321,7 @@ const StoryAndGallery = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
           style={{
-            backgroundImage: 'url(/assets/images/graphics/textured-bg-2.png)',
+            backgroundImage: 'url(/assets/images/graphics/textured-bg-2.jpg)',
             opacity: 1,
             zIndex: 0,
           }}
@@ -332,7 +332,7 @@ const StoryAndGallery = () => {
           className="relative z-20 mx-auto max-w-5xl px-4 sm:px-6 md:px-8"
         >
           <h2
-            className="mb-10 text-center text-4xl leading-tight whitespace-nowrap sm:mb-12 sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mb-10 text-center text-3xl leading-tight whitespace-nowrap sm:mb-12 sm:text-4xl md:text-5xl lg:text-6xl"
             style={{ ...sectionTitleStyle, color: '#ffffff' }}
           >
             Our Love Story

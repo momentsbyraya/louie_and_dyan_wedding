@@ -391,7 +391,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             </div>
 
             <h3
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl imperial-script-regular mb-4 text-center capitalize whitespace-nowrap"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-4 text-center capitalize whitespace-nowrap"
               style={{ color: theme.text.brown }}
             >
               Bridal Entourage
@@ -440,7 +440,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             {principalItems.length > 0 && (
               <div ref={principalSponsorsRef} className="mb-6">
                 <h3
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl imperial-script-regular mb-6 text-center capitalize whitespace-nowrap"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-6 text-center capitalize whitespace-nowrap"
                   style={{ color: theme.text.brown }}
                 >
                   Principal Sponsors
@@ -585,7 +585,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             {secondarySponsors && (
               <div ref={secondarySponsorsRef} className="mb-6">
                 <h3
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl imperial-script-regular mb-6 text-center capitalize whitespace-nowrap"
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-6 text-center capitalize whitespace-nowrap"
                   style={{ color: theme.text.brown }}
                 >
                   Secondary Sponsors

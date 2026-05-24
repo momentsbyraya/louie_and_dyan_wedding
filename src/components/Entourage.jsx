@@ -36,24 +36,22 @@ const Entourage = ({ embedded = false }) => {
 
   const innerBlock = (
     <>
-      <div className="flex items-center justify-center">
-        <div className="h-px w-16 bg-[#333333] opacity-40" />
+      <div className="flex items-center justify-center pb-8 sm:pb-12">
         <img
-          src="/assets/images/graphics/graphics-1.svg"
+          src="/assets/images/graphics/new-line.png"
           alt=""
-          className="mx-4 h-auto w-32 sm:w-40 md:w-48"
+          className="h-auto w-48 sm:w-56 md:w-64"
         />
-        <div className="h-px w-16 bg-[#333333] opacity-40" />
       </div>
 
       <div ref={contentRef} className="flex w-full flex-col items-center">
         <div className="w-full text-center">
           <h2
-            className="mb-3 pt-4 text-4xl sm:pt-6 sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mb-3 pt-4 text-3xl sm:pt-6 sm:text-4xl md:text-5xl lg:text-6xl"
             style={sectionTitleStyle}
           >
             <span
-              className="inline-block text-6xl leading-none sm:text-7xl md:text-8xl lg:text-9xl"
+              className="inline-block text-5xl leading-none sm:text-6xl md:text-7xl lg:text-8xl"
               style={{ lineHeight: '0.8' }}
             >
               E
@@ -84,14 +82,12 @@ const Entourage = ({ embedded = false }) => {
               />
             </button>
           </div>
-          <div className="mt-6 flex items-center justify-center">
-            <div className="h-px w-16 bg-[#333333] opacity-40" />
+          <div className="mt-12 flex items-center justify-center sm:mt-16">
             <img
-              src="/assets/images/graphics/graphics-1.svg"
+              src="/assets/images/graphics/new-line.png"
               alt=""
-              className="mx-4 h-auto w-32 sm:w-40 md:w-48"
+              className="h-auto w-48 sm:w-56 md:w-64"
             />
-            <div className="h-px w-16 bg-[#333333] opacity-40" />
           </div>
         </div>
       </div>
