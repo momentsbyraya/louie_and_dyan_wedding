@@ -31,7 +31,8 @@
       { "ninong": "Mr. Gregorio Jimenez", "ninang": "Mrs. Myrna Jimenez" },
       { "ninong": "Mr. Ronald Delis", "ninang": "Mrs. Chona Delis" },
       { "ninong": "Mr. Erlindo Suan", "ninang": "Mrs. Jocelyn Suan" },
-      { "ninong": "Mr. Robert De Guzman", "ninang": "Mrs. Jesusa De Guzman" }
+      { "ninong": "Mr. Robert De Guzman", "ninang": "Mrs. Jesusa De Guzman" }, 
+      { "ninong": "Mr. Carlo Globa", "ninang": "Ms. Raquel Tampus" }
     ]
   },
   "bridalParty": {
@@ -42,7 +43,7 @@
     "groomsMenBridesmaids": [
       { "groomsman": "Lanz Orbase", "bridesmaid": "Camille Pura-Uy" },
       { "groomsman": "Segundino Lumanog", "bridesmaid": "Angelica Cabanatan" },
-      { "groomsman": "Luigi Silvestre", "bridesmaid": "Athena Dimagiliw" },
+      { "groomsman": "Luigi Silvestre", "bridesmaid": "Athena Dimagmaliw" },
       { "groomsman": "Spencer Tañada", "bridesmaid": "Gellen Bellano" },
       { "groomsman": "Yancy Fabro", "bridesmaid": "Aura Mae Laurente" },
       { "groomsman": "Renso Ileto", "bridesmaid": "Charina Laurente" },
