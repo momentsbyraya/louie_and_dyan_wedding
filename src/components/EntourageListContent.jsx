@@ -550,7 +550,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                             {pair.groomsman}
                           </p>
                         ) : (
-                          <span aria-hidden="true">&nbsp;</span>
+                          <p
+                            aria-hidden="true"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight"
+                          >
+                            &nbsp;
+                          </p>
                         )}
                       </div>
                       <div className="min-w-0 text-left">
@@ -559,7 +564,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                             {pair.bridesmaid}
                           </p>
                         ) : (
-                          <span aria-hidden="true">&nbsp;</span>
+                          <p
+                            aria-hidden="true"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight"
+                          >
+                            &nbsp;
+                          </p>
                         )}
                       </div>
                     </div>
