@@ -1,22 +1,3 @@
 {
-  "paymentMethods": [
-    {
-      "name": "BPI",
-      "image": "/assets/images/monetary-gifts/BPIQR_Vannie.png",
-      "alt": "BPI QR code",
-      "accountInfo": {
-        "accountName": "Vannie Regine Baylon Opstal"
-      }
-    },
-    {
-      "name": "GCash",
-      "image": "/assets/images/monetary-gifts/IMG_3548.JPG",
-      "alt": "GCash QR code"
-    },
-    {
-      "name": "Maya",
-      "image": "/assets/images/monetary-gifts/IMG_8438.JPG",
-      "alt": "Maya QR code"
-    }
-  ]
+  "paymentMethods": []
 }

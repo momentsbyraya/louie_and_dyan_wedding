@@ -1,21 +1,21 @@
 {
   "bride": {
-    "firstName": "Vannie",
-    "lastName": "Baylon Opstal",
-    "fullName": "VANNIE REGINE BAYLON OPSTAL"
+    "firstName": "Aprille",
+    "lastName": "Rodriguez",
+    "fullName": "APRILLE RODRIGUEZ"
   },
   "groom": {
-    "firstName": "Jade",
-    "lastName": "Tampus Nillos",
-    "fullName": "JADE ANGELO TAMPUS NILLOS"
+    "firstName": "Daniel",
+    "lastName": "Lockyer",
+    "fullName": "DANIEL LOCKYER"
   },
-  "together": "JADE & VANNIE",
+  "together": "DANIEL & APRILLE",
   "wedding": {
-    "date": "2026-08-22",
-    "time": "2:30 PM",
-    "dayOfWeek": "Saturday",
-    "month": "August",
-    "day": "22",
-    "year": "2026"
+    "date": "2027-01-04",
+    "time": "4:00 PM",
+    "dayOfWeek": "Monday",
+    "month": "January",
+    "day": "4",
+    "year": "2027"
   }
 }

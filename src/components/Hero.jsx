@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { couple, venues } from '../data'
 import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
-const HERO_BG_IMAGE = '/assets/images/prenup/IMG_7213.jpg'
+const HERO_BG_IMAGE = '/assets/images/prenup/B.D&A-EngagementFinal-19.jpg'
 
 const Hero = () => {
   const invitationTextRef = useRef(null)
@@ -117,7 +117,11 @@ const Hero = () => {
         src={HERO_BG_IMAGE}
         alt={heroAlt}
         className="h-full w-full object-cover"
-        style={{ objectPosition: '45% center' }}
+        style={{
+          objectPosition: '55% center',
+          transform: 'scale(1.12)',
+          transformOrigin: 'center center',
+        }}
         decoding="async"
         draggable={false}
       />
@@ -165,9 +169,9 @@ const Hero = () => {
           </p>
           <p
             ref={coupleNamesRef}
-            className="mx-auto mb-3 mt-4 max-w-full px-2 text-center text-4xl leading-none whitespace-nowrap sm:mb-4 sm:mt-5 md:mb-6 md:mt-6 lg:mb-8 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl lg-custom:text-[clamp(2.25rem,7.5vw,3.5rem)] xl:text-[clamp(3rem,8.5vw,6.5rem)]"
+            className="mx-auto mb-3 mt-4 max-w-full px-2 text-center text-5xl leading-none whitespace-nowrap sm:mb-4 sm:mt-5 sm:text-6xl md:mb-6 md:mt-6 md:text-7xl lg:mb-8 lg:mt-8 lg:text-8xl lg-custom:text-[clamp(3rem,9vw,5rem)] xl:text-[clamp(4rem,10vw,8rem)]"
             style={{
-              fontFamily: '"Homemade Apple", cursive',
+              fontFamily: '"Pinyon Script", cursive',
               color: heroCoupleColor,
               textShadow: heroContrastShadow,
             }}

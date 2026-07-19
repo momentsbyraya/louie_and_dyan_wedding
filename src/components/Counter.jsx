@@ -63,7 +63,7 @@ const Counter = ({ countdown }) => {
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/prenup/IMG_9594.jpg)',
+          backgroundImage: 'url(/assets/images/prenup/B.D&A-EngagementFinal-19.jpg)',
         }}
         aria-hidden
       />

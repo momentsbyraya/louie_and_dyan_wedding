@@ -1,19 +1,17 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request attire in our color palette — brown, blush pink, beige, and taupe."
+    "description": "We kindly request attire in our color palette — brown/mocha and blush pink."
   },
   "sections": [
     {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Brown, blush pink, beige, or taupe for all guests.",
+      "description": "Brown/Mocha & Blush Pink for all guests.",
       "colors": [
-        { "name": "Brown", "hex": "#6F4E37" },
-        { "name": "Blush Pink", "hex": "#E8C5C0" },
-        { "name": "Beige", "hex": "#E8DCC4" },
-        { "name": "Taupe", "hex": "#B8A99A" }
+        { "name": "Brown / Mocha", "hex": "#6F4E37" },
+        { "name": "Blush Pink", "hex": "#E8C5C0" }
       ],
       "colorSwatches": [
         {

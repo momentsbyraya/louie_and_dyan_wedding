@@ -295,24 +295,6 @@
   }
 }
 
-/* Opening background pulsing animation */
-@keyframes openingBgPulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: brightness(1);
-  }
-  50% {
-    transform: scale(1.06);
-    filter: brightness(1.12);
-  }
-}
-
-.opening-bg-pulse {
-  background-size: cover !important;
-  animation: openingBgPulse 4s ease-in-out infinite;
-  will-change: transform, filter;
-}
-
 /* Opening section zoom in and fadeout */
 @keyframes zoomInAndFade {
   0% {
@@ -329,24 +311,9 @@
   transition: transform 1.5s ease-in-out;
 }
 
-/* Ensure pulsing animation runs continuously */
-.opening-section.opening-bg-pulse {
-  animation: openingBgPulse 4s ease-in-out infinite;
-}
-
-/* Ensure pulsing continues until zoom starts */
-.opening-section.opening-bg-pulse:not(.zooming-out) {
-  animation: openingBgPulse 4s ease-in-out infinite !important;
-}
-
 .opening-section.zooming-out {
   animation: zoomInAndFade 1.5s ease-in-out forwards;
   pointer-events: none;
-}
-
-/* Stop pulsing only when zooming out */
-.opening-section.zooming-out.opening-bg-pulse {
-  animation: zoomInAndFade 1.5s ease-in-out forwards;
 }
 
 /* Reduce gap between Click me and envelope on large screens */

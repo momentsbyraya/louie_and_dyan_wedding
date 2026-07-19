@@ -1,45 +1,46 @@
 {
   "ceremony": {
-    "name": "San Antonio de Padua Parish Church",
-    "shortName": "San Antonio de Padua, Nasugbu",
-    "address": "Nasugbu",
-    "city": "Batangas",
-    "state": "",
-    "zip": "",
-    "time": "2:30 PM",
-    "details": "Welcoming of Guests begins at 1:30 PM. Wedding Ceremony at 2:30 PM. Reception follows at Hillbarn Tagaytay at 5:30 PM.",
-    "landmark": "",
-    "parking": "",
-    "capacity": "",
-    "googleMapsUrl": "https://www.google.com/maps?sca_esv=e97d976850ba01bf&output=search&q=San+Antonio+de+Padua+Nasugbu&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3j2nXl-YQ05KjnWz5SrU93HEjYyChsjChlPh8hoCFXOKz3uUYzsDRFnytNUktkxdjlqHg-zw8PVCE0H1H8_U3u3J5agAmaingYrti-fcgINWpyWLdsVpLP8X53tvo-EuUwXnSyudllGJIWVF-XRfcyOUoDr2yKDMeuqqM3mVByMXxldQmw&entry=mc&ved=1t:200715&ictx=111",
-    "directionsUrl": "https://www.google.com/maps?sca_esv=e97d976850ba01bf&output=search&q=San+Antonio+de+Padua+Nasugbu&source=lnms&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3j2nXl-YQ05KjnWz5SrU93HEjYyChsjChlPh8hoCFXOKz3uUYzsDRFnytNUktkxdjlqHg-zw8PVCE0H1H8_U3u3J5agAmaingYrti-fcgINWpyWLdsVpLP8X53tvo-EuUwXnSyudllGJIWVF-XRfcyOUoDr2yKDMeuqqM3mVByMXxldQmw&entry=mc&ved=1t:200715&ictx=111",
-    "schedule": {
-      "guestGathering": "1:30 PM",
-      "ceremony": "2:30 PM",
-      "cocktails": "5:30 PM",
-      "receptionDinner": "7:00 PM",
-      "end": "11:00 PM"
-    }
-  },
-  "reception": {
-    "name": "Hillbarn Tagaytay Events Place",
+    "name": "Miara Events Place Tagaytay",
+    "shortName": "Miara Events Place, Tagaytay",
     "address": "Tagaytay",
     "city": "Cavite",
     "state": "",
     "zip": "",
-    "time": "5:30 PM",
-    "details": "Cocktails at 5:30 PM. Reception Dinner at 7:00 PM. Evening ends at 11:00 PM.",
+    "time": "4:00 PM",
+    "details": "Guest Gathering begins at 3:30 PM. Wedding Ceremony at 4:00 PM. Reception follows at Miara Events Place Tagaytay at 6:00 PM.",
+    "landmark": "",
+    "parking": "",
+    "capacity": "",
+    "googleMapsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
+    "directionsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
+    "schedule": {
+      "guestGathering": "3:30 PM",
+      "ceremony": "4:00 PM",
+      "photoSession": "5:00 PM",
+      "cocktails": "5:30 PM",
+      "receptionDinner": "7:00 PM",
+      "end": "10:00 PM"
+    }
+  },
+  "reception": {
+    "name": "Miara Events Place Tagaytay",
+    "address": "Tagaytay",
+    "city": "Cavite",
+    "state": "",
+    "zip": "",
+    "time": "6:00 PM",
+    "details": "Cocktail Hour at 5:30 PM. Dinner Reception at 7:00 PM. Evening ends at 10:00 PM.",
     "landmark": "",
     "parking": "",
     "capacity": "",
     "dressCode": "",
     "menu": "",
-    "googleMapsUrl": "https://www.google.com/maps/place/Hillbarn+Tagaytay+Events+Place/@14.1202793,120.9328182,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd77757b49cbbd:0x5edefcf05d8a6a8a!8m2!3d14.1202741!4d120.9353931!16s%2Fg%2F11sf62928q?entry=ttu&g_ep=EgoyMDI2MDUxNy4wIKXMDSoASAFQAw%3D%3D",
-    "directionsUrl": "https://www.google.com/maps/place/Hillbarn+Tagaytay+Events+Place/@14.1202793,120.9328182,17z/data=!3m1!4b1!4m6!3m5!1s0x33bd77757b49cbbd:0x5edefcf05d8a6a8a!8m2!3d14.1202741!4d120.9353931!16s%2Fg%2F11sf62928q?entry=ttu&g_ep=EgoyMDI2MDUxNy4wIKXMDSoASAFQAw%3D%3D",
+    "googleMapsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
+    "directionsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
     "schedule": {
       "cocktails": "5:30 PM",
       "receptionDinner": "7:00 PM",
-      "end": "11:00 PM"
+      "end": "10:00 PM"
     }
   }
 }

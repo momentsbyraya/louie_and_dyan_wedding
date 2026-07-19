@@ -46,7 +46,7 @@ const Gifts = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative pt-4 pb-20 w-full overflow-hidden min-h-[500px]"
+        className="relative w-full overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24 md:pt-32"
       >
         {/* Background Image - bg-1 */}
         <div
@@ -67,19 +67,18 @@ const Gifts = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-20 flex items-center justify-center min-h-[500px]">
+        <div className="relative z-20 flex items-center justify-center py-8 sm:py-10">
           <div className="max-w-4xl w-full mx-auto px-8 sm:px-12 lg:px-16">
             <div ref={contentRef} className="flex flex-col items-center w-full">
               {/* Gift Registry Section */}
               <div className="w-full">
                 <div className="text-center">
                   <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3" style={sectionTitleStyle}>
-                    <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl inline-block leading-none" style={{ lineHeight: '0.8' }}>G</span>
-                    <span className="inline-block">IFTS</span>
+                    Notes on Gifts
                   </h2>
                   <div>
                     <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
-                      The most important thing is to have you with us on our special day. No gifts needed or expected. However, if you wish to participate, a monetary gift would be great.
+                      Your presence is already a gift to us. If you wish to bless us further, a monetary gift would be greatly appreciated — you may leave an envelope or gift during the wedding dance.
                     </p>
 
                     {giftPaymentMethods.length > 0 && (

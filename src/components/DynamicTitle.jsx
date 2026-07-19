@@ -9,11 +9,8 @@ const DynamicTitle = () => {
     month: 'long',
     day: 'numeric'
   })
-  const socialImagePath = '/assets/images/prenup/IMG_7602.jpg'
   const socialImageUrl =
-    typeof window !== 'undefined'
-      ? `${window.location.origin}${socialImagePath}`
-      : socialImagePath
+    'http://daniel-and-aprille-wedding.netlify.app/assets/images/prenup/thumbnail.png'
 
   return (
     <Helmet>

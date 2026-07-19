@@ -166,18 +166,18 @@ const Schedule = () => {
               ref={eventsRef}
               className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32"
             >
-              {/* Event 1 - 1:30 PM | WELCOMING OF GUESTS (Left) */}
+              {/* Event 1 - 3:30 PM | GUEST GATHERING (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
-                    1:30 PM
+                    3:30 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    WELCOMING OF GUESTS
+                    GUEST GATHERING
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Welcome and seating before the ceremony
@@ -187,13 +187,13 @@ const Schedule = () => {
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
                     src="/assets/images/graphics/welcome-sketch.png" 
-                    alt="Welcoming of guests" 
+                    alt="Guest gathering" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
               </div>
 
-              {/* Event 2 - 2:30 PM | WEDDING CEREMONY (Right) */}
+              {/* Event 2 - 4:00 PM | CEREMONY (Right) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex items-center justify-end">
                   <img 
@@ -208,51 +208,51 @@ const Schedule = () => {
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
-                    2:30 PM
+                    4:00 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    WEDDING CEREMONY
+                    CEREMONY
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    San Antonio de Padua, Nasugbu
+                    Miara Events Place, Tagaytay
                   </div>
                 </div>
               </div>
 
-              {/* Event 3 - 5:30 PM | COCKTAILS (Left) */}
+              {/* Event 3 - 5:00 PM | PHOTO SESSION (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
-                    5:30 PM
+                    5:00 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    COCKTAILS
+                    PHOTO SESSION
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Hillbarn Tagaytay
+                    Capturing memories together
                   </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
-                    src="/assets/images/graphics/cocktil-sketch.png" 
-                    alt="Cocktails" 
+                    src="/assets/images/graphics/camera-sketch.png"
+                    alt="Photo session"
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
               </div>
 
-              {/* Event 4 - 7:00 PM | RECEPTION DINNER (Right) */}
+              {/* Event 4 - 5:30 PM | COCKTAIL HOUR (Right) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex items-center justify-end">
                   <img 
-                    src="/assets/images/graphics/dinner-sketch.png" 
-                    alt="Reception dinner" 
+                    src="/assets/images/graphics/cocktil-sketch.png" 
+                    alt="Cocktail hour" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
@@ -262,26 +262,61 @@ const Schedule = () => {
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
-                    7:00 PM
+                    5:30 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    RECEPTION DINNER
+                    COCKTAIL HOUR
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Hillbarn Tagaytay
+                    Miara Events Place, Tagaytay
                   </div>
                 </div>
               </div>
 
-              {/* Event 5 - 11:00 PM | EVENING ENDS (Left) */}
+              {/* Event 5 - 7:00 PM | DINNER RECEPTION (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
-                    11:00 PM
+                    7:00 PM
+                  </div>
+                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
+                    DINNER RECEPTION
+                  </div>
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
+                    Miara Events Place, Tagaytay
+                  </div>
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
+                  <img 
+                    src="/assets/images/graphics/dinner-sketch.png" 
+                    alt="Dinner reception" 
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
+                  />
+                </div>
+              </div>
+
+              {/* Event 6 - 10:00 PM | EVENING ENDS (Right) */}
+              <div className="flex items-center relative min-h-[60px] opacity-0">
+                <div className="w-1/2 pr-6 text-right flex items-center justify-end">
+                  <img 
+                    src="/assets/images/graphics/car-sketch.png" 
+                    alt="Celebration ends" 
+                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
+                  />
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
+                    10:00 PM
                   </div>
                   <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
                   <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
@@ -290,14 +325,6 @@ const Schedule = () => {
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
                     Thank you for celebrating with us
                   </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
-                  <img 
-                    src="/assets/images/graphics/car-sketch.png" 
-                    alt="Celebration ends" 
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
-                  />
                 </div>
               </div>
             </div>

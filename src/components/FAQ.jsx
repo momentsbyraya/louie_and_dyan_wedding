@@ -68,17 +68,17 @@ const FAQ = () => {
       {/* FAQ Section */}
       <div className="relative z-20 faq-section">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
-          <div ref={faqTitleRef} className="relative inline-block px-6 py-3 mb-12 text-center w-full">
+          <div ref={faqTitleRef} className="relative inline-block px-6 py-1 mb-4 text-center w-full sm:mb-6">
             <h2
-              className="mb-3 pt-4 text-4xl text-white sm:pt-6 sm:text-5xl md:pt-8 md:text-6xl lg:text-7xl leading-tight whitespace-nowrap"
-              style={{ fontFamily: '"Homemade Apple", cursive' }}
+              className="mb-0 pt-2 text-4xl text-white sm:pt-4 sm:text-5xl md:pt-4 md:text-6xl lg:text-7xl leading-tight whitespace-nowrap"
+              style={{ fontFamily: '"Pinyon Script", cursive' }}
             >
               Reminder
             </h2>
           </div>
           {faq && faq.faqData && (
             <div className="space-y-6 max-w-[600px] mx-auto">
-              {faq.faqData.slice(0, 3).map((item, index) => (
+              {faq.faqData.map((item, index) => (
                 <div key={index}>
                   <div className="mb-2">
                     <p className="mb-2 font-albert text-base font-bold text-white sm:text-lg">
@@ -88,7 +88,7 @@ const FAQ = () => {
                       A: {item.answer}
                     </p>
                   </div>
-                  {index < Math.min(3, faq.faqData.length) - 1 && (
+                  {index < faq.faqData.length - 1 && (
                     <div className="mt-6 h-px bg-white/35"></div>
                   )}
                 </div>

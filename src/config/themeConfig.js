@@ -54,7 +54,7 @@ export const themeConfig = {
 
     // Calendar Configuration
     calendar: {
-        weddingDate: '2026-08-22',          // Wedding date (YYYY-MM-DD format)
+        weddingDate: '2027-01-04',          // Wedding date (YYYY-MM-DD format)
         highlightColor: 'bg-[#6c756a]',     // Color for wedding date highlight
         heartColor: 'text-[#6c756a]',       // Color for heart icon
         textColor: 'text-gray-700',         // Calendar text color
@@ -127,10 +127,10 @@ export const themePresets = {
     }
 }
 
-// Section heading text (solid brown, Homemade Apple — handwritten look)
+// Section heading text (solid brown, Pinyon Script — same as "Invited" on opening screen)
 export const sectionTitleStyle = {
     color: '#6f4e37',
-    fontFamily: '"Homemade Apple", cursive',
+    fontFamily: '"Pinyon Script", cursive',
 }
 
 // Helper function to get theme colors

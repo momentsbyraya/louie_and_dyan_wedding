@@ -345,14 +345,14 @@ const EntourageListContent = ({ scrollContainerRef }) => {
           <div className="max-w-xs sm:max-w-md lg:max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-6 lg:px-8">
             <div
               ref={headerRef}
-              className="entourage-modal-header-names normal-case mb-12 flex flex-col items-center text-center pt-4 sm:pt-6 md:pt-8"
+              className="entourage-modal-header-names normal-case mb-10 flex flex-col items-center text-center pt-4 sm:pt-6 md:pt-8 sm:mb-12"
             >
-              <div
-                className="caudex-bold block text-base uppercase leading-none sm:text-lg md:text-xl lg:text-2xl"
-                style={{ lineHeight: '0.8', color: theme.text.secondary }}
+              <h2
+                className="block text-5xl leading-tight sm:text-6xl md:text-7xl lg:text-8xl"
+                style={sectionTitleStyle}
               >
-                ENTOURAGE
-              </div>
+                Entourage
+              </h2>
             </div>
 
             <div
@@ -391,7 +391,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             </div>
 
             <h3
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-6 text-center capitalize whitespace-nowrap"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl entourage-sponsors-title mb-6 text-center capitalize whitespace-nowrap"
               style={{ color: theme.text.brown }}
             >
               Bridal Entourage
@@ -440,7 +440,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             {principalItems.length > 0 && (
               <div ref={principalSponsorsRef} className="mb-6">
                 <h3
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-6 text-center capitalize whitespace-nowrap"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl entourage-sponsors-title mb-6 text-center capitalize whitespace-nowrap"
                   style={{ color: theme.text.brown }}
                 >
                   Principal Sponsors
@@ -595,7 +595,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             {secondarySponsors && (
               <div ref={secondarySponsorsRef} className="mb-6">
                 <h3
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl font-homemade mb-6 text-center capitalize whitespace-nowrap"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl entourage-sponsors-title mb-6 text-center capitalize whitespace-nowrap"
                   style={{ color: theme.text.brown }}
                 >
                   Secondary Sponsors

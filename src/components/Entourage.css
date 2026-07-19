@@ -1,9 +1,26 @@
 /* Modal header — same Caribbean face as section "Entourage" / Venue titles */
 .entourage-modal-header-names h2,
 .entourage-modal-header-names h2 span {
-  font-family: 'Caribbean', serif;
+  font-family: 'Pinyon Script', cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Category labels — original Caudex face */
+.entourage-category-label,
+.caudex-bold {
+  font-family: 'Caudex', serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Sponsors section titles — same as site section titles */
+.entourage-sponsors-title {
+  font-family: 'Pinyon Script', cursive !important;
+  font-weight: 400;
+  font-style: normal;
+  color: #6f4e37;
+  text-transform: none;
 }
 
 /* Falling Flowers Animation */

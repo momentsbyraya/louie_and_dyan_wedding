@@ -4,25 +4,15 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { loveStory } from '../data'
-import theme from '../config/theme.json'
 import { sectionTitleStyle } from '../config/themeConfig'
 
 gsap.registerPlugin(ScrollTrigger)
 
-/** Resolve a prenup id (e.g. "IMG_6736" or "IMG_6594-2") to its public URL, picking the right extension. */
-const PRENUP_EXTENSIONS = {
-  'IMG_6594-2': 'jpeg',
-  'IMG_6736': 'jpeg',
-}
-const prenupSrc = (id) => `/assets/images/prenup/${id}.${PRENUP_EXTENSIONS[id] || 'jpg'}`
-
-/** Polaroid photos paired with love-story paragraphs (jr Moments.jsx pattern) */
-const POLAROID_IDS = ['IMG_6848', 'IMG_7347', 'IMG_8852', 'IMG_8978']
-const POLAROID_IMAGES = POLAROID_IDS.map(prenupSrc)
-
-/** Masonry "Moments" gallery — explicit order, no overlap with polaroids or full-bleed shots */
-const GALLERY_IDS = ['IMG_7602', 'IMG_8018', 'IMG_9207', 'IMG_9490', 'IMG_7641']
-const GALLERY_IMAGES = GALLERY_IDS.map(prenupSrc)
+/** Polaroid photos paired with love-story paragraphs */
+const POLAROID_IMAGES = [
+  '/assets/images/prenup/D&A-EngagementFinal-25.jpg',
+  '/assets/images/prenup/D&A-EngagementFinal-32.jpg',
+]
 
 function getStoryParagraphs() {
   if (Array.isArray(loveStory.paragraphs) && loveStory.paragraphs.length > 0) {
@@ -48,30 +38,6 @@ function getStoryParagraphs() {
   }
   if (narrative.trim()) return [narrative.trim()]
   return ['Our story continues…']
-}
-
-/** 3-column masonry: full, 1/3+2/3, 2/3+1/3, … — matches jr-and-centenie Moments.jsx */
-function getMomentsGalleryGridColumn(index) {
-  if (index === 0) return 'span 3'
-  if (index === 1) return 'span 1'
-  if (index === 2) return 'span 2'
-  if (index === 3) return 'span 2'
-  if (index === 4) return 'span 1'
-  if (index === 5) return 'span 3'
-  if (index === 6) return 'span 1'
-  if (index === 7) return 'span 2'
-  if (index === 8) return 'span 2'
-  if (index === 9) return 'span 1'
-  const patternIndex = (index - 10) % 4
-  if (patternIndex === 0) return 'span 1'
-  if (patternIndex === 1) return 'span 2'
-  if (patternIndex === 2) return 'span 2'
-  return 'span 1'
-}
-
-/** Vertical focus for `object-fit: cover` — not topmost (avoid `top` / `0%`) */
-function getGalleryTileObjectPosition(imageSrc) {
-  return 'center center'
 }
 
 function StoryPolaroid({ image, rotation, polaroidIndex, objectPosition, onOpen }) {
@@ -122,18 +88,12 @@ function StoryPolaroid({ image, rotation, polaroidIndex, objectPosition, onOpen 
 
 const StoryAndGallery = () => {
   const storySectionRef = useRef(null)
-  const galleryTitleRef = useRef(null)
-  const galleryImageRefs = useRef([])
 
   const [isStoryModalOpen, setIsStoryModalOpen] = useState(false)
   const [storyImageIndex, setStoryImageIndex] = useState(0)
-  const [isGalleryModalOpen, setIsGalleryModalOpen] = useState(false)
-  const [galleryImageIndex, setGalleryImageIndex] = useState(0)
 
   const storyOverlayRef = useRef(null)
   const storyContentRef = useRef(null)
-  const galleryOverlayRef = useRef(null)
-  const galleryContentRef = useRef(null)
 
   const paragraphs = useMemo(() => getStoryParagraphs(), [])
 
@@ -194,37 +154,6 @@ const StoryAndGallery = () => {
       })
     })
 
-    if (galleryTitleRef.current) {
-      ScrollTrigger.create({
-        trigger: galleryTitleRef.current,
-        start: 'top 80%',
-        animation: gsap.fromTo(
-          galleryTitleRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
-        ),
-        toggleActions: 'play none none reverse',
-      })
-    }
-
-    galleryImageRefs.current.forEach((ref, index) => {
-      if (!ref) return
-      const isFromLeft = index % 2 === 0
-      gsap.set(ref, { opacity: 0, x: isFromLeft ? -100 : 100, force3D: true })
-      ScrollTrigger.create({
-        trigger: ref,
-        start: 'top 85%',
-        animation: gsap.to(ref, {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          force3D: true,
-        }),
-        toggleActions: 'play none none reverse',
-      })
-    })
-
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill())
     }
@@ -241,17 +170,6 @@ const StoryAndGallery = () => {
     setStoryImageIndex((prev) => (prev - 1 + POLAROID_IMAGES.length) % POLAROID_IMAGES.length)
   }
 
-  const openGalleryModal = (index) => {
-    setGalleryImageIndex(index)
-    setIsGalleryModalOpen(true)
-  }
-  const nextGalleryImage = () => {
-    setGalleryImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length)
-  }
-  const prevGalleryImage = () => {
-    setGalleryImageIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length)
-  }
-
   useEffect(() => {
     if (!isStoryModalOpen) return
     const onKey = (e) => {
@@ -264,7 +182,7 @@ const StoryAndGallery = () => {
   }, [isStoryModalOpen])
 
   useEffect(() => {
-    if (isStoryModalOpen || isGalleryModalOpen) {
+    if (isStoryModalOpen) {
       document.body.style.overflow = 'hidden'
       const sw = window.innerWidth - document.documentElement.clientWidth
       if (sw > 0) document.body.style.paddingRight = `${sw}px`
@@ -276,18 +194,7 @@ const StoryAndGallery = () => {
       document.body.style.overflow = ''
       document.body.style.paddingRight = ''
     }
-  }, [isStoryModalOpen, isGalleryModalOpen])
-
-  useEffect(() => {
-    if (!isGalleryModalOpen) return
-    const onKey = (e) => {
-      if (e.key === 'Escape') setIsGalleryModalOpen(false)
-      else if (e.key === 'ArrowLeft') prevGalleryImage()
-      else if (e.key === 'ArrowRight') nextGalleryImage()
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [isGalleryModalOpen])
+  }, [isStoryModalOpen])
 
   useEffect(() => {
     if (!isStoryModalOpen) return
@@ -304,20 +211,9 @@ const StoryAndGallery = () => {
     }
   }, [isStoryModalOpen])
 
-  useEffect(() => {
-    if (!isGalleryModalOpen) return
-    if (galleryOverlayRef.current && galleryContentRef.current) {
-      gsap.set([galleryOverlayRef.current, galleryContentRef.current], { opacity: 0 })
-      gsap.set(galleryContentRef.current, { scale: 0.9 })
-      gsap.to(galleryOverlayRef.current, { opacity: 1, duration: 0.3, ease: 'power2.out' })
-      gsap.to(galleryContentRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' })
-    }
-  }, [isGalleryModalOpen])
-
   return (
     <>
       <div id="love-story" className="relative w-full overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-36 md:pb-24 md:pt-44">
-        {/* Love Story background texture */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
           style={{
@@ -366,9 +262,7 @@ const StoryAndGallery = () => {
                         )}
                       </div>
                       <div className="flex min-w-0 items-center">
-                        <p
-                          className="story-polaroid-text w-full text-left text-xs font-albert font-thin leading-relaxed text-white sm:text-sm"
-                        >
+                        <p className="story-polaroid-text w-full text-left text-xs font-albert font-thin leading-relaxed text-white sm:text-sm">
                           {formatParagraph(paragraph)}
                         </p>
                       </div>
@@ -376,9 +270,7 @@ const StoryAndGallery = () => {
                   ) : (
                     <>
                       <div className="flex min-w-0 items-center">
-                        <p
-                          className="story-polaroid-text w-full text-right text-xs font-albert font-thin leading-relaxed text-white sm:text-sm"
-                        >
+                        <p className="story-polaroid-text w-full text-right text-xs font-albert font-thin leading-relaxed text-white sm:text-sm">
                           {formatParagraph(paragraph)}
                         </p>
                       </div>
@@ -395,73 +287,6 @@ const StoryAndGallery = () => {
                       </div>
                     </>
                   )}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="gallery"
-        className="relative pb-24 sm:pb-32 md:pb-40 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/assets/images/graphics/old-book-bg.png)' }}
-      >
-        <div ref={galleryTitleRef} className="relative z-10 mb-12 sm:mb-16">
-          <div
-            className="relative z-10"
-            style={{
-              width: '100vw',
-              marginLeft: 'calc(-50vw + 50%)',
-              marginRight: 'calc(-50vw + 50%)',
-              backgroundColor: theme.background.gold,
-            }}
-          >
-            <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto px-6 py-6 sm:py-8 md:py-10">
-              <h3 className="text-center">
-                <span
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight whitespace-nowrap inline-block"
-                  style={sectionTitleStyle}
-                >
-                  Moments
-                </span>
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-xs sm:max-w-md lg:max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4" style={{ gridAutoRows: '1fr' }}>
-            {GALLERY_IMAGES.map((image, index) => {
-              const gridColumn = getMomentsGalleryGridColumn(index)
-              return (
-                <div
-                  key={index}
-                  ref={(el) => {
-                    galleryImageRefs.current[index] = el
-                  }}
-                  className="cursor-pointer overflow-hidden max-h-[150px] lg:max-h-[250px]"
-                  style={{
-                    gridColumn,
-                    height: '100%',
-                    willChange: 'transform',
-                    backfaceVisibility: 'hidden',
-                    transform: 'translateZ(0)',
-                  }}
-                  onClick={() => openGalleryModal(index)}
-                >
-                  <img
-                    src={image}
-                    alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    style={{
-                      height: '100%',
-                      willChange: 'transform',
-                      backfaceVisibility: 'hidden',
-                      objectPosition: getGalleryTileObjectPosition(image),
-                    }}
-                    loading="lazy"
-                  />
                 </div>
               )
             })}
@@ -523,65 +348,6 @@ const StoryAndGallery = () => {
             <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-white/20 px-4 py-2 backdrop-blur-sm">
               <span className="font-albert text-sm text-white">
                 {storyImageIndex + 1} / {POLAROID_IMAGES.length}
-              </span>
-            </div>
-          </div>,
-          document.body
-        )}
-
-      {isGalleryModalOpen &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center"
-            style={{ top: 0, left: 0, right: 0, bottom: 0 }}
-          >
-            <div
-              ref={galleryOverlayRef}
-              className="absolute inset-0 bg-black/90 backdrop-blur-sm"
-              onClick={() => setIsGalleryModalOpen(false)}
-            />
-            <button
-              type="button"
-              onClick={() => setIsGalleryModalOpen(false)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Close"
-            >
-              <X className="w-6 h-6 text-white" />
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                prevGalleryImage()
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Previous"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation()
-                nextGalleryImage()
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-            <div
-              ref={galleryContentRef}
-              className="relative z-10 max-w-[90vw] max-h-[90vh] flex items-center justify-center pointer-events-none"
-            >
-              <img
-                src={GALLERY_IMAGES[galleryImageIndex]}
-                alt=""
-                className="max-w-full max-h-[90vh] object-contain"
-              />
-            </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm">
-              <span className="text-white text-sm font-albert">
-                {galleryImageIndex + 1} / {GALLERY_IMAGES.length}
               </span>
             </div>
           </div>,

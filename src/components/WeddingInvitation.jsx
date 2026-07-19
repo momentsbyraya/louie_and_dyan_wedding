@@ -12,10 +12,11 @@ import Schedule from './Schedule'
 import DressCode from './DressCode'
 import MapDirections from './Venue'
 import RSVP from './RSVP'
+import Gifts from './Gifts'
 import FAQ from './FAQ'
 import Footer from './Footer'
+import Entourage from './Entourage'
 import EnhancedLazySection from './EnhancedLazySection'
-import AutoplayVideo from './AutoplayVideo'
 
 const WeddingInvitation = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
@@ -40,11 +41,6 @@ const WeddingInvitation = () => {
       <main className="main-container h-full section-container">
         {/* Hero Section - Always visible */}
         <section className='h-full'><Hero /></section>
-
-        {/* Wedding Details - Save the Date (right after Hero) */}
-        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
-          <Counter countdown={countdown} />
-        </EnhancedLazySection>
         
         {/* Music Player Section - Hidden for now */}
         {/* <MusicPlayer /> */}
@@ -58,12 +54,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/IMG_6736.jpeg"
-              alt="Jade and Vannie"
+              src="/assets/images/prenup/B.D&A-EngagementFinal-6.jpg"
+              alt="Daniel and Aprille"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/IMG_6736.jpeg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-6.jpg')}
             />
           </div>
         </section>
@@ -73,24 +69,76 @@ const WeddingInvitation = () => {
           <Schedule />
         </EnhancedLazySection>
 
-        {/* Prenup photo — Between Schedule and RSVP */}
+        {/* Prenup photo — Between Schedule and Entourage */}
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/IMG_8902.jpg"
-              alt="Jade and Vannie"
+              src="/assets/images/prenup/B.D&A-EngagementFinal-9.jpg"
+              alt="Daniel and Aprille"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/IMG_8902.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-9.jpg')}
             />
           </div>
         </section>
 
-        {/* RSVP Section - Full Width */}
+        {/* Entourage — full list inline (no modal / no button) */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="entourage">
+          <Entourage />
+        </EnhancedLazySection>
+
+        {/* Prenup photo — Between Entourage and RSVP / Gifts */}
+        <section className="relative w-full">
+          <div className="w-full flex justify-center items-center">
+            <img
+              src="/assets/images/prenup/D&A-EngagementFinal-5.jpg"
+              alt="Daniel and Aprille"
+              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ width: '100vw' }}
+              loading="lazy"
+              onClick={() => setSelectedImage('/assets/images/prenup/D&A-EngagementFinal-5.jpg')}
+            />
+          </div>
+        </section>
+
+        {/* RSVP Section — inline Google Form, no modal */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="rsvp">
           <RSVP />
         </EnhancedLazySection>
+
+        {/* Prenup photo — Under RSVP */}
+        <section className="relative w-full">
+          <div className="w-full flex justify-center items-center">
+            <img
+              src="/assets/images/prenup/B.D&A-EngagementFinal-8.jpg"
+              alt="Daniel and Aprille"
+              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ width: '100vw' }}
+              loading="lazy"
+              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-8.jpg')}
+            />
+          </div>
+        </section>
+
+        {/* Gifts Section */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="gifts">
+          <Gifts />
+        </EnhancedLazySection>
+
+        {/* Prenup photo — After Gifts */}
+        <section className="relative w-full">
+          <div className="w-full flex justify-center items-center">
+            <img
+              src="/assets/images/prenup/B.D&A-EngagementFinal-46.jpg"
+              alt="Daniel and Aprille"
+              className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ width: '100vw' }}
+              loading="lazy"
+              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-46.jpg')}
+            />
+          </div>
+        </section>
 
         {/* Dress Code Section */}
         <EnhancedLazySection animationClass="fade-slide-right" sectionName="dress-code">
@@ -101,11 +149,11 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
-              src="/assets/images/prenup/IMG_8520.jpg" 
+              src="/assets/images/prenup/D&A-EngagementFinal-35.jpg" 
               alt="Wedding moment" 
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/IMG_8520.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/D&A-EngagementFinal-35.jpg')}
             />
           </div>
         </section>
@@ -161,14 +209,10 @@ const WeddingInvitation = () => {
           <FAQ />
         </EnhancedLazySection>
 
-        {/* Video Section - After FAQ */}
-        <section className="relative w-screen m-0 p-0" style={{ width: '100vw' }}>
-          <AutoplayVideo
-            src="/assets/video/last.mov"
-            threshold={0.4}
-            aspectRatio="16 / 9"
-          />
-        </section>
+        {/* Save the Date countdown — after Reminder/FAQ */}
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="counter">
+          <Counter countdown={countdown} />
+        </EnhancedLazySection>
 
         {/* Footer */}
         <Footer />
