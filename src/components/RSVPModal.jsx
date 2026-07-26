@@ -91,7 +91,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
         {/* RSVP Google Form */}
         <div className="flex-1 min-h-0 p-2 sm:p-4">
           <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSeIHfVx4zbZF9JJ9sFUANQ4TpxbzRMEzvXFaGJ5fFREi_FwlA/viewform?embedded=true"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSflXnrfPQkjn6w2WAYtZ9wpzl37Xz68PRTRnhoJVs4fd2BJ8Q/viewform?embedded=true"
             title="RSVP form"
             className="w-full h-full border-0"
             loading="lazy"

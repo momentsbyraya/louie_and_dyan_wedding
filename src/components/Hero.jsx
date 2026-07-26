@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useMemo } from 'react'
+import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { gsap } from 'gsap'
 import { couple, venues } from '../data'
+import { getTimeUntilWedding } from '../utils/countdown'
 import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
 const HERO_BG_IMAGE = '/assets/images/prenup/B.D&A-EngagementFinal-19.jpg'
@@ -9,8 +10,9 @@ const Hero = () => {
   const invitationTextRef = useRef(null)
   const coupleNamesRef = useRef(null)
   const dateRef = useRef(null)
-  const receptionRef = useRef(null)
+  const countdownRef = useRef(null)
   const heroImgRef = useRef(null)
+  const [countdown, setCountdown] = useState(getTimeUntilWedding())
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
@@ -35,7 +37,6 @@ const Hero = () => {
   }, [couple.groom.firstName, couple.bride.firstName])
 
   const venue = venues.ceremony
-  const reception = venues.reception
   const safariLite = shouldUseSafariLiteMode()
   const heroSvgFilter = safariLite ? undefined : 'url(#heroTopBlurFilter)'
   const heroBottomSvgFilter = safariLite ? undefined : 'url(#heroBottomBlurFilter)'
@@ -45,17 +46,24 @@ const Hero = () => {
   }, [])
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(getTimeUntilWedding())
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
     const animatedRefs = [
       invitationTextRef,
       coupleNamesRef,
       dateRef,
-      receptionRef,
+      countdownRef,
     ].map((r) => r.current)
 
     if (invitationTextRef.current) gsap.set(invitationTextRef.current, { opacity: 0, y: 20 })
     if (coupleNamesRef.current) gsap.set(coupleNamesRef.current, { opacity: 0, y: 30 })
     if (dateRef.current) gsap.set(dateRef.current, { opacity: 0, y: 20 })
-    if (receptionRef.current) gsap.set(receptionRef.current, { opacity: 0, y: 20 })
+    if (countdownRef.current) gsap.set(countdownRef.current, { opacity: 0, y: 20 })
 
     const tl = gsap.timeline({ delay: 0.3 })
 
@@ -83,8 +91,8 @@ const Hero = () => {
         ease: 'power2.out',
       })
     }
-    if (receptionRef.current) {
-      tl.to(receptionRef.current, {
+    if (countdownRef.current) {
+      tl.to(countdownRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.6,
@@ -106,6 +114,13 @@ const Hero = () => {
   const heroCoupleColor = '#3e2a1a'
   const heroContrastShadow =
     '0 1px 0 rgba(255, 251, 248, 0.75), 0 1px 10px rgba(248, 243, 234, 0.9)'
+
+  const countdownUnits = [
+    { value: countdown.days, label: 'Days' },
+    { value: countdown.hours, label: 'Hours' },
+    { value: countdown.minutes, label: 'Mins' },
+    { value: countdown.seconds, label: 'Secs' },
+  ]
 
   return (
     <div
@@ -265,27 +280,21 @@ const Hero = () => {
           </div>
 
           <div
-            ref={receptionRef}
-            className="mx-auto mt-8 max-w-2xl text-center sm:mt-10 md:mt-12 lg:mt-16 lg-custom:mt-6"
+            ref={countdownRef}
+            className="mx-auto mt-6 flex max-w-2xl items-end justify-center gap-2.5 sm:mt-8 sm:gap-3.5 md:mt-10 md:gap-5 lg-custom:mt-5"
           >
-            <p
-              className="mb-2 text-xs tracking-[0.25em] sm:text-sm md:text-base"
-              style={{ color: '#FFFFFF', fontFamily: 'Alice, serif', fontWeight: 'bold' }}
-            >
-              RECEPTION
-            </p>
-            <p
-              className="px-4 text-lg leading-snug sm:text-xl md:text-2xl lg:text-3xl lg-custom:text-lg"
-              style={{
-                color: '#FFFFFF',
-                fontFamily: 'Poppins, sans-serif',
-                fontWeight: 500,
-                textShadow:
-                  '0 0 10px rgba(170, 141, 90, 0.8), 0 0 20px rgba(170, 141, 90, 0.5), 0 0 30px rgba(170, 141, 90, 0.35)',
-              }}
-            >
-              {reception.name}
-            </p>
+            {countdownUnits.map((unit) => (
+              <div key={unit.label} className="flex flex-col items-center">
+                <div className="flex min-w-[3.75rem] items-center justify-center rounded-md border border-white/35 bg-black/25 px-3 py-2.5 backdrop-blur-[2px] sm:min-w-[4.5rem] sm:px-3.5 sm:py-3 md:min-w-[5.25rem] md:px-4 md:py-3.5">
+                  <span className="font-albert text-2xl font-semibold tabular-nums leading-none text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                    {unit.value}
+                  </span>
+                </div>
+                <span className="mt-2 font-albert text-[10px] font-medium uppercase tracking-wider text-white/85 sm:text-xs md:text-sm">
+                  {unit.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,17 +1,19 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request attire in our color palette — brown/mocha and blush pink."
+    "description": "We kindly request attire in our color palette — Champagne, Blush, Nude Brown, and Mocha."
   },
   "sections": [
     {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Brown/Mocha & Blush Pink for all guests.",
+      "description": "Champagne, Blush, Nude Brown & Mocha for all guests.",
       "colors": [
-        { "name": "Brown / Mocha", "hex": "#6F4E37" },
-        { "name": "Blush Pink", "hex": "#E8C5C0" }
+        { "name": "Champagne", "hex": "#F7E7CE" },
+        { "name": "Blush", "hex": "#E8C5C0" },
+        { "name": "Nude Brown", "hex": "#C4A484" },
+        { "name": "Mocha", "hex": "#6F4E37" }
       ],
       "colorSwatches": [
         {

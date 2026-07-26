@@ -44,6 +44,7 @@ const AutoplayYouTube = ({
   const src =
     `https://www.youtube.com/embed/${videoId}` +
     `?enablejsapi=1` +
+    `&autoplay=1` +
     `&mute=1` +
     `&playsinline=1` +
     `&controls=0` +

@@ -1,6 +1,11 @@
-/* Venue image frame — matches tobey-and-clairden Details venue section */
+/* Venue media frame */
 .venue-image-container {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
+}
+
+.venue-image-container .relative.aspect-video {
+  aspect-ratio: 16 / 9;
+  height: 100%;
 }
 
 @media (min-width: 992px) {

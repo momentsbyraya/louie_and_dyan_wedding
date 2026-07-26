@@ -102,7 +102,7 @@ const WeddingInvitation = () => {
           </div>
         </section>
 
-        {/* RSVP Section — inline Google Form, no modal */}
+        {/* RSVP Section — button opens modal */}
         <EnhancedLazySection animationClass="fade-scale" sectionName="rsvp">
           <RSVP />
         </EnhancedLazySection>

@@ -2,78 +2,62 @@
   "parents": {
     "groom": {
       "members": [
-        "Mr. John Nillos",
-        "Mrs. Adelina Nillos"
+        "Roy Lockyer",
+        "Kym Lockyer"
       ]
     },
     "bride": {
       "members": [
-        "Mr. Leo Van Opstal",
-        "Mr. Raul Labroso",
-        "Mrs. Lydia Van Opstal"
+        "Samuel Rodriguez",
+        "Francisca Rodriguez"
       ]
     }
   },
   "principalSponsors": {
     "items": [
-      { "ninong": "Atty. Samuel Laurente", "ninang": "Engr. Nancy Laurente" },
-      { "ninong": "Engr. Guillermo Laurente", "ninang": "Mrs. Sulficia Laurente" },
-      { "ninong": "Engr. Eduardo Laurente", "ninang": "Engr. Jennet Laurente" },
-      { "ninong": "Mr. Francisco Bunal", "ninang": "Mrs. Gina Bunal" },
-      { "ninong": "Mr. Franklin Tan Jr.", "ninang": "Mrs. Rosemarie Arroyo-Chua" },
-      { "ninong": "Mr. Aristotle Rosaldo", "ninang": "Engr. Jona Rosaldo" },
-      { "ninong": "Mr. Ramil Bujawe", "ninang": "Mrs. Gina Bujawe" },
-      { "ninong": "Engr. Teodoro Moncera Jr.", "ninang": "Mrs. Salina Moncera" },
-      { "ninong": "Mr. Sancho Barrios Jr.", "ninang": "Mrs. Lea Barrios" },
-      { "ninong": "Mr. Felipe Noquial Jr.", "ninang": "Mrs. Vangie Tañada" },
-      { "ninong": "Mr. Pepito Dela Cruz", "ninang": "Mrs. Nida Dela Cruz" },
-      { "ninong": "Mr. Jessie Del Rosario", "ninang": "Mrs. Emma Del Rosario" },
-      { "ninong": "Mr. Gregorio Jimenez", "ninang": "Mrs. Myrna Jimenez" },
-      { "ninong": "Mr. Ronald Delis", "ninang": "Mrs. Chona Delis" },
-      { "ninong": "Mr. Erlindo Suan", "ninang": "Mrs. Jocelyn Suan" },
-      { "ninong": "Mr. Robert De Guzman", "ninang": "Mrs. Jesusa De Guzman" }, 
-      { "ninong": "Mr. Carlo Globa", "ninang": "Ms. Raquel Tampus" }
+      { "ninong": "Engr Marc Rodriguez", "ninang": "Felicima Nisperos" },
+      { "ninong": "Engr Jose Asprer", "ninang": "Lorna Rowena Asprer" },
+      { "ninong": "Engr Allan Rivera", "ninang": "Mary Anne Rivera" },
+      { "ninong": "Atty Manuel Lasmarias", "ninang": "Yollanda Lasmarias" },
+      { "ninong": "Benny Rodriguez", "ninang": "Annabelle Rodriguez" },
+      { "ninong": "Ferdinand Cumlat", "ninang": "Marites Cumlat" },
+      { "ninong": "Annabelle Cubis", "ninang": "Ms Amelita Galvez" },
+      { "ninong": "Tito Boy", "ninang": "Tito Boys Wife" },
+      { "ninong": "Carl Vercede", "ninang": "Raquel Rodriguez" },
+      { "ninang": "Amelia Galvez" }
     ]
   },
   "bridalParty": {
-    "bestman": "John Nillos Jr.",
-    "maidOfHonor": "Kimberly Van Opstal",
-    "matronOfHonor": "Ashley Basto-Orbase",
-    "bridesman": "Emilio Hortillosa",
+    "bestman": "Roy Lockyer",
+    "maidOfHonor": "Judea Vercede",
     "groomsMenBridesmaids": [
-      { "groomsman": "Lanz Orbase", "bridesmaid": "Camille Pura-Uy" },
-      { "groomsman": "Segundino Lumanog", "bridesmaid": "Angelica Cabanatan" },
-      { "groomsman": "Luigi Silvestre", "bridesmaid": "Athena Dimagmaliw" },
-      { "groomsman": "Spencer Tañada", "bridesmaid": "Gellen Bellano" },
-      { "groomsman": "Yancy Fabro", "bridesmaid": "Aura Mae Laurente" },
-      { "groomsman": "Renso Ileto", "bridesmaid": "Charina Laurente" },
-      { "groomsman": "Vohn Cruz", "bridesmaid": "Iris Aguilos" },
-      { "groomsman": "Jerome Magbago", "bridesmaid": "Jead Ann Nillos-Albuna" },
-      { "groomsman": "Romeo Estepa", "bridesmaid": "" }
+      { "groomsman": "Thomas Chubb", "bridesmaid": "Eunnice Joy Cumlat" },
+      { "groomsman": "Yuto Iino", "bridesmaid": "Graceline Rivera" },
+      { "groomsman": "", "bridesmaid": "Sharnie Holman" },
+      { "groomsman": "", "bridesmaid": "Pearlyn Phia Rodriguez" },
+      { "groomsman": "", "bridesmaid": "Roa Petra Crease" }
     ]
   },
   "secondarySponsors": {
+    "candle": {
+      "left": "Trisha Mae Rodriguez",
+      "right": "Edward Baltazar"
+    },
     "veil": {
       "pairs": [
-        { "left": "Clint Van Opstal", "right": "Samantha Tugadi" }
+        { "left": "Betina Angelica Rodriguez", "right": "Denver Atutubo" }
       ]
-    },
-    "candle": {
-      "left": "Ben Opstal",
-      "right": "Louvette Pallasigui"
     },
     "cord": {
       "pairs": [
-        { "left": "Yousef Alzebeidy", "right": "Margeleine Marquez" }
+        { "left": "Louie Marabella", "right": "Shamil Lorenzo" }
       ]
     }
   },
   "flowerGirls": [
-    "Vien Johanie Albuna",
-    "Vaughn Adielayne Albuna"
+    "Dream Vercede",
+    "Anaiah Adrielle Asprer"
   ],
-  "ringBearer": "Iñigo Rosaldo",
-  "candleBearer": "Vlad Melvin Albuna",
-  "coinBearer": "Sebastian Rosaldo",
-  "bibleBearer": "Viktor Francis Albuna"
+  "ringBearer": "Luis Rodriguez",
+  "coinBearer": "Hendrix Crease"
 }
