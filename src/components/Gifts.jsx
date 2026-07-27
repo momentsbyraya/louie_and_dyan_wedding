@@ -77,7 +77,7 @@ const Gifts = () => {
                     Notes on Gifts
                   </h2>
                   <div>
-                    <p className="text-base sm:text-lg font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed mb-4">
+                    <p className="text-base sm:text-lg font-albert font-thin text-[#27323B] max-w-3xl mx-auto leading-relaxed mb-4">
                       Your presence is already a gift to us. If you wish to bless us further, a monetary gift would be greatly appreciated — you may leave an envelope or gift during the wedding dance.
                     </p>
 

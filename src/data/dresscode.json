@@ -1,19 +1,19 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly request attire in our color palette — Champagne, Blush, Nude Brown, and Mocha."
+    "description": "We kindly invite our guests to wear warm, elegant tones. Kindly reserve white for the bride only."
   },
   "sections": [
     {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Champagne, Blush, Nude Brown & Mocha for all guests.",
+      "description": "Please wear any warm color — soft neutrals, earth tones, or warm pastels are all welcome. White is reserved for the bride only on our wedding day.",
       "colors": [
         { "name": "Champagne", "hex": "#F7E7CE" },
         { "name": "Blush", "hex": "#E8C5C0" },
-        { "name": "Nude Brown", "hex": "#C4A484" },
-        { "name": "Mocha", "hex": "#6F4E37" }
+        { "name": "Terracotta", "hex": "#C47B5B" },
+        { "name": "Mocha", "hex": "#8B6F5C" }
       ],
       "colorSwatches": [
         {

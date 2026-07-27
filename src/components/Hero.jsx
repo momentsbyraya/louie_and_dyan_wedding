@@ -4,7 +4,7 @@ import { couple, venues } from '../data'
 import { getTimeUntilWedding } from '../utils/countdown'
 import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
-const HERO_BG_IMAGE = '/assets/images/prenup/B.D&A-EngagementFinal-19.jpg'
+const HERO_BG_IMAGE = '/assets/images/prenup/IMG_0048.jpg'
 
 const Hero = () => {
   const invitationTextRef = useRef(null)
@@ -110,10 +110,10 @@ const Hero = () => {
 
   const heroAlt = couple.together.replace('&', 'and')
 
-  const heroInk = '#3e2418'
-  const heroCoupleColor = '#3e2a1a'
+  const heroInk = '#27323B'
+  const heroCoupleColor = '#2D4251'
   const heroContrastShadow =
-    '0 1px 0 rgba(255, 251, 248, 0.75), 0 1px 10px rgba(248, 243, 234, 0.9)'
+    '0 1px 0 rgba(255, 255, 255, 0.75), 0 1px 10px rgba(238, 244, 247, 0.9)'
 
   const countdownUnits = [
     { value: countdown.days, label: 'Days' },
@@ -133,7 +133,7 @@ const Hero = () => {
         alt={heroAlt}
         className="h-full w-full object-cover"
         style={{
-          objectPosition: '55% center',
+          objectPosition: '38% center',
           transform: 'scale(1.12)',
           transformOrigin: 'center center',
         }}
@@ -152,10 +152,10 @@ const Hero = () => {
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
           </filter>
           <linearGradient id="heroTopCreamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(248, 243, 234, 0.94)" />
-            <stop offset="40%" stopColor="rgba(248, 243, 234, 0.82)" />
-            <stop offset="68%" stopColor="rgba(203, 203, 192, 0.48)" />
-            <stop offset="100%" stopColor="rgba(248, 243, 234, 0)" />
+            <stop offset="0%" stopColor="rgba(252, 252, 251, 0.94)" />
+            <stop offset="40%" stopColor="rgba(248, 250, 252, 0.82)" />
+            <stop offset="68%" stopColor="rgba(220, 232, 239, 0.48)" />
+            <stop offset="100%" stopColor="rgba(248, 250, 252, 0)" />
           </linearGradient>
         </defs>
         <rect
@@ -191,7 +191,7 @@ const Hero = () => {
               textShadow: heroContrastShadow,
             }}
           >
-            {heroGroomName} & {heroBrideName}
+            {heroBrideName} & {heroGroomName}
           </p>
         </div>
       </div>
@@ -207,10 +207,10 @@ const Hero = () => {
             <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
           </filter>
           <linearGradient id="heroBottomForestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(111, 78, 55, 0)" />
-            <stop offset="32%" stopColor="rgba(111, 78, 55, 0.52)" />
-            <stop offset="62%" stopColor="rgba(111, 78, 55, 0.85)" />
-            <stop offset="100%" stopColor="rgba(70, 47, 32, 0.92)" />
+            <stop offset="0%" stopColor="rgba(65, 91, 111, 0)" />
+            <stop offset="32%" stopColor="rgba(65, 91, 111, 0.52)" />
+            <stop offset="62%" stopColor="rgba(45, 66, 81, 0.85)" />
+            <stop offset="100%" stopColor="rgba(39, 50, 59, 0.92)" />
           </linearGradient>
         </defs>
         <rect
@@ -255,7 +255,7 @@ const Hero = () => {
                   fontFamily: 'Alice, serif',
                   fontWeight: 'bold',
                   textShadow:
-                    '0 0 10px rgba(170, 141, 90, 0.8), 0 0 20px rgba(170, 141, 90, 0.5), 0 0 30px rgba(170, 141, 90, 0.35)',
+                    '0 0 10px rgba(141, 174, 196, 0.8), 0 0 20px rgba(111, 146, 170, 0.5), 0 0 30px rgba(111, 146, 170, 0.35)',
                 }}
               >
                 {dateInfo.day}

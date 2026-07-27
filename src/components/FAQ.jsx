@@ -63,14 +63,14 @@ const FAQ = () => {
     <section
       ref={sectionRef}
       id="faq"
-      className="relative w-full overflow-hidden bg-nude-brown pt-12 pb-20"
+      className="relative w-full overflow-hidden bg-wedding-100 pt-12 pb-20"
     >
       {/* FAQ Section */}
       <div className="relative z-20 faq-section">
         <div ref={faqRef} className="relative z-10 w-full px-8 sm:px-12 md:px-8 lg:px-16">
           <div ref={faqTitleRef} className="relative inline-block px-6 py-1 mb-4 text-center w-full sm:mb-6">
             <h2
-              className="mb-0 pt-2 text-4xl text-white sm:pt-4 sm:text-5xl md:pt-4 md:text-6xl lg:text-7xl leading-tight whitespace-nowrap"
+              className="mb-0 pt-2 text-4xl text-wedding-700 sm:pt-4 sm:text-5xl md:pt-4 md:text-6xl lg:text-7xl leading-tight whitespace-nowrap"
               style={{ fontFamily: '"Pinyon Script", cursive' }}
             >
               Reminder
@@ -81,15 +81,15 @@ const FAQ = () => {
               {faq.faqData.map((item, index) => (
                 <div key={index}>
                   <div className="mb-2">
-                    <p className="mb-2 font-albert text-base font-bold text-white sm:text-lg">
+                    <p className="mb-2 font-albert text-base font-bold text-primary-text sm:text-lg">
                       Q: {item.question}
                     </p>
-                    <p className="whitespace-pre-line font-albert text-sm font-thin text-white/95 sm:text-base">
+                    <p className="whitespace-pre-line font-albert text-sm font-thin text-secondary-text sm:text-base">
                       A: {item.answer}
                     </p>
                   </div>
                   {index < faq.faqData.length - 1 && (
-                    <div className="mt-6 h-px bg-white/35"></div>
+                    <div className="mt-6 h-px bg-border-gray"></div>
                   )}
                 </div>
               ))}

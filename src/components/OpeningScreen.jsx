@@ -74,33 +74,33 @@ function OpeningScreen({ onEnvelopeOpen }) {
   return (
     <div 
       ref={openingSectionRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center opening-section"
+      className="fixed inset-0 z-[9999] flex items-start justify-center opening-section pt-10 sm:pt-12 md:pt-14"
     >
       {/* Background — engagement photo */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        className="absolute inset-0 w-full h-full bg-cover"
         style={{
-          backgroundImage: "url('/assets/images/prenup/D&A-EngagementFinal-3.jpg')",
+          backgroundImage: "url('/assets/images/prenup/IMG_0033.jpg')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 70%',
           backgroundRepeat: 'no-repeat'
         }}
       />
-      {/* Overlay — softens photo so text & envelope stand out */}
+      {/* Overlay — darker at top for text, lighter at bottom so couple stays visible */}
       <div
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, rgba(62, 39, 35, 0.45), rgba(62, 39, 35, 0.55))'
+          background: 'linear-gradient(to bottom, rgba(45, 66, 81, 0.5) 0%, rgba(45, 66, 81, 0.35) 45%, rgba(45, 66, 81, 0.2) 100%)'
         }}
         aria-hidden="true"
       />
-      <section className="cssletter flex flex-col items-center relative z-10 w-full py-8" style={{ minHeight: 'auto', height: 'auto' }}>
+      <section className="cssletter flex flex-col items-center relative z-10 w-full py-4 sm:py-6" style={{ minHeight: 'auto', height: 'auto' }}>
         {/* You are invited text */}
-        <div ref={clickMeRef} className="mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-center click-me-container">
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight" style={{ color: '#f5f0eb' }}>
+        <div ref={clickMeRef} className="mb-2 sm:mb-3 md:mb-4 text-center click-me-container">
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-foglihten uppercase leading-tight" style={{ color: '#F8FAFC' }}>
             YOU ARE GRACIOUSLY
           </p>
-          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight" style={{ fontFamily: 'Pinyon Script, cursive', color: '#f5f0eb' }}>
+          <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-tight" style={{ fontFamily: 'Pinyon Script, cursive', color: '#FFFFFF' }}>
             Invited
           </p>
         </div>
@@ -138,11 +138,11 @@ function OpeningScreen({ onEnvelopeOpen }) {
           </div>
         </div>
         {/* Click to open text below envelope */}
-        <div ref={coupleNameRef} className="mt-4 sm:mt-6 md:mt-8 text-center couple-name-container">
+        <div ref={coupleNameRef} className="mt-2 sm:mt-3 md:mt-4 text-center couple-name-container">
           <p 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-foglihten uppercase leading-tight"
             style={{ 
-              color: '#f5f0eb',
+              color: '#F8FAFC',
               fontSize: 'clamp(1.5rem, 4vw, 48px)'
             }}
           >

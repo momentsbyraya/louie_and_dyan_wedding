@@ -28,14 +28,15 @@
     ]
   },
   "bridalParty": {
-    "bestman": "Roy Lockyer",
-    "maidOfHonor": "Judea Vercede",
+    "bestman": "Mark Laurence Ramirez",
+    "maidOfHonor": "",
     "groomsMenBridesmaids": [
-      { "groomsman": "Thomas Chubb", "bridesmaid": "Eunnice Joy Cumlat" },
-      { "groomsman": "Yuto Iino", "bridesmaid": "Graceline Rivera" },
-      { "groomsman": "", "bridesmaid": "Sharnie Holman" },
-      { "groomsman": "", "bridesmaid": "Pearlyn Phia Rodriguez" },
-      { "groomsman": "", "bridesmaid": "Roa Petra Crease" }
+      { "groomsman": "Nelson Caringal", "bridesmaid": "Danica Gato" },
+      { "groomsman": "Ian Madlangbayan", "bridesmaid": "Dovelyn Inandan" },
+      { "groomsman": "Jebril Alan Calingasan", "bridesmaid": "Shane Marasigan" },
+      { "groomsman": "Jerome Pabrero", "bridesmaid": "Gretchen Balanay" },
+      { "groomsman": "", "bridesmaid": "Kristel Maralit" },
+      { "groomsman": "", "bridesmaid": "Ely Jane Mabait" }
     ]
   },
   "secondarySponsors": {

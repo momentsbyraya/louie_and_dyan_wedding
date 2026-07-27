@@ -61,14 +61,14 @@ const Paragraph = () => {
         <div className="max-w-md sm:max-w-xl lg:max-w-3xl w-full mx-auto px-8 sm:px-12 lg:px-16">
           {/* Header Section */}
           <div ref={headerRef} className="text-left mb-12">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] font-lavishly italic">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#27323B] font-lavishly italic">
               when two hearts met....
             </h2>
             <div ref={contentRef}>
               {/* Prenup Image with Soft Mask */}
               <div className="soft-edges mb-8 relative">
                 <img 
-                  src="/assets/images/prenup/D&A-EngagementFinal-14.jpg"
+                  src="/assets/images/prenup/IMG_0050.jpg"
                   alt="Prenup" 
                   className="w-full"
                 />
@@ -80,7 +80,7 @@ const Paragraph = () => {
                   style={{ width: 'auto', height: 'auto', maxWidth: '150px', maxHeight: '150px', transform: 'scaleX(-1)' }}
                 />
               </div>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#333333] font-lavishly italic text-center">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#27323B] font-lavishly italic text-center">
                 the world finally<br />made sense.
               </h2>
             </div>

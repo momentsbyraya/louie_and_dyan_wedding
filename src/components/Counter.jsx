@@ -81,7 +81,7 @@ const Counter = ({ countdown }) => {
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/prenup/B.D&A-EngagementFinal-19.jpg)',
+          backgroundImage: 'url(/assets/images/prenup/IMG_0048.jpg)',
         }}
         aria-hidden
       />
@@ -107,7 +107,7 @@ const Counter = ({ countdown }) => {
             </p>
 
             <div
-              className="my-0.5 h-px w-10 bg-gradient-to-r from-transparent via-[#edb030] to-transparent sm:w-12"
+              className="my-0.5 h-px w-10 bg-gradient-to-r from-transparent via-[#8DAEC4] to-transparent sm:w-12"
               aria-hidden
             />
 

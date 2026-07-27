@@ -134,7 +134,7 @@ const DressCode = () => {
                 Dress Code
               </h2>
               {/* General Dress Code Description */}
-              <p className="text-base sm:text-lg font-albert font-thin italic text-[#333333] mt-4">
+              <p className="text-base sm:text-lg font-albert font-thin italic text-[#27323B] mt-4">
                 {dresscode.mainDressCode?.description || "We would be grateful if, when choosing outfits, you adhere to the color scheme of our celebration."}
               </p>
             </div>
@@ -167,13 +167,13 @@ const DressCode = () => {
                           {/* Category Name and Description Container */}
                           <div className="w-full">
                             {/* Category Name */}
-                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#333333] mb-2 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
+                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#27323B] mb-2 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
                               {section.title}
                             </div>
                             
                             {/* Description */}
                             {section.description && (
-                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
+                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#27323B] mb-3 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
                                 {section.description}
                               </p>
                             )}
@@ -264,7 +264,7 @@ const DressCode = () => {
                                       className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full cursor-pointer shadow-sm border border-white/60"
                                       style={{ backgroundColor: color.hex, aspectRatio: '1/1' }}
                                     ></div>
-                                    <span className="mt-2 text-xs sm:text-sm font-albert text-[#333333]">
+                                    <span className="mt-2 text-xs sm:text-sm font-albert text-[#27323B]">
                                       {color.name}
                                     </span>
                                     {activeTooltip === `${index}-${swatchIndex}` && (

@@ -54,12 +54,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/B.D&A-EngagementFinal-6.jpg"
-              alt="Daniel and Aprille"
+              src="/assets/images/prenup/IMG_0058.jpg"
+              alt="Prenup"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-6.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0058.jpg')}
             />
           </div>
         </section>
@@ -73,12 +73,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/B.D&A-EngagementFinal-9.jpg"
-              alt="Daniel and Aprille"
+              src="/assets/images/prenup/IMG_0048.jpg"
+              alt="Prenup"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-9.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0048.jpg')}
             />
           </div>
         </section>
@@ -92,12 +92,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/D&A-EngagementFinal-5.jpg"
-              alt="Daniel and Aprille"
+              src="/assets/images/prenup/IMG_0050.jpg"
+              alt="Prenup"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/D&A-EngagementFinal-5.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0050.jpg')}
             />
           </div>
         </section>
@@ -111,12 +111,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/B.D&A-EngagementFinal-8.jpg"
-              alt="Daniel and Aprille"
+              src="/assets/images/prenup/IMG_0047.jpg"
+              alt="Prenup"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-8.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0047.jpg')}
             />
           </div>
         </section>
@@ -130,12 +130,12 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img
-              src="/assets/images/prenup/B.D&A-EngagementFinal-46.jpg"
-              alt="Daniel and Aprille"
+              src="/assets/images/prenup/IMG_0052.jpg"
+              alt="Prenup"
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
               loading="lazy"
-              onClick={() => setSelectedImage('/assets/images/prenup/B.D&A-EngagementFinal-46.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0052.jpg')}
             />
           </div>
         </section>
@@ -149,11 +149,11 @@ const WeddingInvitation = () => {
         <section className="relative w-full">
           <div className="w-full flex justify-center items-center">
             <img 
-              src="/assets/images/prenup/D&A-EngagementFinal-35.jpg" 
-              alt="Wedding moment" 
+              src="/assets/images/prenup/IMG_0032.jpg" 
+              alt="Prenup" 
               className="w-screen h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
               style={{ width: '100vw' }}
-              onClick={() => setSelectedImage('/assets/images/prenup/D&A-EngagementFinal-35.jpg')}
+              onClick={() => setSelectedImage('/assets/images/prenup/IMG_0032.jpg')}
             />
           </div>
         </section>
@@ -198,13 +198,13 @@ const WeddingInvitation = () => {
           </div>
         </div>
 
-        {/* FAQ Section — wrapper + placeholder use nude brown (not lazy gray shell) */}
+        {/* FAQ Section — light dusty blue alternate (not lazy gray shell) */}
         <EnhancedLazySection
           animationClass="fade-slide-up"
           sectionName="faq"
-          className="bg-nude-brown"
+          className="bg-wedding-100"
           contentOnlyAnimation
-          placeholder={<div className="min-h-[200px] w-full bg-nude-brown" aria-hidden />}
+          placeholder={<div className="min-h-[200px] w-full bg-wedding-100" aria-hidden />}
         >
           <FAQ />
         </EnhancedLazySection>

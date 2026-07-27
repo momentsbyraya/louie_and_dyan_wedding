@@ -96,7 +96,7 @@ const RSVP = () => {
             >
               Rsvp
             </h2>
-            <p className="mx-auto max-w-2xl font-albert text-base font-thin leading-relaxed text-[#333333] sm:text-lg">
+            <p className="mx-auto max-w-2xl font-albert text-base font-thin leading-relaxed text-[#27323B] sm:text-lg">
               {rsvpEnded
                 ? 'The RSVP period has ended. For any inquiries or changes to your response, please contact us directly.'
                 : "Kindly answer the RSVP. Let us know if you'll be joining us for our celebration."}

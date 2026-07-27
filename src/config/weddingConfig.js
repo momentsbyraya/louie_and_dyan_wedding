@@ -22,20 +22,20 @@ export const weddingConfig = {
 
   // RSVP Information
   rsvp: {
-    deadline: "2026-12-04",
-    email: "",
-    phone: "",
+    deadline: "2026-11-20",
+    email: "dyanrosiamoreno25@gmail.com",
+    phone: "+1 3063223080",
     website: "",
-    message: "Please RSVP by December 4th, 2026"
+    message: "Please RSVP by November 20th, 2026"
   },
 
   // Theme and Styling
   theme: {
     primaryColor: "wedding-600",
-    secondaryColor: "rose-400",
+    secondaryColor: "wedding-400",
     accentColor: "gold-500",
     fontFamily: "serif",
-    style: "elegant" // Options: elegant, modern, rustic, vintage
+    style: "elegant" // Options: elegant, modern, timeless, classic
   },
 
   // Photos and Media
@@ -47,7 +47,7 @@ export const weddingConfig = {
 
   // Additional Information
   details: {
-    hashtag: "#DanielAndAprille2027",
+    hashtag: "#DyanAndLouie2026",
     website: "",
     registry: "",
     message: "We're excited to celebrate our special day with you!",

@@ -1,21 +1,21 @@
 {
   "bride": {
-    "firstName": "Aprille",
-    "lastName": "Rodriguez",
-    "fullName": "APRILLE RODRIGUEZ"
+    "firstName": "Dyan",
+    "lastName": "Moreno",
+    "fullName": "DYAN ROSIA MORENO"
   },
   "groom": {
-    "firstName": "Daniel",
-    "lastName": "Lockyer",
-    "fullName": "DANIEL LOCKYER"
+    "firstName": "Louie",
+    "lastName": "Ramirez",
+    "fullName": "MARK LOUIE RAMIREZ"
   },
-  "together": "DANIEL & APRILLE",
+  "together": "DYAN & LOUIE",
   "wedding": {
-    "date": "2027-01-04",
+    "date": "2026-12-20",
     "time": "4:00 PM",
-    "dayOfWeek": "Monday",
-    "month": "January",
-    "day": "4",
-    "year": "2027"
+    "dayOfWeek": "Sunday",
+    "month": "December",
+    "day": "20",
+    "year": "2026"
   }
 }

@@ -1,9 +1,9 @@
-/* Venue media frame */
+/* Venue media frame — restore original section proportions */
 .venue-image-container {
   aspect-ratio: 16 / 9;
 }
 
-.venue-image-container .relative.aspect-video {
+.venue-image-container > .relative {
   aspect-ratio: 16 / 9;
   height: 100%;
 }

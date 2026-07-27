@@ -1,46 +1,45 @@
 {
   "ceremony": {
-    "name": "Miara Events Place Tagaytay",
-    "shortName": "Miara Events Place, Tagaytay",
-    "address": "Tagaytay",
-    "city": "Cavite",
+    "name": "Tierra Kuta Resort",
+    "shortName": "Tierra Kuta Resort, Lipa Batangas",
+    "address": "Lipa",
+    "city": "Batangas",
     "state": "",
     "zip": "",
     "time": "4:00 PM",
-    "details": "Guest Gathering begins at 3:30 PM. Wedding Ceremony at 4:00 PM. Reception follows at Miara Events Place Tagaytay at 6:00 PM.",
+    "details": "Guest Gathering begins at 3:30 PM. Wedding Ceremony at 4:00 PM sharp. Snacks at 5:00 PM. Program begins at 7:00 PM.",
     "landmark": "",
     "parking": "",
     "capacity": "",
-    "googleMapsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
-    "directionsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
+    "googleMapsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
+    "directionsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
     "schedule": {
       "guestGathering": "3:30 PM",
       "ceremony": "4:00 PM",
-      "photoSession": "5:00 PM",
-      "cocktails": "5:30 PM",
-      "receptionDinner": "7:00 PM",
-      "end": "10:00 PM"
+      "snack": "5:00 PM",
+      "program": "7:00 PM",
+      "end": "9:00 PM"
     }
   },
   "reception": {
-    "name": "Miara Events Place Tagaytay",
-    "address": "Tagaytay",
-    "city": "Cavite",
+    "name": "Tierra Kuta Resort",
+    "address": "Lipa",
+    "city": "Batangas",
     "state": "",
     "zip": "",
-    "time": "6:00 PM",
-    "details": "Cocktail Hour at 5:30 PM. Dinner Reception at 7:00 PM. Evening ends at 10:00 PM.",
+    "time": "5:00 PM",
+    "details": "Snacks at 5:00 PM. Program begins at 7:00 PM. Celebration ends around 9:00 PM.",
     "landmark": "",
     "parking": "",
     "capacity": "",
     "dressCode": "",
     "menu": "",
-    "googleMapsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
-    "directionsUrl": "https://maps.app.goo.gl/8UhqgL2GEgrRqz369",
+    "googleMapsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
+    "directionsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
     "schedule": {
-      "cocktails": "5:30 PM",
-      "receptionDinner": "7:00 PM",
-      "end": "10:00 PM"
+      "snack": "5:00 PM",
+      "program": "7:00 PM",
+      "end": "9:00 PM"
     }
   }
 }

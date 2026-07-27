@@ -11,11 +11,11 @@ const Footer = () => {
       onClick={handleFooterClick}
     >
       {/* Divider line on top */}
-      <div className="w-full h-px bg-[#333333] opacity-40 mb-4"></div>
+      <div className="w-full h-px bg-[#27323B] opacity-40 mb-4"></div>
       
       {/* Footer text */}
       <div className="text-center">
-        <p className="text-sm sm:text-base text-[#333333] font-albert font-thin transition-colors duration-300 hover:text-white active:text-white">
+        <p className="text-sm sm:text-base text-[#27323B] font-albert font-thin transition-colors duration-300 hover:text-white active:text-white">
           Made with <ion-icon name="heart" className="inline-block mx-1 align-middle" style={{ fontSize: '1em', verticalAlign: 'middle' }}></ion-icon> by Moments by Raya
         </p>
       </div>

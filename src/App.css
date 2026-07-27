@@ -18,16 +18,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F8F7F4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bfa094;
+  background: #8DAEC4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a18072;
+  background: #6F92AA;
 }
 
 /* Print styles */
@@ -45,17 +45,17 @@
 :root {
   --envelope-x: 300px;
   --envelope-y: 200px;
-  /* Nude brown envelope — site primary body tone (#bc9e82) */
-  --envelope-bg: #bc9e82;
-  --envelope-shadow: #8a7358;
-  --heart-bg: darkred;
+  /* Dusty blue envelope — Timeless White Elegant */
+  --envelope-bg: #8DAEC4;
+  --envelope-shadow: #55768E;
+  --heart-bg: #415B6F;
   --heart-text: white;
   --letter-font: "Dancing Script", serif;
   --letter-x: 250px;
   --letter-y: calc(250px - 1rem - 10px);
-  --letter-bg: AntiqueWhite;
-  --letter-shadow: BurlyWood;
-  --letter-text: #180d07;
+  --letter-bg: #F8F7F4;
+  --letter-shadow: #C9D3DB;
+  --letter-text: #27323B;
 }
 
 @media (min-width: 650px) {
@@ -86,7 +86,7 @@
   width: var(--envelope-x);
   height: var(--envelope-y);
   background: var(--envelope-bg);
-  box-shadow: inset 0 0 30px -5px var(--envelope-shadow), 0 0 50vw 0 rgba(166, 132, 116, 0.35);
+  box-shadow: inset 0 0 30px -5px var(--envelope-shadow), 0 0 50vw 0 rgba(141, 174, 196, 0.35);
   transform-style: preserve-3d;
   perspective: 1000px;
 }

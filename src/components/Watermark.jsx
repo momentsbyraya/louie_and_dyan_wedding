@@ -39,7 +39,7 @@ const Watermark = () => {
             {Array.from({ length: 15 }).map((_, colIndex) => (
               <span
                 key={colIndex}
-                className="whitespace-nowrap font-albert font-semibold text-[#3e2723]"
+                className="whitespace-nowrap font-albert font-semibold text-[#2D4251]"
                 style={{
                   fontSize: '17px',
                   letterSpacing: '0.12em',

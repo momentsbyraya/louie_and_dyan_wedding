@@ -124,7 +124,7 @@ const MusicPlayer = () => {
         <div className="relative z-20 flex items-center justify-center py-8">
           <div className="max-w-md w-full mx-auto px-8 sm:px-12">
             {/* Play Music Text */}
-            <div className="text-[#333333] text-base sm:text-lg md:text-xl mb-4 font-albert text-center">
+            <div className="text-[#27323B] text-base sm:text-lg md:text-xl mb-4 font-albert text-center">
               {isPlaying ? 'Pause Music' : 'Play Music'}
             </div>
 
@@ -132,7 +132,7 @@ const MusicPlayer = () => {
             <div className="w-full mb-4 px-2">
               <div className="flex items-center gap-2 sm:gap-3">
                 {/* Current Time */}
-                <span className="text-[#333333] text-xs sm:text-sm font-albert min-w-[40px] text-right">
+                <span className="text-[#27323B] text-xs sm:text-sm font-albert min-w-[40px] text-right">
                   {formatTime(displayCurrentTime)}
                 </span>
                 
@@ -140,21 +140,21 @@ const MusicPlayer = () => {
                 <div 
                   ref={progressBarRef}
                   onClick={handleProgressClick}
-                  className="flex-1 h-0.5 bg-[#333333]/20 rounded-full cursor-pointer relative group"
+                  className="flex-1 h-0.5 bg-[#27323B]/20 rounded-full cursor-pointer relative group"
                 >
                   <div 
-                    className="h-full bg-[#333333]/60 rounded-full transition-all duration-100"
+                    className="h-full bg-[#27323B]/60 rounded-full transition-all duration-100"
                     style={{ width: `${displayDuration > 0 ? (displayCurrentTime / displayDuration) * 100 : 0}%` }}
                   />
                   {/* Progress Dot */}
                   <div
-                    className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#333333] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-[#27323B] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     style={{ left: `calc(${displayDuration > 0 ? (displayCurrentTime / displayDuration) * 100 : 0}% - 5px)` }}
                   />
                 </div>
                 
                 {/* Duration */}
-                <span className="text-[#333333] text-xs sm:text-sm font-albert min-w-[40px]">
+                <span className="text-[#27323B] text-xs sm:text-sm font-albert min-w-[40px]">
                   {formatTime(displayDuration)}
                 </span>
               </div>
@@ -165,7 +165,7 @@ const MusicPlayer = () => {
               {/* Skip Backward Button */}
               <button
                 onClick={skipBackward}
-                className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center text-[#333333]"
+                className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center text-[#27323B]"
                 type="button"
                 aria-label="Skip backward 10 seconds"
               >
@@ -197,7 +197,7 @@ const MusicPlayer = () => {
               {/* Skip Forward Button */}
               <button
                 onClick={skipForward}
-                className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center text-[#333333]"
+                className="hover:opacity-80 transition-opacity duration-300 cursor-pointer flex items-center justify-center text-[#27323B]"
                 type="button"
                 aria-label="Skip forward 10 seconds"
               >

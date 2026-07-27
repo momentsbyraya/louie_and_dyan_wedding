@@ -159,7 +159,7 @@ const Schedule = () => {
           {/* Vertical Timeline */}
           <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-2xl w-full mx-auto">
             {/* Central Vertical Line - Dark Grey */}
-            <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-[#666666] transform -translate-x-1/2"></div>
+            <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-[#6B7682] transform -translate-x-1/2"></div>
 
             {/* Timeline Events */}
             <div
@@ -175,15 +175,15 @@ const Schedule = () => {
                   >
                     3:30 PM
                   </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
+                  <div className="border-b border-dashed border-[#6B7682] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#27323B]">
                     GUEST GATHERING
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
                     Welcome and seating before the ceremony
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#8DAEC4' }}></div>
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
                     src="/assets/images/graphics/welcome-sketch.png" 
@@ -202,7 +202,7 @@ const Schedule = () => {
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#8DAEC4' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
                   <div
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
@@ -210,17 +210,17 @@ const Schedule = () => {
                   >
                     4:00 PM
                   </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
+                  <div className="border-b border-dashed border-[#6B7682] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#27323B]">
                     CEREMONY
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Miara Events Place, Tagaytay
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
+                    Tierra Kuta Resort, Lipa Batangas
                   </div>
                 </div>
               </div>
 
-              {/* Event 3 - 5:00 PM | PHOTO SESSION (Left) */}
+              {/* Event 3 - 5:00 PM | SNACK (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div
@@ -229,102 +229,75 @@ const Schedule = () => {
                   >
                     5:00 PM
                   </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    PHOTO SESSION
+                  <div className="border-b border-dashed border-[#6B7682] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#27323B]">
+                    SNACK
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Capturing memories together
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
+                    Light refreshments for our guests
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#8DAEC4' }}></div>
                 <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
-                    src="/assets/images/graphics/camera-sketch.png"
-                    alt="Photo session"
+                    src="/assets/images/graphics/dinner-sketch.png"
+                    alt="Snack"
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
               </div>
 
-              {/* Event 4 - 5:30 PM | COCKTAIL HOUR (Right) */}
+              {/* Event 4 - 7:00 PM | PROGRAM (Right) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
                 <div className="w-1/2 pr-6 text-right flex items-center justify-end">
                   <img 
                     src="/assets/images/graphics/cocktil-sketch.png" 
-                    alt="Cocktail hour" 
+                    alt="Program" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#8DAEC4' }}></div>
                 <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-                  <div
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
-                    style={{ color: theme.text.brown }}
-                  >
-                    5:30 PM
-                  </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    COCKTAIL HOUR
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Miara Events Place, Tagaytay
-                  </div>
-                </div>
-              </div>
-
-              {/* Event 5 - 7:00 PM | DINNER RECEPTION (Left) */}
-              <div className="flex items-center relative min-h-[60px] opacity-0">
-                <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
                   <div
                     className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
                     style={{ color: theme.text.brown }}
                   >
                     7:00 PM
                   </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    DINNER RECEPTION
+                  <div className="border-b border-dashed border-[#6B7682] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#27323B]">
+                    PROGRAM
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Miara Events Place, Tagaytay
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
+                    Celebration and festivities begin
                   </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
-                  <img 
-                    src="/assets/images/graphics/dinner-sketch.png" 
-                    alt="Dinner reception" 
-                    className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
-                  />
                 </div>
               </div>
 
-              {/* Event 6 - 10:00 PM | EVENING ENDS (Right) */}
+              {/* Event 5 - 9:00 PM | EVENING ENDS (Left) */}
               <div className="flex items-center relative min-h-[60px] opacity-0">
-                <div className="w-1/2 pr-6 text-right flex items-center justify-end">
+                <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
+                  <div
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
+                    style={{ color: theme.text.brown }}
+                  >
+                    9:00 PM
+                  </div>
+                  <div className="border-b border-dashed border-[#6B7682] opacity-50 mb-1"></div>
+                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#27323B]">
+                    EVENING ENDS
+                  </div>
+                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
+                    Thank you for celebrating with us
+                  </div>
+                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#8DAEC4' }}></div>
+                <div className="w-1/2 pl-6 text-left flex items-center justify-start">
                   <img 
                     src="/assets/images/graphics/car-sketch.png" 
                     alt="Celebration ends" 
                     className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain opacity-70"
                   />
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full z-10" style={{ backgroundColor: '#edb030' }}></div>
-                <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-                  <div
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1"
-                    style={{ color: theme.text.brown }}
-                  >
-                    10:00 PM
-                  </div>
-                  <div className="border-b border-dashed border-[#666666] opacity-50 mb-1"></div>
-                  <div className="text-sm sm:text-base md:text-lg font-albert font-bold text-[#333333]">
-                    EVENING ENDS
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#333333] opacity-80 mt-1">
-                    Thank you for celebrating with us
-                  </div>
                 </div>
               </div>
             </div>

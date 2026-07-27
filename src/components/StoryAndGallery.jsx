@@ -10,8 +10,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 /** Polaroid photos paired with love-story paragraphs */
 const POLAROID_IMAGES = [
-  '/assets/images/prenup/D&A-EngagementFinal-25.jpg',
-  '/assets/images/prenup/D&A-EngagementFinal-32.jpg',
+  '/assets/images/prenup/IMG_0030.jpg',
+  '/assets/images/prenup/IMG_0045.jpg',
 ]
 
 function getStoryParagraphs() {
@@ -229,7 +229,13 @@ const StoryAndGallery = () => {
         >
           <h2
             className="mb-10 text-center text-3xl leading-tight whitespace-nowrap sm:mb-12 sm:text-4xl md:text-5xl lg:text-6xl"
-            style={{ ...sectionTitleStyle, color: '#ffffff' }}
+            style={{
+              ...sectionTitleStyle,
+              color: '#C9A84A',
+              WebkitTextStroke: '0',
+              textShadow:
+                '0 1px 0 rgba(90, 60, 20, 0.35), 0 2px 6px rgba(0, 0, 0, 0.45)',
+            }}
           >
             Our Love Story
           </h2>
@@ -262,7 +268,16 @@ const StoryAndGallery = () => {
                         )}
                       </div>
                       <div className="flex min-w-0 items-center">
-                        <p className="story-polaroid-text w-full text-left text-xs font-albert font-thin leading-relaxed text-white sm:text-sm">
+                        <p
+                          className="story-polaroid-text w-full text-left text-xs font-albert font-normal leading-relaxed sm:text-sm"
+                          style={{
+                            color: '#F3E8DA',
+                            WebkitTextStroke: '0.25px #1A120C',
+                            paintOrder: 'stroke fill',
+                            textShadow:
+                              '-0.6px -0.6px 0 rgba(26, 18, 12, 0.75), 0.6px -0.6px 0 rgba(26, 18, 12, 0.75), -0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0 1px 3px rgba(0, 0, 0, 0.4)',
+                          }}
+                        >
                           {formatParagraph(paragraph)}
                         </p>
                       </div>
@@ -270,7 +285,16 @@ const StoryAndGallery = () => {
                   ) : (
                     <>
                       <div className="flex min-w-0 items-center">
-                        <p className="story-polaroid-text w-full text-right text-xs font-albert font-thin leading-relaxed text-white sm:text-sm">
+                        <p
+                          className="story-polaroid-text w-full text-right text-xs font-albert font-normal leading-relaxed sm:text-sm"
+                          style={{
+                            color: '#F3E8DA',
+                            WebkitTextStroke: '0.25px #1A120C',
+                            paintOrder: 'stroke fill',
+                            textShadow:
+                              '-0.6px -0.6px 0 rgba(26, 18, 12, 0.75), 0.6px -0.6px 0 rgba(26, 18, 12, 0.75), -0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0 1px 3px rgba(0, 0, 0, 0.4)',
+                          }}
+                        >
                           {formatParagraph(paragraph)}
                         </p>
                       </div>

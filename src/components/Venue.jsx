@@ -4,12 +4,23 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { venues as venuesData } from '../data'
 import { sectionTitleStyle } from '../config/themeConfig'
-import AutoplayYouTube from './AutoplayYouTube'
 import './Venue.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const LOCATION_VIDEO_ID = 'SnT_AxeTPM8'
+const LOCATION_FACEBOOK_REEL =
+  'https://www.facebook.com/reel/933004119813243'
+
+const LOCATION_FACEBOOK_EMBED =
+  'https://www.facebook.com/plugins/video.php?' +
+  new URLSearchParams({
+    href: LOCATION_FACEBOOK_REEL,
+    show_text: 'false',
+    width: '500',
+    t: '0',
+    autoplay: 'true',
+    mute: '1',
+  }).toString()
 
 const MapDirections = () => {
   const sectionRef = useRef(null)
@@ -57,7 +68,7 @@ const MapDirections = () => {
       ref={sectionRef}
       id="map"
       className="relative z-20 w-full overflow-hidden"
-      style={{ backgroundColor: '#6f4e37' }}
+      style={{ backgroundColor: '#415B6F' }}
     >
       <div className="relative z-10 pb-20 sm:pb-28 md:pb-36 lg:pb-44 mt-20 sm:mt-24 md:mt-32 lg:mt-40">
         <div className="max-w-xs sm:max-w-md lg:max-w-3xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
@@ -66,7 +77,7 @@ const MapDirections = () => {
               <h2
                 ref={venueHeaderRef}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 leading-tight whitespace-nowrap"
-                style={{ ...sectionTitleStyle, color: '#f5f0eb' }}
+                style={{ ...sectionTitleStyle, color: '#F8FAFC' }}
               >
                 Location
               </h2>
@@ -82,17 +93,23 @@ const MapDirections = () => {
                 <div className="flex flex-col gap-6 md:gap-8 lg:gap-6 items-start">
                   <div className="w-full">
                     <div className="w-full relative venue-image-container overflow-hidden rounded">
-                      <AutoplayYouTube
-                        videoId={LOCATION_VIDEO_ID}
-                        title="Venue video"
-                        className="h-full rounded"
-                      />
+                      <div className="relative h-full w-full overflow-hidden rounded">
+                        <iframe
+                          src={LOCATION_FACEBOOK_EMBED}
+                          title="Venue video"
+                          className="absolute inset-0 h-full w-full border-0"
+                          style={{ border: 'none', overflow: 'hidden' }}
+                          scrolling="no"
+                          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="w-full text-center">
                     <div>
                       <p
-                        className="imperial-script-regular text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#f5f0eb]"
+                        className="imperial-script-regular text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center text-[#F8FAFC]"
                       >
                         Ceremony & Reception
                       </p>
@@ -111,10 +128,10 @@ const MapDirections = () => {
                         href={venue.googleMapsUrl || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-albert font-thin text-sm sm:text-base underline hover:opacity-80 transition-opacity duration-200 inline-flex items-center gap-2 text-[#f5f0eb]"
+                        className="font-albert font-thin text-sm sm:text-base underline hover:opacity-80 transition-opacity duration-200 inline-flex items-center gap-2 text-[#F8FAFC]"
                       >
                         View Map
-                        <ArrowRight className="w-4 h-4 text-[#f5f0eb]" />
+                        <ArrowRight className="w-4 h-4 text-[#F8FAFC]" />
                       </a>
                     </div>
                   </div>

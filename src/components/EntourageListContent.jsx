@@ -368,7 +368,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </p>
                 <p
                   ref={groomFullNameRef}
-                  className="entourage-couple-full-name text-right font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words"
+                  className="entourage-couple-full-name text-right font-poppins text-[8.5px] uppercase leading-snug text-[#27323B] sm:text-[12px] md:text-[14px] lg:text-[16px] break-words"
                 >
                   {groomFullName}
                 </p>
@@ -383,7 +383,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </p>
                 <p
                   ref={brideFullNameRef}
-                  className="entourage-couple-full-name text-left font-poppins text-[8.5px] uppercase leading-snug text-[#333333] sm:text-[12px] md:text-[14px] lg:text-[16px] whitespace-nowrap"
+                  className="entourage-couple-full-name text-left font-poppins text-[8.5px] uppercase leading-snug text-[#27323B] sm:text-[12px] md:text-[14px] lg:text-[16px] whitespace-nowrap"
                 >
                   {brideFullName}
                 </p>
@@ -402,7 +402,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {(entourage.parents?.groom?.members || []).map((name, idx) => (
                     <p
                       key={idx}
-                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
+                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
                     >
                       {name}
                     </p>
@@ -421,7 +421,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {(entourage.parents?.bride?.members || []).map((name, idx) => (
                     <p
                       key={idx}
-                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
+                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap${idx > 0 ? ' mt-1' : ''}`}
                     >
                       {name}
                     </p>
@@ -445,12 +445,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       return (
                         <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                           <div className="min-w-0 text-right">
-                            <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
+                            <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
                               {item.ninong}
                             </p>
                           </div>
                           <div className="min-w-0 text-left">
-                            <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
+                            <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
                               {item.ninang}
                             </p>
                           </div>
@@ -459,7 +459,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     }
                     return (
                       <div key={index} className="flex justify-center">
-                        <p className="unpaired-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] text-center break-words leading-tight">
+                        <p className="unpaired-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] text-center break-words leading-tight">
                           {item.ninong || item.ninang}
                         </p>
                       </div>
@@ -487,7 +487,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Best Man
                     </p>
                     {bridalParty.bestman && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-right">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-right">
                         {bridalParty.bestman}
                       </p>
                     )}
@@ -501,7 +501,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Maid of Honor
                     </p>
                     {bridalParty.maidOfHonor && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-left">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-left">
                         {bridalParty.maidOfHonor}
                       </p>
                     )}
@@ -516,7 +516,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     >
                       Matron of Honor
                     </p>
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap">
                       {bridalParty.matronOfHonor}
                     </p>
                   </div>
@@ -546,13 +546,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
                       <div className="min-w-0 text-right">
                         {pair.groomsman ? (
-                          <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
+                          <p className="paired-ninong-item groomsmen-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
                             {pair.groomsman}
                           </p>
                         ) : (
                           <p
                             aria-hidden="true"
-                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight"
                           >
                             &nbsp;
                           </p>
@@ -560,13 +560,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       </div>
                       <div className="min-w-0 text-left">
                         {pair.bridesmaid ? (
-                          <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight">
+                          <p className="paired-ninang-item bridesmaids-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
                             {pair.bridesmaid}
                           </p>
                         ) : (
                           <p
                             aria-hidden="true"
-                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight"
                           >
                             &nbsp;
                           </p>
@@ -584,7 +584,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     >
                       Bridesman
                     </p>
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap">
                       {bridalParty.bridesman}
                     </p>
                   </div>
@@ -603,10 +603,10 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       Candle
                     </p>
                     <div ref={candleBlockRef} className="flex flex-col items-center gap-2">
-                      <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                      <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                         {candle.left}
                       </p>
-                      <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                      <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                         {candle.right}
                       </p>
                     </div>
@@ -624,10 +624,10 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     <div ref={veilBlockRef} className="space-y-2">
                       {veil.pairs.map((pair, index) => (
                         <div key={index} className="flex flex-col items-center gap-2">
-                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                             {pair.left}
                           </p>
-                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                             {pair.right}
                           </p>
                         </div>
@@ -647,10 +647,10 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     <div ref={cordBlockRef} className="space-y-2">
                       {cord.pairs.map((pair, index) => (
                         <div key={index} className="flex flex-col items-center gap-2">
-                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                          <p className="paired-ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                             {pair.left}
                           </p>
-                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight">
+                          <p className="paired-ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight">
                             {pair.right}
                           </p>
                         </div>
@@ -673,7 +673,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   {flowerGirls.map((name, index) => (
                     <p
                       key={index}
-                      className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center leading-tight"
+                      className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center leading-tight"
                     >
                       {name}
                     </p>
@@ -692,7 +692,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     Ring Bearer
                   </p>
                   {entourage.ringBearer && (
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center">
                       {entourage.ringBearer}
                     </p>
                   )}
@@ -705,7 +705,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     Coin Bearer
                   </p>
                   {entourage.coinBearer && (
-                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap text-center">
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-center">
                       {entourage.coinBearer}
                     </p>
                   )}
@@ -724,7 +724,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       >
                         Candle Bearer
                       </p>
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight text-center">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight text-center">
                         {entourage.candleBearer}
                       </p>
                     </>
@@ -739,7 +739,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                       >
                         Bible Bearer
                       </p>
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] break-words leading-tight text-center">
+                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight text-center">
                         {entourage.bibleBearer}
                       </p>
                     </>

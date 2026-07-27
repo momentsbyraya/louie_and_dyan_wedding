@@ -40,7 +40,7 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
         <button
           onClick={onClose}
           type="button"
-          className="absolute top-3 right-3 p-2 text-[#333333] hover:opacity-70 transition-opacity"
+          className="absolute top-3 right-3 p-2 text-[#27323B] hover:opacity-70 transition-opacity"
           aria-label="Close"
         >
           <X className="w-6 h-6" />
@@ -53,7 +53,7 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
           >
             Send a Gift
           </h3>
-          <p className="font-albert text-sm sm:text-base font-thin text-[#333333]/80 mb-6">
+          <p className="font-albert text-sm sm:text-base font-thin text-[#27323B]/80 mb-6">
             Thank you for your generosity. You may send a monetary gift using the QR codes below.
           </p>
 
@@ -61,9 +61,9 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
             {paymentMethods.map((method) => (
               <div
                 key={method.name}
-                className="flex flex-col items-center gap-2 rounded-xl border border-[#333333]/15 bg-[#fafafa] p-3"
+                className="flex flex-col items-center gap-2 rounded-xl border border-[#27323B]/15 bg-off-white p-3"
               >
-                <p className="font-albert text-xs uppercase tracking-wider text-[#333333]/70">
+                <p className="font-albert text-xs uppercase tracking-wider text-[#27323B]/70">
                   {method.name}
                 </p>
                 {method.image && (
@@ -75,12 +75,12 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
                   />
                 )}
                 {method.accountInfo?.accountName && (
-                  <p className="font-albert text-xs text-[#333333]/80 text-center">
+                  <p className="font-albert text-xs text-[#27323B]/80 text-center">
                     {method.accountInfo.accountName}
                   </p>
                 )}
                 {method.accountInfo?.accountNumber && (
-                  <p className="font-albert text-xs font-medium text-[#333333] text-center">
+                  <p className="font-albert text-xs font-medium text-[#27323B] text-center">
                     {method.accountInfo.accountNumber}
                   </p>
                 )}

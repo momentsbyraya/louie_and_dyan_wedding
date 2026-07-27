@@ -1,48 +1,51 @@
-// Theme Configuration - Easy to customize colors
+// Theme Configuration — Timeless White Elegant (Dusty Blue)
 export const themeConfig = {
     // Background Colors
     backgrounds: {
-        primary: 'bg-gray-900',        // Main dark background
-        secondary: 'bg-gray-800',      // Secondary dark background (modals, cards)
-        accent: 'bg-wedding-600',      // Accent background (buttons, highlights)
-        light: 'bg-white/50',          // Light overlay backgrounds
-        theme: 'bg-[#dee5ed]',        // Custom theme color
-        crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat', // Crumpled paper background
+        primary: 'bg-white',
+        secondary: 'bg-off-white',
+        accent: 'bg-wedding-600',
+        light: 'bg-white/50',
+        theme: 'bg-wedding-50',
+        ivory: 'bg-ivory',
+        softGray: 'bg-soft-gray',
+        crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat',
     },
 
     // Text Colors
     text: {
-        primary: 'text-white',         // Main heading text color
-        secondary: 'text-gray-300',    // Subheading and body text color
-        accent: 'text-wedding-600',    // Accent text color
-        muted: 'text-gray-400',        // Muted text color (icons, small text)
-        dark: 'text-wedding-800',      // Dark text for light backgrounds
-        theme: 'text-[#bc9e82]',      // Custom theme text color
-        pause: 'text-[#dcdcdc]',      // Pause button text color
-        custom: 'text-[#44484d]',     // Custom text color
+        primary: 'text-primary-text',
+        secondary: 'text-secondary-text',
+        accent: 'text-wedding-600',
+        muted: 'text-secondary-text',
+        dark: 'text-wedding-800',
+        theme: 'text-wedding-600',
+        pause: 'text-secondary-text',
+        custom: 'text-primary-text',
+        inverse: 'text-white',
     },
 
     // Border Colors
     borders: {
-        primary: 'border-gray-700',    // Main border color
-        secondary: 'border-gray-600',  // Secondary border color
-        accent: 'border-wedding-300',  // Accent border color
-        theme: 'border-[#bc9e82]',    // Custom theme border color
+        primary: 'border-border-gray',
+        secondary: 'border-accent-silver',
+        accent: 'border-wedding-300',
+        theme: 'border-wedding-500',
     },
 
     // Button Colors
     buttons: {
-        primary: 'bg-wedding-600 hover:bg-wedding-700',  // Primary button
-        secondary: 'border border-gray-600 hover:border-gray-400', // Secondary button
-        text: 'text-gray-300 hover:text-white', // Button text color
-        theme: 'bg-[#bc9e82] hover:bg-[#bc9e82]/80', // Custom theme button
+        primary: 'bg-wedding-600 hover:bg-wedding-700 text-white',
+        secondary: 'bg-white border border-wedding-500 text-wedding-700 hover:bg-wedding-50',
+        text: 'text-white',
+        theme: 'bg-wedding-600 hover:bg-wedding-700 text-white',
     },
 
     // Hover Effects
     hover: {
-        primary: 'hover:bg-wedding-700',     // Primary button hover
-        secondary: 'hover:border-gray-400 hover:text-white', // Secondary button hover
-        theme: 'hover:bg-[#bc9e82]/80',     // Custom theme hover
+        primary: 'hover:bg-wedding-700',
+        secondary: 'hover:border-wedding-600 hover:text-wedding-800',
+        theme: 'hover:bg-wedding-700',
     },
 
     // Container Configuration
@@ -54,82 +57,82 @@ export const themeConfig = {
 
     // Calendar Configuration
     calendar: {
-        weddingDate: '2027-01-04',          // Wedding date (YYYY-MM-DD format)
-        highlightColor: 'bg-[#6c756a]',     // Color for wedding date highlight
-        heartColor: 'text-[#6c756a]',       // Color for heart icon
-        textColor: 'text-gray-700',         // Calendar text color
-        headerColor: 'text-gray-800',       // Month header color
-        dayNamesColor: 'text-gray-600',     // Day names color
-        background: 'bg-[#6c756a]',         // Calendar background color
+        weddingDate: '2026-12-20',
+        highlightColor: 'bg-wedding-600',
+        heartColor: 'text-wedding-600',
+        textColor: 'text-primary-text',
+        headerColor: 'text-wedding-800',
+        dayNamesColor: 'text-secondary-text',
+        background: 'bg-wedding-600',
     },
 
     // Paragraph Configuration
     paragraph: {
-        background: 'bg-[#f4f5ef]',         // Paragraph background color
+        background: 'bg-ivory',
     },
 
-    // Custom CSS Variables (for advanced customization)
+    // Custom CSS Variables
     cssVariables: {
-        '--primary-bg': '#111827',           // #111827 (gray-900)
-        '--secondary-bg': '#1f2937',        // #1f2937 (gray-800)
-        '--accent-bg': '#7c3aed',           // #7c3aed (wedding-600)
-        '--primary-text': '#ffffff',         // #ffffff (white)
-        '--secondary-text': '#d1d5db',      // #d1d5db (gray-300)
-        '--accent-text': '#7c3aed',         // #7c3aed (wedding-600)
-        '--muted-text': '#9ca3af',          // #9ca3af (gray-400)
-        '--border-color': '#374151',        // #374151 (gray-700)
-        '--custom-theme': '#dee5ed',        // #dee5ed (your custom theme)
+        '--primary-bg': '#FFFFFF',
+        '--secondary-bg': '#FCFCFB',
+        '--accent-bg': '#6F92AA',
+        '--primary-text': '#27323B',
+        '--secondary-text': '#6B7682',
+        '--accent-text': '#6F92AA',
+        '--muted-text': '#6B7682',
+        '--border-color': '#D6DDE3',
+        '--custom-theme': '#F8FAFC',
+        '--ivory': '#F8F7F4',
+        '--soft-gray': '#E9ECEF',
+        '--accent-silver': '#C9D3DB',
     }
 }
 
 // Quick color presets for different themes
 export const themePresets = {
-    // Dark Elegant (Current)
-    darkElegant: {
+    dustyBlueElegant: {
         backgrounds: {
-            primary: 'bg-gray-900',
-            secondary: 'bg-gray-800',
+            primary: 'bg-white',
+            secondary: 'bg-ivory',
             accent: 'bg-wedding-600',
         },
         text: {
-            primary: 'text-white',
-            secondary: 'text-gray-300',
+            primary: 'text-primary-text',
+            secondary: 'text-secondary-text',
             accent: 'text-wedding-600',
         }
     },
 
-    // Light Romantic
     lightRomantic: {
         backgrounds: {
-            primary: 'bg-rose-50',
+            primary: 'bg-wedding-50',
             secondary: 'bg-white',
-            accent: 'bg-rose-500',
+            accent: 'bg-wedding-500',
         },
         text: {
-            primary: 'text-gray-900',
-            secondary: 'text-gray-600',
-            accent: 'text-rose-600',
+            primary: 'text-wedding-900',
+            secondary: 'text-secondary-text',
+            accent: 'text-wedding-600',
         }
     },
 
-    // Warm Autumn
-    warmAutumn: {
+    softSilver: {
         backgrounds: {
-            primary: 'bg-amber-50',
-            secondary: 'bg-orange-100',
-            accent: 'bg-orange-500',
+            primary: 'bg-off-white',
+            secondary: 'bg-soft-gray',
+            accent: 'bg-wedding-600',
         },
         text: {
-            primary: 'text-amber-900',
-            secondary: 'text-amber-700',
-            accent: 'text-orange-600',
+            primary: 'text-primary-text',
+            secondary: 'text-secondary-text',
+            accent: 'text-wedding-700',
         }
     }
 }
 
-// Section heading text (solid brown, Pinyon Script — same as "Invited" on opening screen)
+// Section heading text (Dusty Blue, Pinyon Script)
 export const sectionTitleStyle = {
-    color: '#6f4e37',
+    color: '#55768E',
     fontFamily: '"Pinyon Script", cursive',
 }
 
@@ -144,4 +147,4 @@ export const applyThemePreset = (presetName) => {
     if (preset) {
         Object.assign(themeConfig, preset)
     }
-} 
+}
