@@ -149,9 +149,13 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       }
     }
 
-    if (bestmanRef.current && maidOfHonorRef.current) {
-      const bestmanNames = bestmanRef.current.querySelectorAll('p.font-poppins')
-      const maidOfHonorNames = maidOfHonorRef.current.querySelectorAll('p.font-poppins')
+    if (bestmanRef.current || maidOfHonorRef.current) {
+      const bestmanNames = bestmanRef.current
+        ? bestmanRef.current.querySelectorAll('p.font-poppins')
+        : []
+      const maidOfHonorNames = maidOfHonorRef.current
+        ? maidOfHonorRef.current.querySelectorAll('p.font-poppins')
+        : []
 
       if (bestmanNames.length > 0 || maidOfHonorNames.length > 0) {
         const maxLength = Math.max(bestmanNames.length, maidOfHonorNames.length)
@@ -257,9 +261,9 @@ const EntourageListContent = ({ scrollContainerRef }) => {
       }
     }
 
-    if (allNameRows.length > 0 && parentsRef.current) {
+    if (allNameRows.length > 0) {
       ScrollTrigger.create({
-        trigger: parentsRef.current,
+        trigger: coupleRef.current || sectionRef.current,
         start: 'top 80%',
         ...scrollOpts,
         onEnter: () => {
@@ -390,6 +394,8 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               </div>
             </div>
 
+            {((entourage.parents?.groom?.members || []).length > 0 ||
+              (entourage.parents?.bride?.members || []).length > 0) && (
             <div ref={parentsRef} className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
               <div className="min-w-0">
                 <p
@@ -429,6 +435,7 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </div>
               </div>
             </div>
+            )}
 
             {principalItems.length > 0 && (
               <div ref={principalSponsorsRef} className="mb-6">
@@ -469,30 +476,45 @@ const EntourageListContent = ({ scrollContainerRef }) => {
               </div>
             )}
 
+            {(candle || veil?.pairs?.length > 0 || cord?.pairs?.length > 0) && (
             <h3
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl entourage-sponsors-title mb-6 text-center capitalize whitespace-nowrap"
               style={{ color: theme.text.brown }}
             >
               Secondary Sponsors
             </h3>
+            )}
 
             {bridalParty && (
               <div className="mb-6">
-                <div className="mb-6 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                <div
+                  className={`mb-6 grid gap-4 sm:gap-6 justify-center items-center ${
+                    bridalParty.bestman && bridalParty.maidOfHonor
+                      ? 'grid-cols-2'
+                      : 'grid-cols-1'
+                  }`}
+                >
+                  {bridalParty.bestman && (
                   <div ref={bestmanRef} className="min-w-0">
                     <p
-                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase"
+                      className={`text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap uppercase ${
+                        bridalParty.maidOfHonor ? 'text-right' : 'text-center'
+                      }`}
                       style={{ color: theme.text.brown }}
                     >
                       Best Man
                     </p>
-                    {bridalParty.bestman && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-right">
-                        {bridalParty.bestman}
-                      </p>
-                    )}
+                    <p
+                      className={`text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap ${
+                        bridalParty.maidOfHonor ? 'text-right' : 'text-center'
+                      }`}
+                    >
+                      {bridalParty.bestman}
+                    </p>
                   </div>
+                  )}
 
+                  {bridalParty.maidOfHonor && (
                   <div ref={maidOfHonorRef} className="min-w-0">
                     <p
                       className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase"
@@ -500,12 +522,11 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                     >
                       Maid of Honor
                     </p>
-                    {bridalParty.maidOfHonor && (
-                      <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-left">
-                        {bridalParty.maidOfHonor}
-                      </p>
-                    )}
+                    <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] whitespace-nowrap text-left">
+                      {bridalParty.maidOfHonor}
+                    </p>
                   </div>
+                  )}
                 </div>
 
                 {bridalParty.matronOfHonor && (

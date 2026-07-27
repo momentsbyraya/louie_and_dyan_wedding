@@ -1,31 +1,14 @@
 {
   "parents": {
     "groom": {
-      "members": [
-        "Roy Lockyer",
-        "Kym Lockyer"
-      ]
+      "members": []
     },
     "bride": {
-      "members": [
-        "Samuel Rodriguez",
-        "Francisca Rodriguez"
-      ]
+      "members": []
     }
   },
   "principalSponsors": {
-    "items": [
-      { "ninong": "Engr Marc Rodriguez", "ninang": "Felicima Nisperos" },
-      { "ninong": "Engr Jose Asprer", "ninang": "Lorna Rowena Asprer" },
-      { "ninong": "Engr Allan Rivera", "ninang": "Mary Anne Rivera" },
-      { "ninong": "Atty Manuel Lasmarias", "ninang": "Yollanda Lasmarias" },
-      { "ninong": "Benny Rodriguez", "ninang": "Annabelle Rodriguez" },
-      { "ninong": "Ferdinand Cumlat", "ninang": "Marites Cumlat" },
-      { "ninong": "Annabelle Cubis", "ninang": "Ms Amelita Galvez" },
-      { "ninong": "Tito Boy", "ninang": "Tito Boys Wife" },
-      { "ninong": "Carl Vercede", "ninang": "Raquel Rodriguez" },
-      { "ninang": "Amelia Galvez" }
-    ]
+    "items": []
   },
   "bridalParty": {
     "bestman": "Mark Laurence Ramirez",
@@ -39,26 +22,8 @@
       { "groomsman": "", "bridesmaid": "Ely Jane Mabait" }
     ]
   },
-  "secondarySponsors": {
-    "candle": {
-      "left": "Trisha Mae Rodriguez",
-      "right": "Edward Baltazar"
-    },
-    "veil": {
-      "pairs": [
-        { "left": "Betina Angelica Rodriguez", "right": "Denver Atutubo" }
-      ]
-    },
-    "cord": {
-      "pairs": [
-        { "left": "Louie Marabella", "right": "Shamil Lorenzo" }
-      ]
-    }
-  },
-  "flowerGirls": [
-    "Dream Vercede",
-    "Anaiah Adrielle Asprer"
-  ],
-  "ringBearer": "Luis Rodriguez",
-  "coinBearer": "Hendrix Crease"
+  "secondarySponsors": null,
+  "flowerGirls": [],
+  "ringBearer": "",
+  "coinBearer": ""
 }
