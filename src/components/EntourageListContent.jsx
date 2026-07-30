@@ -309,19 +309,19 @@ const EntourageListContent = ({ scrollContainerRef }) => {
     <>
       <div
         ref={sectionRef}
-        className="relative w-full overflow-hidden px-6 py-32 sm:py-40 md:py-64 entourage-section-lg entourage-list-modal-root"
+        className="relative w-full overflow-hidden px-6 pt-32 pb-40 sm:pt-40 sm:pb-48 md:pt-48 md:pb-56 entourage-section-lg entourage-list-modal-root"
       >
         <style>{`
         @media (min-width: 992px) {
           .entourage-section-lg {
-            padding-top: 20rem !important;
-            padding-bottom: 20rem !important;
+            padding-top: 12rem !important;
+            padding-bottom: 14rem !important;
           }
         }
         @media (min-width: 1280px) {
           .entourage-section-lg {
-            padding-top: 28rem !important;
-            padding-bottom: 28rem !important;
+            padding-top: 14rem !important;
+            padding-bottom: 15rem !important;
           }
         }
       `}</style>
@@ -333,16 +333,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
           }}
         />
 
-        <div className="absolute top-0 left-0 right-0 z-5">
-          <img
-            src="/assets/images/graphics/white-blur.png"
-            alt="White blur effect"
-            className="w-full h-auto scale-y-[-1]"
-          />
-        </div>
-
         <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
-          <img src="/assets/images/graphics/gold-banner-2.png" alt="Decorative graphic" className="w-full h-auto" />
+          <img
+            src="/assets/images/graphics/flowers-top.png"
+            alt="Decorative graphic"
+            className="w-full h-auto"
+          />
         </div>
 
         <div className="relative z-20 flex items-center justify-center">
@@ -771,15 +767,12 @@ const EntourageListContent = ({ scrollContainerRef }) => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-5">
-          <img src="/assets/images/graphics/white-blur.png" alt="White blur effect" className="w-full h-auto" />
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10">
           <img
-            src="/assets/images/graphics/gold-banner-2.png"
-            alt="Decorative graphic"
-            className="w-full h-auto scale-y-[-1]"
+            src="/assets/images/graphics/flowers-bottom.png"
+            alt=""
+            aria-hidden
+            className="block h-[150px] w-full object-cover object-bottom sm:h-[190px] md:h-[230px]"
           />
         </div>
       </div>

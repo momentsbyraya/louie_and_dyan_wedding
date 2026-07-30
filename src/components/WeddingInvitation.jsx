@@ -103,7 +103,7 @@ const WeddingInvitation = () => {
         </section>
 
         {/* RSVP Section — button opens modal */}
-        <EnhancedLazySection animationClass="fade-scale" sectionName="rsvp">
+        <EnhancedLazySection animationClass="fade-slide-up" sectionName="rsvp" contentOnlyAnimation>
           <RSVP />
         </EnhancedLazySection>
 
@@ -159,7 +159,7 @@ const WeddingInvitation = () => {
         </section>
         
         {/* Love Story and Gallery Container */}
-        <div className="relative w-full md:py-24 lg:py-32 story-gallery-container-lg">
+        <div className="relative w-full pb-40 md:pt-24 md:pb-40 lg:pt-32 story-gallery-container-lg">
           <style>{`
             @media (min-width: 992px) {
               .story-gallery-container-lg {
@@ -178,8 +178,8 @@ const WeddingInvitation = () => {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: 'url(/assets/images/graphics/bg-1.png)',
-              opacity: 0.4,
+              backgroundImage: 'url(/assets/images/graphics/textured-bg-2.jpg)',
+              opacity: 1,
               zIndex: 0
             }}
           />
@@ -189,11 +189,11 @@ const WeddingInvitation = () => {
           </EnhancedLazySection>
 
           {/* Leaf Banner - Bottom (Flipped Vertically) */}
-          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
             <img 
               src="/assets/images/graphics/leaf-banner.png" 
               alt="Decorative graphic"
-              className="w-full h-auto scale-y-[-1]"
+              className="w-full h-[150px] object-cover object-top scale-y-[-1] sm:h-[190px] md:h-[230px]"
             />
           </div>
         </div>

@@ -79,9 +79,10 @@ const Counter = ({ countdown }) => {
       className="relative w-full overflow-hidden"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="pointer-events-none absolute inset-0 bg-cover bg-no-repeat"
         style={{
-          backgroundImage: 'url(/assets/images/prenup/IMG_0048.jpg)',
+          backgroundImage: 'url(/assets/images/prenup/save-the-date.jpg)',
+          backgroundPosition: 'center 60%',
         }}
         aria-hidden
       />

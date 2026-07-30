@@ -46,7 +46,7 @@ const Gifts = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative w-full overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24 md:pt-32"
+        className="relative w-full overflow-hidden pt-24 pb-36 sm:pt-28 sm:pb-44 md:pt-32 md:pb-52"
       >
         {/* Background Image - bg-1 */}
         <div
@@ -57,10 +57,10 @@ const Gifts = () => {
           }}
         />
 
-        {/* Gold Banner - Top */}
+        {/* Floral Banner - Top */}
         <div className="absolute top-0 left-0 right-0 flex items-center justify-center z-10">
           <img 
-            src="/assets/images/graphics/gold-banner-2.png" 
+            src="/assets/images/graphics/flowers-top.png" 
             alt="Decorative graphic"
             className="w-full h-auto"
           />
@@ -105,12 +105,12 @@ const Gifts = () => {
           </div>
         </div>
 
-        {/* Gold Banner - Bottom (Flipped Vertically) */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10">
-          <img 
-            src="/assets/images/graphics/gold-banner-2.png" 
-            alt="Decorative graphic"
-            className="w-full h-auto scale-y-[-1]"
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10">
+          <img
+            src="/assets/images/graphics/flowers-bottom.png"
+            alt=""
+            aria-hidden
+            className="block h-[150px] w-full object-cover object-bottom sm:h-[190px] md:h-[230px]"
           />
         </div>
       </section>

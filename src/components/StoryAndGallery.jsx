@@ -231,10 +231,9 @@ const StoryAndGallery = () => {
             className="mb-10 text-center text-3xl leading-tight whitespace-nowrap sm:mb-12 sm:text-4xl md:text-5xl lg:text-6xl"
             style={{
               ...sectionTitleStyle,
-              color: '#C9A84A',
+              color: '#000000',
               WebkitTextStroke: '0',
-              textShadow:
-                '0 1px 0 rgba(90, 60, 20, 0.35), 0 2px 6px rgba(0, 0, 0, 0.45)',
+              textShadow: 'none',
             }}
           >
             Our Love Story
@@ -271,11 +270,9 @@ const StoryAndGallery = () => {
                         <p
                           className="story-polaroid-text w-full text-left text-xs font-albert font-normal leading-relaxed sm:text-sm"
                           style={{
-                            color: '#F3E8DA',
-                            WebkitTextStroke: '0.25px #1A120C',
-                            paintOrder: 'stroke fill',
-                            textShadow:
-                              '-0.6px -0.6px 0 rgba(26, 18, 12, 0.75), 0.6px -0.6px 0 rgba(26, 18, 12, 0.75), -0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0 1px 3px rgba(0, 0, 0, 0.4)',
+                            color: '#000000',
+                            WebkitTextStroke: '0',
+                            textShadow: 'none',
                           }}
                         >
                           {formatParagraph(paragraph)}
@@ -288,11 +285,9 @@ const StoryAndGallery = () => {
                         <p
                           className="story-polaroid-text w-full text-right text-xs font-albert font-normal leading-relaxed sm:text-sm"
                           style={{
-                            color: '#F3E8DA',
-                            WebkitTextStroke: '0.25px #1A120C',
-                            paintOrder: 'stroke fill',
-                            textShadow:
-                              '-0.6px -0.6px 0 rgba(26, 18, 12, 0.75), 0.6px -0.6px 0 rgba(26, 18, 12, 0.75), -0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0.6px 0.6px 0 rgba(26, 18, 12, 0.75), 0 1px 3px rgba(0, 0, 0, 0.4)',
+                            color: '#000000',
+                            WebkitTextStroke: '0',
+                            textShadow: 'none',
                           }}
                         >
                           {formatParagraph(paragraph)}

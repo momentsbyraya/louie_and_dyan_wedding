@@ -23,26 +23,26 @@ const RSVP = () => {
   const rsvpEnded = isRSVPDeadlinePassed()
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 50%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none reverse',
-      },
-    })
-
-    if (contentRef.current) {
-      tl.fromTo(
+    const ctx = gsap.context(() => {
+      if (!contentRef.current) return
+      gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 50%',
+            toggleActions: 'play none none reverse',
+          },
+        }
       )
-    }
+    }, sectionRef)
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
+    return () => ctx.revert()
   }, [])
 
   const openRSVPModal = () => {
@@ -56,9 +56,8 @@ const RSVP = () => {
       <section
         ref={sectionRef}
         id="rsvp"
-        className="relative w-full overflow-hidden px-6 py-32 sm:py-40 md:py-48"
+        className="relative w-full overflow-hidden pt-32 pb-36 sm:pt-40 sm:pb-44 md:pt-48 md:pb-52"
       >
-        {/* Same background & graphics as Entourage */}
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -67,18 +66,9 @@ const RSVP = () => {
           }}
         />
 
-        <div className="absolute top-0 left-0 right-0 z-[5]">
+        <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 flex items-center justify-center">
           <img
-            src="/assets/images/graphics/white-blur.png"
-            alt=""
-            aria-hidden
-            className="h-auto w-full scale-y-[-1]"
-          />
-        </div>
-
-        <div className="absolute top-0 left-0 right-0 z-10 flex items-center justify-center">
-          <img
-            src="/assets/images/graphics/gold-banner-2.png"
+            src="/assets/images/graphics/flowers-top.png"
             alt=""
             aria-hidden
             className="h-auto w-full"
@@ -87,7 +77,7 @@ const RSVP = () => {
 
         <div
           ref={contentRef}
-          className="relative z-20 mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8"
+          className="relative z-20 mx-auto w-full max-w-3xl px-6 sm:px-8 lg:px-10"
         >
           <div className="mb-6 text-center sm:mb-8">
             <h2
@@ -127,21 +117,12 @@ const RSVP = () => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-[5]">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10">
           <img
-            src="/assets/images/graphics/white-blur.png"
+            src="/assets/images/graphics/flowers-bottom.png"
             alt=""
             aria-hidden
-            className="h-auto w-full"
-          />
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center">
-          <img
-            src="/assets/images/graphics/gold-banner-2.png"
-            alt=""
-            aria-hidden
-            className="h-auto w-full scale-y-[-1]"
+            className="block h-[150px] w-full object-cover object-bottom sm:h-[190px] md:h-[230px]"
           />
         </div>
       </section>
