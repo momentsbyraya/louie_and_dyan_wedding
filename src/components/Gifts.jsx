@@ -78,7 +78,7 @@ const Gifts = () => {
                   </h2>
                   <div>
                     <p className="text-base sm:text-lg font-albert font-thin text-[#27323B] max-w-3xl mx-auto leading-relaxed mb-4">
-                      Your presence is already a gift to us. If you wish to bless us further, a monetary gift would be greatly appreciated — you may leave an envelope or gift during the wedding dance.
+                      Your presence on our wedding day is the greatest blessing we could receive. As we will be building our life in Canada, we kindly ask that you not bring wrapped or boxed gifts. Should you wish to bless us further, a monetary gift in cash or through e-money would mean so much — you may leave an envelope during the wedding dance, or send a gift using the QR code below.
                     </p>
 
                     {giftPaymentMethods.length > 0 && (

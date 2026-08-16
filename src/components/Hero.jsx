@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useMemo, useState } from 'react'
 import { gsap } from 'gsap'
 import { couple, venues } from '../data'
-import { getTimeUntilWedding } from '../utils/countdown'
+import { getTimeUntilWedding, parseCalendarDate } from '../utils/countdown'
 import { scheduleGsapRevealFallback, shouldUseSafariLiteMode } from '../utils/safariCompat'
 
 const HERO_BG_IMAGE = '/assets/images/prenup/IMG_0048.jpg'
@@ -15,7 +15,7 @@ const Hero = () => {
   const [countdown, setCountdown] = useState(getTimeUntilWedding())
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
+    const date = parseCalendarDate(dateString)
     const day = date.getDate()
     return {
       dayOfWeek: date.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase(),

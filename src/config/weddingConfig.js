@@ -5,6 +5,7 @@
 // Update the JSON files in src/data/ to modify wedding information
 
 import { couple, venues } from '../data'
+import { parseCalendarDate, parseWeddingDateTime } from '../utils/countdown'
 
 export const weddingConfig = {
   // Basic Wedding Information - imported from couple.json
@@ -25,7 +26,8 @@ export const weddingConfig = {
     deadline: "2026-11-20",
     email: "dyanrosiamoreno25@gmail.com",
     phone: "+1 3063223080",
-    website: "",
+    website: "https://forms.gle/3du1PwoHfmHBSFVeA",
+    formEmbedUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdWU99jTFcIyjuq5-qliB9i8cz9xQHtaYMP3iznMeJpz5JbWA/viewform?embedded=true",
     message: "Please RSVP by November 20th, 2026"
   },
 
@@ -64,7 +66,7 @@ export const weddingConfig = {
 
 // Helper function to format date
 export const formatDate = (dateString) => {
-  const date = new Date(dateString);
+  const date = parseCalendarDate(dateString);
   return date.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -75,7 +77,7 @@ export const formatDate = (dateString) => {
 
 // Helper function to get time remaining until wedding
 export const getTimeUntilWedding = () => {
-  const weddingDate = new Date(couple.wedding.date);
+  const weddingDate = parseWeddingDateTime(couple.wedding.date, couple.wedding.time);
   const now = new Date();
   const timeDiff = weddingDate.getTime() - now.getTime();
   

@@ -1,8 +1,8 @@
 {
   "ceremony": {
     "name": "Tierra Kuta Resort",
-    "shortName": "Tierra Kuta Resort, Lipa Batangas",
-    "address": "Lipa",
+    "shortName": "Tierra Kuta Resort, Santa Teresita, Batangas",
+    "address": "Santa Teresita",
     "city": "Batangas",
     "state": "",
     "zip": "",
@@ -23,7 +23,7 @@
   },
   "reception": {
     "name": "Tierra Kuta Resort",
-    "address": "Lipa",
+    "address": "Santa Teresita",
     "city": "Batangas",
     "state": "",
     "zip": "",
@@ -34,8 +34,8 @@
     "capacity": "",
     "dressCode": "",
     "menu": "",
-    "googleMapsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
-    "directionsUrl": "https://maps.app.goo.gl/Nzg4NpoxT1x3ziCE8",
+    "googleMapsUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x33bd0be4c8427a89:0xa9589c017f9a4296?entry=s&sa=X&ved=2ahUKEwib18Gzy_mVAxWUHIYAHTOzIB4Q4kB6BAgVEAA&hl=en",
+    "directionsUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x33bd0be4c8427a89:0xa9589c017f9a4296?entry=s&sa=X&ved=2ahUKEwib18Gzy_mVAxWUHIYAHTOzIB4Q4kB6BAgVEAA&hl=en",
     "schedule": {
       "snack": "5:00 PM",
       "program": "7:00 PM",

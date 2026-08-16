@@ -140,6 +140,11 @@ const EntourageListContent = ({ scrollContainerRef }) => {
             gsap.set([pairedNinong, pairedNinang], { opacity: 0, y: 20 })
             allNameRows.push({ elements: [pairedNinong, pairedNinang], time: currentTime })
             currentTime += 0.2
+          } else if (pairedNinong || pairedNinang) {
+            const solo = pairedNinong || pairedNinang
+            gsap.set(solo, { opacity: 0, y: 20 })
+            allNameRows.push({ elements: [solo], time: currentTime })
+            currentTime += 0.2
           } else if (unpaired) {
             gsap.set(unpaired, { opacity: 0, y: 20 })
             allNameRows.push({ elements: [unpaired], time: currentTime })
@@ -443,31 +448,38 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                 </h3>
 
                 <div className="space-y-2">
-                  {principalItems.map((item, index) => {
-                    if (item.ninong && item.ninang) {
-                      return (
-                        <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
-                          <div className="min-w-0 text-right">
-                            <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
-                              {item.ninong}
-                            </p>
-                          </div>
-                          <div className="min-w-0 text-left">
-                            <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
-                              {item.ninang}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                    }
-                    return (
-                      <div key={index} className="flex justify-center">
-                        <p className="unpaired-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] text-center break-words leading-tight">
-                          {item.ninong || item.ninang}
-                        </p>
+                  {principalItems.map((item, index) => (
+                    <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
+                      <div className="min-w-0 text-right">
+                        {item.ninong ? (
+                          <p className="paired-ninong-item ninong-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
+                            {item.ninong}
+                          </p>
+                        ) : (
+                          <p
+                            aria-hidden="true"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight"
+                          >
+                            &nbsp;
+                          </p>
+                        )}
                       </div>
-                    )
-                  })}
+                      <div className="min-w-0 text-left">
+                        {item.ninang ? (
+                          <p className="paired-ninang-item ninang-item text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight">
+                            {item.ninang}
+                          </p>
+                        ) : (
+                          <p
+                            aria-hidden="true"
+                            className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#27323B] break-words leading-tight"
+                          >
+                            &nbsp;
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}

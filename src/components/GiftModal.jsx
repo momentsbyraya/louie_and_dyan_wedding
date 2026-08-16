@@ -54,10 +54,10 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
             Send a Gift
           </h3>
           <p className="font-albert text-sm sm:text-base font-thin text-[#27323B]/80 mb-6">
-            Thank you for your generosity. You may send a monetary gift using the QR codes below.
+            Thank you for your generosity. As we begin our life in Canada, we kindly ask for monetary blessings only. You may send a gift through the QR code below.
           </p>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className={`grid gap-4 ${paymentMethods.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-3'}`}>
             {paymentMethods.map((method) => (
               <div
                 key={method.name}
@@ -70,7 +70,7 @@ const GiftModal = ({ isOpen, onClose, paymentMethods = [] }) => {
                   <img
                     src={method.image}
                     alt={method.alt || `${method.name} QR code`}
-                    className="h-auto w-full max-w-[180px] rounded-md object-contain"
+                    className={`h-auto w-full rounded-md object-contain ${paymentMethods.length === 1 ? 'max-w-[280px] sm:max-w-[320px]' : 'max-w-[180px]'}`}
                     loading="lazy"
                   />
                 )}
