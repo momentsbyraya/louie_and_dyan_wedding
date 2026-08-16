@@ -13,7 +13,7 @@ const DynamicTitle = () => {
   })
   const pageTitle = `${displayNames}'s Wedding`
   const siteUrl = 'https://louie-and-dyan-wedding.vercel.app'
-  const ogImage = `${siteUrl}/assets/images/og-thumbnail.jpg`
+  const ogImage = `${siteUrl}/assets/images/og-thumbnail.jpg?v=2`
 
   return (
     <Helmet>
