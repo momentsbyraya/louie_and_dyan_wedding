@@ -15,29 +15,28 @@
   },
   "principalSponsors": {
     "items": [
-      { "ninong": "Ninong Arnel Caringal", "ninang": "Ninang Judy Caringal" },
-      { "ninong": "Tito Tolits Canlobo", "ninang": "Ninang Shiela Canlobo" },
-      { "ninong": "Tito Bernard Castillo", "ninang": "Ninang Precy Oldan" },
-      { "ninong": "Tito Dante Lapuz", "ninang": "Ninang Nocha Lilley" },
-      { "ninong": "Tito Dindo Cabrera", "ninang": "Ninang Naty Barbero Gerawa" },
-      { "ninong": "Ninong Harold Ruedaz", "ninang": "Ninang Malen Ruedaz" },
-      { "ninong": "Kuya Ninong Rayan Bilog", "ninang": "Tita Adel Canlobo" },
-      { "ninong": "Ninong Jhune Hermosa", "ninang": "Ninang Nancy Hermosa" },
-      { "ninong": "", "ninang": "Tita Maylene Canlobo" }
+      { "ninong": "Arnel Caringal", "ninang": "Judy Caringal" },
+      { "ninong": "Tolits Canlobo", "ninang": "Shiela Canlobo" },
+      { "ninong": "Bernard Castillo", "ninang": "Priscela Oldan" },
+      { "ninong": "Dante Lapuz", "ninang": "Nocha Lilley" },
+      { "ninong": "Dindo Cabrera", "ninang": "Naty Barbero Gerawa" },
+      { "ninong": "Harold Ruedas", "ninang": "Malyn Ruedas" },
+      { "ninong": "Rayan Bilog", "ninang": "Maylene Canlobo" },
+      { "ninong": "Jhune Hermosa", "ninang": "Nancy Hermosa" },
+      { "ninong": "Raymer Panganiban", "ninang": "Adel Canlobo" }
     ]
   },
   "bridalParty": {
     "bestman": "Mark Laurence Ramirez",
     "maidOfHonor": "Danica Moreno-Gatto",
-    "bridesman": "Cromwell Vergara",
     "groomsMenBridesmaids": [
       { "groomsman": "Aljon Jay Rosales", "bridesmaid": "Dovelyn Moreno-Inandan" },
       { "groomsman": "Adrian Fidel Madlangbayan", "bridesmaid": "Kristel Maralit" },
       { "groomsman": "Jebril Allan Calingasa", "bridesmaid": "Gretchen Sabalvaro-Balanay" },
       { "groomsman": "Nelson Caringal", "bridesmaid": "Shane Tasico-Marasigan" },
-      { "groomsman": "Jerome Pabrero", "bridesmaid": "Angeline Consulta-Anillo" },
-      { "groomsman": "Roswell Katigbak", "bridesmaid": "Ely Jane Privado-Mabait" },
-      { "groomsman": "Mark Raniel Malabuyo", "bridesmaid": "" }
+      { "groomsman": "Jerome Pabrero", "bridesmaid": "Rowie Vergara" },
+      { "groomsman": "Roswell Katigbak", "bridesmaid": "Angeline Consulta-Anillo" },
+      { "groomsman": "Mark Raniel Malabuyo", "bridesmaid": "Ely Jane Privado-Mabait" }
     ]
   },
   "secondarySponsors": null,

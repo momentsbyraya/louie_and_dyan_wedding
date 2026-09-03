@@ -14,11 +14,12 @@ const Counter = ({ countdown }) => {
 
   const { dayOfWeek, month, day, year, time } = weddingConfig.wedding
   const weddingDate = [dayOfWeek, `${month} ${day}, ${year}`].filter(Boolean).join(' · ')
-  const venueName =
-    weddingConfig.venue?.ceremony?.shortName ||
-    weddingConfig.venue?.ceremony?.name ||
-    ''
-  const venueTime = time || weddingConfig.venue?.ceremony?.time || ''
+  const ceremony = weddingConfig.venue?.ceremony
+  const venueName = ceremony?.name || ''
+  const venueAddress = ceremony
+    ? [ceremony.address, ceremony.city, ceremony.state, ceremony.zip].filter(Boolean).join(', ')
+    : ''
+  const venueTime = time || ceremony?.time || ''
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -112,14 +113,24 @@ const Counter = ({ countdown }) => {
               aria-hidden
             />
 
-            {venueName && (
+            {(venueName || venueAddress) && (
               <div className="space-y-0.5">
-                <p
-                  className="font-albert text-base font-thin leading-snug text-white/95 sm:text-lg md:text-xl"
-                  style={textShadow}
-                >
-                  {venueName}
-                </p>
+                {venueName && (
+                  <p
+                    className="font-albert text-base font-thin leading-snug text-white/95 sm:text-lg md:text-xl"
+                    style={textShadow}
+                  >
+                    {venueName}
+                  </p>
+                )}
+                {venueAddress && (
+                  <p
+                    className="font-albert text-sm font-thin leading-snug text-white/90 sm:text-base md:text-lg"
+                    style={textShadow}
+                  >
+                    {venueAddress}
+                  </p>
+                )}
                 {venueTime && (
                   <p
                     className="font-albert text-xs font-thin uppercase tracking-[0.22em] text-white/75 sm:text-sm"

@@ -215,7 +215,7 @@ const Schedule = () => {
                     CEREMONY
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-albert italic text-[#27323B] opacity-80 mt-1">
-                    Tierra Kuta Resort, Santa Teresita, Batangas
+                    Tierra Kuta Resort, Sta Cruz Alitagtag, Santa Teresita, Batangas, Philippines
                   </div>
                 </div>
               </div>

@@ -1,9 +1,9 @@
 {
   "ceremony": {
     "name": "Tierra Kuta Resort",
-    "shortName": "Tierra Kuta Resort, Santa Teresita, Batangas",
-    "address": "Santa Teresita",
-    "city": "Batangas",
+    "shortName": "Tierra Kuta Resort, Sta Cruz Alitagtag, Santa Teresita, Batangas",
+    "address": "Sta Cruz Alitagtag",
+    "city": "Santa Teresita, Batangas, Philippines",
     "state": "",
     "zip": "",
     "time": "4:00 PM",
@@ -23,8 +23,8 @@
   },
   "reception": {
     "name": "Tierra Kuta Resort",
-    "address": "Santa Teresita",
-    "city": "Batangas",
+    "address": "Sta Cruz Alitagtag",
+    "city": "Santa Teresita, Batangas, Philippines",
     "state": "",
     "zip": "",
     "time": "5:00 PM",

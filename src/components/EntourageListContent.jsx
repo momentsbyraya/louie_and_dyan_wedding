@@ -447,6 +447,25 @@ const EntourageListContent = ({ scrollContainerRef }) => {
                   Principal Sponsors
                 </h3>
 
+                <div className="mb-2 grid grid-cols-2 gap-4 sm:gap-6 justify-center items-start">
+                  <div className="min-w-0 text-right">
+                    <p
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold whitespace-nowrap uppercase"
+                      style={{ color: theme.text.brown }}
+                    >
+                      Ninong
+                    </p>
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <p
+                      className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold whitespace-nowrap uppercase"
+                      style={{ color: theme.text.brown }}
+                    >
+                      Ninang
+                    </p>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   {principalItems.map((item, index) => (
                     <div key={index} className="grid grid-cols-2 gap-4 sm:gap-6 justify-center items-center">
