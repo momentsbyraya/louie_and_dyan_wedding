@@ -20,7 +20,7 @@ const Counter = ({ countdown }) => {
     ? [ceremony.address, ceremony.city, ceremony.state, ceremony.zip].filter(Boolean).join(', ')
     : ''
   const venueTime = time || ceremony?.time || ''
-
+// fdesf
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
