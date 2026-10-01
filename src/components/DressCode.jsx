@@ -148,7 +148,19 @@ const DressCode = () => {
           >
             {sections && sections.map((section, index) => {
               const isEven = index % 2 === 0
-              const shouldReverse = section.title === "Sponsors" || section.title === "Principal Sponsors" || section.title === "Maid of Honor"
+              // Image on left (mobile): Sponsors + Guests
+              const imageLeft = section.title === "Sponsors" || section.title === "Principal Sponsors" || section.title === "Maid of Honor" || section.title === "Guests"
+              // Right-aligned text: Entourage always; even non-reversed on mobile
+              const isEntourage = section.title === "Entourage"
+              const alignRight = isEntourage || (!imageLeft && isEven)
+              const textOrder = imageLeft ? 'order-2 xl:order-1' : 'order-1 xl:order-1'
+              const imageOrder = imageLeft ? 'order-1 lg:order-1 xl:order-2' : 'order-2 lg:order-1 xl:order-2'
+              const textAlign = hasSingleSection
+                ? 'text-center'
+                : (isEntourage ? 'text-right' : (alignRight ? 'text-right lg:text-left' : 'text-left lg:text-left'))
+              const swatchAlign = hasSingleSection
+                ? 'justify-center'
+                : (isEntourage ? 'justify-end' : (alignRight ? 'justify-end lg:justify-start' : 'justify-start lg:justify-start'))
               return (
                 <div
                   key={index}
@@ -162,23 +174,23 @@ const DressCode = () => {
                       {/* Category Image and Details - Side by side on mobile, stacked on desktop */}
                       <div className={`flex flex-row lg:flex-col xl:flex-col gap-6 md:gap-8 lg:gap-6 items-start`}>
                         {/* Category Details */}
-                        <div className={`w-1/2 lg:w-full flex flex-col ${hasSingleSection ? 'text-center order-1' : (shouldReverse ? 'text-left lg:text-left order-2 xl:order-1' : (isEven ? 'text-right lg:text-left order-1 xl:order-1' : 'text-left lg:text-left order-1 xl:order-1'))}`}>
+                        <div className={`w-1/2 lg:w-full flex flex-col ${textAlign} ${hasSingleSection ? 'order-1' : textOrder}`}>
                           {/* Category Name and Description Container */}
                           <div className="w-full">
                             {/* Category Name */}
-                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#27323B] mb-2 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
+                            <div className={`text-lg sm:text-xl md:text-2xl font-gilliequest text-[#27323B] mb-2 ${textAlign}`}>
                               {section.title}
                             </div>
                             
                             {/* Description */}
                             {section.description && (
-                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#27323B] mb-3 ${hasSingleSection ? 'text-center' : (shouldReverse ? 'text-left lg:text-left' : (isEven ? 'text-right lg:text-left' : 'text-left lg:text-left'))}`}>
+                              <p className={`text-sm sm:text-base font-albert font-thin italic text-[#27323B] mb-3 ${textAlign}`}>
                                 {section.description}
                               </p>
                             )}
                             
                             {/* Color/Image Swatches */}
-                            <div className={`flex gap-2 ${hasSingleSection ? 'justify-center' : (shouldReverse ? 'justify-start lg:justify-start' : (isEven ? 'justify-end lg:justify-start' : 'justify-start lg:justify-start'))}`}>
+                            <div className={`flex gap-2 ${swatchAlign}`}>
                               {/* Image Swatches */}
                               {section.colorSwatches && section.colorSwatches.map((swatch, swatchIndex) => (
                                 <div 
@@ -230,7 +242,7 @@ const DressCode = () => {
                         
                         {/* Category Image */}
                         {section.image && (
-                          <div className={`w-1/2 lg:w-full ${shouldReverse ? (isEven ? 'order-1 lg:order-1 xl:order-2' : 'order-1 lg:order-1 xl:order-2') : (isEven ? 'order-2 lg:order-1 xl:order-2' : 'order-2 lg:order-1 xl:order-2')}`}>
+                          <div className={`w-1/2 lg:w-full ${imageOrder}`}>
                             <div className="w-full relative dresscode-image-container">
                               <img 
                                 src={section.image} 

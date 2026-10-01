@@ -8,12 +8,22 @@
       "title": "Sponsors",
       "type": "image",
       "image": "/assets/images/dresscode/sponsors.png",
-      "description": "Formal attire in dusty blue or coordinating warm tones.",
+      "description": "Formal attire in beige, brown, or black.",
+      "colors": [
+        { "name": "Beige", "hex": "#E8DCC8" },
+        { "name": "Tan", "hex": "#C4A882" },
+        { "name": "Brown", "hex": "#8B6F5C" },
+        { "name": "Black", "hex": "#1A1A1A" }
+      ]
+    },
+    {
+      "title": "Entourage",
+      "type": "image",
+      "image": "/assets/images/dresscode/entourage.png",
+      "description": "Formal attire in dusty blue or black.",
       "colors": [
         { "name": "Dusty Blue", "hex": "#6F92AA" },
-        { "name": "Champagne", "hex": "#F7E7CE" },
-        { "name": "Blush", "hex": "#E8C5C0" },
-        { "name": "Mocha", "hex": "#8B6F5C" }
+        { "name": "Black", "hex": "#1A1A1A" }
       ]
     },
     {
