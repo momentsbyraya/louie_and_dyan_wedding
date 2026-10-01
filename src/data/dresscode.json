@@ -1,26 +1,32 @@
 {
   "mainDressCode": {
     "title": "Dress Code",
-    "description": "We kindly invite our guests to wear warm, elegant tones or dusty blue. Kindly reserve white for the bride only."
+    "description": "We kindly invite everyone to wear warm, elegant tones or dusty blue. Kindly reserve white for the bride only."
   },
   "sections": [
+    {
+      "title": "Sponsors",
+      "type": "image",
+      "image": "/assets/images/dresscode/sponsors.png",
+      "description": "Formal attire in dusty blue or coordinating warm tones.",
+      "colors": [
+        { "name": "Dusty Blue", "hex": "#6F92AA" },
+        { "name": "Champagne", "hex": "#F7E7CE" },
+        { "name": "Blush", "hex": "#E8C5C0" },
+        { "name": "Mocha", "hex": "#8B6F5C" }
+      ]
+    },
     {
       "title": "Guests",
       "type": "image",
       "image": "/assets/images/dresscode/guests.png",
-      "description": "Please wear any warm color or dusty blue — soft neutrals, earth tones, warm pastels, and dusty blue are all welcome. White is reserved for the bride only on our wedding day.",
+      "description": "Soft neutrals, earth tones, warm pastels, and dusty blue are all welcome.",
       "colors": [
         { "name": "Champagne", "hex": "#F7E7CE" },
         { "name": "Blush", "hex": "#E8C5C0" },
         { "name": "Terracotta", "hex": "#C47B5B" },
         { "name": "Mocha", "hex": "#8B6F5C" },
         { "name": "Dusty Blue", "hex": "#6F92AA" }
-      ],
-      "colorSwatches": [
-        {
-          "name": "Guest Palette",
-          "image": "/assets/images/dresscode/guests-palette.png"
-        }
       ]
     }
   ]
